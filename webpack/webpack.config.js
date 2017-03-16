@@ -17,7 +17,7 @@ const isVendor = ({ userRequest }) => (
 )
 
 const config = {
-  devtool: DEBUG ? 'eval' : false,
+  devtool: DEBUG ? 'eval-source-map' : false,
   entry: {
     app: ['babel-polyfill', path.join(__dirname, '../src/client')],
   },
