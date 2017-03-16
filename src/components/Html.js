@@ -2,7 +2,7 @@
 import React, { PropTypes } from 'react'
 import Helmet from 'react-helmet'
 
-const Html = ({ styles, assets, state, content }) => {
+const Html = ({ assets, state, content }) => {
   const helmet = Helmet.rewind()
   const attrs = helmet.htmlAttributes.toComponent()
 
@@ -13,7 +13,12 @@ const Html = ({ styles, assets, state, content }) => {
         {helmet.meta.toComponent()}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {helmet.link.toComponent()}
-        <style dangerouslySetInnerHTML={{ __html: styles }} />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700" rel="stylesheet" />
+        {Object.keys(assets.styles).map((style, i) =>
+          <link
+            href={assets.styles[style]} key={i} media="screen, projection"
+            rel="stylesheet" type="text/css"
+          />)}
       </head>
       <body>
         <main id="app" dangerouslySetInnerHTML={{ __html: content }} />
@@ -27,7 +32,6 @@ const Html = ({ styles, assets, state, content }) => {
 }
 
 Html.propTypes = {
-  styles: PropTypes.string.isRequired,
   assets: PropTypes.object.isRequired,
   state: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,

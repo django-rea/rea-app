@@ -1,14 +1,8 @@
 import React, { PropTypes } from 'react'
-import { injectGlobal, ThemeProvider } from 'styled-components'
 import Helmet from 'react-helmet'
 
-import theme from './themes/default'
-
-injectGlobal`
-  body {
-    margin: 0;
-  }
-`
+import { baseUrl } from '../config'
+import './AppGlobals.css'
 
 const App = ({ children }) => {
   return (
@@ -25,10 +19,10 @@ const App = ({ children }) => {
           { property: 'og:image:height', content: '630' },
         ]}
         link={[
-          { rel: 'icon', href: 'https://diegohaz.github.io/arc/icon.png' },
+          { rel: 'icon', href: `${baseUrl}/favicon.png` },
         ]}
       />
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      {children}
     </div>
   )
 }

@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const WebpackMd5Hash = require('webpack-md5-hash')
 const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin')
 const webpackIsomorphicToolsConfig = require('./webpack-isomorphic-tools')
@@ -33,6 +34,25 @@ const config = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       'process.env.PUBLIC_PATH': JSON.stringify(PUBLIC_PATH),
     }),
+    new webpack.LoaderOptionsPlugin({
+      test: /\.css$/,
+      options: {
+        postcss: (webpack) => {
+          return [
+            require("postcss-import")({ addDependencyTo: webpack }),
+            require("postcss-url")(),
+            require("postcss-cssnext")(),
+            // add your "plugins" here
+            // ...
+            // and if you want to compress,
+            // just use css-loader option that already use cssnano under the hood
+            require("postcss-browser-reporter")(),
+            require("postcss-reporter")(),
+          ]
+        },
+      },
+    }),
+    new ExtractTextPlugin('app.css'),
   ],
   module: {
     rules: [
@@ -42,6 +62,13 @@ const config = {
       { test: /\.woff$/, loader: 'url-loader?prefix=fonts/&limit=8000&mimetype=application/font-woff' },
       { test: /\.ttf$/, loader: 'file-loader?prefix=fonts/' },
       { test: /\.eot$/, loader: 'file-loader?prefix=fonts/' },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader?modules&importLoaders=1&sourceMap!postcss-loader?sourceMap&sourceComments',
+        }),
+      },
     ],
   },
 }
