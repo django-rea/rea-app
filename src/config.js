@@ -9,6 +9,7 @@ const config = {
   all: {
     env: process.env.NODE_ENV || 'development',
     baseUrl: `http://${ip}:${port}${basename}`,
+    assetUrl: `http://${ip}:${port + 1}${basename}`,
     apiUrl: 'https://jsonplaceholder.typicode.com',
     basename,
     browser,
