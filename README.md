@@ -6,6 +6,8 @@
   - [Development tools](#development-tools)
   - [Setting up the codebase](#setting-up-the-codebase)
 - [Running locally for development](#running-locally-for-development)
+  - [Environment variables](#environment-variables)
+- [Frameworks used](#frameworks-used)
 
 <!-- /MarkdownTOC -->
 
@@ -61,3 +63,19 @@ Now that you have all the prerequisites ready, you can setup the project. Clone 
 ## Running locally for development
 
 - `npm run dev` to spin up a development server
+
+### Environment variables
+
+The app accepts the following env vars to control its behaviour:
+
+- `NODE_ENV`: as usual, set to `production` to run a non-debug build, omit to use debug mode or set to `test` when running tests.
+- `IP` and `PORT` specify the interface and port to listen on. Defaults to `0.0.0.0:3000`. If running in development, the `webpack-dev-server` will be run on `(port + 1)`.
+- `API_URL`: sets the base path to the OCP API. If not provided will default to `http://localhost:8000/api` for connecting to a local instance.
+- `PUBLIC_PATH` sets the base URL to the website. If not provided, will default to `/`.
+
+
+
+## Frameworks used
+
+- CSS is written with modern W3C css and processed via [PostCSS](https://www.npmjs.com/package/postcss) plugins. See http://cssnext.io/features/
+  - *Caveat:* local files must be imported with **double quotes**! Otherwise, `postcss-import` won't combine them correctly.
