@@ -1,8 +1,7 @@
 import React from 'react'
-import { Route, IndexRoute } from 'react-router'
+import { Route, IndexRoute, IndexRedirect } from 'react-router'
 
 import App from 'components/App'
-import HomePage from 'components/pages/HomePage'
 import Todo from 'components/pages/Todo'
 
 const routes = (
@@ -13,12 +12,13 @@ const routes = (
     <Route path="register" component={Todo} />
 
     <Route path="tasks" component={Todo}>
+      <IndexRedirect to="my-tasks" />
       <Route path="my-tasks" component={Todo} />
       <Route path="find-tasks" component={Todo} />
     </Route>
 
     <Route path="projects" component={Todo}>
-      <IndexRoute component={Todo} />
+      <IndexRedirect to="my-projects" />
       <Route path="my-projects" component={Todo} />
       <Route path="find-projects" component={Todo} />
     </Route>
