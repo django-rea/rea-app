@@ -1,0 +1,8 @@
+@import "../../base.css";
+
+a.white {
+  &, &:visited, &:active, &:hover {
+    opacity: 1;
+    color: var(--color-inverse);
+  }
+}

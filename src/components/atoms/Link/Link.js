@@ -11,8 +11,14 @@
 import React from 'react'
 import { Link as BaseLink } from 'react-toolbox/lib/link'
 
-const Link = ({ ...props }) => {
-  return <BaseLink {...props} />
+import styles from './Link.css'
+
+type Props = {
+  className: string,
+};
+
+const Link = ({ className, ...props }: Props) => {
+  return <BaseLink {...props} className={styles[className]} />
 }
 
 export default Link
