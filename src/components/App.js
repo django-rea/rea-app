@@ -1,10 +1,19 @@
-import React, { PropTypes } from 'react'
+import type { Element } from 'react'
+
+import React from 'react'
 import Helmet from 'react-helmet'
 
+import SiteTemplate from 'components/templates/SiteTemplate'
+
 import { assetUrl } from '../config'
+
 import './AppGlobals.css'
 
-const App = ({ children }) => {
+type Props = {
+  children: Element<*>,
+};
+
+const App = ({ children }: Props) => {
   return (
     <div>
       <Helmet
@@ -22,13 +31,11 @@ const App = ({ children }) => {
           { rel: 'icon', href: `${assetUrl}/favicon.png` },
         ]}
       />
-      {children}
+      <SiteTemplate>
+        {children}
+      </SiteTemplate>
     </div>
   )
-}
-
-App.propTypes = {
-  children: PropTypes.any,
 }
 
 export default App
