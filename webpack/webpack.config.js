@@ -63,6 +63,7 @@ const config = {
       { test: /\.ttf$/, loader: 'file-loader?prefix=fonts/' },
       { test: /\.eot$/, loader: 'file-loader?prefix=fonts/' },
       { test: /\.svg$/, loader: 'babel-loader?presets[]=es2015,presets[]=react!svg-react-loader' },   // load SVG directly as React components
+      { test: /\.yaml$/, loader: 'json-loader!yaml-loader' },
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
