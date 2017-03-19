@@ -1,0 +1,13 @@
+top_menu:   # app menu bar at top of screen
+  tasks: My tasks
+  profile: Profile
+
+nav_menu:   # main nav menu panel (folds out from left)
+  short_title: OCP
+  tasks: Tasks
+  projects: Projects
+  profile: Profile
+  signout: Sign out
+
+# unfinished pieces
+todo_text: Coming soon...
