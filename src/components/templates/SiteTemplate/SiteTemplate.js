@@ -7,7 +7,7 @@
  * @flow
  */
 
-import type { Element } from 'react';
+import type { Element } from 'react'
 
 import React, { Component } from 'react'
 
@@ -20,6 +20,7 @@ type Props = {
 };
 
 class SiteTemplate extends Component {
+  //  :TODO: move this to Redux
   state = {
     drawerActive: false,
     drawerPinned: false,
