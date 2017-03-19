@@ -12,12 +12,6 @@ import configureStore from 'store/configure'
 import { env, port, ip, basename } from 'config'
 import Html from 'components/Html'
 
-require('babel-register')({
-  plugins: ['babel-plugin-rewire'],
-})
-
-require.extensions['.svg'] = () => (<span />)
-
 const router = new Router()
 
 router.use((req, res, next) => {
