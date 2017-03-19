@@ -1,13 +1,13 @@
 <!-- MarkdownTOC -->
 
 - [Getting started](#getting-started)
-  - [Nodejs](#nodejs)
-  - [Package Manager](#package-manager)
-  - [Development tools](#development-tools)
-  - [Setting up the codebase](#setting-up-the-codebase)
+    - [Nodejs](#nodejs)
+    - [Package Manager](#package-manager)
+    - [Development tools](#development-tools)
+    - [Setting up the codebase](#setting-up-the-codebase)
 - [Running locally for development](#running-locally-for-development)
-  - [Recommended editor plugins](#recommended-editor-plugins)
-  - [Environment variables](#environment-variables)
+    - [Recommended editor plugins](#recommended-editor-plugins)
+    - [Environment variables](#environment-variables)
 - [Frameworks & conventions used](#frameworks--conventions-used)
 
 <!-- /MarkdownTOC -->
@@ -86,5 +86,5 @@ The app accepts the following env vars to control its behaviour:
 
 - UI architecture based on [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) principles.
 - CSS is written with modern W3C css and processed via [PostCSS](https://www.npmjs.com/package/postcss) plugins. See http://cssnext.io/features/
-  - *Caveat:* local files must be imported with **double quotes**! Otherwise, `postcss-import` won't combine them correctly.
+    - *Caveat:* local files must be imported with **double quotes**! Otherwise, `postcss-import` won't combine them correctly.
 - Built with [pure view components](https://medium.com/@joshblack/stateless-components-in-react-0-14-f9798f8b992d) (`src/components`) bound to [Redux](http://redux.js.org/) by way of [higher-order components](https://facebook.github.io/react/docs/higher-order-components.html) (`src/containers`). Essentially the design goal is enforcing one-way dataflow and separation of concerns, this is done by writing the UI as simple functional transforms of `props` data (pure view components) which bind to a single application state (in Redux) by way of accessor functions which pull the data out (higher-order components). All data going back in is sent through Redux's reducers by way of firing a Redux action.
