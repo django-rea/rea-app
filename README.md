@@ -6,8 +6,9 @@
   - [Development tools](#development-tools)
   - [Setting up the codebase](#setting-up-the-codebase)
 - [Running locally for development](#running-locally-for-development)
+  - [Recommended editor plugins](#recommended-editor-plugins)
   - [Environment variables](#environment-variables)
-- [Frameworks used](#frameworks-used)
+- [Frameworks & conventions used](#frameworks--conventions-used)
 
 <!-- /MarkdownTOC -->
 
@@ -64,6 +65,12 @@ Now that you have all the prerequisites ready, you can setup the project. Clone 
 
 - `npm run dev` to spin up a development server
 
+### Recommended editor plugins
+
+- An [eslint](http://eslint.org/) code quality checker
+- [Flowtype](https://flowtype.org/) static typechecker
+- [Editorconfig](http://editorconfig.org/) support
+
 ### Environment variables
 
 The app accepts the following env vars to control its behaviour:
@@ -75,7 +82,9 @@ The app accepts the following env vars to control its behaviour:
 
 
 
-## Frameworks used
+## Frameworks & conventions used
 
+- UI architecture based on [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) principles.
 - CSS is written with modern W3C css and processed via [PostCSS](https://www.npmjs.com/package/postcss) plugins. See http://cssnext.io/features/
   - *Caveat:* local files must be imported with **double quotes**! Otherwise, `postcss-import` won't combine them correctly.
+- Built with [pure view components](https://medium.com/@joshblack/stateless-components-in-react-0-14-f9798f8b992d) (`src/components`) bound to [Redux](http://redux.js.org/) by way of [higher-order components](https://facebook.github.io/react/docs/higher-order-components.html) (`src/containers`). Essentially the design goal is enforcing one-way dataflow and separation of concerns, this is done by writing the UI as simple functional transforms of `props` data (pure view components) which bind to a single application state (in Redux) by way of accessor functions which pull the data out (higher-order components). All data going back in is sent through Redux's reducers by way of firing a Redux action.
