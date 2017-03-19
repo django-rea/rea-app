@@ -10,6 +10,7 @@
 import type { Router } from 'react-router'
 
 import React from 'react'
+import T from 'i18n-react'
 import { withRouter } from 'react-router'
 
 import { MenuItem, MenuDivider } from 'react-toolbox/lib/menu'
@@ -28,12 +29,12 @@ const MainMenu = withRouter(({ router }: Props) => {
 
   return (
     <div>
-      <div><FreedomCoopLogo width="100px" height="100px" style={{ verticalAlign: 'middle' }} /><strong style={{ fontSize: '1.5em' }}>OCP</strong></div>
-      <MenuItem onClick={navTo('/tasks')} icon={<Checkbox style={{ verticalAlign: 'top' }} />} caption='Tasks' />
-      <MenuItem onClick={navTo('/projects')} icon={<Group style={{ verticalAlign: 'top' }} />} caption='Projects' />
-      <MenuItem onClick={navTo('/profile')} icon={<Person style={{ verticalAlign: 'top' }} />} caption='Profile' />
+      <div><FreedomCoopLogo width="100px" height="100px" style={{ verticalAlign: 'middle' }} /><strong style={{ fontSize: '1.5em' }}>{T.translate('nav_menu.short_title')}</strong></div>
+      <MenuItem onClick={navTo('/tasks')} icon={<Checkbox style={{ verticalAlign: 'top' }} />} caption={T.translate('nav_menu.tasks')} />
+      <MenuItem onClick={navTo('/projects')} icon={<Group style={{ verticalAlign: 'top' }} />} caption={T.translate('nav_menu.projects')} />
+      <MenuItem onClick={navTo('/profile')} icon={<Person style={{ verticalAlign: 'top' }} />} caption={T.translate('nav_menu.profile')} />
       <MenuDivider />
-      <MenuItem onClick={navTo('/signout')} icon={<Exit style={{ verticalAlign: 'top' }} />} caption='Sign out' />
+      <MenuItem onClick={navTo('/signout')} icon={<Exit style={{ verticalAlign: 'top' }} />} caption={T.translate('nav_menu.signout')} />
     </div>
   )
 })

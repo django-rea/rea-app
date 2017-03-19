@@ -8,6 +8,7 @@
  */
 
 import React from 'react'
+import T from 'i18n-react'
 import { appBarFactory } from 'react-toolbox/lib/app_bar/AppBar'
 import Navigation from 'react-toolbox/lib/navigation'
 
@@ -24,11 +25,11 @@ const AppBar = ({ ...props }) => (
     <Navigation type='horizontal'>
       <Link href='/tasks' className="white" activeClassName="active" style={{ marginLeft: '0.8em' }}>
         <Checkbox fill="white" style={{ verticalAlign: "middle", marginRight: '0.3em' }} />
-        My tasks
+        <T.text text="top_menu.tasks" />
       </Link>
       <Link href='/profile' className="white" activeClassName="active" style={{ marginLeft: '0.8em' }}>
         <Person fill="white" style={{ verticalAlign: "middle", marginRight: '0.3em' }} />
-        Profile
+        <T.text text="top_menu.profile" />
       </Link>
     </Navigation>
   </BaseBar>

@@ -8,11 +8,12 @@
  */
 
 import React from 'react'
+import T from 'i18n-react'
 import PageTemplate from 'components/templates/PageTemplate'
 
 const Todo = () => (
   <PageTemplate>
-    <h1 style={{ color: '#F0F', fontWeight: 'bold', textAlign: 'center' }}>Coming soon...</h1>
+    <h1 style={{ color: '#F0F', fontWeight: 'bold', textAlign: 'center' }}><T.text text="todo_text" /></h1>
   </PageTemplate>
 )
 
