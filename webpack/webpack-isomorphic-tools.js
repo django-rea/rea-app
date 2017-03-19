@@ -11,6 +11,9 @@ const config = {
       extensions: ['woff', 'woff2', 'ttf', 'eot'],
       parser: plugin.url_loader_parser,
     },
+    yaml_files: {
+      extension: 'yaml',
+    },
     style_modules: {
       extensions: ['less', 'scss', 'css'],
       filter(module, regex, options, log) {
