@@ -4,7 +4,8 @@
     "airbnb"
   ],
   "plugins": [
-    "no-unused-vars-rest"
+    "no-unused-vars-rest",
+    "flowtype"
   ],
   "env": {
     "browser": true,
@@ -45,6 +46,7 @@
     "react/no-unused-prop-types": 0,
     "react/no-array-index-key": 0,
     "react/jsx-filename-extension": [2, {"extensions": [".js", ".jsx"]}],
+    "react/jsx-first-prop-new-line": 0,
     "no-unused-vars-rest/no-unused-vars": [2, {"ignoreDestructuredVarsWithRest": true}],
     "quotes": 0
   }
