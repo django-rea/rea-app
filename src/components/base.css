@@ -3,6 +3,12 @@
 @import "react-toolbox/lib/media.css";
 
 :root {
+  // Font metrics & baseline
   --unit: 16px;
   --preferred-font: 'Open Sans', sans-serif;
+
+  // Pallete
+  --color-primary: #a26fad;
+  --color-primary-dark: #85528F;
+  --color-primary-contrast: #283583;
 }
