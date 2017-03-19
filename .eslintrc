@@ -48,6 +48,7 @@
     "react/jsx-filename-extension": [2, {"extensions": [".js", ".jsx"]}],
     "react/jsx-first-prop-new-line": 0,
     "no-unused-vars-rest/no-unused-vars": [2, {"ignoreDestructuredVarsWithRest": true}],
+    "jsx-quotes": 0,
     "quotes": 0
   }
 }
