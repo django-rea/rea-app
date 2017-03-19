@@ -17,16 +17,16 @@ const routes = (
       <Route path="find-tasks" component={Todo} />
     </Route>
 
-    <Route path="profile" component={Todo}>
-      <IndexRoute component={Todo} />
-      <Route path="my-account" component={Todo} />
-      <Route path="my-skills" component={Todo} />
-    </Route>
-
     <Route path="projects" component={Todo}>
       <IndexRoute component={Todo} />
       <Route path="my-projects" component={Todo} />
       <Route path="find-projects" component={Todo} />
+    </Route>
+
+    <Route path="profile" component={Todo}>
+      <IndexRoute component={Todo} />
+      <Route path="my-account" component={Todo} />
+      <Route path="my-skills" component={Todo} />
     </Route>
   </Route>
 )
