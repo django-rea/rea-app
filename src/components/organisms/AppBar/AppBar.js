@@ -22,8 +22,14 @@ const BaseBar = appBarFactory(IconButton)
 const AppBar = ({ ...props }) => (
   <BaseBar theme={styles} {...props} title="OCP" leftIcon={<Menu fill="white" />}>
     <Navigation type='horizontal'>
-      <Link href='/tasks' label='My tasks' icon={<Checkbox fill="white" style={{ verticalAlign: "top" }} />} className="white" />
-      <Link href='/profile' label='Profile' icon={<Person fill="white" style={{ verticalAlign: "top" }} />} className="white" />
+      <Link href='/tasks' className="white" activeClassName="active" style={{ marginLeft: '0.8em' }}>
+        <Checkbox fill="white" style={{ verticalAlign: "middle", marginRight: '0.3em' }} />
+        My tasks
+      </Link>
+      <Link href='/profile' className="white" activeClassName="active" style={{ marginLeft: '0.8em' }}>
+        <Person fill="white" style={{ verticalAlign: "middle", marginRight: '0.3em' }} />
+        Profile
+      </Link>
     </Navigation>
   </BaseBar>
 )
