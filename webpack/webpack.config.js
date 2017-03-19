@@ -62,6 +62,7 @@ const config = {
       { test: /\.woff$/, loader: 'url-loader?prefix=fonts/&limit=8000&mimetype=application/font-woff' },
       { test: /\.ttf$/, loader: 'file-loader?prefix=fonts/' },
       { test: /\.eot$/, loader: 'file-loader?prefix=fonts/' },
+      { test: /\.svg$/, loader: 'babel-loader?presets[]=es2015,presets[]=react!svg-react-loader' },   // load SVG directly as React components
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
