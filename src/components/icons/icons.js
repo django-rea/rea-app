@@ -9,9 +9,11 @@
 
 import React from 'react'
 
-import { browser } from '../config'
+import { browser } from '../../config'
 
 const nullServerComponent = () => (<span />)
+
+export const FreedomCoopLogo = !browser ? nullServerComponent : require('./FC-logo-only.svg')
 
 export const Menu = !browser ? nullServerComponent : require('material-design-icons/navigation/svg/production/ic_menu_24px.svg')
 // Checkbox: require('material-design-icons/toggle/svg/production/ic_check_box_24px.svg'),

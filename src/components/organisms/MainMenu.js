@@ -12,8 +12,8 @@ import type { Router } from 'react-router'
 import React from 'react'
 import { withRouter } from 'react-router'
 
-import { IconMenu, MenuItem, MenuDivider } from 'react-toolbox/lib/menu'
-import { Checkbox, Person, Group, Exit } from 'components/icons'
+import { MenuItem, MenuDivider } from 'react-toolbox/lib/menu'
+import { FreedomCoopLogo, Checkbox, Person, Group, Exit } from 'components/icons'
 
 type Props = {
   router: Router,
@@ -28,6 +28,7 @@ const MainMenu = withRouter(({ router }: Props) => {
 
   return (
     <div>
+      <div><FreedomCoopLogo width="100px" height="100px" style={{ verticalAlign: 'middle' }} /><strong style={{ fontSize: '1.5em' }}>OCP</strong></div>
       <MenuItem onClick={navTo('/tasks')} icon={<Checkbox style={{ verticalAlign: 'top' }} />} caption='Tasks' />
       <MenuItem onClick={navTo('/projects')} icon={<Group style={{ verticalAlign: 'top' }} />} caption='Projects' />
       <MenuItem onClick={navTo('/profile')} icon={<Person style={{ verticalAlign: 'top' }} />} caption='Profile' />
