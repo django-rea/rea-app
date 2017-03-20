@@ -1,15 +1,28 @@
 @import "../../base.css";
 
-a.white {
+:root {
+  --link-color-inactive: #DCC3E2;
+}
+
+.white {
   &, &:visited, &:active, &:hover {
-    opacity: 0.8;
-    color: var(--color-inverse);
+    opacity: 1;
+    color: var(--link-color-inactive);
     text-decoration: none;
   }
   &:hover {
     text-decoration: underline;
   }
+
+  & path {
+    fill: var(--link-color-inactive);
+  }
 }
-a.active {
-  opacity: 1;
+.active {
+  &, &:visited, &:active, &:hover {
+    color: var(--color-inverse);
+  }
+  & path {
+    fill: var(--color-inverse);
+  }
 }
