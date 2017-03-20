@@ -1,28 +1,28 @@
 @import "../../base.css";
 
-:root {
-  --link-color-inactive: #DCC3E2;
-}
+.link {
+  align-content: center;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  line-height: 1.5;
+  position: relative;
+  transition: opacity var(--animation-duration) var(--animation-curve-default);
 
-.white {
-  &, &:visited, &:active, &:hover {
+  @apply --reset;
+
+  &:hover,
+  &:active {
     opacity: 1;
-    color: var(--link-color-inactive);
-    text-decoration: none;
-  }
-  &:hover {
-    text-decoration: underline;
   }
 
-  & path {
-    fill: var(--link-color-inactive);
+  & > * {
+    vertical-align: middle;
   }
 }
-.active {
-  &, &:visited, &:active, &:hover {
-    color: var(--color-inverse);
-  }
-  & path {
-    fill: var(--color-inverse);
-  }
+
+.linkActive {
+  opacity: 1;
 }

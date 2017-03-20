@@ -16,15 +16,17 @@ import { Link as BaseLink } from 'react-router'
 import styles from './Link.css'
 
 type Props = {
+  href: string,
   className: string,
   activeClassName?: string,
   children: Element<*>,
 };
 
-const Link = ({ className, activeClassName, children, ...props }: Props) => (
+const Link = ({ className, activeClassName, children, href, ...props }: Props) => (
   <BaseLink {...props}
-    className={styles[className]}
-    activeClassName={activeClassName ? styles[activeClassName] : null}
+    to={href}
+    className={className || styles.link}
+    activeClassName={activeClassName || styles.linkActive}
   >
     {children}
   </BaseLink>

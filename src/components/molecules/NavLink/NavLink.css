@@ -1,0 +1,37 @@
+@import "../../base.css";
+
+:root {
+  --link-color-inactive: #DCC3E2;
+}
+
+
+.navLink {
+  margin-left: 0.8em;
+
+  &, &:visited, &:active, &:hover {
+    opacity: 1;
+    color: var(--link-color-inactive);
+    text-decoration: none;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+
+  & svg {
+    vertical-align: middle;
+    margin-right: 0.3em;
+  }
+
+  & path {
+    fill: var(--link-color-inactive);
+  }
+}
+
+.active {
+  &, &:visited, &:active, &:hover {
+    color: var(--color-inverse);
+  }
+  & path {
+    fill: var(--color-inverse);
+  }
+}
