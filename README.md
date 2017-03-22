@@ -1,3 +1,7 @@
+Welcome to the REA client application. This project uses [ZenHub](https://www.zenhub.com/) to manage our workflow, please install it and navigate to *'Boards'* to see what is being developed currently.
+
+Note that many issues are logged only for gathering future requirements and exist as placeholders. These are placed into the ZenHub *'icebox'* for later analysis and development and should not be seen as active work items.
+
 <!-- MarkdownTOC -->
 
 - [Getting started](#getting-started)
