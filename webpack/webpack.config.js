@@ -77,9 +77,8 @@ const config = {
 
 if (DEBUG) {
   config.entry.app.unshift(
-    `webpack-dev-server/client?http://${ip}:${port}/`,
-    'webpack/hot/only-dev-server',
-    'react-hot-loader/patch'
+    'react-hot-loader/patch',
+    `webpack-hot-middleware/client?path=http://${ip}:${port}/__webpack_hmr`
   )
 
   config.plugins = config.plugins.concat([

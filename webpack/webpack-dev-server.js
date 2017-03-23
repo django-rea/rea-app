@@ -1,24 +1,52 @@
 /* eslint-disable */
-const path = require('path')
-const webpack = require('webpack')
-const WebpackDevServer = require('webpack-dev-server')
-const config = require('./webpack.config')
+const path = require('path');
+
+const webpack = require('webpack');
+const express = require('express');
+const serveStatic = require('serve-static');
+const devMiddleware = require('webpack-dev-middleware');
+const hotMiddleware = require('webpack-hot-middleware');
+const historyApiFallback = require("connect-history-api-fallback");
+
+const topPath = process.cwd();
+const staticPath = path.resolve(process.cwd(), './public/');
+
+// read config
 
 const ip = process.env.IP || '0.0.0.0'
 const port = (+process.env.PORT + 1) || 3001
 
-new WebpackDevServer(webpack(config), {
-  publicPath: config.output.publicPath,
-  hot: true,
-  host: ip,
+const webpackConfig = require('./webpack.config')
+
+// init server (use express since the webpack middleware works on that)
+
+const app = express();
+const compiler = webpack(webpackConfig);
+
+// route anything webpack or static dir doesn't handle via index file
+app.use(historyApiFallback(null));
+
+app.use(function(req, res, next) {
+  if (!req.url.match(/^\/(__webpack_hmr|res\/|.*?\.(js|json|css|jpg|gif|png)$)/)) {
+    req.url = '/';
+  }
+  next();
+});
+
+// webpack bindings
+const pn = 'verbose'; // none, errors-only, minimal, normal, verbose
+app.use(devMiddleware(compiler, {
+  publicPath: webpackConfig.output.publicPath,
+  contentBase: webpackConfig.output.publicPath,
+  historyApiFallback: true,
   stats: {
     // @see https://github.com/webpack/docs/wiki/node.js-api#stats
-    context: path.resolve(__dirname, '../'),
+    context: topPath,
     hash: false,
     version: false,
     timings: true,
     assets: true,
-    entrypoints: true,
+    entrypoints: pn === "verbose",
     chunks: true,
     chunkModules: true,
     chunkOrigins: true,
@@ -33,16 +61,21 @@ new WebpackDevServer(webpack(config), {
     colors: true,
     source: false,
   },
-  historyApiFallback: true,
-  contentBase: 'public',
-  compress: true,
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-  },
-}).listen(port, ip, function (err) {
-  if (err) {
-    return console.log(err)
-  }
+}));
 
+app.use(hotMiddleware(compiler));
+
+// pass through anything from the bundle dir directly
+app.use(serveStatic(staticPath, {
+  'index': false,
+}));
+
+
+// start!
+
+app.listen(port, ip, function(err) {
+  if (err) {
+    return console.error(err);
+  }
   console.log(`Listening at http://${ip}:${port}`)
-})
+});
