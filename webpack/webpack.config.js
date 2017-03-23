@@ -64,13 +64,6 @@ const config = {
       { test: /\.eot$/, loader: 'file-loader?prefix=fonts/' },
       { test: /\.svg$/, loader: 'babel-loader?presets[]=es2015,presets[]=react!svg-react-loader' },   // load SVG directly as React components
       { test: /\.yaml$/, loader: 'json-loader!yaml-loader' },
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader?modules&importLoaders=1&sourceMap!postcss-loader?sourceMap&sourceComments',
-        }),
-      },
     ],
   },
 }
@@ -86,6 +79,11 @@ if (DEBUG) {
     new webpack.HotModuleReplacementPlugin(),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
   ])
+
+  config.module.rules.push({
+    test: /\.css$/,
+    loader: 'style-loader!css-loader?modules&importLoaders=1&sourceMap!postcss-loader?sourceMap&sourceComments',
+  })
 } else {
   config.output.filename = '[name].[chunkHash].js'
 
@@ -98,6 +96,14 @@ if (DEBUG) {
     new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
   ])
+
+  config.module.rules.push({
+    test: /\.css$/,
+    loader: ExtractTextPlugin.extract({
+      fallback: 'style-loader',
+      use: 'css-loader?modules&importLoaders=1&sourceMap!postcss-loader?sourceMap&sourceComments',
+    }),
+  })
 }
 
 module.exports = config
