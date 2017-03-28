@@ -7,7 +7,16 @@
     "stage-1"
   ],
   "plugins": [
-    "transform-flow-strip-types"
+    "transform-flow-strip-types",
+    ["react-transform", {
+      "transforms": [{
+        "transform": "react-transform-catch-errors",
+        "imports": [
+          "react",
+          "redbox-react"
+        ]
+      }]
+    }]
   ],
   "env": {
     "production": {
