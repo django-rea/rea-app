@@ -1,5 +1,4 @@
-@import "../../base.css";
-@import "react-toolbox/lib/button/config.css";
+// Component styles (no theme)
 
 .button {
   align-content: center;

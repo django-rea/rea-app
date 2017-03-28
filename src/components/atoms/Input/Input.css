@@ -1,5 +1,4 @@
-@import "../../base.css";
-@import "react-toolbox/lib/input/config.css";
+// Component styles (no theme)
 
 .input {
   padding: var(--input-padding) 0;
