@@ -8,6 +8,7 @@ Note that many issues are logged only for gathering future requirements and exis
     - [Nodejs](#nodejs)
     - [Package Manager](#package-manager)
     - [Development tools](#development-tools)
+        - [Linting](#linting)
     - [Setting up the codebase](#setting-up-the-codebase)
 - [Running locally for development](#running-locally-for-development)
     - [Recommended editor plugins](#recommended-editor-plugins)
@@ -56,6 +57,28 @@ We strongly recommend you use [Yarn](https://yarnpkg.com/) to manage your module
     - `yo arc:component` generates new React components for you
     - `yo arc:container` generates container React components  ("[higher-order components](https://medium.com/@franleplant/react-higher-order-components-in-depth-cf9032ee6c3e)") for you
     - `yo arc:store` generates new Redux data stores for you
+
+#### Linting
+
+Linters are basically a requirement for writing 'good' JavaScript code, since there are so many 'bad' ways to do it. This will also keep your code style aligned with other contributors.
+
+**1. Install eslint**. You will need at least eslint_d `4.2.4` and eslint `3.18.0`.
+    
+    npm i -g eslint_d eslint
+
+**2. Setup your editor**.
+
+*Sublime Text 3:*
+
+- Install [Package Control](https://packagecontrol.io/) if you haven't already
+- Install [SublimeLinter](http://www.sublimelinter.com/)
+- Also install the packages `SublimeLinter-contrib-eslint_d` and `SublimeLinter-contrib-flow`
+- Check your linter settings (*Preferences > Package Settings > SublimeLinter > Settings [User]*). Ensure your linters are enabled under `user.linters` and that your node paths are set correctly under `user.paths`. Note that the global node packages must be installed in the same node version as you specify here.
+- Use the command *SublimeLinter: Enable Debug Mode* and bring up the ST console (`CTRL/CMD + ~`) if you need more help!
+
+*Other editors*
+
+Please add instructions here!
 
 ### Setting up the codebase
 
