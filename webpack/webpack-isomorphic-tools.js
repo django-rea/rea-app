@@ -1,3 +1,6 @@
+// :TODO: I am pretty sure the same filter/path/parser logic should be used for production too.
+// If you encounter "asset not found" errors try changing this for a start!
+
 const plugin = require('webpack-isomorphic-tools/plugin')
 
 const config = {

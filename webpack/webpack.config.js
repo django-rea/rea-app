@@ -77,9 +77,10 @@ if (DEBUG) {
   config.plugins = config.plugins.concat([
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
+    new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig).development(),
   ])
 
+  // :IMPORTANT: this must be the last rule! @see webpack-dev-server.js
   config.module.rules.push({
     test: /\.css$/,
     loader: 'style-loader!css-loader?modules&importLoaders=1&sourceMap!postcss-loader?sourceMap&sourceComments',
@@ -97,6 +98,7 @@ if (DEBUG) {
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
   ])
 
+  // :IMPORTANT: this must be the last rule! @see webpack-dev-server.js
   config.module.rules.push({
     test: /\.css$/,
     loader: ExtractTextPlugin.extract({
