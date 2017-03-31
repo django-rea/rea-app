@@ -14,6 +14,7 @@
     "build:clean": "rimraf \"dist/**\"",
     "build:copy": "copyfiles -u 1 public/* public/**/* dist",
     "prebuild": "npm run build:clean && npm run build:copy",
+    "postinstall": "flow-typed install",
     "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.config",
     "heroku-postbuild": "npm run build"
   },
@@ -46,6 +47,7 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-no-unused-vars-rest": "^1.0.4",
     "eslint-plugin-react": "^6.10.3",
+    "flow-bin": "^0.42.0",
     "identity-obj-proxy": "^3.0.0",
     "jest-cli": "^19.0.0",
     "loader-utils": "^1.1.0",
@@ -86,6 +88,7 @@
     "express": "^4.15.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
+    "flow-typed": "^2.0.0",
     "history": "3.0.0",
     "i18n-react": "^0.3.0",
     "json-loader": "^0.5.4",
