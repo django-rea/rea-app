@@ -1,7 +1,8 @@
 .DS_Store
-dist
-yarn-error.log
-npm-debug.log
-node_modules
-coverage
-webpack/webpack-assets.json
+/dist
+/yarn-error.log
+/npm-debug.log
+/node_modules
+/coverage
+/webpack/webpack-assets.json
+/flow-typed
