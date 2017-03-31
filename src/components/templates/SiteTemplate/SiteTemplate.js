@@ -16,7 +16,7 @@ import MainMenu from 'components/organisms/MainMenu'
 import AppBar from 'components/organisms/AppBar'
 
 type Props = {
-  children: Element<*>,
+  children?: Element<*>,
 };
 
 class SiteTemplate extends Component {
