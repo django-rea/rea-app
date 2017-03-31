@@ -17,6 +17,16 @@ const isVendor = ({ userRequest }) => (
   userRequest.match(/\.js$/)
 )
 
+// babel needs different (minimal) loader chain configured to load SVGs correctly
+const svgLoaderPlugins = 'plugins[]=' + ([
+  'transform-remove-strict-mode',
+  'transform-es2015-modules-commonjs',
+  'transform-es2015-classes',
+  'transform-es2015-destructuring',
+  'transform-react-jsx',
+  'syntax-jsx',
+].join(',plugins[]='))
+
 const config = {
   devtool: DEBUG ? 'eval-source-map' : false,
   entry: {
@@ -68,7 +78,7 @@ const config = {
       { test: /\.woff$/, loader: 'url-loader?prefix=fonts/&limit=8000&mimetype=application/font-woff' },
       { test: /\.ttf$/, loader: 'file-loader?prefix=fonts/' },
       { test: /\.eot$/, loader: 'file-loader?prefix=fonts/' },
-      { test: /\.svg$/, loader: 'babel-loader?presets[]=es2015,presets[]=react!svg-react-loader' },   // load SVG directly as React components
+      { test: /\.svg$/, loader: `babel-loader?${svgLoaderPlugins}!react-svg-loader` },   // load SVG directly as React components
       { test: /\.yaml$/, loader: 'json-loader!yaml-loader' },
     ],
   },
