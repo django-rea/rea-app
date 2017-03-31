@@ -11,4 +11,10 @@ import { createSelector } from 'reselect'
 
 import type { AuthState } from '../reducers/auth'
 
-export const isLoggedIn = (state: AuthState) => state.activeLogin >= 0
+type AppState = {
+  auth: AuthState,
+};
+
+const getAuthState = (appState: AppState) => appState.auth
+
+export const isLoggedIn = (state: AppState) => getAuthState(state).activeLogin >= 0
