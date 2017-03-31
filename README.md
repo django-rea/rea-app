@@ -9,6 +9,7 @@ Note that many issues are logged only for gathering future requirements and exis
     - [Package Manager](#package-manager)
     - [Development tools](#development-tools)
         - [Linting](#linting)
+        - [FlowType](#flowtype)
     - [Setting up the codebase](#setting-up-the-codebase)
 - [Running locally for development](#running-locally-for-development)
     - [Recommended editor plugins](#recommended-editor-plugins)
@@ -64,7 +65,7 @@ Linters are basically a requirement for writing 'good' JavaScript code, since th
 
 **1. Install eslint**. You will need at least eslint_d `4.2.4` and eslint `3.18.0`.
     
-    npm i -g eslint_d eslint
+    npm i -g eslint_d eslint flow-bin flow-typed
 
 **2. Setup your editor**.
 
@@ -79,6 +80,20 @@ Linters are basically a requirement for writing 'good' JavaScript code, since th
 *Other editors*
 
 Please add instructions here!
+
+#### FlowType
+
+[FlowType](http://flowtype.org/) is a static type analysis layer built to run on top of JavaScript. It is very similar to Typescript, but not as strict- it is designed for *iteratively adding* static analysis to your projects, rather than forcing you to use it from the start. The syntax is basically the same- more on the official site. In brief:
+
+```
+function square(n: number /* argument type-hinting */): number /* return type hinting */ {
+  return n * n;
+}
+```
+
+These type annotations are parsed and checked before compiling and then stripped with Babel before running the code- that's about it! You may need to find a colour scheme for your editor that plays nicely with it, but in my experience ES6/JSX-compatible syntax mappings usually work fine.
+
+If you have added new third-party packages and need type definitions for them, you can try running `flow-typed install` to see if full typings for those packages can be auto-installed for you.
 
 ### Setting up the codebase
 
