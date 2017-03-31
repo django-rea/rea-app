@@ -1,3 +1,12 @@
+/**
+ * Root application component
+ *
+ * @package: REA app
+ * @author:  pospi <pospi@spadgos.com>
+ * @since:   2017-03-19
+ * @flow
+ */
+
 import type { Element } from 'react'
 
 import React from 'react'

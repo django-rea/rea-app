@@ -20,8 +20,8 @@ const BaseBar = appBarFactory(IconButton)
 const AppBar = ({ ...props }) => (
   <BaseBar {...props} title="OCP" leftIcon={<Menu fill="white" />}>
     <Navigation type='horizontal'>
-      <NavLink href="/tasks" icon={<Checkbox />} labelText="top_menu.tasks" />
-      <NavLink href="/profile" icon={<Person />} labelText="top_menu.profile" />
+      <NavLink href="/tasks" icon={<Checkbox />} labelText="topMenu.tasks" />
+      <NavLink href="/profile" icon={<Person />} labelText="topMenu.profile" />
     </Navigation>
   </BaseBar>
 )
