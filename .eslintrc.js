@@ -20,7 +20,8 @@ module.exports = {
     "__PROD__": true,
     "__DEBUG__": true,
     "__COVERAGE__": true,
-    "__BASENAME__": true
+    "__BASENAME__": true,
+    "Generator": true,    // for FlowType compat
   },
   "settings": {
     "import/resolver": {
