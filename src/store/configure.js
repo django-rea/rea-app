@@ -2,17 +2,25 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import createSagaMiddleware from 'redux-saga'
-import middlewares from './middlewares'
 import reducer from './reducer'
 import sagas from './sagas'
 
+// Extra Redux middleware in dev mode
+let devMiddlewares = (f) => f
+if (process.env.NODE_ENV === 'development') {
+  devMiddlewares = compose(
+    // Connector for RemoteDev extension / app
+    require('remote-redux-devtools').default({ hostname: 'localhost', port: 7999 })
+  )
+}
+
+// Primary Redux store configurator (middlewares & sagas)
 const configureStore = (initialState, history) => {
-  const hasWindow = typeof window !== 'undefined'
   const sagaMiddleware = createSagaMiddleware()
 
   const finalCreateStore = compose(
-    applyMiddleware(...middlewares, thunk, sagaMiddleware, routerMiddleware(history)),
-    hasWindow && window.devToolsExtension ? window.devToolsExtension() : (f) => f
+    applyMiddleware(thunk, sagaMiddleware, routerMiddleware(history)),
+    devMiddlewares
   )(createStore)
 
   const store = finalCreateStore(reducer, initialState)
