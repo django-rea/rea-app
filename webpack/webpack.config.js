@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const WebpackMd5Hash = require('webpack-md5-hash')
+const loaderUtils = require('loader-utils')
 const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin')
 const webpackIsomorphicToolsConfig = require('./webpack-isomorphic-tools')
 
@@ -73,6 +74,27 @@ const config = {
   },
 }
 
+const styleLoaders = [{
+  loader: 'css-loader',
+  options: {
+    modules: true,
+    sourceMap: true,
+    importLoaders: 1,
+    getLocalIdent: (context, localIdentName, localName, options) =>
+      loaderUtils.interpolateName(
+        context,
+        `c[hash:base64:5]`,
+        { content: `${options.hashPrefix}${context.resourcePath}+${localName}` }
+      ),
+  },
+}, {
+  loader: 'postcss-loader',
+  options: {
+    sourceMap: true,
+    sourceComments: true,
+  },
+}]
+
 if (DEBUG) {
   config.entry.app.unshift(
     'react-hot-loader/patch',
@@ -88,7 +110,10 @@ if (DEBUG) {
   // :IMPORTANT: this must be the last rule! @see webpack-dev-server.js
   config.module.rules.push({
     test: /\.css$/,
-    loader: 'style-loader!css-loader?modules&importLoaders=1&sourceMap!postcss-loader?sourceMap&sourceComments',
+    // loader: 'style-loader!css-loader?modules&importLoaders=1&sourceMap!postcss-loader?sourceMap&sourceComments',
+    use: [{
+      loader: 'style-loader',
+    }].concat(styleLoaders),
   })
 } else {
   config.output.filename = '[name].[chunkHash].js'
@@ -108,7 +133,7 @@ if (DEBUG) {
     test: /\.css$/,
     loader: ExtractTextPlugin.extract({
       fallback: 'style-loader',
-      use: 'css-loader?modules&importLoaders=1&sourceMap!postcss-loader?sourceMap&sourceComments',
+      use: styleLoaders,
     }),
   })
 }
