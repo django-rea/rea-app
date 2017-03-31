@@ -23,7 +23,7 @@ const reducers = {
 const req = require.context('.', true, /\.\/reducers\/.+\.js$/)
 
 req.keys().forEach((key) => {
-  const storeName = key.replace(/\.\/(.+)\/.+$/, '$1')
+  const storeName = key.replace(/\.\/reducers\/(.+)\.js$/, '$1')
   reducers[storeName] = req(key).default
 })
 

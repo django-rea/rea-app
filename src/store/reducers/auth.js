@@ -52,6 +52,6 @@ const signinSucceeded = createLeaf(ACTION_SIGNIN_SUCCEEDED, (state, { payload }:
   logins: state.logins.concat([payload.response]),
 }))
 
-export const reducer = createReducer({ ...initialState }, {
+export default createReducer({ ...initialState }, {
   signin, signinFailed, signinSucceeded,
 })
