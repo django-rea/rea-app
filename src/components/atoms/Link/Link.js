@@ -11,25 +11,29 @@
 import type { Element } from 'react'
 
 import React from 'react'
+import themeable from 'react-themeable'
 import { Link as BaseLink } from 'react-router'
 
-import styles from './Link.css'
-
 type Props = {
+  theme: Object<string, Object<*>>,
   href: string,
-  className: string,
-  activeClassName?: string,
   children: Element<*>,
 };
 
-const Link = ({ className, activeClassName, children, href, ...props }: Props) => (
-  <BaseLink {...props}
-    to={href}
-    className={className || styles.link}
-    activeClassName={activeClassName || styles.linkActive}
-  >
-    {children}
-  </BaseLink>
-)
+const Link = ({ theme, children, href, ...props }: Props) => {
+  const th = themeable(theme)
+  const className = th(1, 'link').className // :SHONK: pass to themeable and back again since the react-router Link isn't themeable on its own
+  const activeClassName = th(2, 'linkActive').className
+
+  return (
+    <BaseLink {...props}
+      to={href}
+      className={className}
+      activeClassName={activeClassName}
+    >
+      {children}
+    </BaseLink>
+  )
+}
 
 export default Link

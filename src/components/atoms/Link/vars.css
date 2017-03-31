@@ -1,0 +1,4 @@
+:root {
+  --link-color: var(--color-primary-contrast);
+  --link-color-active: var(--color-primary-dark);
+}

@@ -11,18 +11,17 @@ import type { Element } from 'react'
 import React from 'react'
 import T from 'i18n-react'
 
-import Link from 'components/atoms/Link'
-
-import styles from './NavLink.css'
+import Link from 'components/atoms/Link/Link'
 
 type Props = {
+  theme: Object<string, Object<*>>,
   icon?: Element<*>,
   href: string,
   labelText: string,  // not a raw string, should reference an i18n keyword
 };
 
-const NavLink = ({ icon, href, labelText }: Props) => (
-  <Link href={href} className={styles.navLink} activeClassName={styles.active}>
+const NavLink = ({ icon, href, labelText, theme, ...props }: Props) => (
+  <Link href={href} theme={theme} {...props}>
     {icon} <T.text text={labelText} />
   </Link>
 )

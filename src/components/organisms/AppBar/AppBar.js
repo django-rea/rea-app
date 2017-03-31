@@ -15,12 +15,10 @@ import NavLink from 'components/molecules/NavLink'
 import IconButton from 'components/atoms/IconButton'
 import { Checkbox, Person, Menu } from 'components/icons'
 
-import styles from './AppBar.css'
-
 const BaseBar = appBarFactory(IconButton)
 
 const AppBar = ({ ...props }) => (
-  <BaseBar theme={styles} {...props} title="OCP" leftIcon={<Menu fill="white" />}>
+  <BaseBar {...props} title="OCP" leftIcon={<Menu fill="white" />}>
     <Navigation type='horizontal'>
       <NavLink href="/tasks" icon={<Checkbox />} labelText="top_menu.tasks" />
       <NavLink href="/profile" icon={<Person />} labelText="top_menu.profile" />

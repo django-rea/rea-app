@@ -1,6 +1,3 @@
-@import "../../base.css";
-@import "react-toolbox/lib/app_bar/config.css";
-
 .appBar {
   background: var(--appbar-color);
   color: var(--appbar-contrast);
