@@ -63,7 +63,7 @@ We strongly recommend you use [Yarn](https://yarnpkg.com/) to manage your module
 
 Linters are basically a requirement for writing 'good' JavaScript code, since there are so many 'bad' ways to do it. This will also keep your code style aligned with other contributors.
 
-**1. Install eslint**. You will need at least eslint_d `4.2.4` and eslint `3.18.0`.
+**1. Install eslint & flow**. You will need at least eslint_d `4.2.4`, eslint `3.18.0`, flow `0.42.0` & flow-typed `2.0.0`.
     
     npm i -g eslint_d eslint flow-bin flow-typed
 
@@ -93,7 +93,7 @@ function square(n: number /* argument type-hinting */): number /* return type hi
 
 These type annotations are parsed and checked before compiling and then stripped with Babel before running the code- that's about it! You may need to find a colour scheme for your editor that plays nicely with it, but in my experience ES6/JSX-compatible syntax mappings usually work fine.
 
-If you have added new third-party packages and need type definitions for them, you can try running `flow-typed install` to see if full typings for those packages can be auto-installed for you.
+If you have added new third-party packages and need type definitions for them, you can try running `flow-typed install` to see if full typings for those packages can be auto-installed for you. This command runs automatically after finishing an standard NPM install command, as configured in `package.json`.
 
 ### Setting up the codebase
 
