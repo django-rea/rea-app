@@ -11,9 +11,12 @@ import type { Element } from 'react'
 
 import React, { Component } from 'react'
 
+import AuthenticatedOnly from 'containers/AuthenticatedOnly'
+
 import { Layout, NavDrawer, Sidebar, Panel } from 'components/templates/Layout'
 import MainMenu from 'components/organisms/MainMenu'
 import AppBar from 'components/organisms/AppBar'
+import LoginPage from 'components/pages/Login'
 
 type Props = {
   children?: Element<*>,
@@ -41,7 +44,7 @@ class SiteTemplate extends Component {
     this.setState({ sidebarPinned: !this.state.sidebarPinned })
   }
 
-  render() {
+  renderSite() {
     return (
       <Layout>
         <NavDrawer active={this.state.drawerActive}
@@ -61,6 +64,14 @@ class SiteTemplate extends Component {
           */ }
         </Sidebar>
       </Layout>
+    )
+  }
+
+  render() {
+    return (
+      <AuthenticatedOnly unauthenticatedComponent={<LoginPage />}>
+        {this.renderSite()}
+      </AuthenticatedOnly>
     )
   }
 }
