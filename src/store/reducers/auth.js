@@ -34,7 +34,7 @@ const initialState: AuthState = {
 
 const signin = createLeaf(ACTION_SIGNIN, (state, { payload }: SigninActionPayload) => ({
   ...state,
-  isLoggingIn: payload.username,
+  isLoggingIn: payload.username || true,  // account for logins which forget to enter a username
   loginError: null,
 }))
 
