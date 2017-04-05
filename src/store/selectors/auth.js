@@ -7,14 +7,18 @@
  * @flow
  */
 
+import type { AppState } from 'store/types'
+
 import { createSelector } from 'reselect'
-
-import type { AuthState } from '../reducers/auth'
-
-type AppState = {
-  auth: AuthState,
-};
 
 const getAuthState = (appState: AppState) => appState.auth
 
 export const isLoggedIn = (state: AppState) => getAuthState(state).activeLogin >= 0
+
+export const hasLoginError = (state: AppState) => getAuthState(state).loginError !== null
+
+// :TODO: update this to use error code and read from intl data
+export const getLoginErrorMessage = (state: AppState) => {
+  const s = getAuthState(state)
+  return s && s.loginError ? s.loginError.message : ''
+}
