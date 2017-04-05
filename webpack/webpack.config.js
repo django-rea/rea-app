@@ -44,6 +44,7 @@ const config = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       'process.env.PUBLIC_PATH': JSON.stringify(PUBLIC_PATH),
+      'process.env.API_URL': JSON.stringify(process.env.API_URL || 'http://localhost:8000/api/graph'),
     }),
     new webpack.LoaderOptionsPlugin({
       test: /\.css$/,

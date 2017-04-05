@@ -1,8 +1,11 @@
 import { createStore, applyMiddleware, compose } from 'redux'
-import { ApolloClient } from 'react-apollo'
+import { ApolloClient, createNetworkInterface } from 'react-apollo'
 import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import createSagaMiddleware from 'redux-saga'
+
+import { apiUrl } from 'config'
+
 import reducer from './reducer'
 import sagas from './sagas'
 
@@ -19,7 +22,9 @@ if (process.env.NODE_ENV === 'development') {
 const configureStore = (initialState, history) => {
   const sagaMiddleware = createSagaMiddleware()
 
-  const client = new ApolloClient()
+  const client = new ApolloClient({
+    networkInterface: createNetworkInterface({ uri: apiUrl }),
+  })
 
   const finalCreateStore = compose(
     applyMiddleware(client.middleware(), thunk, sagaMiddleware, routerMiddleware(history)),
