@@ -7,6 +7,14 @@
  * @flow
  */
 
+import type { AuthState } from 'store/reducers/auth'
+
+// entire application state (combination of state from all reducers)
+export type AppState = {
+  auth: AuthState,
+};
+
+// base state for all action creator outputs
 export type ActionPayload = {
   type: string,
   payload: ?Object,
