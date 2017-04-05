@@ -1,0 +1,6 @@
+.formError {
+  font-weight: bold;
+  color: var(--form-error-fg);
+  background: var(--form-error-bg);
+  padding: var(--form-error-padding);
+}

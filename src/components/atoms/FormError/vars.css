@@ -1,0 +1,5 @@
+:root {
+  --form-error-fg: white;
+  --form-error-bg: var(--palette-red-a700);
+  --form-error-padding: 0.5em 0.75em;
+}
