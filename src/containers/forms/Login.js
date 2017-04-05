@@ -8,7 +8,10 @@
  */
 
 import { reduxForm } from 'redux-form'
-import { gql, graphql, compose } from 'react-apollo'
+import { gql, compose } from 'react-apollo'
+
+import * as AuthActions from 'store/actions/auth'
+import { graphqlWithSideEffects } from 'services/api'
 
 import LoginForm from 'components/organisms/LoginForm'
 
@@ -17,24 +20,20 @@ const loginQuery = gql`
   mutation($username: String!, $password: String!) {
     createToken(username: $username, password: $password) {
       token
-      ok
-      error
     }
   }
 `
 
 export default compose(
-  // bind GraphQL to redux-form (note you can do this multiple times to provide multiple queries or mutations to the component)
-  graphql(loginQuery, {
-    // wrap up the `mutate` call to make it easier to interact with, otherwise we just get raw `props.mutate`
-    props: ({ mutate }) => ({
-      requestLogin: (username: string, password: string) => mutate({ variables: { username, password } }),
-    }),
+  graphqlWithSideEffects(loginQuery, {
+    onNotify: AuthActions.signIn,
+    onFail: AuthActions.signInFailed,
+    onSuccess: AuthActions.signInSucceeded,
   }),
   // bind redux-form to component
   reduxForm({
     form: 'login',
     // pass submit action to call back to the exposed GraphQL mutation provided above
-    onSubmit: ({ user, pass }, dispatch, props) => props.requestLogin(user, pass),
+    onSubmit: ({ user, pass }, dispatch, { requestLogin }) => requestLogin(user, pass),
   }),
 )(LoginForm)
