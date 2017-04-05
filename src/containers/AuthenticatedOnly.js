@@ -1,6 +1,8 @@
 /**
  * Checks whether the user is authenticated before rendering child controls
  *
+ * :TODO: rewrite to use recompose helpers instead of defining a conditional component
+ *
  * @package: REA app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-04-02
