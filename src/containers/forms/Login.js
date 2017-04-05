@@ -15,7 +15,7 @@ import LoginForm from 'components/organisms/LoginForm'
 // define the GraphQL to execute
 const loginQuery = gql`
   mutation($username: String!, $password: String!) {
-    createToken(input: { username: $username, password: $password }) {
+    createToken(username: $username, password: $password) {
       token
       ok
       error
