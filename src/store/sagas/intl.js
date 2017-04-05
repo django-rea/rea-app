@@ -1,6 +1,8 @@
 /**
  * Deferred actions for intl loading
  *
+ * :DEPRECATED: (probably, if we can read intl data via GraphQL API)
+ *
  * @package: REA app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-03-31
@@ -9,7 +11,7 @@
 
 import { call, put, takeLatest } from 'redux-saga/effects'
 
-import Api from 'services/api'
+// import Api from 'services/api'
 
 import { ACTION_SET_LANG, ACTION_SET_LANG_FAILED, ACTION_SET_LANG_SUCCEEDED } from '../constants'
 

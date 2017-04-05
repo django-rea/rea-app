@@ -9,8 +9,7 @@
 
 import { createReducer, createLeaf } from 'redux-action-helper'
 
-import type { SigninActionPayload } from '../actions/auth'
-import type { SigninFailedPayload, SigninSucceededPayload } from '../sagas/auth'
+import type { SigninActionPayload, SigninFailedPayload, SigninSucceededPayload } from '../actions/auth'
 
 import { ACTION_SIGNIN, ACTION_SIGNIN_SUCCEEDED, ACTION_SIGNIN_FAILED } from '../constants'
 
