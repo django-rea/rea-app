@@ -15,7 +15,7 @@ import themeable from 'react-themeable'
 import { Link as BaseLink } from 'react-router'
 
 type Props = {
-  theme: Object<string, Object<*>>,
+  theme: Object,
   href: string,
   children: Element<*>,
 };

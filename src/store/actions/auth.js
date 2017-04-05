@@ -15,12 +15,12 @@ import type { ActionPayload } from 'store/types'
 
 import { ACTION_SIGNIN, ACTION_SIGNIN_FAILED, ACTION_SIGNIN_SUCCEEDED } from '../constants'
 
-export type SigninActionPayload = ActionPayload & {
+export type SigninActionPayload = {
   payload: {
     username: string,
     password: string,
   },
-};
+} & ActionPayload;
 
 export const signIn = (username: string, password: string): SigninActionPayload => ({
   type: ACTION_SIGNIN,
@@ -28,9 +28,9 @@ export const signIn = (username: string, password: string): SigninActionPayload 
 })
 
 
-export type SigninFailedPayload = ActionPayload & {
+export type SigninFailedPayload = {
   payload: { error: Error },
-};
+} & ActionPayload;
 
 export const signInFailed = (e: Error): SigninFailedPayload => ({
   type: ACTION_SIGNIN_FAILED,
@@ -38,11 +38,11 @@ export const signInFailed = (e: Error): SigninFailedPayload => ({
 })
 
 
-export type SigninSucceededPayload = ActionPayload & {
+export type SigninSucceededPayload = {
   payload: {
     response: Object, // :TODO: define this!
   },
-};
+} & ActionPayload;
 
 export const signInSucceeded = (response: Object): SigninSucceededPayload => ({
   type: ACTION_SIGNIN_SUCCEEDED,
