@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux'
+import { ApolloClient } from 'react-apollo'
 import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import createSagaMiddleware from 'redux-saga'
@@ -18,12 +19,14 @@ if (process.env.NODE_ENV === 'development') {
 const configureStore = (initialState, history) => {
   const sagaMiddleware = createSagaMiddleware()
 
+  const client = new ApolloClient()
+
   const finalCreateStore = compose(
-    applyMiddleware(thunk, sagaMiddleware, routerMiddleware(history)),
+    applyMiddleware(client.middleware(), thunk, sagaMiddleware, routerMiddleware(history)),
     devMiddlewares
   )(createStore)
 
-  const store = finalCreateStore(reducer, initialState)
+  const store = finalCreateStore(reducer(client), initialState)
   let sagaTask = sagaMiddleware.run(sagas)
 
   if (module.hot) {
@@ -40,7 +43,7 @@ const configureStore = (initialState, history) => {
     })
   }
 
-  return store
+  return { client, store }
 }
 
 export default configureStore

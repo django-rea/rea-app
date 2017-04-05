@@ -9,6 +9,8 @@
  * @flow
  */
 
+import type { ApolloClient } from 'react-apollo'
+
 import { combineReducers } from 'redux'
 import { routerReducer as routing } from 'react-router-redux'
 import { reducer as form } from 'redux-form'
@@ -28,4 +30,4 @@ req.keys().forEach((key) => {
 })
 
 // generate & export
-export default combineReducers(reducers)
+export default (client: ApolloClient) => combineReducers({ ...reducers, apollo: client.reducer() })

@@ -2,7 +2,7 @@
 import React from 'react'
 import serialize from 'serialize-javascript'
 import { renderToString, renderToStaticMarkup } from 'react-dom/server'
-import { Provider } from 'react-redux'
+import { ApolloProvider } from 'react-apollo'
 import { createMemoryHistory, RouterContext, match } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { Router } from 'express'
@@ -21,7 +21,7 @@ router.use((req, res, next) => {
 
   const location = req.url.replace(basename, '')
   const memoryHistory = createMemoryHistory({ basename })
-  const store = configureStore({}, memoryHistory)
+  const { client, store } = configureStore({}, memoryHistory)
   const history = syncHistoryWithStore(memoryHistory, store)
 
   match({ history, routes, location }, (error, redirectLocation, renderProps) => {
@@ -55,9 +55,9 @@ router.use((req, res, next) => {
 
     const render = (store) => {
       const content = renderToString(
-        <Provider store={store}>
+        <ApolloProvider store={store} client={client}>
           <RouterContext {...renderProps} />
-        </Provider>
+        </ApolloProvider>
       )
 
       const initialState = store.getState()
@@ -71,7 +71,8 @@ router.use((req, res, next) => {
     }
 
     return fetchData().then(() => {
-      render(configureStore(store.getState(), memoryHistory))
+      const { store: newStore } = configureStore(store.getState(), memoryHistory)
+      render(newStore)
     }).catch((err) => {
       console.log(err)
       res.status(500).end()
