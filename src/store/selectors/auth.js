@@ -22,3 +22,8 @@ export const getLoginErrorMessage = (state: AppState) => {
   const s = getAuthState(state)
   return s && s.loginError ? s.loginError.message : ''
 }
+
+export const getActiveLoginToken = (state: AppState) => {
+  const s = getAuthState(state)
+  return s.logins[s.activeLogin] ? s.logins[s.activeLogin].token : null
+}
