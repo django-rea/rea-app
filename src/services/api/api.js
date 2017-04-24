@@ -40,11 +40,11 @@ function apiHandler(queryCB: GQLQuery, errorHandler: ErrHandler, resultHandler: 
     let result
     try {
       result = await queryCB(...args)
-      if (resultHandler) {
-        await resultHandler(result)
-      }
     } catch (e) {
       await errorHandler(e)
+    }
+    if (resultHandler && result) {
+      await resultHandler(result)
     }
 
     return result
