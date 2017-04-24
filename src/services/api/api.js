@@ -44,10 +44,10 @@ function apiHandler(queryCB: GQLQuery, errorHandler: ErrHandler, resultHandler: 
       await errorHandler(e)
     }
     if (resultHandler && result) {
-      await resultHandler(result)
+      await resultHandler(result.data)
     }
 
-    return result
+    return result.data
   }
 }
 
