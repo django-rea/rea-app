@@ -12,8 +12,7 @@ module.exports = {
     "flowtype"
   ],
   "env": {
-    "browser": true,
-    "jest": true
+    "browser": true
   },
   "globals": {
     "__DEV__": true,
