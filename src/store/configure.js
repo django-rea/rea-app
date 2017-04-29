@@ -3,6 +3,7 @@ import { ApolloClient, createNetworkInterface } from 'react-apollo'
 import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import createSagaMiddleware from 'redux-saga'
+import persistState from 'redux-localstorage'
 
 import { apiUrl } from 'config'
 
@@ -27,7 +28,13 @@ const configureStore = (initialState, history) => {
   })
 
   const finalCreateStore = compose(
-    applyMiddleware(client.middleware(), thunk, sagaMiddleware, routerMiddleware(history)),
+    applyMiddleware(
+      client.middleware(),
+      thunk,
+      sagaMiddleware,
+      routerMiddleware(history),
+    ),
+    persistState('auth'),
     devMiddlewares
   )(createStore)
 
