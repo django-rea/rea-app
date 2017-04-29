@@ -17,6 +17,7 @@ import type { ActionPayload, AppState } from 'store/types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { gql, graphql, compose } from 'react-apollo'
+import { mapProps } from 'recompose'
 
 import { isLoggedIn, getActiveLoginToken } from 'store/selectors/auth'
 
@@ -85,7 +86,11 @@ export function graphqlWithSideEffects(gqlQuery, actions: ActionsDict) {
 }
 
 /**
- * Bind a graphQL query to a UI component which handles all auth logic automatically
+ * Bind a graphQL query to a UI component which handles all auth logic automatically.
+ * Returned data will be normalised:
+ * - props.data.viewer => props.data
+ * - props.data.loading => props.loading
+ * - props.data.error => props.error
  */
 
 export const authedGraphQL = (gqlQuery: string) => compose(
@@ -105,5 +110,13 @@ export const authedGraphQL = (gqlQuery: string) => compose(
     skip: (ownProps) => !ownProps.isLoggedIn,
     options: (props) => ({ variables: props.variables }),
   }),
-  // :TODO: accordingly, will need something here to translate the 'viewer' part & err/loading fields
+  mapProps(props => {
+    const { data, ...others } = props
+    return {
+      ...others,
+      data: data.viewer,
+      loading: data.loading,
+      error: data.error,
+    }
+  }),
 )
