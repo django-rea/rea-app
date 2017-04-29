@@ -19,13 +19,14 @@ type Props = {
   handleSubmit: () => void,
   hasLoginError: boolean,
   errorMessage: ?string,
+  submitting: boolean,
 };
 
-const LoginForm = ({ handleSubmit, hasLoginError, errorMessage }: Props) => (
+const LoginForm = ({ handleSubmit, hasLoginError, errorMessage, submitting }: Props) => (
   <form onSubmit={handleSubmit}>
     <Field name="user" type="text" component={Input} placeholder="Username" />
     <Field name="pass" type="password" component={Input} placeholder="Password" />
-    <Button type="submit" raised primary><T.text text="loginForm.loginButton" /></Button>
+    <Button type="submit" raised primary disabled={submitting}><T.text text="loginForm.loginButton" /></Button>
     {hasLoginError ? (<FormError>{errorMessage}</FormError>) : null}
   </form>
 )
