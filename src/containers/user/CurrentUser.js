@@ -7,32 +7,10 @@
  * @flow
  */
 
-import type { AppState } from 'store/types'
+import { authedGraphQL } from 'services/api'
 
-import { graphql, gql, compose } from 'react-apollo'
-import { connect } from 'react-redux'
-
-import { isLoggedIn, getActiveLoginToken } from 'store/selectors/auth'
-
-const userQuery = gql`
-  query($token: String) {
-    viewer(token: $token) {
-      agent(me: true) {
-        name
-      }
-    }
+export default authedGraphQL(`
+  agent(me: true) {
+    name
   }
-`
-
-export default compose(
-  connect((state: AppState) => ({
-    isLoggedIn: isLoggedIn(state),
-    variables: {
-      token: getActiveLoginToken(state),
-    },
-  })),
-  graphql(userQuery, {
-    skip: (ownProps) => !ownProps.isLoggedIn,
-    options: (props) => ({ variables: props.variables }),
-  }),
-)
+`)

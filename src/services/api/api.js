@@ -12,11 +12,13 @@
  * @flow
  */
 
-import type { ActionPayload } from 'store/types'
+import type { ActionPayload, AppState } from 'store/types'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { graphql, compose } from 'react-apollo'
+import { gql, graphql, compose } from 'react-apollo'
+
+import { isLoggedIn, getActiveLoginToken } from 'store/selectors/auth'
 
 /**
  * Function to manage side-effects from GraphQL, in order to get updates into
@@ -81,3 +83,27 @@ export function graphqlWithSideEffects(gqlQuery, actions: ActionsDict) {
     })
   )
 }
+
+/**
+ * Bind a graphQL query to a UI component which handles all auth logic automatically
+ */
+
+export const authedGraphQL = (gqlQuery: string) => compose(
+  connect((state: AppState) => ({
+    isLoggedIn: isLoggedIn(state),
+    variables: {
+      token: getActiveLoginToken(state),
+    },
+  })),
+  graphql(gql`
+    query($token: String) {
+      viewer(token: $token) {
+        ${gqlQuery}
+      }
+    }
+  `, {
+    skip: (ownProps) => !ownProps.isLoggedIn,
+    options: (props) => ({ variables: props.variables }),
+  }),
+  // :TODO: accordingly, will need something here to translate the 'viewer' part & err/loading fields
+)
