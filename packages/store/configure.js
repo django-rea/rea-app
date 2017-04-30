@@ -9,6 +9,7 @@ import reducer from './reducer'
 import sagas from './sagas'
 
 const apiUrl = process.env.API_URL || 'http://localhost:8000/api/graph'
+const browser = typeof window !== 'undefined'
 
 // Extra Redux middleware in dev mode
 let devMiddlewares = (f) => f
@@ -34,7 +35,7 @@ const configureStore = (initialState, history) => {
       sagaMiddleware,
       routerMiddleware(history),
     ),
-    persistState('auth'),
+    browser ? persistState('auth') : (m) => m,
     devMiddlewares
   )(createStore)
 
