@@ -6,7 +6,6 @@
 [include]
 
 [options]
-module.system.node.resolve_dirname=src
 module.system.node.resolve_dirname=node_modules
 
 esproposal.class_static_fields=enable

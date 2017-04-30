@@ -11,9 +11,9 @@ import React from 'react'
 import { appBarFactory } from 'react-toolbox/lib/app_bar/AppBar'
 import Navigation from 'react-toolbox/lib/navigation'
 
-import NavLink from 'components/molecules/NavLink'
-import IconButton from 'components/atoms/IconButton'
-import { Checkbox, Person, Menu } from 'components/icons'
+import NavLink from '../../molecules/NavLink'
+import IconButton from '../../atoms/IconButton'
+import { Checkbox, Person, Menu } from '../../icons'
 
 const BaseBar = appBarFactory(IconButton)
 

@@ -5,10 +5,10 @@ import { AppContainer } from 'react-hot-loader'
 import { createHistory } from 'history'
 import { Router, useRouterHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
-import { basename } from 'config'
-import configureStore from 'store/configure'
+import configureStore from '@vflows/store/configure'
 
-import routes from 'routes'
+import { basename } from './config'
+import routes from './routes'
 
 // eslint-disable-next-line no-underscore-dangle
 const initialState = window.__INITIAL_STATE__
@@ -28,8 +28,8 @@ const renderApp = () => (
 render(renderApp(), root)
 
 if (module.hot) {
-  module.hot.accept('routes', () => {
-    require('routes')
+  module.hot.accept('./routes', () => {
+    require('./routes')
     render(renderApp(), root)
   })
 }

@@ -14,7 +14,7 @@ import T from 'i18n-react'
 import { withRouter } from 'react-router'
 
 import { MenuItem, MenuDivider } from 'react-toolbox/lib/menu'
-import { FreedomCoopLogo, Checkbox, Person, Group, Exit } from 'components/icons'
+import { FreedomCoopLogo, Checkbox, Person, Group, Exit } from '../icons'
 
 type Props = {
   router: Router,

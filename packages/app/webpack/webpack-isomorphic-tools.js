@@ -36,7 +36,7 @@ const config = {
       },
     },
   },
-  modulesDirectories: ['src', 'node_modules'],
+  modulesDirectories: ['node_modules'],
   patch_require: true,
 }
 

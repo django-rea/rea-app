@@ -11,7 +11,7 @@
 
 import React from 'react'
 
-import { browser } from '../../config'
+const browser = typeof window !== 'undefined';
 
 const nullServerComponent = () => (<span />)
 

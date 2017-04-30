@@ -9,9 +9,9 @@
 
 import React from 'react'
 
-import Form from 'containers/forms/Login'
+import Form from '@vflows/bindings/forms/Login'
 
-import PageTemplate from 'components/templates/PageTemplate'
+import PageTemplate from '@vflows/views/templates/PageTemplate'
 
 const LoginPage = () => (
   <PageTemplate>

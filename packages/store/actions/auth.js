@@ -11,7 +11,7 @@
  * @flow
  */
 
-import type { ActionPayload } from 'store/types'
+import type { ActionPayload } from '@vflows/store/types'
 
 import { ACTION_SIGNIN, ACTION_SIGNIN_FAILED, ACTION_SIGNIN_SUCCEEDED } from '../constants'
 

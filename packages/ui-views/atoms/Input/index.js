@@ -1,4 +1,4 @@
-import themed from 'components/themed'
+import themed from '../../themed'
 import Component from './Input'
 import styles from './index.css'
 

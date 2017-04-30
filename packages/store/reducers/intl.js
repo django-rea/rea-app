@@ -20,7 +20,7 @@ import { ACTION_SET_LANG, ACTION_SET_LANG_FAILED, ACTION_SET_LANG_SUCCEEDED } fr
 const initialState = {
   lang: 'en',
   error: null,
-  intl: require('../../intl/en.yaml'),  // :TODO: read this dynamically based on UA prefs
+  intl: require('../intl/en.yaml'),  // :TODO: read this dynamically based on UA prefs
 }
 
 T.setTexts(initialState.intl)  // sync to i18n handler lib

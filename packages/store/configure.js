@@ -5,10 +5,10 @@ import thunk from 'redux-thunk'
 import createSagaMiddleware from 'redux-saga'
 import persistState from 'redux-localstorage'
 
-import { apiUrl } from 'config'
-
 import reducer from './reducer'
 import sagas from './sagas'
+
+const apiUrl = process.env.API_URL || 'http://localhost:8000/api/graph'
 
 // Extra Redux middleware in dev mode
 let devMiddlewares = (f) => f

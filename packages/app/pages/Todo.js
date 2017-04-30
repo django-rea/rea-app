@@ -9,9 +9,9 @@
 
 import React from 'react'
 import T from 'i18n-react'
-import PageTemplate from 'components/templates/PageTemplate'
+import PageTemplate from '@vflows/views/templates/PageTemplate'
 
-import CurrentUser from 'containers/user/CurrentUser'
+import CurrentUser from '@vflows/bindings/user/CurrentUser'
 
 type UserProps = {
   data: {

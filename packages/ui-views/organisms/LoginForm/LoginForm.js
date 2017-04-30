@@ -11,9 +11,9 @@ import React from 'react'
 import { Field } from 'redux-form'
 import T from 'i18n-react'
 
-import Button from 'components/atoms/Button'
-import Input from 'components/molecules/FormInput'
-import FormError from 'components/atoms/FormError'
+import Button from '../../atoms/Button'
+import Input from '../../molecules/FormInput'
+import FormError from '../../atoms/FormError'
 
 type Props = {
   handleSubmit: () => void,

@@ -12,14 +12,14 @@
  * @flow
  */
 
-import type { ActionPayload, AppState } from 'store/types'
+import type { ActionPayload, AppState } from '@vflows/store/types'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { gql, graphql, compose } from 'react-apollo'
 import { mapProps } from 'recompose'
 
-import { isLoggedIn, getActiveLoginToken } from 'store/selectors/auth'
+import { isLoggedIn, getActiveLoginToken } from '@vflows/store/selectors/auth'
 
 /**
  * Function to manage side-effects from GraphQL, in order to get updates into

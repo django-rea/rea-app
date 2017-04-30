@@ -4,7 +4,8 @@ import morgan from 'morgan'
 import cookieParser from 'cookie-parser'
 import bodyParser from 'body-parser'
 import path from 'path'
-import { env } from 'config'
+
+import { env } from './config'
 
 const root = path.join(__dirname, '../../..')
 

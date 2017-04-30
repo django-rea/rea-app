@@ -11,12 +11,13 @@ import type { Element } from 'react'
 
 import React, { Component } from 'react'
 
-import AuthenticatedOnly from 'containers/AuthenticatedOnly'
+import AuthenticatedOnly from '@vflows/bindings/AuthenticatedOnly'
 
-import { Layout, NavDrawer, Sidebar, Panel } from 'components/templates/Layout'
-import MainMenu from 'components/organisms/MainMenu'
-import AppBar from 'components/organisms/AppBar'
-import LoginPage from 'components/pages/Login'
+import { Layout, NavDrawer, Sidebar, Panel } from '@vflows/views/templates/Layout'
+import MainMenu from '@vflows/views/organisms/MainMenu'
+import AppBar from '@vflows/views/organisms/AppBar'
+
+import LoginPage from '../../pages/Login'
 
 type Props = {
   children?: Element<*>,

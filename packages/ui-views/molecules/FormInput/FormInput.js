@@ -9,7 +9,7 @@
 
 import React from 'react'
 
-import Input from 'components/atoms/Input'
+import Input from '../../atoms/Input'
 
 export type FieldProps = {
   // bespoke

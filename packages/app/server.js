@@ -6,11 +6,12 @@ import { ApolloProvider } from 'react-apollo'
 import { createMemoryHistory, RouterContext, match } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { Router } from 'express'
-import express from 'services/express'
-import routes from 'routes'
-import configureStore from 'store/configure'
-import { env, port, ip, basename } from 'config'
-import Html from 'components/Html'
+import configureStore from '@vflows/store/configure'
+import express from './express'
+import routes from './routes'
+import Html from './main/Html'
+
+import { env, port, ip, basename } from './config'
 
 const router = new Router()
 

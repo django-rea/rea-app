@@ -9,7 +9,7 @@ const hotMiddleware = require('webpack-hot-middleware');
 const historyApiFallback = require("connect-history-api-fallback");
 
 const topPath = process.cwd();
-const staticPath = path.resolve(process.cwd(), './public/');
+const staticPath = path.resolve(process.cwd(), './packages/app/public/');
 
 // read config
 

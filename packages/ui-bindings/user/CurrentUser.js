@@ -7,7 +7,7 @@
  * @flow
  */
 
-import { authedGraphQL } from 'services/api'
+import { authedGraphQL } from '@vflows/services/api'
 
 export default authedGraphQL(`
   agent(me: true) {

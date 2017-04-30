@@ -12,7 +12,7 @@
 import type { Element } from 'react'
 
 import { connect } from 'react-redux'
-import { isLoggedIn } from 'store/selectors/auth'
+import { isLoggedIn } from '@vflows/store/selectors/auth'
 
 export type Props = {
   isLoggedIn: boolean,

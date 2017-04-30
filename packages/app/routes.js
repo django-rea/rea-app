@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, IndexRoute, IndexRedirect } from 'react-router'
 
-import App from 'components/App'
-import Todo from 'components/pages/Todo'
+import App from './main/App'
+import Todo from './pages/Todo'
 
 const routes = (
   <Route path="/" component={App}>

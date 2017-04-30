@@ -1,7 +1,7 @@
 import React from 'react'
 
-import PageTemplate from 'components/templates/PageTemplate'
-import Input from 'components/atoms/Input'
+import PageTemplate from '@vflows/views/templates/PageTemplate'
+import Input from '@vflows/views/atoms/Input'
 
 const HomePage = () => {
   return (

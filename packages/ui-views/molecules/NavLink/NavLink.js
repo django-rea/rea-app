@@ -11,10 +11,10 @@ import type { Element } from 'react'
 import React from 'react'
 import T from 'i18n-react'
 
-import Link from 'components/atoms/Link/Link'
+import Link from '../../atoms/Link/Link'
 
 type Props = {
-  theme: Object<string, Object<*>>,
+  theme: Object,
   icon?: Element<*>,
   href: string,
   labelText: string,  // not a raw string, should reference an i18n keyword

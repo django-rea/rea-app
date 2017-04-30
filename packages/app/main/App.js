@@ -12,7 +12,7 @@ import type { Element } from 'react'
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import SiteTemplate from 'components/templates/SiteTemplate'
+import SiteTemplate from '../views/SiteTemplate'
 
 import { assetUrl } from '../config'
 

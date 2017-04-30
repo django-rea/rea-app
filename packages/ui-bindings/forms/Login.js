@@ -7,17 +7,17 @@
  * @flow
  */
 
-import type { AppState } from 'store/types'
+import type { AppState } from '@vflows/store/types'
 
 import { reduxForm } from 'redux-form'
 import { gql, compose } from 'react-apollo'
 import { connect } from 'react-redux'
 
-import { graphqlWithSideEffects } from 'services/api'
-import * as AuthActions from 'store/actions/auth'
-import { hasLoginError, getLoginErrorMessage } from 'store/selectors/auth'
+import { graphqlWithSideEffects } from '@vflows/services/api'
+import * as AuthActions from '@vflows/store/actions/auth'
+import { hasLoginError, getLoginErrorMessage } from '@vflows/store/selectors/auth'
 
-import LoginForm from 'components/organisms/LoginForm'
+import LoginForm from '@vflows/views/organisms/LoginForm'
 
 // define the GraphQL to execute
 const loginQuery = gql`

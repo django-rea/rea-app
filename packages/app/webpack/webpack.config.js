@@ -14,6 +14,7 @@ const PUBLIC_PATH = `/${process.env.PUBLIC_PATH || ''}/`.replace('//', '/')
 const isVendor = ({ userRequest }) => (
   userRequest &&
   userRequest.indexOf('node_modules') >= 0 &&
+  userRequest.indexOf('@vflows') === -1 &&
   userRequest.match(/\.js$/)
 )
 
@@ -30,7 +31,7 @@ const svgLoaderPlugins = 'plugins[]=' + ([
 const config = {
   devtool: DEBUG ? 'eval-source-map' : false,
   entry: {
-    app: ['babel-polyfill', path.join(__dirname, '../src/client')],
+    app: ['babel-polyfill', path.join(__dirname, '../client')],
   },
   output: {
     path: path.join(__dirname, '../dist'),
@@ -38,7 +39,7 @@ const config = {
     publicPath: DEBUG ? `http://${ip}:${port}/` : PUBLIC_PATH,
   },
   resolve: {
-    modules: ['src', 'node_modules'],
+    modules: ['node_modules'],
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -73,7 +74,7 @@ const config = {
   ],
   module: {
     rules: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules\/(?!@vflows)/ },
       { test: /\.png$/, loader: 'url-loader?prefix=images/&limit=8000&mimetype=image/png' },
       { test: /\.jpg$/, loader: 'url-loader?prefix=images/&limit=8000&mimetype=image/jpeg' },
       { test: /\.woff$/, loader: 'url-loader?prefix=fonts/&limit=8000&mimetype=application/font-woff' },
