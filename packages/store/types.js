@@ -7,7 +7,7 @@
  * @flow
  */
 
-import type { AuthState } from '@vflows/store/reducers/auth'
+import type { AuthState } from './reducers/auth'
 
 // entire application state (combination of state from all reducers)
 export type AppState = {

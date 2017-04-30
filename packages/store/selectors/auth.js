@@ -7,7 +7,7 @@
  * @flow
  */
 
-import type { AppState } from '@vflows/store/types'
+import type { AppState } from '../types'
 
 import { createSelector } from 'reselect'
 
