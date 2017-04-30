@@ -45,7 +45,9 @@ Note that any commands installed via NPM or Yarn will only be available if you a
 
 ### Package Manager
 
-We strongly recommend you use [Yarn](https://yarnpkg.com/) to manage your module packages - it does the same things as NPM but is much faster. Contrary to the install instructions, the easiest way to install is via NPM: `npm i -g yarn`. Note however the following caveats:
+This repository actually uses _two_ package managers: [Lerna](https://lernajs.io/) & [Yarn](https://yarnpkg.com/). Lerna manages multi-package repositories (like this one), Yarn does the same thing as node's built-in package manager (NPM), but is much faster at it.
+
+Before starting, you must install Yarn globally. Contrary to the install instructions, the easiest way to install is via NPM: `npm i -g yarn`. Note however the following caveats:
 
 - If installed via NPM then Yarn is only available for the node version it was installed in.
 - Current versions of Yarn (0.17.x - 0.21.3) install global modules to their own location which does not play nicely with NVM. Use `npm i -g` instead of `yarn global add` for installing global packages, but feel free to use Yarn for all other package-related tasks.
@@ -129,4 +131,4 @@ The app accepts the following env vars to control its behaviour:
 - UI architecture based on [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) principles.
 - CSS is written with modern W3C css and processed via [PostCSS](https://www.npmjs.com/package/postcss) plugins. See http://cssnext.io/features/
     - *Caveat:* local files must be imported with **double quotes**! Otherwise, `postcss-import` won't combine them correctly.
-- Built with [pure view components](https://medium.com/@joshblack/stateless-components-in-react-0-14-f9798f8b992d) (`src/components`) bound to [Redux](http://redux.js.org/) by way of [higher-order components](https://facebook.github.io/react/docs/higher-order-components.html) (`src/containers`). Essentially the design goal is enforcing one-way dataflow and separation of concerns, this is done by writing the UI as simple functional transforms of `props` data (pure view components) which bind to a single application state (in Redux) by way of accessor functions which pull the data out (higher-order components). All data going back in is sent through Redux's reducers by way of firing a Redux action.
+- Built with [pure view components](https://medium.com/@joshblack/stateless-components-in-react-0-14-f9798f8b992d) (`packages/ui-views`) bound to [Redux](http://redux.js.org/) by way of [higher-order components](https://facebook.github.io/react/docs/higher-order-components.html) (`packages/ui-bindings`). Essentially the design goal is enforcing one-way dataflow and separation of concerns, this is done by writing the UI as simple functional transforms of `props` data (pure view components) which bind to a single application state (in Redux) by way of accessor functions which pull the data out (higher-order components). All data going back in is sent through Redux's reducers by way of firing a Redux action.
