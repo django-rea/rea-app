@@ -17,8 +17,6 @@ import { graphqlWithSideEffects } from '@vflows/services/api'
 import * as AuthActions from '@vflows/store/actions/auth'
 import { hasLoginError, getLoginErrorMessage } from '@vflows/store/selectors/auth'
 
-import LoginForm from '@vflows/views/organisms/LoginForm'
-
 // define the GraphQL to execute
 const loginQuery = gql`
   mutation($username: String!, $password: String!) {
@@ -46,4 +44,4 @@ export default compose(
     hasLoginError: hasLoginError(state),
     errorMessage: getLoginErrorMessage(state),
   })),
-)(LoginForm)
+)

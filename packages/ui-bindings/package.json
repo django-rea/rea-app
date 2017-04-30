@@ -40,7 +40,6 @@
   "dependencies": {
     "@vflows/services": "0.0.0",
     "@vflows/store": "0.0.0",
-    "@vflows/views": "0.0.0",
     "apollo-client": "^1.0.1",
     "babel-core": "^6.24.0",
     "babel-plugin-react-transform": "^2.0.2",

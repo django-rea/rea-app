@@ -9,7 +9,7 @@
 
 import React from 'react'
 
-import Form from '@vflows/bindings/forms/Login'
+import Form from '@vflows/views/organisms/LoginForm'
 
 import PageTemplate from '@vflows/views/templates/PageTemplate'
 
