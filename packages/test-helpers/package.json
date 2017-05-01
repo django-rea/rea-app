@@ -4,5 +4,8 @@
   "main": "bootstrap.js",
   "scripts": {
     "test": "echo \"No tests specified\" && exit 0"
+  },
+  "dependencies": {
+    "js-yaml": "^3.8.3"
   }
 }
