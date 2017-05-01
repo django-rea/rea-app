@@ -24,7 +24,7 @@ export type AuthState = {
   loginError: ?Error,
 };
 
-const initialState: AuthState = {
+export const initialState: AuthState = {
   activeLogin: -1,   // index of currently active login
   logins: [],        // list of current login session tokens
   // current login process status
