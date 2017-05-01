@@ -1,10 +1,10 @@
+import test from 'ava'
 import React from 'react'
 import { shallow } from 'enzyme'
-import Link from '.'
+import Component from '.'
 
-const wrap = (props = {}) => shallow(<Link {...props} />).dive()
+const wrapper = shallow(<Component />)
 
-it('renders props when passed in', () => {
-  const wrapper = wrap()
-  expect(wrapper.find(Link)).toHaveLength(1)
+test('should render', async t => {
+  t.is(wrapper.length, 1)
 })
