@@ -56,10 +56,6 @@ Before starting, you must install Yarn globally. Contrary to the install instruc
 
 - The [Redux Devtools Extension](http://extension.remotedev.io/) is a must-have for time-travel debugging and inspection of app state changes.
 - The [Redux dispatch CLI](https://github.com/jhen0409/redux-dispatch-cli) is a nice way of firing actions to the dispatcher for testing your app: `npm i -g redux-dispatch-cli`
-- The [Arc](https://github.com/diegohaz/arc) generator can be used to initialise common components. To access the commands `npm i -g yo generator-arc`:
-    - `yo arc:component` generates new React components for you
-    - `yo arc:container` generates container React components  ("[higher-order components](https://medium.com/@franleplant/react-higher-order-components-in-depth-cf9032ee6c3e)") for you
-    - `yo arc:store` generates new Redux data stores for you
 
 #### Linting
 
