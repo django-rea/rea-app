@@ -14,6 +14,7 @@ Note that many issues are logged only for gathering future requirements and exis
 - [Running locally for development](#running-locally-for-development)
     - [Recommended editor plugins](#recommended-editor-plugins)
     - [Environment variables](#environment-variables)
+    - [Running package commands individually](#running-package-commands-individually)
 - [Frameworks & conventions used](#frameworks--conventions-used)
 
 <!-- /MarkdownTOC -->
@@ -119,6 +120,10 @@ The app accepts the following env vars to control its behaviour:
 - `IP` and `PORT` specify the interface and port to listen on. Defaults to `0.0.0.0:3000`. If running in development, the `webpack-dev-server` will be run on `(port + 1)`.
 - `API_URL`: sets the base path to the OCP API. If not provided will default to `http://localhost:8000/api` for connecting to a local instance.
 - `PUBLIC_PATH` sets the base URL to the website. If not provided, will default to `/`.
+
+### Running package commands individually
+
+Since the repository is setup with Lerna, often when you try to run NPM commands within each packge rather than at the top level they won't be able to find the right dependencies. To workaround this, simply use Lerna's `scope` option to target the specific package, for example: `lerna run --scope @vflows/views test`.
 
 
 
