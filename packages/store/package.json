@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test ava",
+    "test": "cross-env NODE_ENV=test node -r @vflows/test-helpers node_modules/.bin/ava",
     "coverage": "nyc --reporter=lcov --reporter=html npm run test && nyc report",
     "lint": "eslint .",
     "build": "babel -w . -d dist --copy-files -s",
@@ -16,11 +16,13 @@
       "**/*.test.js"
     ],
     "require": [
-      "babel-register"
+      "babel-register",
+      "babel-polyfill"
     ],
     "babel": "inherit"
   },
   "devDependencies": {
+    "@vflows/test-helpers": "0.0.0",
     "ava": "^0.19.1",
     "babel-eslint": "^7.2.0",
     "babel-plugin-transform-remove-strict-mode": "^0.0.2",
