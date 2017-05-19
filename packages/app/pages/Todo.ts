@@ -4,7 +4,6 @@
  * @package: OCP app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-03-19
- * @flow
  */
 
 import React from 'react'
@@ -13,14 +12,14 @@ import PageTemplate from '@vflows/views/templates/PageTemplate'
 
 import CurrentUser from '@vflows/bindings/user/CurrentUser'
 
-type UserProps = {
+interface UserProps {
   data: {
     agent: {
       name: string, // :TODO: create custom HoC to help prehandle this output
     },
   },
   loading: bool,
-  error: ?Error,
+  error?: Error,
 };
 
 /* eslint no-nested-ternary: 0 */

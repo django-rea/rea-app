@@ -6,18 +6,17 @@
  * @package: REA app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-04-02
- * @flow
  */
 
-import type { Element } from 'react'
+import { Element } from 'react'
 
 import { connect } from 'react-redux'
 import { isLoggedIn } from '@vflows/store/selectors/auth'
 
-export type Props = {
+export interface Props {
   isLoggedIn: boolean,
-  children: ?Element<*>,
-  unauthenticatedComponent: ?Element<*>,
+  children?: Element,
+  unauthenticatedComponent?: Element,
 };
 
 const mapStateToProps = (state) => ({

@@ -40,6 +40,7 @@ const config = {
   },
   resolve: {
     modules: ['node_modules'],
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -74,6 +75,7 @@ const config = {
   ],
   module: {
     rules: [
+      { test: /\.ts$/, loader: 'ts-loader', exclude: /node_modules\/(?!@vflows)/ },
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules\/(?!@vflows)/ },
       { test: /\.png$/, loader: 'url-loader?prefix=images/&limit=8000&mimetype=image/png' },
       { test: /\.jpg$/, loader: 'url-loader?prefix=images/&limit=8000&mimetype=image/jpeg' },

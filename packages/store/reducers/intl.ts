@@ -6,14 +6,13 @@
  * @package: REA app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-03-31
- * @flow
  */
 
 import T from 'i18n-react'
 import { createReducer, createLeaf } from 'redux-action-helper'
 
-import type { LangSetActionPayload } from '../actions/intl'
-import type { LangSetActionFailedPayload, LangSetActionSucceededPayload } from '../sagas/intl'
+import { LangSetActionPayload } from '../actions/intl'
+import { LangSetActionFailedPayload, LangSetActionSucceededPayload } from '../sagas/intl'
 
 import { ACTION_SET_LANG, ACTION_SET_LANG_FAILED, ACTION_SET_LANG_SUCCEEDED } from '../constants'
 

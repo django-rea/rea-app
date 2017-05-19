@@ -4,14 +4,13 @@
  * @package: REA app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-04-05
- * @flow
  */
 
 import React from 'react'
 
 import Input from '../../atoms/Input'
 
-export type FieldProps = {
+export interface FieldProps {
   // bespoke
   placeholder: ?string,
   // added by redux-form

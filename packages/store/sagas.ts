@@ -4,7 +4,6 @@
  * @package: REA app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-03-15
- * @flow
  */
 
 import { fork } from 'redux-saga/effects'

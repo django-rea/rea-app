@@ -9,10 +9,9 @@
  * @package: REA app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-04-05
- * @flow
  */
 
-import type { ActionPayload, AppState } from '@vflows/store/types'
+import { ActionPayload, AppState } from '@vflows/store/types'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -29,10 +28,10 @@ import { isLoggedIn, getActiveLoginToken } from '@vflows/store/selectors/auth'
  * and the rest of the app, and it's unknown whether there is a better, more idiomatic way.
  */
 
-type GQLQuery = (...args: Array<any>) => Promise<*>;
-type StartNotifier = (...args: Array<any>) => Promise<*>;
-type ErrHandler = (e: Error) => void;
-type ResHandler = (res: Object) => void;
+interface GQLQuery { (...args: Array<any>) => Promise<*> };
+interface StartNotifier { (...args: Array<any>) => Promise<*> };
+interface ErrHandler { (e: Error) => void };
+interface ResHandler { (res: Object) => void };
 
 function apiHandler(queryCB: GQLQuery, errorHandler: ErrHandler, resultHandler: ?ResHandler, startNotifier: ?StartNotifier) {
   return async (...args: Array<any>) => {
@@ -58,7 +57,7 @@ function apiHandler(queryCB: GQLQuery, errorHandler: ErrHandler, resultHandler: 
  * Bind GraphQL queries to components which also update other parts of the Redux store
  */
 
-type ActionsDict = {
+interface ActionsDict {
   onFail: (e: Error) => ActionPayload,
   onSuccess:? (res: any) => ActionPayload,
   onNotify:? (...args: Array<any>) => ActionPayload,

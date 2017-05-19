@@ -4,22 +4,21 @@
  * @package: REA app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-03-31
- * @flow
  */
 
 import { createSimpleAction } from 'redux-action-helper'
 
 import { ACTION_SET_LANG } from '../constants'
 
-export type LangSetActionInput = {
+export interface LangSetActionInput {
   lang: string,
 };
 
-export type LangSetActionPayload = {
+export interface LangSetActionPayload {
   type: string,
   payload: LangSetActionInput,
 };
 
-export type LangSetActionFn = (LangSetActionInput) => LangSetActionPayload;
+export interface LangSetActionFn { (in: LangSetActionInput) => LangSetActionPayload };
 
 export const setLang: LangSetActionFn = createSimpleAction(ACTION_SET_LANG)

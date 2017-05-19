@@ -4,10 +4,9 @@
  * @package: OCP app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-03-19
- * @flow
  */
 
-import type { Element } from 'react'
+import { Element } from 'react'
 
 import React, { Component } from 'react'
 
@@ -19,8 +18,8 @@ import AppBar from '@vflows/views/organisms/AppBar'
 
 import LoginPage from '../../pages/Login'
 
-type Props = {
-  children?: Element<*>,
+interface Props {
+  children?: Element,
 };
 
 class SiteTemplate extends Component {

@@ -4,7 +4,6 @@
  * @package: REA app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-03-31
- * @flow
  */
 
 import React from 'react'
@@ -15,7 +14,7 @@ import Button from '../../atoms/Button'
 import Input from '../../molecules/FormInput'
 import FormError from '../../atoms/FormError'
 
-type Props = {
+interface Props {
   handleSubmit: () => void,
   hasLoginError: boolean,
   errorMessage: ?string,

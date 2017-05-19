@@ -5,19 +5,18 @@
  * @package: OCP app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-03-19
- * @flow
  */
 
-import type { Element } from 'react'
+import { Element } from 'react'
 
 import React from 'react'
 import themeable from 'react-themeable'
 import { Link as BaseLink } from 'react-router'
 
-type Props = {
+interface Props {
   theme: Object,
   href: string,
-  children: Element<*>,
+  children: Element,
 };
 
 const Link = ({ theme, children, href, ...props }: Props) => {

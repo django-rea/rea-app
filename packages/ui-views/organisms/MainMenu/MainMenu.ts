@@ -4,19 +4,18 @@
  * @package: OCP app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-03-19
- * @flow
  */
 
-import type { Router } from 'react-router'
+import { Router } from 'react-router';
 
-import React from 'react'
-import T from 'i18n-react'
-import { withRouter } from 'react-router'
+import React from 'react';
+import T from 'i18n-react';
+import { withRouter } from 'react-router';
 
-import { MenuItem, MenuDivider } from 'react-toolbox/lib/menu'
-import { FreedomCoopLogo, Checkbox, Person, Group, Exit } from '../../icons'
+import { MenuItem, MenuDivider } from 'react-toolbox/lib/menu';
+import { FreedomCoopLogo, Checkbox, Person, Group, Exit } from '../../icons';
 
-type Props = {
+interface Props {
   router: Router,
 };
 

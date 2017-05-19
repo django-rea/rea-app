@@ -4,18 +4,17 @@
  * @package: OCP app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-03-20
- * @flow
  */
 
-import type { Element } from 'react'
-import React from 'react'
-import T from 'i18n-react'
+import { Element } from 'react';
+import React from 'react';
+import T from 'i18n-react';
 
-import Link from '../../atoms/Link/Link'
+import Link from '../../atoms/Link/Link';
 
-type Props = {
+interface Props {
   theme: Object,
-  icon?: Element<*>,
+  icon?: Element,
   href: string,
   labelText: string,  // not a raw string, should reference an i18n keyword
 };

@@ -6,7 +6,6 @@
  * @package: OCP app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-03-19
- * @flow
  */
 
 import React from 'react'

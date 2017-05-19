@@ -6,10 +6,9 @@
  * @package: REA app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-03-19
- * @flow
  */
 
-import type { ApolloClient } from 'react-apollo'
+import { ApolloClient } from 'react-apollo'
 
 import { combineReducers } from 'redux'
 import { routerReducer as routing } from 'react-router-redux'

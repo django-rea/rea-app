@@ -4,10 +4,9 @@
  * @package: REA app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-03-31
- * @flow
  */
 
-import type { AppState } from '../types'
+import { AppState } from '../types'
 
 import { createSelector } from 'reselect'
 

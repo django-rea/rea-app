@@ -7,7 +7,6 @@
  * @package: REA app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-03-31
- * @flow
  */
 
 export const ACTION_SIGNIN = 'AUTH:SIGNIN'

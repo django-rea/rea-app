@@ -4,17 +4,16 @@
  * @package: REA app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-04-05
- * @flow
  */
 
-import type { Element } from 'react'
+import { Element } from 'react'
 
 import React from 'react'
 import themeable from 'react-themeable'
 
-type Props = {
+interface Props {
   theme: Object,
-  children: Element<*>,
+  children: Element,
 };
 
 const FormError = ({ theme, children }: Props) => (

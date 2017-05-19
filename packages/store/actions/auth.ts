@@ -8,10 +8,9 @@
  * @package: REA app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-03-31
- * @flow
  */
 
-import type { ActionPayload } from '../types'
+import { ActionPayload } from '../types'
 
 import { ACTION_SIGNIN, ACTION_SIGNIN_FAILED, ACTION_SIGNIN_SUCCEEDED } from '../constants'
 

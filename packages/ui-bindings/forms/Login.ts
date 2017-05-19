@@ -4,10 +4,9 @@
  * @package: REA app
  * @author:  pospi <pospi@spadgos.com>
  * @since:   2017-04-05
- * @flow
  */
 
-import type { AppState } from '@vflows/store/types'
+import { AppState } from '@vflows/store/types'
 
 import { reduxForm } from 'redux-form'
 import { gql, compose } from 'react-apollo'
