@@ -7,7 +7,6 @@
     "coverage": "nyc --reporter=lcov --reporter=html npm run test && nyc report",
     "lint": "eslint .",
     "build": "babel -w . -d dist --copy-files -s",
-    "postinstall": "flow-typed install",
     "heroku-postbuild": "npm run build"
   },
   "ava": {
@@ -33,7 +32,6 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-no-unused-vars-rest": "^1.0.4",
     "eslint-plugin-react": "^6.10.3",
-    "flow-bin": "^0.42.0",
     "nyc": "^10.2.0",
     "sinon": "^2.1.0"
   },
@@ -43,18 +41,16 @@
     "babel-core": "^6.24.0",
     "babel-plugin-react-transform": "^2.0.2",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
-    "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.3.0",
     "babel-polyfill": "^6.20.0",
     "babel-preset-env": "^1.2.2",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-1": "^6.16.0",
-    "eslint-plugin-flowtype": "^2.30.4",
-    "flow-typed": "^2.0.0",
     "react-apollo": "^1.0.0",
     "react-redux": "^5.0.1",
     "react-transform-catch-errors": "^1.0.2",
     "recompose": "^0.22.0",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "typescript": "^2.3.2"
   }
 }
