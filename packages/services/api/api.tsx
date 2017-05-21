@@ -33,7 +33,7 @@ interface StartNotifier { (...args: Array<any>) => Promise<*> };
 interface ErrHandler { (e: Error) => void };
 interface ResHandler { (res: Object) => void };
 
-function apiHandler(queryCB: GQLQuery, errorHandler: ErrHandler, resultHandler: ?ResHandler, startNotifier: ?StartNotifier) {
+function apiHandler(queryCB: GQLQuery, errorHandler: ErrHandler, resultHandler?: ResHandler, startNotifier?: StartNotifier) {
   return async (...args: Array<any>) => {
     if (startNotifier) {
       await startNotifier.apply(this, args)    // :IMPORTANT: for whatever whack reason, if you call this using ES6 destructuring everything breaks.

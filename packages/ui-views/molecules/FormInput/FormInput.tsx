@@ -12,10 +12,10 @@ import Input from '../../atoms/Input'
 
 export interface FieldProps {
   // bespoke
-  placeholder: ?string,
+  placeholder?: string,
   // added by redux-form
   input: {
-    checked: ?boolean,
+    checked?: boolean,
     name: string,
     onBlur: (any) => void,
     onChange: (any) => void,
@@ -30,7 +30,7 @@ export interface FieldProps {
     asyncValidating: boolean,
     dirty: boolean,
     dispatch: Function,
-    error: ?string,
+    error?: string,
     form: string,
     invalid: boolean,
     pristine: boolean,
@@ -39,7 +39,7 @@ export interface FieldProps {
     touched: boolean,
     valid: boolean,
     visited: boolean,
-    warning: ?string,
+    warning?: string,
   },
 };
 

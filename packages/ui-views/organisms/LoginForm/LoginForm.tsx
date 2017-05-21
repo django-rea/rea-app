@@ -17,7 +17,7 @@ import FormError from '../../atoms/FormError'
 interface Props {
   handleSubmit: () => void,
   hasLoginError: boolean,
-  errorMessage: ?string,
+  errorMessage?: string,
   submitting: boolean,
 };
 
