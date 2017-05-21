@@ -1,7 +1,7 @@
 {
   "name": "@vflows/app",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "index.tsx",
   "scripts": {
     "start": "node .",
     "dev": "cross-env NODE_ENV=development concurrently --kill-others \"npm run remotedev\" \"nodemon -w webpack/webpack-assets.json -w node_modules/@vflows .\" \"node webpack/webpack-dev-server\"",
