@@ -75,8 +75,8 @@ const config = {
   ],
   module: {
     rules: [
-      { test: /\.ts$/, loader: 'ts-loader', exclude: /node_modules\/(?!@vflows)/ },
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules\/(?!@vflows)/ },
+      { test: /\.tsx?$/, loader: 'awesome-typescript-loader', exclude: /node_modules\/(?!@vflows)/ },
+      { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules\/(?!@vflows)/ },
       { test: /\.png$/, loader: 'url-loader?prefix=images/&limit=8000&mimetype=image/png' },
       { test: /\.jpg$/, loader: 'url-loader?prefix=images/&limit=8000&mimetype=image/jpeg' },
       { test: /\.woff$/, loader: 'url-loader?prefix=fonts/&limit=8000&mimetype=application/font-woff' },
