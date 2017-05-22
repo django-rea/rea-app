@@ -6,25 +6,18 @@
     "test": "cross-env NODE_ENV=test node -r @vflows/test-helpers node_modules/.bin/ava",
     "coverage": "nyc --reporter=lcov --reporter=html npm run test && nyc report",
     "lint": "eslint .",
-    "build": "babel -w . -d dist --copy-files -s",
+    "build": "tsc",
     "heroku-postbuild": "npm run build"
   },
   "ava": {
     "files": [
       "*.test.js",
       "**/*.test.js"
-    ],
-    "require": [
-      "babel-register",
-      "babel-polyfill"
-    ],
-    "babel": "inherit"
+    ]
   },
   "devDependencies": {
     "@vflows/test-helpers": "0.0.0",
     "ava": "^0.19.1",
-    "babel-eslint": "^7.2.0",
-    "babel-plugin-transform-remove-strict-mode": "^0.0.2",
     "enzyme": "^2.7.0",
     "eslint": "^3.18.0",
     "eslint-config-airbnb": "^14.0.0",
@@ -40,14 +33,6 @@
   },
   "dependencies": {
     "@vflows/bindings": "0.0.0",
-    "babel-core": "^6.24.0",
-    "babel-plugin-react-transform": "^2.0.2",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.3.0",
-    "babel-polyfill": "^6.20.0",
-    "babel-preset-env": "^1.2.2",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-1": "^6.16.0",
     "i18n-react": "^0.3.0",
     "material-design-icons": "^3.0.1",
     "react": "^15.4.1",
