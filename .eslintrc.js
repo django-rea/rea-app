@@ -8,8 +8,7 @@ module.exports = {
   ],
   "plugins": [
     "no-unused-vars-rest",
-    "import",
-    "flowtype"
+    "import"
   ],
   "env": {
     "browser": true
