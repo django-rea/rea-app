@@ -28,10 +28,10 @@ import { isLoggedIn, getActiveLoginToken } from '@vflows/store/selectors/auth'
  * and the rest of the app, and it's unknown whether there is a better, more idiomatic way.
  */
 
-interface GQLQuery { (...args: Array<any>) => Promise<*> };
-interface StartNotifier { (...args: Array<any>) => Promise<*> };
-interface ErrHandler { (e: Error) => void };
-interface ResHandler { (res: Object) => void };
+interface GQLQuery { (...args: Array<any>): Promise<any> };
+interface StartNotifier { (...args: Array<any>): Promise<any> };
+interface ErrHandler { (e: Error): void };
+interface ResHandler { (res: Object): void };
 
 function apiHandler(queryCB: GQLQuery, errorHandler: ErrHandler, resultHandler?: ResHandler, startNotifier?: StartNotifier) {
   return async (...args: Array<any>) => {
@@ -57,10 +57,10 @@ function apiHandler(queryCB: GQLQuery, errorHandler: ErrHandler, resultHandler?:
  * Bind GraphQL queries to components which also update other parts of the Redux store
  */
 
-interface ActionsDict {
+export interface ActionsDict {
   onFail: (e: Error) => ActionPayload,
-  onSuccess:? (res: any) => ActionPayload,
-  onNotify:? (...args: Array<any>) => ActionPayload,
+  onSuccess?: (res: any) => ActionPayload,
+  onNotify?: (...args: Array<any>) => ActionPayload,
 };
 
 // $FlowFixMe need to find out correct type for gql output

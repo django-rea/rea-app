@@ -18,7 +18,7 @@ import AppBar from '@vflows/views/organisms/AppBar'
 
 import LoginPage from '../../pages/Login'
 
-interface Props {
+export interface Props {
   children?: Element,
 };
 

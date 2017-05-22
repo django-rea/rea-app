@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { Server } from 'express'
 import compression from 'compression'
 import morgan from 'morgan'
 import cookieParser from 'cookie-parser'
@@ -9,7 +9,7 @@ import { env } from './config'
 
 const root = path.join(__dirname, '../../..')
 
-export default (routes) => {
+const appFactory = (routes): Server => {
   const app = express()
 
   /* istanbul ignore next */
@@ -26,3 +26,5 @@ export default (routes) => {
 
   return app
 }
+
+export default appFactory;

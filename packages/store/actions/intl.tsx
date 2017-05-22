@@ -19,6 +19,6 @@ export interface LangSetActionPayload {
   payload: LangSetActionInput,
 };
 
-export interface LangSetActionFn { (in: LangSetActionInput) => LangSetActionPayload };
+export interface LangSetActionFn { (LangSetActionInput): LangSetActionPayload };
 
 export const setLang: LangSetActionFn = createSimpleAction(ACTION_SET_LANG)

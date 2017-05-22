@@ -17,6 +17,6 @@ req.keys().forEach((key) => {
 })
 
 // register all sagas into the same generator and fork to handle them separately
-export default function* (): Generator<*, *, *> {
+export default function* () {
   yield sagas.map(fork)
 }

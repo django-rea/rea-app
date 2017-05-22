@@ -17,7 +17,7 @@ import { assetUrl } from '../config'
 
 import './AppGlobals.css'
 
-interface Props {
+export interface Props {
   children: Element,
 };
 
