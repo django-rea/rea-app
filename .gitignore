@@ -7,3 +7,10 @@ node_modules
 /coverage
 /packages/app/webpack/webpack-assets.json
 flow-typed
+
+/packages/**/*.js
+/packages/**/*.d.ts
+!/packages/app/webpack/*.js
+!/packages/app/index.js
+!/packages/test-helpers/*.js
+!/packages/test-helpers/**/*.js
