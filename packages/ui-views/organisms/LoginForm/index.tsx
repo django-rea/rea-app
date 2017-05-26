@@ -6,7 +6,7 @@
  * @since:   2017-03-31
  */
 
-import React from 'react'
+import React, { SFC } from 'react'
 import { Field } from 'redux-form'
 import T from 'i18n-react'
 
@@ -15,13 +15,13 @@ import Input from '../../molecules/FormInput'
 import FormError from '../../atoms/FormError'
 
 interface Props {
-  handleSubmit: () => void,
-  hasLoginError: boolean,
+  handleSubmit?: () => void,
+  hasLoginError?: boolean,
   errorMessage?: string,
-  submitting: boolean,
-};
+  submitting?: boolean,
+}
 
-const LoginForm = ({ handleSubmit, hasLoginError, errorMessage, submitting }: Props) => (
+const LoginForm: SFC<Props> = ({ handleSubmit, hasLoginError, errorMessage, submitting }) => (
   <form onSubmit={handleSubmit}>
     <Field name="user" type="text" component={Input} placeholder="Username" />
     <Field name="pass" type="password" component={Input} placeholder="Password" />
