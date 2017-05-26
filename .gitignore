@@ -8,6 +8,7 @@ node_modules
 /packages/app/webpack/webpack-assets.json
 
 /packages/**/*.js
+/packages/**/*.js.map
 !/packages/app/webpack/*.js
 !/packages/app/index.js
 !/packages/test-helpers/*.js

@@ -1,18 +1,19 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "allowJs": true,
     "jsx": "react",
     "lib": [
       "dom",
-      "es5",
       "es2015"
     ],
     "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
     "moduleResolution": "node"
   },
   "include": [
-    "./packages/**/*.tsx"
+    "./custom.d.ts",
+    "./packages/**/*.tsx?"
   ],
   "exclude": [
     "*/node_modules/*"
