@@ -25,6 +25,13 @@
   "devDependencies": {
     "@vflows/test-helpers": "0.0.0",
     "ava": "^0.19.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-plugin-transform-remove-strict-mode": "0.0.2",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
     "concurrently": "^3.1.0",
     "connect-history-api-fallback": "^1.3.0",
     "css-loader": "0.26.4",
@@ -38,11 +45,11 @@
     "loader-utils": "^1.1.0",
     "nodemon": "^1.11.0",
     "nyc": "^10.2.0",
-    "postcss-loader": "1.1.0",
     "postcss-browser-reporter": "^0.5.0",
     "postcss-cssnext": "^2.10.0",
     "postcss-discard-comments": "^2.0.4",
     "postcss-import": "^9.1.0",
+    "postcss-loader": "1.1.0",
     "postcss-reporter": "^3.0.0",
     "postcss-scss": "^0.4.1",
     "postcss-strip-inline-comments": "^0.1.5",
@@ -50,9 +57,9 @@
     "react-addons-test-utils": "^15.4.1",
     "serve-static": "^1.12.1",
     "sinon": "^2.1.0",
+    "typescript": "^2.3.2",
     "webpack-dev-middleware": "^1.10.1",
-    "webpack-hot-middleware": "^2.17.1",
-    "typescript": "^2.3.2"
+    "webpack-hot-middleware": "^2.17.1"
   },
   "dependencies": {
     "@vflows/store": "0.0.0",
