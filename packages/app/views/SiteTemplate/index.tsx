@@ -28,15 +28,15 @@ interface State {
 
 class SiteTemplate extends Component<Props, State> {
   toggleDrawerActive() {
-    this.setState({ drawerActive: !this.state.drawerActive })
+    this.setState(Object.assign(this.state, { drawerActive: !this.state.drawerActive }))
   }
 
   toggleDrawerPinned() {
-    this.setState({ drawerPinned: !this.state.drawerPinned })
+    this.setState(Object.assign(this.state, { drawerPinned: !this.state.drawerPinned }))
   }
 
   toggleSidebar() {
-    this.setState({ sidebarPinned: !this.state.sidebarPinned })
+    this.setState(Object.assign(this.state, { sidebarPinned: !this.state.sidebarPinned }))
   }
 
   renderSite() {
