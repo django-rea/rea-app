@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "declaration": true,
     "allowSyntheticDefaultImports": true,
+    "allowJs": true,
     "jsx": "react",
     "lib": [
       "dom",
