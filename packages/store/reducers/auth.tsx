@@ -8,20 +8,16 @@
 
 import { createReducer, createLeaf } from 'redux-action-helper'
 
-import { SigninActionPayload, SigninFailedPayload, SigninSucceededPayload } from '../actions/auth'
+import { LoginData, SigninActionPayload, SigninFailedPayload, SigninSucceededPayload } from '../actions/auth'
 
 import { ACTION_SIGNIN, ACTION_SIGNIN_SUCCEEDED, ACTION_SIGNIN_FAILED } from '../constants'
 
-interface loginData {
-  token: string,  // :TODO: other stuff needs to be in here, we're just not sure what yet.
-};
-
 export interface AuthState {
   activeLogin: number,
-  logins: Array<loginData>,
+  logins: Array<LoginData>,
   isLoggingIn: boolean,
   loginError?: Error,
-};
+}
 
 export const initialState: AuthState = {
   activeLogin: -1,   // index of currently active login

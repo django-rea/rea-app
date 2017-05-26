@@ -1,6 +1,7 @@
 import test from 'ava'
 import Reducer from '../reducers/auth'
-import { initialState, signIn, signInFailed, signInSucceeded } from '../actions/auth'
+import { signIn, signInFailed, signInSucceeded } from '../actions/auth'
+import { initialState } from '../reducers/auth'
 
 test('should handle ACTION_SIGNIN', async t => {
   t.deepEqual(Reducer(initialState, signIn('testuser', 'testpass')), {

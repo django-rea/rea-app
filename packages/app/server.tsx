@@ -13,11 +13,13 @@ import Html from './main/Html'
 
 import { env, port, ip, basename } from './config'
 
-const router = new Router()
+declare var webpackIsomorphicTools
+
+const router = Router()
 
 router.use((req, res, next) => {
   if (env === 'development') {
-    global.webpackIsomorphicTools.refresh()
+    webpackIsomorphicTools.refresh()
   }
 
   const location = req.url.replace(basename, '')
@@ -62,7 +64,7 @@ router.use((req, res, next) => {
       )
 
       const initialState = store.getState()
-      const assets = global.webpackIsomorphicTools.assets()
+      const assets = webpackIsomorphicTools.assets()
       const state = `window.__INITIAL_STATE__ = ${serialize(initialState)}`
       const markup = <Html {...{ assets, state, content }} />
       const doctype = '<!doctype html>\n'

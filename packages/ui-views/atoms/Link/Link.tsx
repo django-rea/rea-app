@@ -7,7 +7,7 @@
  * @since:   2017-03-19
  */
 
-import { Element } from 'react'
+import { ReactElement } from 'react'
 
 import React from 'react'
 import themeable from 'react-themeable'
@@ -16,8 +16,8 @@ import { Link as BaseLink } from 'react-router'
 interface Props {
   theme: Object,
   href: string,
-  children: Element,
-};
+  children: ReactElement<any>,
+}
 
 const Link = ({ theme, children, href, ...props }: Props) => {
   const th = themeable(theme)
@@ -25,7 +25,8 @@ const Link = ({ theme, children, href, ...props }: Props) => {
   const activeClassName = th(2, 'linkActive').className
 
   return (
-    <BaseLink {...props}
+    <BaseLink
+      {...props}
       to={href}
       className={className}
       activeClassName={activeClassName}

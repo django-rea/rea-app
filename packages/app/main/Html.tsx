@@ -2,7 +2,16 @@
 import React, { PropTypes } from 'react'
 import Helmet from 'react-helmet'
 
-const Html = ({ assets, state, content }) => {
+interface Props {
+  assets: {
+    styles: Array<string>,
+    javascript: Array<string>,
+  },
+  state: string,
+  content: string,
+}
+
+const Html = ({ assets, state, content }: Props) => {
   const helmet = Helmet.rewind()
   const attrs = helmet.htmlAttributes.toComponent()
 
@@ -29,12 +38,6 @@ const Html = ({ assets, state, content }) => {
       </body>
     </html>
   )
-}
-
-Html.propTypes = {
-  assets: PropTypes.object.isRequired,
-  state: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
 }
 
 export default Html

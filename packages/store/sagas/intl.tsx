@@ -22,7 +22,7 @@ export interface LangSetActionFailedPayload {
     lang: string,
     error: Error,
   },
-};
+}
 
 export interface LangSetActionSucceededPayload {
   type: string,
@@ -30,12 +30,12 @@ export interface LangSetActionSucceededPayload {
     lang: string,
     intlData: Object,
   },
-};
+}
 
 export function* watchForLangChange({ payload }: LangSetActionPayload) { //: Generator<LangSetActionPayload, *, LangSetActionSucceededPayload | LangSetActionFailedPayload> {
   try {
-    const intl = yield call(Api.get, payload.lang) // :TODO: this doesn't work yet, needs to be hooked up to something real
-    yield put({ type: ACTION_SET_LANG_SUCCEEDED, lang: payload.lang, intlData: intl })
+    // const intl = yield call(Api.get, payload.lang) // :TODO: this doesn't work yet, needs to be hooked up to something real
+    yield put({ type: ACTION_SET_LANG_SUCCEEDED, lang: payload.lang, intlData: null })
   } catch (e) {
     yield put({ type: ACTION_SET_LANG_FAILED, lang: payload.lang, error: e })
   }

@@ -15,10 +15,6 @@ declare interface NodeRequire {
   context: Function,
 }
 
-declare interface Global {
-  webpackIsomorphicTools: any,
-}
-
 declare interface Window {
   __INITIAL_STATE__: string,
 }

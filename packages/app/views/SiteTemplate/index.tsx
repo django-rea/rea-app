@@ -6,9 +6,7 @@
  * @since:   2017-03-19
  */
 
-import { Element } from 'react'
-
-import React, { Component } from 'react'
+import React, { Component, ReactElement } from 'react'
 
 import AuthenticatedOnly from '@vflows/bindings/AuthenticatedOnly'
 
@@ -19,19 +17,16 @@ import AppBar from '@vflows/views/organisms/AppBar'
 import LoginPage from '../../pages/Login'
 
 export interface Props {
-  children?: Element,
-};
+  children?: ReactElement<any>,
+}
 
-class SiteTemplate extends Component {
-  //  :TODO: move this to Redux
-  state = {
-    drawerActive: false,
-    drawerPinned: false,
-    sidebarPinned: false,
-  };
+interface State {
+  drawerActive: false,
+  drawerPinned: false,
+  sidebarPinned: false,
+}
 
-  props: Props;
-
+class SiteTemplate extends Component<Props, State> {
   toggleDrawerActive() {
     this.setState({ drawerActive: !this.state.drawerActive })
   }

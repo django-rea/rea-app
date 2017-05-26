@@ -7,6 +7,6 @@
  */
 
 import bind from '@vflows/bindings/forms/Login'
-import LoginForm from './LoginForm'
+import LoginForm from './'
 
 export default bind(LoginForm)

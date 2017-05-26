@@ -1,6 +1,7 @@
 import test from 'ava'
 import Reducer from '../reducers/intl'
-import { initialState, setLang } from '../actions/intl'
+import { setLang } from '../actions/intl'
+import { initialState } from '../reducers/intl'
 import { ACTION_SET_LANG_FAILED, ACTION_SET_LANG_SUCCEEDED } from '../constants'
 
 const defaultIntl = require('../intl/en.yaml')

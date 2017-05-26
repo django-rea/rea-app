@@ -6,24 +6,24 @@
  * @since:   2017-03-19
  */
 
-import React from 'react'
+import React, { SFC } from 'react'
 import T from 'i18n-react'
 import PageTemplate from '@vflows/views/templates/PageTemplate'
 
 import CurrentUser from '@vflows/bindings/user/CurrentUser'
 
 interface UserProps {
-  data: {
+  data?: {
     agent: {
       name: string, // :TODO: create custom HoC to help prehandle this output
     },
   },
-  loading: bool,
+  loading?: boolean,
   error?: Error,
-};
+}
 
 /* eslint no-nested-ternary: 0 */
-const UsernameDisplay = CurrentUser(({ data, loading, error }: UserProps) => (
+const UsernameDisplay: SFC<UserProps> = CurrentUser(({ data, loading, error }) => (
   loading ? <strong>Loading...</strong> : (error ? <p style={{ color: '#F00' }}>API error</p> : <p>Hello, {data ? data.agent.name : 'nobody'}.</p>)
 ))
 

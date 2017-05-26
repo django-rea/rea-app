@@ -6,7 +6,7 @@
  * @since:   2017-03-19
  */
 
-import { Element } from 'react'
+import { ReactElement } from 'react'
 
 import React from 'react'
 import Helmet from 'react-helmet'
@@ -18,7 +18,7 @@ import { assetUrl } from '../config'
 require('./AppGlobals.css')
 
 export interface Props {
-  children: Element,
+  children: ReactElement<any>,
 }
 
 const App = ({ children }: Props) => {

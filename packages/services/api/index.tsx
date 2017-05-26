@@ -13,7 +13,7 @@
 
 import { ActionPayload, AppState } from '@vflows/store/types'
 
-import { bindActionCreators } from 'redux'
+import { bindActionCreators, ActionCreatorsMapObject } from 'redux'
 import { connect } from 'react-redux'
 import { gql, graphql, compose } from 'react-apollo'
 import { mapProps } from 'recompose'
@@ -28,10 +28,10 @@ import { isLoggedIn, getActiveLoginToken } from '@vflows/store/selectors/auth'
  * and the rest of the app, and it's unknown whether there is a better, more idiomatic way.
  */
 
-interface GQLQuery { (...args: Array<any>): Promise<any> };
-interface StartNotifier { (...args: Array<any>): Promise<any> };
-interface ErrHandler { (e: Error): void };
-interface ResHandler { (res: Object): void };
+interface GQLQuery { (...args: Array<any>): Promise<any> }
+interface StartNotifier { (...args: Array<any>): Promise<any> }
+interface ErrHandler { (e: Error): void }
+interface ResHandler { (res: Object): void }
 
 function apiHandler(queryCB: GQLQuery, errorHandler: ErrHandler, resultHandler?: ResHandler, startNotifier?: StartNotifier) {
   return async (...args: Array<any>) => {
@@ -57,14 +57,8 @@ function apiHandler(queryCB: GQLQuery, errorHandler: ErrHandler, resultHandler?:
  * Bind GraphQL queries to components which also update other parts of the Redux store
  */
 
-export interface ActionsDict {
-  onFail: (e: Error) => ActionPayload,
-  onSuccess?: (res: any) => ActionPayload,
-  onNotify?: (...args: Array<any>) => ActionPayload,
-};
-
 // $FlowFixMe need to find out correct type for gql output
-export function graphqlWithSideEffects(gqlQuery, actions: ActionsDict) {
+export function graphqlWithSideEffects(gqlQuery: any, actions: ActionCreatorsMapObject) {
   return compose(
     // bind Redux dispatcher via usual `connect` method so that GraphQL callbacks can access action creators
     // $FlowFixMe some issue with connect() and intersection types
@@ -72,12 +66,12 @@ export function graphqlWithSideEffects(gqlQuery, actions: ActionsDict) {
     // bind GraphQL to redux-form (note you can do this multiple times to provide multiple queries or mutations to the component)
     graphql(gqlQuery, {
       // wrap up the `mutate` call to make it easier to interact with, otherwise we just get raw `props.mutate`
-      props: ({ mutate, ownProps: { actions } }) => ({
+      props: ({ mutate, ownProps: { actions: boundActions } }) => ({
         requestLogin: apiHandler(
           (username: string, password: string) => mutate({ variables: { username, password } }),
-          actions.onFail,
-          actions.onSuccess,
-          actions.onNotify,
+          boundActions.onFail,
+          boundActions.onSuccess,
+          boundActions.onNotify,
         ),
       }),
     })

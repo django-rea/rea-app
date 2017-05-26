@@ -6,17 +6,17 @@
  * @since:   2017-04-05
  */
 
-import { Element } from 'react'
+import { ReactElement, SFC } from 'react'
 
 import React from 'react'
 import themeable from 'react-themeable'
 
 interface Props {
   theme: Object,
-  children: Element,
-};
+  children: ReactElement<any>,
+}
 
-const FormError = ({ theme, children }: Props) => (
+const FormError: SFC<Props> = ({ theme, children }) => (
   <div {...themeable(theme)(1, 'formError')}>{children}</div>
 )
 

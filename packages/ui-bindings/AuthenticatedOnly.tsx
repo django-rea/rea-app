@@ -8,16 +8,16 @@
  * @since:   2017-04-02
  */
 
-import { Element } from 'react'
+import { ReactElement } from 'react'
 
 import { connect } from 'react-redux'
 import { isLoggedIn } from '@vflows/store/selectors/auth'
 
 export interface Props {
   isLoggedIn: boolean,
-  children?: Element,
-  unauthenticatedComponent?: Element,
-};
+  children?: ReactElement<any>,
+  unauthenticatedComponent?: ReactElement<any>,
+}
 
 const mapStateToProps = (state) => ({
   isLoggedIn: isLoggedIn(state),

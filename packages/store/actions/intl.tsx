@@ -12,13 +12,13 @@ import { ACTION_SET_LANG } from '../constants'
 
 export interface LangSetActionInput {
   lang: string,
-};
+}
 
 export interface LangSetActionPayload {
   type: string,
   payload: LangSetActionInput,
-};
+}
 
-export interface LangSetActionFn { (LangSetActionInput): LangSetActionPayload };
+export interface LangSetActionFn { (i: LangSetActionInput): LangSetActionPayload }
 
 export const setLang: LangSetActionFn = createSimpleAction(ACTION_SET_LANG)

@@ -14,36 +14,42 @@ import { ActionPayload } from '../types'
 
 import { ACTION_SIGNIN, ACTION_SIGNIN_FAILED, ACTION_SIGNIN_SUCCEEDED } from '../constants'
 
-export type SigninActionPayload = {
+export interface LoginData {
+  token: string,  // :TODO: other stuff needs to be in here, we're just not sure what yet.
+}
+
+export interface LoginResponse {
+  createToken: LoginData,
+}
+
+export interface SigninActionPayload extends ActionPayload {
   payload: {
     username: string,
     password: string,
   },
-} & ActionPayload;
+}
 
 export const signIn = (username: string, password: string): SigninActionPayload => ({
   type: ACTION_SIGNIN,
   payload: { username, password },
 })
 
-
-export type SigninFailedPayload = {
+export interface SigninFailedPayload extends ActionPayload {
   payload: { error: Error },
-} & ActionPayload;
+}
 
 export const signInFailed = (e: Error): SigninFailedPayload => ({
   type: ACTION_SIGNIN_FAILED,
   payload: { error: e },
 })
 
-
-export type SigninSucceededPayload = {
+export interface SigninSucceededPayload extends ActionPayload {
   payload: {
-    response: Object, // :TODO: define this!
+    response: LoginResponse,
   },
-} & ActionPayload;
+}
 
-export const signInSucceeded = (response: Object): SigninSucceededPayload => ({
+export const signInSucceeded = (response: LoginResponse): SigninSucceededPayload => ({
   type: ACTION_SIGNIN_SUCCEEDED,
   payload: {
     response,

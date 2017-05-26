@@ -22,4 +22,6 @@ const config = {
   },
 }
 
-export default Object.assign({}, config.all, config[config.all.env])
+const conf = Object.assign({}, config.all, config[config.all.env])
+
+export = conf
