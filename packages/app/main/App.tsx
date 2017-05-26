@@ -13,7 +13,7 @@ import Helmet from 'react-helmet'
 
 import SiteTemplate from '../views/SiteTemplate'
 
-import { assetUrl } from '../config'
+const { assetUrl } = require('../config')
 
 require('./AppGlobals.css')
 

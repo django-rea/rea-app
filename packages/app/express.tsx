@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser'
 import bodyParser from 'body-parser'
 import path from 'path'
 
-import { env } from './config'
+const { env } = require('./config')
 
 const root = path.join(__dirname, '../../..')
 

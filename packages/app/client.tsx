@@ -7,8 +7,8 @@ import { Router, useRouterHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import configureStore from '@vflows/store/configure'
 
-import { basename } from './config'
 import routes from './routes'
+const { basename } = require('./config')
 
 // eslint-disable-next-line no-underscore-dangle
 const initialState = window.__INITIAL_STATE__

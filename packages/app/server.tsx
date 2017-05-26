@@ -11,7 +11,7 @@ import express from './express'
 import routes from './routes'
 import Html from './main/Html'
 
-import { env, port, ip, basename } from './config'
+const { env, port, ip, basename } = require('./config')
 
 declare var webpackIsomorphicTools
 
