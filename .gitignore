@@ -6,7 +6,6 @@ lerna-debug.log
 node_modules
 /coverage
 /packages/app/webpack/webpack-assets.json
-flow-typed
 
 /packages/**/*.js
 /packages/**/*.d.ts
