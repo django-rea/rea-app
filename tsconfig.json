@@ -4,16 +4,21 @@
     "jsx": "react",
     "lib": [
       "dom",
-      "es2015"
+      "es2015",
+      "es2017"
     ],
     "module": "commonjs",
     "target": "es5",
     "sourceMap": true,
     "moduleResolution": "node"
   },
-  "include": [
+  "files": [
     "./custom.d.ts",
-    "./packages/**/*.tsx?"
+    "./typings/index.d.ts"
+  ],
+  "include": [
+    "./packages/**/*.ts",
+    "./packages/**/*.tsx"
   ],
   "exclude": [
     "*/node_modules/*"
