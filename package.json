@@ -4,7 +4,7 @@
   "private": true,
   "main": "packages/app",
   "scripts": {
-    "postinstall": "npm run bootstrap",
+    "postinstall": "npm run bootstrap && typings install",
     "bootstrap": "lerna bootstrap --npm-client=yarn",
     "test": "lerna run test",
     "coverage": "lerna run coverage",
@@ -14,8 +14,8 @@
     "heroku-postbuild": "npm run build"
   },
   "devDependencies": {
-    "lerna": "^2.0.0-rc.4"
+    "lerna": "^2.0.0-rc.4",
+    "typings": "^2.1.1"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
