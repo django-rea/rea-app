@@ -1,4 +1,5 @@
 {
+  "delay": "350",
   "ignoreRoot": [".git", "bower_components", ".nyc_output", "coverage", ".sass-cache"],
   "ignore": ["node_modules/(!@vflows)"]
 }
