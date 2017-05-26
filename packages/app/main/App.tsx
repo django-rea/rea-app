@@ -15,11 +15,11 @@ import SiteTemplate from '../views/SiteTemplate'
 
 import { assetUrl } from '../config'
 
-import './AppGlobals.css'
+require('./AppGlobals.css')
 
 export interface Props {
   children: Element,
-};
+}
 
 const App = ({ children }: Props) => {
   return (
@@ -30,7 +30,8 @@ const App = ({ children }: Props) => {
         meta={[
           { name: 'description', content: '' },
           { property: 'og:site_name', content: 'FreedomCoop OCP' },
-          { property: 'og:image', content: `${assetUrl}/images/FreedomCoop_vertical_4c.png` }, // :TODO: finalise default share image
+          // :TODO: finalise default share image
+          { property: 'og:image', content: `${assetUrl}/images/FreedomCoop_vertical_4c.png` },
           { property: 'og:image:type', content: 'image/png' },
           { property: 'og:image:width', content: '679' },
           { property: 'og:image:height', content: '338' },

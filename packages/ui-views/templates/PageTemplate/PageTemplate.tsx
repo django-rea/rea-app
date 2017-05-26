@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './PageTemplate.css'
+const styles = require('./PageTemplate.css')
 
 const PageTemplate = (props) => {
   return (
