@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { iconButtonFactory } from 'react-toolbox/lib/button/IconButton'
 import FontIcon from 'react-toolbox/lib/font_icon/FontIcon'
 import rippleFactory from 'react-toolbox/lib/ripple/Ripple'

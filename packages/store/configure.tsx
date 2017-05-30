@@ -3,7 +3,7 @@ import { ApolloClient, createNetworkInterface } from 'react-apollo'
 import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import createSagaMiddleware from 'redux-saga'
-import persistState from 'redux-localstorage'
+import * as persistState from 'redux-localstorage'
 
 import reducer from './reducer'
 import sagas from './sagas'

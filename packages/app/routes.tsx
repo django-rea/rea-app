@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Route, IndexRoute, IndexRedirect } from 'react-router'
 
 import App from './main/App'

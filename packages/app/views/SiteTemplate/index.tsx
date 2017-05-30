@@ -6,7 +6,8 @@
  * @since:   2017-03-19
  */
 
-import React, { Component, ReactElement } from 'react'
+import * as React from 'react'
+import { Component, ReactElement } from 'react'
 
 import AuthenticatedOnly from '@vflows/bindings/AuthenticatedOnly'
 

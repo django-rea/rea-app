@@ -6,7 +6,7 @@
  * @since:   2017-04-05
  */
 
-import React from 'react'
+import * as React from 'react'
 
 import Input from '../../atoms/Input'
 

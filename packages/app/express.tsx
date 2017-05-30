@@ -1,9 +1,10 @@
-import express, { Application } from 'express'
-import compression from 'compression'
-import morgan from 'morgan'
-import cookieParser from 'cookie-parser'
-import bodyParser from 'body-parser'
-import path from 'path'
+import * as path from 'path'
+import * as express from 'express'
+import { Application } from 'express'
+import * as compression from 'compression'
+import * as morgan from 'morgan'
+import * as cookieParser from 'cookie-parser'
+import * as bodyParser from 'body-parser'
 
 const { env } = require('./config')
 

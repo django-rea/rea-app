@@ -9,8 +9,8 @@
 
 import { ReactElement } from 'react'
 
-import React from 'react'
-import themeable from 'react-themeable'
+import * as React from 'react'
+import * as themeable from 'react-themeable'
 import { Link as BaseLink } from 'react-router'
 
 interface Props {

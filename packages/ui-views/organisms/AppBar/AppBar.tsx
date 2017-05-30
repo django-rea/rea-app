@@ -6,7 +6,7 @@
  * @since:   2017-03-19
  */
 
-import React from 'react'
+import * as React from 'react'
 import { appBarFactory } from 'react-toolbox/lib/app_bar/AppBar'
 import Navigation from 'react-toolbox/lib/navigation'
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 import PageTemplate from '@vflows/views/templates/PageTemplate'
 import Input from '@vflows/views/atoms/Input'

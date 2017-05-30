@@ -8,8 +8,8 @@
 
 import { ReactElement, SFC } from 'react'
 
-import React from 'react'
-import themeable from 'react-themeable'
+import * as React from 'react'
+import * as themeable from 'react-themeable'
 
 interface Props {
   theme: Object,

@@ -1,5 +1,5 @@
 import test from 'ava'
-import React from 'react'
+import * as React from 'react'
 import { shallow } from 'enzyme'
 import { Menu as Component } from '.'   // we only need to test 1 of them!
 

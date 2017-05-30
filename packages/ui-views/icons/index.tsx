@@ -8,7 +8,7 @@
  * @since:   2017-03-19
  */
 
-import React from 'react'
+import * as React from 'react'
 
 const browser = typeof window !== 'undefined';
 

@@ -6,7 +6,7 @@
  * @since:   2017-03-28
  */
 
-import React from 'react'
+import * as React from 'react'
 
 export default (Component, theme, defaultProps = {}) => (props) => (
   <Component {...defaultProps} theme={theme} {...props} />

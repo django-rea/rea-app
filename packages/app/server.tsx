@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import React from 'react'
-import serialize from 'serialize-javascript'
+import * as React from 'react'
+import * as serialize from 'serialize-javascript'
 import { renderToString, renderToStaticMarkup } from 'react-dom/server'
 import { ApolloProvider } from 'react-apollo'
 import { createMemoryHistory, RouterContext, match } from 'react-router'

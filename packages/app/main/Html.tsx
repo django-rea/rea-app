@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
-import React, { PropTypes } from 'react'
-import Helmet from 'react-helmet'
+import * as React from 'react'
+import * as Helmet from 'react-helmet'
 
 interface Props {
   assets: {

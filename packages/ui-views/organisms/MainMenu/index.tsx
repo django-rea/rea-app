@@ -8,7 +8,7 @@
 
 import { Router } from 'react-router';
 
-import React from 'react';
+import * as React from 'react';
 import T from 'i18n-react';
 import { withRouter } from 'react-router';
 
