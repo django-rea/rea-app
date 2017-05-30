@@ -1,0 +1,142 @@
+html {
+  overflow-x: hidden;
+}
+
+html, body {
+  height: inherit;
+}
+
+body {
+  font-family: $sans;
+  font-size: 16px;
+  font-weight: $m-font-weight;
+  line-height: $m-line-height;
+  color: $p100;
+  background-color: $p500;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-backface-visibility: hidden;
+
+  &.gradient {
+    &:before {
+      content: "";
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: radial-gradient(ellipse at center, rgba(76,76,76,1) 0%,rgba(19,19,19,1) 100%);
+    }
+  }
+}
+
+
+::selection {
+  background-color: $p700;
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background-color: $p700;
+  text-shadow: none;
+}
+
+::-webkit-input-placeholder { color: $p300; opacity: .7; }
+::-moz-placeholder { color: $p300; opacity: .7; }
+:-ms-input-placeholder { color: $p300; opacity: .7; }
+input:-moz-placeholder { color: $p300; opacity: .7; }
+
+a {
+  text-decoration: none;
+  @include text-general-black($p100);
+  font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.rel {
+  position: relative;
+}
+
+.container_styleguide {
+  margin: 10px 0;
+  span {
+    margin-right: 10px;
+  }
+}
+
+#container {
+  padding-top: 130px;
+  padding-bottom: 90px;
+}
+
+// .page {
+//   padding: 0 20px;
+// }
+
+
+// COMPONENTS
+nav {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      float: left;
+      margin-right: 40px;
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+
+.App {
+  &.newContract {
+    #secondary_header {
+      display: none;
+    }
+    .page-newContract {
+      #secondary_header {
+        display: block;
+        .menu_title {
+          @include section-title();
+          margin-right: 30px;
+        }
+      }
+    }
+  }
+}
+
+.loader_active {
+  #sidebar_management {
+    top: 70px;
+  }
+  #wrapper {
+    top: 70px;
+  }
+  #secondary_header {
+    top: 70px;
+  }
+}
+
+.wrapper_inactive {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  cursor: wait;
+  /* opacity: 0.9; */
+  bottom: 0;
+  z-index: 9;
+}

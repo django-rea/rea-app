@@ -1,0 +1,55 @@
+// @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500,700');
+// @import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700');
+// Color
+$p900: #0E1116;
+$p700: #f7f7f7;
+$p500: #f9f9f9;
+$p300: #55606d;
+$p200: #435058;
+$p100: #2C302E;
+$accent-700: #dba317;
+$accent-500: #E26D5A;
+$green: #25BD2A;
+$red: #b32e40;
+$blue: #55b8ec;
+$gray: #C2C7CC;
+
+// Typography
+$lato: 'Fira Sans', sans-serif;
+$sans: $lato;
+
+// Font Size
+$xs-font-size: 11px;
+$s-font-size: 13px;
+$m-font-size: 14px;
+$l-font-size: 18px;
+$xl-font-size: 27px;
+
+// Line Height
+$m-line-height: 20px;
+$l-line-height: 30px;
+
+// Font Weight
+$s-font-weight: 300;
+$m-font-weight: 400;
+$xm-font-weight: 700;
+$l-font-weight: 900;
+
+// Letter Spacing
+$s-letter-spacing: 1px;
+$m-letter-spacing: 2px;
+
+// z-index
+$z1: 100;
+$z2: 200;
+$z3: 300;
+$z4: 400;
+$z5: 500;
+$zmedium: 10000;
+$zmax: 10000000;
+
+// Dimension
+$distance: 10px;
+
+// Components
+$separator: .5px solid rgba(245,245,245, .1);
