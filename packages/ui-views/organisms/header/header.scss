@@ -1,0 +1,132 @@
+// Primary Header
+#main_header {
+  position: fixed;
+  top: 0;
+  left: 60px;
+  margin-right: 60px;
+  z-index: $zmax;
+  background-color: #fff;
+  height: 60px;
+  color: $p100;
+  position: relative;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  .header_title {
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: $p900;
+    line-height: 60px;
+    font-weight: 400;
+    float: left;
+  }
+  .header_menu {
+    @include clearfix;
+    margin-left: 20px;
+    float: right;
+    margin-top: 0px;
+    .menu_list {
+      list-style: none;
+      padding-left: 10px;
+      padding-right: 10px;
+      margin: 0;
+      display: inline-block;
+      @include clearfix;
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        width: 1px;
+        top: 20px;
+        display: block;
+        bottom: 20px;
+        left: 0;
+        background: #d7d7d7;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        top: 20px;
+        display: block;
+        bottom: 20px;
+        right: 0;
+        background: #d7d7d7;
+      }
+      .list_item {
+        @include text-mini($p100);
+        margin-right: 25px;
+        margin-bottom: 0;
+        position: relative;
+        float: left;
+        margin-right: 50px;
+        a {
+          @include text-mini-black($p100);
+        position: relative;
+        font-weight: 500;
+        height: 30px;
+        text-transform: uppercase;
+        display: block;
+          height: 60px;
+        text-transform: uppercase;
+        display: block;
+        margin-top: 0;
+        line-height: 60px;
+        &.active {
+          color: $accent-500;
+          &:after {
+          position: absolute;
+          content: '';
+          bottom: -1px;
+          height: 1px;
+          width: 100%;
+          left: 0;
+          background: $accent-500;
+      }
+    }
+        }
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+    .menu_search {
+      float: left;
+      margin-right: 30px;
+      input {
+        border: 0;
+        height: 60px;
+      }
+    }
+
+    .menu_profile {
+      display: inline-block;
+      @include clearfix;
+      h4 {
+        @include text-mini-black($p900);
+        float: left;
+        line-height: 40px;
+        margin-right: 10px;
+        margin-left: 20px;
+        height: 60px;
+        line-height: 60px;
+      }
+      .profile_image {
+        background: url('../images/prof.jpg');
+        background-size: cover;
+        height: 32px;
+        width: 32px;
+        border-radius: 100%;
+        float: left; 
+        background-position: center center;
+        margin-right: 20px;
+        margin-top: 14px;
+      }
+      .icon-dots-three-vertical {
+        line-height: 60px;
+        float: right;
+      }
+    }
+  }
+}
+
