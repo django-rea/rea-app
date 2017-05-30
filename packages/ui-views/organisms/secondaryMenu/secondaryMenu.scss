@@ -1,0 +1,39 @@
+#secondaryMenu {
+    height: 60px;
+    background: white;
+    border-bottom: 1px solid #E9E9E9;
+    .menu_list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        @include clearfix;
+        padding-left: 20px;
+        .list_item {
+            float: left;
+            height: 60px;
+            position: relative;
+            cursor: pointer;
+            margin-right: 70px;
+            &.active {
+                font-weight: 700;
+                a {
+                  color: $accent-500;
+                }
+                &:after {
+                    position: absolute;
+                    content: "";
+                    left: 0px;
+                    right: 0px;
+                    height: 3px;
+                    bottom: 0;
+                    display: block;
+                    background: $accent-500;
+                }
+            }
+            a {
+              line-height: 60px;
+              font-size: 14px;
+            }
+        }
+    }
+}
