@@ -1,0 +1,88 @@
+#aside {
+  position: fixed;
+  width: 60px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: #495D63;
+  .aside_bottom {
+    position: absolute;
+    bottom: 20px;
+    .icon-plus {
+      width: 32px;
+      height: 32px;
+      border-radius: 2px;
+      margin-left: 14px;
+      background: #566B71;
+      display: block;
+      vertical-align: middle;
+      text-align: center;
+      line-height: 32px;
+      color: white;
+    }
+  }
+  .aside_logo {
+    width: 21px;
+    height: 30px;
+    display: block;
+    margin-left: 15px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    background: url(../images/logo.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: 20px;
+  }
+  .aside_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    .list_item {
+      width: 32px;
+      height: 32px;
+      border: 1px solid white; 
+      border-radius: 2px;
+      margin-left: 14px;
+      margin-bottom: 20px;
+      position: relative;
+      background: white;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top center; 
+      &.active {
+        &:before {
+          content: "";
+          position: absolute;
+          left: -14px;
+          width: 4px;
+          top: -2px;
+          bottom: -2px;
+          background: #4ECDC4;
+          display: block;
+        }
+      }
+      &:nth-child(1) {
+          background-image: url('../images/fcoin.png');    
+      }
+      &:nth-child(2) {
+          background-image: url('../images/fcoop.png');    
+      }
+      &:nth-child(3) {
+          background-image: url('../images/fsaving.png');    
+      }
+      &:nth-child(4) {
+          background-image: url('../images/fcredit.png');    
+      }
+      a {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+      .link_image {
+        
+      }
+    }
+  }
+}
