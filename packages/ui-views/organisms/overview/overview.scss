@@ -1,0 +1,41 @@
+#overview {
+    height: 120px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0, .2);
+    margin: 30px 20px 10px 20px;
+    border-radius: 4px;
+    background: white;
+    .medium-3 {
+        &:last-of-type {
+        .overview_item {
+            position: static;
+        }
+     }
+    }
+    .overview_item {
+        position: relative;
+        &:after {
+            position: absolute;
+            content: "";
+            right: 0;
+            width: 1px;
+            top: 10px;
+            bottom: 10px;
+            background: #E9E9E9;
+            display: block;
+        }
+        .item_qty {
+            font-size: 54px;
+            letter-spacing: 5px;
+            line-height: 50px;
+            font-weight: 100;
+            color: $p100;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .item_title {
+            margin-top: 10px;
+            @include text-general-black($p100);
+            text-align: center;
+        }
+    }
+}
