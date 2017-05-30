@@ -1,0 +1,39 @@
+#members {
+    margin: 0 20px;
+    background: #495D63;
+    border-radius: 2px;
+    height: 40px;
+    .members_title {
+        float: left;
+        @include text-general-black(white);
+        line-height: 40px;
+        margin-left: 10px;
+        height: 40px;
+        vertical-align: middle;
+    }
+    .members_link {
+        color: white;
+        float: right;
+        @include text-mini-black(white);
+        text-transform: uppercase;
+        margin-right: 10px;
+        line-height: 40px;
+    }
+    .members_list {
+        display: inline-block;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        margin-left: 20px;
+        @include clearfix;
+        .list_item {
+            float: left;
+            border-radius: 100%;
+            width: 24px;
+            height: 24px;
+            border: 1px solid white;
+            margin-right: 10px;
+            margin-top: 8px;
+        }
+    }
+}
