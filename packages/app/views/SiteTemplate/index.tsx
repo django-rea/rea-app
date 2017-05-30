@@ -28,6 +28,8 @@ interface State {
 }
 
 class SiteTemplate extends Component<Props, State> {
+  state = {}
+
   toggleDrawerActive() {
     this.setState(Object.assign(this.state, { drawerActive: !this.state.drawerActive }))
   }
