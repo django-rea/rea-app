@@ -11,9 +11,15 @@ import { Component, ReactElement } from 'react'
 
 import AuthenticatedOnly from '@vflows/bindings/AuthenticatedOnly'
 
-import { Layout, NavDrawer, Sidebar, Panel } from '@vflows/views/templates/Layout'
-import MainMenu from '@vflows/views/organisms/MainMenu'
-import AppBar from '@vflows/views/organisms/AppBar'
+// import { Layout, NavDrawer, Panel } from '@vflows/views/templates/Layout'
+
+import Header from '@vflows/views/organisms/Header'
+// import Aside from '@vflows/views/organisms/Aside'
+// import Sidebar from '@vflows/views/organisms/Sidebar'
+// import ProjectDescription from '@vflows/views/organisms/ProjectDescription'
+// import Overview from '@vflows/views/organisms/Overview'
+
+
 
 import LoginPage from '../../pages/Login'
 
@@ -22,46 +28,38 @@ export interface Props {
 }
 
 interface State {
-  drawerActive: false,
-  drawerPinned: false,
-  sidebarPinned: false,
+  // drawerActive: false,
+  // drawerPinned: false,
+  // sidebarPinned: false,
 }
 
 class SiteTemplate extends Component<Props, State> {
   state = {}
 
-  toggleDrawerActive() {
-    this.setState(Object.assign(this.state, { drawerActive: !this.state.drawerActive }))
-  }
+  // toggleDrawerActive() {
+  //   this.setState(Object.assign(this.state, { drawerActive: !this.state.drawerActive }))
+  // }
 
-  toggleDrawerPinned() {
-    this.setState(Object.assign(this.state, { drawerPinned: !this.state.drawerPinned }))
-  }
+  // toggleDrawerPinned() {
+  //   this.setState(Object.assign(this.state, { drawerPinned: !this.state.drawerPinned }))
+  // }
 
-  toggleSidebar() {
-    this.setState(Object.assign(this.state, { sidebarPinned: !this.state.sidebarPinned }))
-  }
+  // toggleSidebar() {
+  //   this.setState(Object.assign(this.state, { sidebarPinned: !this.state.sidebarPinned }))
+  // }
 
   renderSite() {
     return (
-      <Layout>
-        <NavDrawer active={this.state.drawerActive}
-          pinned={this.state.drawerPinned} permanentAt="xxxl"
-          onOverlayClick={() => this.toggleDrawerActive()}
-        >
-          <MainMenu />
-        </NavDrawer>
+      /*<Layout>
         <Panel>
-          <AppBar leftIcon="menu" onLeftIconClick={() => this.toggleDrawerActive()} />
+          <Header />
           {this.props.children}
-        </Panel>
-        <Sidebar pinned={this.state.sidebarPinned} width={5}>
-          { /*
-          <div><IconButton icon='close' onClick={() => this.toggleSidebar()}/></div>
-          -- SIDEBAR CONTENT (context menu for row items) --
-          */ }
-        </Sidebar>
-      </Layout>
+        </Panel>          
+      </Layout>*/
+      <div className='app'>
+        <Header />
+          {this.props.children}
+      </div>
     )
   }
 
