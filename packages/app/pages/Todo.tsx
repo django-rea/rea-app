@@ -6,7 +6,8 @@
  * @since:   2017-03-19
  */
 
-import React, { SFC } from 'react'
+import * as React from 'react'
+import { SFC } from 'react'
 import T from 'i18n-react'
 import PageTemplate from '@vflows/views/templates/PageTemplate'
 
