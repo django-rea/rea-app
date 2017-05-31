@@ -5,6 +5,7 @@ const WebpackMd5Hash = require('webpack-md5-hash')
 const loaderUtils = require('loader-utils')
 const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin')
 const webpackIsomorphicToolsConfig = require('./webpack-isomorphic-tools')
+const postCSSModuleComponents = require('postcss-modules-component-plugin');
 
 const ip = process.env.IP || '0.0.0.0'
 const port = (+process.env.PORT + 1) || 3001
@@ -48,29 +49,6 @@ const config = {
       'process.env.PUBLIC_PATH': JSON.stringify(PUBLIC_PATH),
       'process.env.API_URL': JSON.stringify(process.env.API_URL || 'http://localhost:8000/api/graph'),
     }),
-    new webpack.LoaderOptionsPlugin({
-      test: /\.css$/,
-      options: {
-        postcss: (webpack) => {
-          return {
-            plugins: [
-              require("postcss-import")({ addDependencyTo: webpack }),
-              require("postcss-url")(),
-              require("postcss-cssnext")(),
-              // add your "plugins" here
-              // ...
-              require('postcss-strip-inline-comments')(),
-              require('postcss-discard-comments')(),
-              // and if you want to compress,
-              // just use css-loader option that already use cssnano under the hood
-              require("postcss-browser-reporter")(),
-              require("postcss-reporter")(),
-            ],
-            syntax: require('postcss-scss'),
-          }
-        },
-      },
-    }),
     new ExtractTextPlugin('app.css'),
   ],
   module: {
@@ -86,10 +64,24 @@ const config = {
   },
 }
 
-const styleLoaders = [{
+const moduleLoaderPlugin = require('postcss-modules')({
+  generateScopedName: function(name, filename, css) {
+    const res = postCSSModuleComponents.scopedName(name, filename, css);
+    return res;
+  },
+  getJSON: function(cssFileName, json) {
+    // fs.writeFileSync(path.join(webBuildDir, 'meta', getCssMetaFileName(cssFileName)), JSON.stringify(json));
+    return postCSSModuleComponents.writer(cssFileName, json);
+  },
+});
+
+postCSSModuleComponents.setLocalModuleNameFormat('c[hash:base64:5]');
+postCSSModuleComponents.setGlobalModulesWhitelist(require('./global-scss-modules-whitelist'));
+
+const styleLoaders = (cssMode) => [{
   loader: 'css-loader',
   options: {
-    modules: true,
+    modules: cssMode,   // postCSS needs to handle modules itself to prevent imports having global scope
     sourceMap: true,
     importLoaders: 1,
     getLocalIdent: (context, localIdentName, localName, options) =>
@@ -104,6 +96,63 @@ const styleLoaders = [{
   options: {
     sourceMap: true,
     sourceComments: true,
+    plugins: (loader) => cssMode ? [
+    // W3C CSS preprocessing pipeline
+      require('postcss-import')({ root: loader.resourcePath }),
+      require("postcss-url")(),
+      // require("postcss-cssnext")(), (not ready for postCSS 6, so injecting manually...)
+        require("postcss-custom-properties")(),
+        require("postcss-apply")(),
+        require("postcss-calc")(),
+        require("postcss-image-set-polyfill")(),
+        require("postcss-nesting")(),
+        require("postcss-custom-media")(),
+        require("postcss-media-minmax")(),
+        require("postcss-custom-selectors")(),
+        require("postcss-attribute-case-insensitive")(),
+        require("postcss-color-rebeccapurple")(),
+        require("postcss-color-hwb")(),
+        require("postcss-color-hsl")(),
+        require("postcss-color-rgb")(),
+        require("postcss-color-gray")(),
+        require("postcss-color-hex-alpha")(),
+        require("postcss-color-function")(),
+        require("postcss-font-family-system-ui")(),
+        require("postcss-font-variant")(),
+        require("pleeease-filters")(),
+        require("postcss-initial")(),
+        require("pixrem")(),
+        require("postcss-pseudoelements")(),
+        require("postcss-selector-matches")(),
+        require("postcss-selector-not")(),
+        require("postcss-pseudo-class-any-link")(),
+        require("postcss-color-rgba-fallback")(),
+        require("postcss-replace-overflow-wrap")(),
+        require("autoprefixer")(),
+      // end cssnext ...
+      require('postcss-strip-inline-comments')(),
+      require('postcss-discard-comments')(),
+      require("postcss-browser-reporter")(),
+      require("postcss-reporter")(),
+    ] : [
+    // SCSS preprocessing pipeline
+      require('postcss-import')({
+        root: loader.resourcePath,
+        plugins: [moduleLoaderPlugin],  // handle modules first so we can determine filename to handle global mode
+      }),
+      moduleLoaderPlugin,
+      require('postcss-sassy-mixins')(),
+      require('postcss-advanced-variables')(),
+      require('postcss-nested')(),
+      // require('postcss-functions')({ functions: ... })
+      require('postcss-sass-color-functions')(),
+      require('postcss-automath')(),
+      require("postcss-url")(),
+      require('postcss-strip-inline-comments')(),
+      require('postcss-discard-comments')(),
+      require("autoprefixer")(),
+    ],
+    syntax: 'postcss-scss',
   },
 }]
 
@@ -125,7 +174,16 @@ if (DEBUG) {
     // loader: 'style-loader!css-loader?modules&importLoaders=1&sourceMap!postcss-loader?sourceMap&sourceComments',
     use: [{
       loader: 'style-loader',
-    }].concat(styleLoaders),
+    }].concat(styleLoaders(true)),
+  })
+  config.module.rules.push({
+    test: /\.scss$/,
+    // loader: 'style-loader!css-loader?modules&importLoaders=1&sourceMap!postcss-loader?sourceMap&sourceComments',
+    use: [{
+      loader: 'style-loader',
+    }, {
+      loader: postCSSModuleComponents.loader(),
+    }].concat(styleLoaders(false)),
   })
 } else {
   config.output.filename = '[name].[chunkHash].js'
@@ -145,8 +203,19 @@ if (DEBUG) {
     test: /\.css$/,
     loader: ExtractTextPlugin.extract({
       fallback: 'style-loader',
-      use: styleLoaders,
+      use: styleLoaders(true),
     }),
+  })
+  config.module.rules.push({
+    test: /\.scss$/,
+    loaders: [
+      'style-loader',
+      postCSSModuleComponents.loader(),
+      ExtractTextPlugin.extract({
+        fallback: [],
+        use: styleLoaders(false),
+      }),
+    ],
   })
 }
 
