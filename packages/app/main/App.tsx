@@ -15,7 +15,7 @@ import SiteTemplate from '../views/SiteTemplate'
 
 const { assetUrl } = require('../config')
 
-require('./AppGlobals.css')
+require('./AppGlobals.scss')
 
 export interface Props {
   children: ReactElement<any>,
