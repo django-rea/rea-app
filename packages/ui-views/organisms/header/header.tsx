@@ -1,4 +1,4 @@
-import * React from 'react'
+import * as React from 'react'
 import {Component} from 'react'
 
 interface Props {}
@@ -8,7 +8,7 @@ interface State {
 }
 
 class Header extends Component<Props, State> {
-    state = {}
+    state = { action: false }
 
     constructor () {
         super()
