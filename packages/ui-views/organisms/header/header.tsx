@@ -1,6 +1,15 @@
-import React, {Component} from 'react'
+import * React from 'react'
+import {Component} from 'react'
 
-class Header extends Component {
+interface Props {}
+
+interface State {
+  action: boolean,
+}
+
+class Header extends Component<Props, State> {
+    state = {}
+
     constructor () {
         super()
         this.toggleDropdown = this.toggleDropdown.bind(this)
@@ -8,7 +17,7 @@ class Header extends Component {
             action: false
         }
     }
-    toggleDropdown (e) {
+    toggleDropdown (e: Event) {
         this.setState({
             action: !this.state.action
         })
