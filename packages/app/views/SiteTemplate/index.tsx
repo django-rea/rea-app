@@ -13,7 +13,7 @@ import AuthenticatedOnly from '@vflows/bindings/AuthenticatedOnly'
 
 // import { Layout, NavDrawer, Panel } from '@vflows/views/templates/Layout'
 
-import Header from '@vflows/views/organisms/Header'
+import Header from '@vflows/views/organisms/header'
 // import Aside from '@vflows/views/organisms/Aside'
 // import Sidebar from '@vflows/views/organisms/Sidebar'
 // import ProjectDescription from '@vflows/views/organisms/ProjectDescription'
@@ -54,7 +54,7 @@ class SiteTemplate extends Component<Props, State> {
         <Panel>
           <Header />
           {this.props.children}
-        </Panel>          
+        </Panel>
       </Layout>*/
       <div className='app'>
         <Header />
