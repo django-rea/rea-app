@@ -1,15 +1,1 @@
-// @import "header.scss";
-#main_header {
-  position: fixed;
-  top: 0;
-  left: 60px;
-  margin-right: 60px;
-  z-index: $zmax;
-  background-color: #fff;
-  height: 60px;
-  color: $p100;
-  position: relative;
-  padding-left: 20px;
-  padding-right: 20px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
-}
+@import "header.scss";
