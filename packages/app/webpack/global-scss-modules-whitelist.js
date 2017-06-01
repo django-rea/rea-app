@@ -9,8 +9,5 @@
 
 module.exports = [
   /\/node_modules\//,               // <-- this is the default
-  /(ui-|@vflows\/)views\/base\.scss$/,
-  /(ui-|@vflows\/)views\/mixin\.scss$/,
-  /(ui-|@vflows\/)views\/typography\.scss$/,
-  /(ui-|@vflows\/)views\/variables\.scss$/,
+  /\.scss$/,
 ];
