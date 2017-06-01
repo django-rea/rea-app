@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as themeable from 'react-themeable';
+import * as themeable from 'react-themeable'
 import { SFC } from 'react'
 
 interface State {
@@ -10,7 +10,7 @@ interface Props {
   theme: Object
 }
 
-const Header: SFC<{Props}> = (theme) => (
+const Header: SFC<Props> = ({ theme }) => (
     <header {...themeable(theme)(1, 'main_header')} >
         <h2  {...themeable(theme)(2, 'header_title')}>FreedomCoop</h2>
         <div className='header_menu'>
