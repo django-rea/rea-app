@@ -1,0 +1,85 @@
+@mixin text-mini($color) {
+  font-size: $xs-font-size;
+  font-weight: $m-font-weight;
+  line-height: $m-line-height;
+  letter-spacing: $m-letter-spacing;
+  color: $color;
+}
+
+
+@mixin text-mini-black($color) {
+  font-size: $xs-font-size;
+  font-weight: $l-font-weight;
+  line-height: $m-line-height;
+  letter-spacing: $m-letter-spacing;
+  color: $color;
+}
+
+
+@mixin text-general($color) {
+  font-size: $s-font-size;
+  font-weight: $m-font-weight;
+  line-height: $m-line-height;
+  letter-spacing: $m-letter-spacing;
+  color: $color;
+}
+
+
+@mixin text-general-black($color) {
+  font-size: $s-font-size;
+  font-weight: $l-font-weight;
+  line-height: $m-line-height;
+  letter-spacing: $m-letter-spacing;
+  color: $color;
+}
+
+
+@mixin text-mini-title($color) {
+  font-size: $l-font-size;
+  font-weight: $m-font-weight;
+  line-height: $l-line-height;
+  letter-spacing: $m-letter-spacing;
+  color: $color;
+}
+
+
+@mixin text-mini-title-black($color) {
+  font-size: $l-font-size;
+  font-weight: $l-font-weight;
+  line-height: $l-line-height;
+  letter-spacing: $m-letter-spacing;
+  color: $color;
+}
+
+
+@mixin text-title-light($color) {
+  font-size: $xl-font-size;
+  font-weight: $s-font-weight;
+  line-height: $l-line-height;
+  letter-spacing: $s-letter-spacing;
+  color: $color;
+}
+
+
+@mixin text-title-regular($color) {
+  font-size: $xl-font-size;
+  font-weight: $m-font-weight;
+  line-height: $l-line-height;
+  letter-spacing: $s-letter-spacing;
+  color: $color;
+}
+
+@mixin section-title() {
+  @include text-mini-black($p100);
+  text-transform: uppercase;
+  position: relative;
+  &:after {
+    position: absolute;
+    content:'';
+    width: 30px;
+    height: 2px;
+    background-color: $accent-500;
+    left:0;
+    bottom: -4px;
+  }
+}
