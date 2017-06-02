@@ -19,7 +19,7 @@
     "@vflows/test-helpers": "0.0.0",
     "ava": "^0.19.1",
     "cross-env": "^3.2.4",
-    "enzyme": "^2.7.0",
+    "enzyme": "^2.8.2",
     "eslint": "^3.18.0",
     "eslint-config-airbnb": "^14.0.0",
     "eslint-import-resolver-webpack": "^0.8.1",
