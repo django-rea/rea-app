@@ -19,7 +19,7 @@ import Sidebar from '@vflows/views/organisms/Sidebar'
 import SecondaryMenu from '@vflows/views/organisms/SecondaryMenu'
 import ProjectDescription from '@vflows/views/organisms/ProjectDescription'
 import Overview from '@vflows/views/organisms/Overview'
-
+import Members from '@vflows/views/organisms/Members'
 
 
 import LoginPage from '../../pages/Login'
@@ -57,7 +57,7 @@ class SiteTemplate extends Component<Props, State> {
           {this.props.children}
         </Panel>
       </Layout>*/
-      <div className='app'>
+      <div>
         <Header />
         <Aside />
         <Sidebar />
@@ -65,6 +65,7 @@ class SiteTemplate extends Component<Props, State> {
           <SecondaryMenu />
           <ProjectDescription />
           <Overview />
+          <Members />
         </article>
         {/*{this.props.children}*/}
       </div>
