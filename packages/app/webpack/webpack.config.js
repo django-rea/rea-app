@@ -5,7 +5,6 @@ const WebpackMd5Hash = require('webpack-md5-hash')
 const loaderUtils = require('loader-utils')
 const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin')
 const webpackIsomorphicToolsConfig = require('./webpack-isomorphic-tools')
-const postCSSModuleComponents = require('postcss-modules-component-plugin');
 
 const ip = process.env.IP || '0.0.0.0'
 const port = (+process.env.PORT + 1) || 3001
@@ -64,24 +63,10 @@ const config = {
   },
 }
 
-const moduleLoaderPlugin = require('postcss-modules')({
-  generateScopedName: function(name, filename, css) {
-    const res = postCSSModuleComponents.scopedName(name, filename, css);
-    return res;
-  },
-  getJSON: function(cssFileName, json) {
-    // fs.writeFileSync(path.join(webBuildDir, 'meta', getCssMetaFileName(cssFileName)), JSON.stringify(json));
-    return postCSSModuleComponents.writer(cssFileName, json);
-  },
-});
-
-postCSSModuleComponents.setLocalModuleNameFormat('c[hash:base64:5]');
-postCSSModuleComponents.setGlobalModulesWhitelist(require('./global-scss-modules-whitelist'));
-
 const styleLoaders = (cssMode) => [{
   loader: 'css-loader',
   options: {
-    modules: cssMode,   // postCSS needs to handle modules itself to prevent imports having global scope
+    modules: true,
     sourceMap: true,
     importLoaders: 1,
     getLocalIdent: (context, localIdentName, localName, options) =>
@@ -91,13 +76,14 @@ const styleLoaders = (cssMode) => [{
         { content: `${options.hashPrefix}${context.resourcePath}+${localName}` }
       ),
   },
-}, {
+}, cssMode
+// W3C CSS preprocessing pipeline
+? {
   loader: 'postcss-loader',
   options: {
     sourceMap: true,
     sourceComments: true,
-    plugins: (loader) => cssMode ? [
-    // W3C CSS preprocessing pipeline
+    plugins: (loader) => [
       require('postcss-import')({ root: loader.resourcePath }),
       require("postcss-url")(),
       // require("postcss-cssnext")(), (not ready for postCSS 6, so injecting manually...)
@@ -134,25 +120,16 @@ const styleLoaders = (cssMode) => [{
       require('postcss-discard-comments')(),
       require("postcss-browser-reporter")(),
       require("postcss-reporter")(),
-    ] : [
-    // SCSS preprocessing pipeline
-      require('postcss-import')({
-        root: loader.resourcePath,
-        plugins: [moduleLoaderPlugin],  // handle modules first so we can determine filename to handle global mode
-      }),
-      moduleLoaderPlugin,
-      require('postcss-sassy-mixins')(),
-      require('postcss-advanced-variables')(),
-      require('postcss-nested')(),
-      // require('postcss-functions')({ functions: ... })
-      require('postcss-sass-color-functions')(),
-      require('postcss-automath')(),
-      require("postcss-url")(),
-      require('postcss-strip-inline-comments')(),
-      require('postcss-discard-comments')(),
-      require("autoprefixer")(),
     ],
     syntax: 'postcss-scss',
+  },
+}
+// SCSS preprocessing pipeline
+: {
+  loader: 'sass-loader',
+  options: {
+    sourceMap: true,
+    sourceComments: true,
   },
 }]
 
@@ -181,8 +158,6 @@ if (DEBUG) {
     // loader: 'style-loader!css-loader?modules&importLoaders=1&sourceMap!postcss-loader?sourceMap&sourceComments',
     use: [{
       loader: 'style-loader',
-    }, {
-      loader: postCSSModuleComponents.loader(),
     }].concat(styleLoaders(false)),
   })
 } else {
@@ -208,14 +183,10 @@ if (DEBUG) {
   })
   config.module.rules.push({
     test: /\.scss$/,
-    loaders: [
-      'style-loader',
-      postCSSModuleComponents.loader(),
-      ExtractTextPlugin.extract({
-        fallback: [],
-        use: styleLoaders(false),
-      }),
-    ],
+    loader: ExtractTextPlugin.extract({
+      fallback: 'style-loader',
+      use: styleLoaders(false),
+    }),
   })
 }
 
