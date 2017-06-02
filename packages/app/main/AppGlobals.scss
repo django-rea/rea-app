@@ -38,6 +38,19 @@ body {
   }
 }
 
+article {
+  padding-top: 0px;
+  padding-bottom: 50px;
+  height: 100vh;
+  left: 60px;
+  right: 320px;
+  top: 60px;
+  position: fixed;
+  overflow: overlay;
+  &.no-side {
+    padding-left: 0;
+  }
+}
 
 ::selection {
   background-color: $p700;
@@ -102,34 +115,7 @@ nav {
 }
 
 
-.App {
-  &.newContract {
-    #secondary_header {
-      display: none;
-    }
-    .page-newContract {
-      #secondary_header {
-        display: block;
-        .menu_title {
-          @include section-title();
-          margin-right: 30px;
-        }
-      }
-    }
-  }
-}
 
-.loader_active {
-  #sidebar_management {
-    top: 70px;
-  }
-  #wrapper {
-    top: 70px;
-  }
-  #secondary_header {
-    top: 70px;
-  }
-}
 
 .wrapper_inactive {
   position: fixed;
