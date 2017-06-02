@@ -12,6 +12,7 @@ interface Props {
 
 const Header: SFC<Props> = ({ theme }) => {
     let currentTheme = themeable(theme)
+    console.log(currentTheme)
     return (
         <header {...currentTheme(1, 'main_header')} >
             <h2  {...currentTheme(2, 'header_title')}>FreedomCoop</h2>
