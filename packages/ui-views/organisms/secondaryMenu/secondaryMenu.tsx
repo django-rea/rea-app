@@ -1,28 +1,34 @@
-import React, {Component} from 'react'
+import * as React from 'react'
+import * as themeable from 'react-themeable'
+import { SFC } from 'react'
 
-class SecondaryMenu extends Component {
+interface Props {
+  theme: Object
+}
 
-  render () {
+
+const SecondaryMenu: SFC<Props> = ({ theme }) => {
+  let currentTheme = themeable(theme)
     return (
-      <section id='secondaryMenu'>
-        <ul className='menu_list'>
-            <li className='list_item active'>
-                <a className='item_link'>
+      <section {...currentTheme(0, 'secondaryMenu')}>
+        <ul {...currentTheme(1, 'menu_list')} >
+            <li {...currentTheme(2, 'list_item', 'active')} >
+                <a {...currentTheme(3, 'item_link')} >
                     Overview
                 </a>
             </li>
-            <li className='list_item'>
-                <a className='item_link'>
+            <li {...currentTheme(4, 'list_item')} >
+                <a {...currentTheme(5, 'item_link')} >
                     Processes
                 </a>
             </li>
-            <li className='list_item'>
-                <a className='item_link'>
+            <li {...currentTheme(6, 'list_item')} >
+                <a {...currentTheme(7, 'item_link')} >
                     Contributions
                 </a>
             </li>
-            <li className='list_item'>
-                <a className='item_link'>
+            <li {...currentTheme(8, 'list_item')} >
+                <a {...currentTheme(9, 'item_link')} >
                     Members
                 </a>
             </li>

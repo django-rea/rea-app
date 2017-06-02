@@ -1,0 +1,227 @@
+@mixin clearfix {
+  &:before, &:after {
+    content: " ";
+    display: table; }
+  &:after {
+    clear: both; }
+}
+
+@mixin transition($time) {
+  transition: all $time ease-in-out;
+}
+
+@mixin transition-out($time) {
+  transition: all $time ease-out;
+}
+
+@mixin transition-opacity($time) {
+  transition: opacity $time ease-in-out;
+}
+
+@mixin delay($time) {
+  transition-delay: $time;
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+@mixin circle {
+  @include border-radius(50%);
+  overflow: hidden;
+}
+
+@mixin box-shadow($top, $left, $blur, $size, $color, $inset: false) {
+  @if $inset {
+    box-shadow:inset $top $left $blur $size $color;
+  } @else {
+    box-shadow: $top $left $blur $size $color;
+  }
+}
+
+@mixin origin($x, $y) {
+  transform-origin: $x $y;
+}
+
+@mixin rotate($deg) {
+  transform: rotate($deg);
+}
+
+@mixin scale($scale) {
+  transform: scale($scale);
+}
+
+@mixin rotate-scale($deg, $scale) {
+  transform: rotate($deg) scale($scale);
+}
+
+@mixin translate($x, $y) {
+  transform: translate($x, $y);
+}
+
+@mixin rotate-translate($deg, $x, $y) {
+  transform: rotate($deg) translate($x, $y);
+}
+
+@mixin cover {
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+@mixin contain {
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+@mixin vertical-align-absolute {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+@mixin remove-vertical-align {
+  position: relative;
+  top: initial;
+  transform: translate(0, 0);
+}
+
+@mixin content-box {
+  background-clip: content-box;
+}
+
+@mixin truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+@mixin gradient-admin {
+  stroke: #0ceaf2; /* Old browsers */
+  stroke: -moz-linear-gradient(top,  #0ceaf2 0%, #55b8ec 100%); /* FF3.6-15 */
+  stroke: -webkit-linear-gradient(top,  #0ceaf2 0%,#55b8ec 100%); /* Chrome10-25,Safari5.1-6 */
+  stroke: linear-gradient(to bottom,  #0ceaf2 0%,#55b8ec 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+
+
+
+@mixin gradient-cover {
+  position: relative;
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,.4);
+    background: linear-gradient(-180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.20) 62%, rgba(0,0,0,0.80) 100%);
+    opacity: 1;
+    @include transition(.3s);
+  }
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,.8);
+    background: linear-gradient(-180deg, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.80) 62%, rgba(0,0,0,0.80) 100%);
+    opacity: 0;
+    @include transition(.3s);
+  }
+}
+
+@mixin gradient-cover-hover {
+  position: relative;
+  &:before {
+    opacity: 0;
+  }
+  &:after {
+    opacity: 1;
+  }
+}
+
+@mixin shadow-1 {
+  @include box-shadow(0, 1px, 2px, 0, rgba(0,0,0,.5));
+}
+
+@mixin shadow-2 {
+  @include box-shadow(0, 5px, 10px, 0, rgba(0,0,0,.5));
+}
+
+@mixin dropdown {
+    opacity: 0;
+    visibility: hidden;
+    //top: 40px;
+    position: absolute;
+    width: 120px;
+    @include transition(.3s);
+    //top: 30px;
+    border-radius: 4px;
+    &:before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 8px solid $p100;
+      top: 3px;
+      left: 50%;
+      margin-left: -4px;
+    }
+    .secondary_list {
+      list-style: none;
+      padding-left: 0;
+      margin-left: 0;
+      background: $p100;
+      position: relative;
+      border-radius: 4px;
+      @include text-mini-black($p700);
+      &.with_icon {
+        .list_item {
+          text-align: left;
+          padding-left: 20px;
+        }
+      }
+      .list_item {
+        border-bottom: 1px solid $p200;
+        padding: 10px;
+        @include transition(.3s);
+        cursor: pointer;
+
+        span {
+          float: right;
+          @include clearfix;
+        }
+        i {
+          display: inline-block;
+          line-height: 22px;
+          color: $p500;
+          text-align: center;
+          font-size: 14px;
+          margin-left: 0;
+          margin-right: 10px;
+          vertical-align: baseline;
+        }
+        &:last-of-type {
+          border-bottom: 0;
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+      }
+    }
+}
