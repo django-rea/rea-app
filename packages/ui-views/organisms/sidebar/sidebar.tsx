@@ -12,9 +12,9 @@ const Sidebar: SFC<Props> = ({ theme }) => {
     <aside {...currentTheme(1, 'sidebar')} >
         <div {...currentTheme(2, 'sidebar_menu')} >
           <a {...currentTheme(3, 'menu_link')} >Currency</a>
-          <a {...currentTheme(4, 'menu_link active')} >Inventory</a>
+          <a {...currentTheme(4, 'menu_link', 'active')} >Inventory</a>
         </div>
-        <section {...currentTheme(5, 'sidebar_inventory active')} >
+        <section {...currentTheme(5, 'sidebar_inventory', 'active')} >
           <div {...currentTheme(6, 'sidebar_search')} >
             <input placeholder='Search in inventory' />
             <span {...currentTheme(7, 'icon-magnifying-glass')} />

@@ -18,7 +18,7 @@ const Header: SFC<Props> = ({ theme }) => {
             <h2  {...currentTheme(2, 'header_title')}>FreedomCoop</h2>
             <div {...currentTheme(3, 'header_menu')} >
                 <div {...currentTheme(4, 'menu_search')} >
-                    <input {...currentTheme(5, 'search input')} placeholder='Search' />
+                    <input {...currentTheme(5, 'search', 'input')} placeholder='Search' />
                     <span {...currentTheme(6, 'icon-magnifying-glass')} />
                 </div>
                 <ul {...currentTheme(7, 'menu_list')} >
