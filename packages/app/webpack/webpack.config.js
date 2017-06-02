@@ -77,6 +77,11 @@ const styleLoaders = (cssMode) => [{
       ),
   },
 }, cssMode
+? false
+: {
+  loader: 'resolve-url-loader'
+},
+cssMode
 // W3C CSS preprocessing pipeline
 ? {
   loader: 'postcss-loader',
@@ -131,7 +136,7 @@ const styleLoaders = (cssMode) => [{
     sourceMap: true,
     sourceComments: true,
   },
-}]
+}].filter(i => !!i)
 
 if (DEBUG) {
   config.entry.app.unshift(
