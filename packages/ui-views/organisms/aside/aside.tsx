@@ -18,7 +18,7 @@ const Aside: SFC<Props> = ({ theme }) => {
                     <span {...currentTheme(6, 'link_image')} />
                 </a>
             </li>
-            <li {...currentTheme(7, 'list_item active')}>
+            <li {...currentTheme(7, 'list_item', 'active')}>
                 <a {...currentTheme(8, 'item_link')} >
                     <span {...currentTheme(9, 'link_image')} />
                 </a>
