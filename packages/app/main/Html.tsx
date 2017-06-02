@@ -22,7 +22,7 @@ const Html = ({ assets, state, content }: Props) => {
         {helmet.meta.toComponent()}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {helmet.link.toComponent()}
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans:200,400,600,800" rel="stylesheet" />
         {Object.keys(assets.styles).map((style, i) =>
           <link
             href={assets.styles[style]} key={i} media="screen, projection"
