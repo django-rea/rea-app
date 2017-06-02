@@ -14,10 +14,11 @@ import AuthenticatedOnly from '@vflows/bindings/AuthenticatedOnly'
 // import { Layout, NavDrawer, Panel } from '@vflows/views/templates/Layout'
 
 import Header from '@vflows/views/organisms/header'
-// import Aside from '@vflows/views/organisms/Aside'
-// import Sidebar from '@vflows/views/organisms/Sidebar'
-// import ProjectDescription from '@vflows/views/organisms/ProjectDescription'
-// import Overview from '@vflows/views/organisms/Overview'
+import Aside from '@vflows/views/organisms/Aside'
+import Sidebar from '@vflows/views/organisms/Sidebar'
+import SecondaryMenu from '@vflows/views/organisms/SecondaryMenu'
+import ProjectDescription from '@vflows/views/organisms/ProjectDescription'
+import Overview from '@vflows/views/organisms/Overview'
 
 
 
@@ -58,7 +59,14 @@ class SiteTemplate extends Component<Props, State> {
       </Layout>*/
       <div className='app'>
         <Header />
-          {this.props.children}
+        <Aside />
+        <Sidebar />
+        <article>
+          <SecondaryMenu />
+          <ProjectDescription />
+          <Overview />
+        </article>
+        {/*{this.props.children}*/}
       </div>
     )
   }
