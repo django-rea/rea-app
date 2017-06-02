@@ -1,4 +1,4 @@
-#sidebar {
+.sidebar {
     position: fixed;
     right: 0;
     top: 60px;
@@ -34,7 +34,6 @@
             }
         }
     }
-    .sidebar_inventory {
      .sidebar_search {
          position: relative;
          border-bottom: 1px solid #E9E9E9;
@@ -120,5 +119,4 @@
              }
          }
      }   
-    }
 }
