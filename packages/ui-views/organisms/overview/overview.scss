@@ -1,9 +1,11 @@
 .overview {
-    height: 120px;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0, .2);
-    margin: 30px 20px 10px 20px;
-    border-radius: 4px;
+    // height: 120px;
+    box-shadow: 0 2px 0 1px rgba(0,0,0,.1);
+    margin: 40px 40px 10px 40px;
+    border-radius: 2px;
     background: white;
+    padding-top: 20px; 
+    padding-bottom: 40px;
     .medium-3 {
         &:last-of-type {
         .overview_item {

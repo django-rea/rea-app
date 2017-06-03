@@ -27,6 +27,19 @@ const List: SFC<Props> = ({ theme }) => {
                     <span />
                 </div>
             </div>
+            <div {...currentTheme(14, 'item_info')}>
+                <h3 {...currentTheme(15, 'info_name')}>LynnFhoster</h3>
+                <h2 {...currentTheme(16, 'info_title')}>Process title blabla</h2>
+                <div {...currentTheme(17, 'info_description')}>lorem ipsum bablabla lorem ipsum bablabla lorem ipsum bablabla</div>
+                <div {...currentTheme(18, 'info_actions')}>
+                    <span {...currentTheme(19, 'actions_tasks')}>6 tasks</span>
+                    <span {...currentTheme(20, 'actions_date')}>5 Jun 2017</span>
+                </div>
+                <div {...currentTheme(21, 'item_actions')}>
+                    <button {...currentTheme(22, 'actions_open')}>open</button>
+                    <span />
+                </div>
+            </div>
         </div>
       </section>
     )

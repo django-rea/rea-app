@@ -1,16 +1,28 @@
 .list {
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    background: white;
+    box-shadow: 0 2px 0 1px rgba(0,0,0,.1);
+    border-radius: 2px;
+    padding: 20px;
     .list_info {
         .info_title {
             @include text-general($p900);
             padding-bottom: 5px;
+            margin-left: -20px;
+            margin-right: -20px;
+            padding-left: 20px;
             border-bottom: 1px solid rgba(0,0,0, .1);
-            margin-bottom: 20px;
+            height: 40px;
+            line-height: 40px;
+            margin-top: -20px;
         }
     }
     .list_item {
         @include clearfix;
+        margin-left: -20px;
+        margin-right: -20px;    
         .item_actions {
             float: right;
             margin-top: -80px;
@@ -25,8 +37,9 @@
             }
         }
         .item_info {
-            padding-bottom: 20px;
+            padding: 20px;
             border-bottom: 1px solid #e9e9e9;
+            padding-bottom: 20px;
             .info_name {
               @include text-general-black($p900);
               margin-bottom: 5px;

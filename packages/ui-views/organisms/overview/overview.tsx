@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as themeable from 'react-themeable'
 import { SFC } from 'react'
+import ProjectDescription from '../ProjectDescription'
 
 interface Props {
   theme: Object
@@ -10,6 +11,7 @@ const Overview: SFC<Props> = ({ theme }) => {
     let currentTheme = themeable(theme)
     return (
      <section {...currentTheme(0, 'overview')}>
+         <ProjectDescription />
          <div {...currentTheme(1, 'row')}>
              <div {...currentTheme(2, 'medium-3', 'columns')}>
                  <div {...currentTheme(3, 'overview_item')}>

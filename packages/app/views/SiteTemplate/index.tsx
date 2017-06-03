@@ -17,7 +17,7 @@ import Header from '@vflows/views/organisms/header'
 import Aside from '@vflows/views/organisms/Aside'
 import Sidebar from '@vflows/views/organisms/Sidebar'
 import SecondaryMenu from '@vflows/views/organisms/SecondaryMenu'
-import ProjectDescription from '@vflows/views/organisms/ProjectDescription'
+
 import Overview from '@vflows/views/organisms/Overview'
 import Members from '@vflows/views/organisms/Members'
 import List from '@vflows/views/organisms/List'
@@ -64,7 +64,6 @@ class SiteTemplate extends Component<Props, State> {
         <Sidebar />
         <article>
           <SecondaryMenu />
-          <ProjectDescription />
           <Overview />
           <Members />
           <List />
