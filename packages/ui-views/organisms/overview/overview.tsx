@@ -11,6 +11,7 @@ const Overview: SFC<Props> = ({ theme }) => {
     let currentTheme = themeable(theme)
     return (
      <section {...currentTheme(0, 'overview')}>
+        <h4 {...currentTheme(18, 'overview_title')} >Overview</h4>
          <ProjectDescription />
          <div {...currentTheme(1, 'row')}>
              <div {...currentTheme(2, 'medium-3', 'columns')}>

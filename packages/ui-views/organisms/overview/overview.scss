@@ -4,8 +4,15 @@
     margin: 40px 40px 10px 40px;
     border-radius: 2px;
     background: white;
-    padding-top: 20px; 
     padding-bottom: 40px;
+    .overview_title {
+        @include text-mini-black($p900);
+        text-transform: uppercase;
+        border-bottom: 1px solid rgba(0,0,0,.1);
+        height: 40px;
+        line-height: 40px;
+        padding-left: 40px;
+    }
     .medium-3 {
         &:last-of-type {
         .overview_item {
