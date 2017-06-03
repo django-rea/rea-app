@@ -8,7 +8,6 @@ interface Props {
 
 const Aside: SFC<Props> = ({ theme }) => {
   let currentTheme = themeable(theme)
-  console.log(this)
   return (
       <aside {...currentTheme(1, 'aside')} >
         <span {...currentTheme(2, 'aside_logo')} />
