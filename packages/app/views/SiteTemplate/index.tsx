@@ -20,6 +20,7 @@ import SecondaryMenu from '@vflows/views/organisms/SecondaryMenu'
 import ProjectDescription from '@vflows/views/organisms/ProjectDescription'
 import Overview from '@vflows/views/organisms/Overview'
 import Members from '@vflows/views/organisms/Members'
+import List from '@vflows/views/organisms/List'
 
 
 import LoginPage from '../../pages/Login'
@@ -66,6 +67,7 @@ class SiteTemplate extends Component<Props, State> {
           <ProjectDescription />
           <Overview />
           <Members />
+          <List />
         </article>
         {/*{this.props.children}*/}
       </div>
