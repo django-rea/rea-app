@@ -2,6 +2,7 @@
     height: 60px;
     background: white;
     border-bottom: 1px solid #E9E9E9;
+    @include clearfix;
     .menu_list {
         list-style: none;
         padding: 0;
@@ -34,6 +35,20 @@
               line-height: 60px;
               font-size: 14px;
             }
+        }
+    }
+    .menu_actions {
+        float: right;
+        .actions_process {
+          border-radius: 2px;
+          background: $accent-500;
+          height: 30px;
+          padding: 0 15px;
+          @include text-mini-black(white);
+          text-align: center;
+          float: right;
+          margin-top: -45px;
+          margin-right: 30px;
         }
     }
 }

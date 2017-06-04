@@ -33,6 +33,9 @@ const SecondaryMenu: SFC<Props> = ({ theme }) => {
                 </a>
             </li>
         </ul>    
+        <div {...currentTheme(8, 'menu_actions')} >
+            <button {...currentTheme(8, 'actions_process')} >Create new process</button>
+        </div>
       </section>
     )
   }
