@@ -1,0 +1,35 @@
+.membersBig {
+    box-shadow: 0 2px 0 1px rgba(0,0,0,.1);
+    margin: 40px 40px 10px 40px;
+    border-radius: 2px;
+    background: white;
+    padding-bottom: 40px;
+    .membersBig_title {
+        @include text-mini-black($p900);
+        text-transform: uppercase;
+        padding-left: 20px;
+        border-bottom: 1px solid rgba(0,0,0, .1);
+        height: 40px;
+        line-height: 40px;
+    }
+    .list_member {
+        text-align: center;
+        margin-top: 40px;
+        .member_photo {
+            background: url('./images/prof.jpg');
+            background-size: cover;
+            width: 80px;
+            height: 80px;
+            border-radius: 100%;
+            border: 1px solid white;
+            background-position: center center;
+            margin: 0 auto;
+            display: block;
+        }
+        .member_name {
+            text-align: center;
+            margin-top: 10px;
+            @include text-general-black($p900);
+        }
+    }
+}
