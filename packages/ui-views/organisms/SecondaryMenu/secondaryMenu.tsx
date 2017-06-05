@@ -1,40 +1,41 @@
 import * as React from 'react'
 import * as themeable from 'react-themeable'
 import { SFC } from 'react'
+import {Link} from 'react-router'
 
 interface Props {
   theme: Object
 }
 
 
-const SecondaryMenu: SFC<Props> = ({ theme }) => {
+const SecondaryMenu: SFC<Props> = ({ props, theme }) => {
   let currentTheme = themeable(theme)
     return (
       <section {...currentTheme(0, 'secondaryMenu')}>
         <ul {...currentTheme(1, 'menu_list')} >
             <li {...currentTheme(2, 'list_item', 'active')} >
-                <a {...currentTheme(3, 'item_link')} >
+                <Link to={'project/' +  + '/overview'} {...currentTheme(3, 'item_link')} >
                     Overview
-                </a>
+                </Link>
             </li>
             <li {...currentTheme(4, 'list_item')} >
-                <a {...currentTheme(5, 'item_link')} >
+                <Link to='processes' {...currentTheme(5, 'item_link')} >
                     Processes
-                </a>
+                </Link>
             </li>
             <li {...currentTheme(6, 'list_item')} >
-                <a {...currentTheme(7, 'item_link')} >
+                <Link to='contributions' {...currentTheme(7, 'item_link')} >
                     Contributions
-                </a>
+                </Link>
             </li>
             <li {...currentTheme(8, 'list_item')} >
-                <a {...currentTheme(9, 'item_link')} >
+                <Link to='members' {...currentTheme(9, 'item_link')} >
                     Members
-                </a>
+                </Link>
             </li>
         </ul>    
         <div {...currentTheme(8, 'menu_actions')} >
-            <button {...currentTheme(8, 'actions_process')} >Create new process</button>
+            <button {...currentTheme(8, 'actions_process')}>Create new process</button>
         </div>
       </section>
     )
