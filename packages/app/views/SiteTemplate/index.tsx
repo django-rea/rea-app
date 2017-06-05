@@ -13,7 +13,7 @@ import AuthenticatedOnly from '@vflows/bindings/AuthenticatedOnly'
 
 // import { Layout, NavDrawer, Panel } from '@vflows/views/templates/Layout'
 
-import Header from '@vflows/views/organisms/header'
+import Header from '@vflows/views/organisms/Header'
 import Aside from '@vflows/views/organisms/Aside'
 import Sidebar from '@vflows/views/organisms/Sidebar'
 import SecondaryMenu from '@vflows/views/organisms/SecondaryMenu'

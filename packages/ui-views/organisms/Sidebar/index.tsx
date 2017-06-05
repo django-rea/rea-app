@@ -1,5 +1,5 @@
 import themed from '../../themed'
-import Component from './Sidebar'
+import Component from './sidebar'
 const styles = require('./index.scss')
 
 export default themed(Component, styles)
