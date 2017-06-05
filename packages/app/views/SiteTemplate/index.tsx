@@ -22,53 +22,29 @@ import Overview from '@vflows/views/organisms/Overview'
 import Members from '@vflows/views/organisms/Members'
 import List from '@vflows/views/organisms/List'
 
+import MembersBig from '@vflows/views/organisms/MembersBig'
 
 import LoginPage from '../../pages/Login'
+import Contributions from '../../pages/Contributions'
 
 export interface Props {
   children?: ReactElement<any>,
 }
 
 interface State {
-  // drawerActive: false,
-  // drawerPinned: false,
-  // sidebarPinned: false,
 }
 
 class SiteTemplate extends Component<Props, State> {
   state = {}
 
-  // toggleDrawerActive() {
-  //   this.setState(Object.assign(this.state, { drawerActive: !this.state.drawerActive }))
-  // }
-
-  // toggleDrawerPinned() {
-  //   this.setState(Object.assign(this.state, { drawerPinned: !this.state.drawerPinned }))
-  // }
-
-  // toggleSidebar() {
-  //   this.setState(Object.assign(this.state, { sidebarPinned: !this.state.sidebarPinned }))
-  // }
-
   renderSite() {
     return (
-      /*<Layout>
-        <Panel>
-          <Header />
-          {this.props.children}
-        </Panel>
-      </Layout>*/
       <div>
         <Header />
         <Aside />
-        <Sidebar />
         <article>
-          <SecondaryMenu />
-          <Overview />
-          <Members />
-          <List />
+          {this.props.children}
         </article>
-        {/*{this.props.children}*/}
       </div>
     )
   }
