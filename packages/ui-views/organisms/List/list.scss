@@ -6,9 +6,11 @@
     box-shadow: 0 2px 0 1px rgba(0,0,0,.1);
     border-radius: 2px;
     padding: 20px;
+    margin-bottom: 60px;
     .list_info {
         .info_title {
-            @include text-general($p900);
+            @include text-mini-black($p900);
+            text-transform: uppercase;
             padding-bottom: 5px;
             margin-left: -20px;
             margin-right: -20px;
