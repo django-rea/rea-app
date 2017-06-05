@@ -1,0 +1,26 @@
+/**
+ * Overview page
+ *
+ * @package: REA app
+ * @author:  ivan <bernini@inventati.org>
+ * @since:   2017-04-06
+ */
+
+import * as React from 'react'
+import ProjectTemplate from '@vflows/views/templates/ProjectTemplate'
+
+import Sidebar from '@vflows/views/organisms/Sidebar'
+import Overview from '@vflows/views/organisms/Overview'
+import Members from '@vflows/views/organisms/Members'
+import List from '@vflows/views/organisms/List'
+
+
+const OverviewPage = () => (
+    <div>
+      <Overview />
+      <Members />
+      <List />
+    </div>
+)
+
+export default OverviewPage
