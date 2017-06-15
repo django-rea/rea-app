@@ -8,8 +8,8 @@ const ProjectTemplate = (props) => {
     <div>
         <Sidebar />
         <article>
-        <SecondaryMenu />
-        <div {...props} className={styles.ProjectTemplate}>{props.children}</div>
+          <SecondaryMenu />
+          <div {...props} className={styles.ProjectTemplate}>{props.children}</div>
         </article>
     </div>
   )
