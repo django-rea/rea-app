@@ -21,11 +21,11 @@ const routes = (
       <Route path="find-tasks" component={Todo} />
     </Route>
 
-    <Route path="/projects/:name/" component={ProjectTemplate}>
-      <IndexRedirect to="/overview" />
-      <Route path="overview" component={OverviewPage} />
-      <Route path="members" component={MembersPage} />
-      <Route path="contributions" component={ContributionsPage} />
+    <Route path="projects" component={ProjectTemplate}>
+        <Route path=":name" component={OverviewPage} />
+        {/*<IndexRedirect to="overview" />*/}
+        <Route path=":name/members" component={MembersPage} />
+        <Route path=":name/contributions" component={ContributionsPage} />
     </Route>
 
     <Route path="profile" component={Todo}>
