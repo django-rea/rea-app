@@ -10,10 +10,7 @@ import { authedGraphQL } from '@vflows/services/api'
 
 export default authedGraphQL(`
   myAgent {
-    id
-    name
-    image
-    organizations {
+     organizations {
         id
         name
         image
