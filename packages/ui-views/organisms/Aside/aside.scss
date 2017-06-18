@@ -81,7 +81,11 @@
         bottom: 0;
       }
       .link_image {
-        
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 2px;
+        }
       }
     }
   }
