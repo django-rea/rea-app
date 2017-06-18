@@ -3,18 +3,21 @@ import * as themeable from 'react-themeable'
 import { SFC } from 'react'
 
 interface Props {
+  note: String,
   theme: Object
+  error: Boolean,
+  loading: Boolean
 }
 
-const ProjectDescription: SFC<Props> = ({ theme }) => {
+
+const ProjectDescription: SFC<Props> = ({ theme, note }) => {
     let currentTheme = themeable(theme)
     return (
-     <section {...currentTheme(1, 'projectDescription')} >
-        <div {...currentTheme(3, 'description')} >Everybody that has ever been to a meeting, can recall the all familiar “passing” of the business cards. This powerfull marketing tool is often used matter of factly, and we have to wonder how often does the recipient of your card hold on to it, and use your business information positively?
-In a world where first impressions count and business is becoming more competitive, it would be foolish to go with the crowd.</div>
-    </section>
-    )
+      <section {...currentTheme(1, 'projectDescription')} >
+        <div {...currentTheme(3, 'description')} >{note}</div>
+      </section>
+    ))
   }
-}
+
 
 export default ProjectDescription
