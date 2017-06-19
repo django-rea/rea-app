@@ -31,9 +31,15 @@
             border-radius: 100%;
             width: 24px;
             height: 24px;
-            border: 1px solid white;
             margin-right: 10px;
             margin-top: 8px;
+            background: $p100;
+            img {
+                border: 1px solid white;
+                border-radius: 100%;
+                width: 24px;
+                height: 24px;
+            }
         }
     }
 }
