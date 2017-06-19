@@ -22,10 +22,9 @@ const routes = (
     </Route>
 
     <Route path="projects" component={ProjectTemplate}>
-        <Route path=":name" component={OverviewPage} />
-        {/*<IndexRedirect to="overview" />*/}
-        <Route path=":name/members" component={MembersPage} />
-        <Route path=":name/contributions" component={ContributionsPage} />
+        <Route path=":id" component={OverviewPage} />
+        <Route path=":id/members" component={MembersPage} />
+        <Route path=":id/contributions" component={ContributionsPage} />
     </Route>
 
     <Route path="profile" component={Todo}>

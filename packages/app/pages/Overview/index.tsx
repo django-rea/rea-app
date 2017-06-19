@@ -15,12 +15,16 @@ import Members from '@vflows/views/organisms/Members'
 import List from '@vflows/views/organisms/List'
 
 
-const OverviewPage = () => (
+const OverviewPage = (props) => {
+  console.log('here')
+  console.log(props)
+  return (
     <div>
-      <Overview />
+      <Overview id={props.params.id} />
       <Members />
       <List />
     </div>
-)
+  )
+}
 
 export default OverviewPage
