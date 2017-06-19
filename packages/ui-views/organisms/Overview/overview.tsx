@@ -36,7 +36,6 @@ const DescriptionQuery = authedGraphQL(`
 
 
 const Overview: SFC<OrgsProps> = DescriptionQuery(({ id, data, loading, error, theme }) => {
-    console.log(id)
     let currentTheme = themeable(theme)
     return (
     loading ? <strong>Loading...</strong> : (error ? <p style={{ color: '#F00' }}>API error</p> :
