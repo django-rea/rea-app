@@ -1,7 +1,8 @@
 import * as React from 'react'
 import * as themeable from 'react-themeable'
 import { SFC } from 'react'
-import OrganizationsByUser from '@vflows/bindings/user/OrganizationsByUser'
+import {Link, withRouter} from 'react-router'
+import { authedGraphQL } from '../../../services/api'
 
 interface OrgsProps {
   data?: {
@@ -11,42 +12,52 @@ interface OrgsProps {
   },
   loading?: boolean,
   error?: Error,
-  theme: Object
-}
-interface Props {
-  theme: Object
+  theme: Object,
+  router: Object
 }
 
+interface Props {
+  theme: Object,
+  router: Object
+}
+
+
+const asideQuery = authedGraphQL(`
+  myAgent {
+     id 
+     organizations {
+        id
+        name
+        image
+      }
+  }
+`)
 
 /* eslint no-nested-ternary: 0 */
-const OrgsList: SFC<OrgsProps> = OrganizationsByUser(({ data, loading, error, theme }) => {
-  let row = []
-  if (data) {
-    {data.myAgent.organizations.map((org, i) => row.push(
-    <li {...theme(i + i + i + 1, 'list_item')} >
-        <a {...theme(i + i + i + 2, 'item_link')} >
-            <span {...theme( i + i + i + 3, 'link_image')}>
-                <img src={org.image} />
-            </span>
-        </a>
-    </li>
-    ))
-  }}
+const OrgsList: SFC<OrgsProps> = asideQuery(({ data, loading, error, theme, router }) => {
   return (
     loading ? <strong>Loading...</strong> : (error ? <p style={{ color: '#F00' }}>API error</p> :
    <ul {...theme(30000, 'aside_list')} >
-       {row}
+       {data.myAgent.organizations.map((item, i) => (
+        <li {...theme(i + i + i + 1, 'list_item', router.isActive('projects/' + item.id, true) && 'active')} >
+            <Link to={'projects/' + item.id} {...theme(i + i + i + 2, 'item_link')} >
+                <span {...theme( i + i + i + 3, 'link_image')}>
+                    <img src={item.image} />
+                </span>
+            </Link>
+        </li>
+       ))}
     </ul>
   ))
 })
 
 
-const Aside: SFC<Props> = ({ theme }) => {
+const Aside: SFC<Props> = ({ router, theme }) => {
   let currentTheme = themeable(theme)
   return (
       <aside {...currentTheme(1000, 'aside')} >
         <span {...currentTheme(2000, 'aside_logo')} />
-        <OrgsList theme={currentTheme} />
+        <OrgsList router={router} theme={currentTheme} />
         <div {...currentTheme(16, 'aside_bottom')} >
             <span {...currentTheme(17, 'icon-plus')} />
         </div>
@@ -54,4 +65,4 @@ const Aside: SFC<Props> = ({ theme }) => {
   )
 }
 
-export default Aside
+export default withRouter(Aside)

@@ -14,22 +14,22 @@ const SecondaryMenu: SFC<Props> = ({ router, theme }) => {
       <section {...currentTheme(0, 'secondaryMenu')}>
         <ul {...currentTheme(1, 'menu_list')} >
             <li {...currentTheme(2, 'list_item', router.isActive('projects/test', true) && 'active')} >
-                <Link activeClassName={'active'} to={'projects/test'} {...currentTheme(3, 'item_link')} >
+                <Link to={'projects/test'} {...currentTheme(3, 'item_link')} >
                     Overview
                 </Link>
             </li>
             <li {...currentTheme(4, 'list_item' , router.isActive('projects/test/processes', true) && 'active')} >
-                <Link activeClassName={'active'} to={'projects/test/processes'} {...currentTheme(5, 'item_link')} >
+                <Link to={'projects/test/processes'} {...currentTheme(5, 'item_link')} >
                     Processes
                 </Link>
             </li>
             <li {...currentTheme(6, 'list_item', router.isActive('projects/test/contributions', true) && 'active')} >
-                <Link activeClassName={'active'} to={'projects/test/contributions'} {...currentTheme(7, 'item_link')} >
+                <Link to={'projects/test/contributions'} {...currentTheme(7, 'item_link')} >
                     Contributions
                 </Link>
             </li>
             <li {...currentTheme(8, 'list_item', router.isActive('projects/test/members', true) && 'active')} >
-                <Link activeClassName={'active'} to={'projects/test/members'} {...currentTheme(9, 'item_link')} >
+                <Link to={'projects/test/members'} {...currentTheme(9, 'item_link')} >
                     Members
                 </Link>
             </li>
