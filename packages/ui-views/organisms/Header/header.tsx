@@ -2,6 +2,7 @@ import * as React from 'react'
 import * as themeable from 'react-themeable'
 import { SFC } from 'react'
 import CurrentUser from '@vflows/bindings/user/CurrentUser'
+import Agent from '@vflows/bindings/agent/agentName'
 
 interface UserProps {
   data?: {
@@ -12,34 +13,21 @@ interface UserProps {
   },
   loading?: boolean,
   error?: Error,
-  theme: Object
+  theme: Object,
+  id: String
 }
 
 interface State {
   action: boolean,
 }
 
-interface Props {
-  theme: Object
-}
 
-/* eslint no-nested-ternary: 0 */
-const UsernameDisplay: SFC<UserProps> = CurrentUser(({ data, loading, error, theme }) => {
-  return (
-    loading ? <strong>Loading...</strong> : (error ? <p style={{ color: '#F00' }}>API error</p> :
-    <div {...theme(14, 'menu_profile')} >
-        <h4>{data ? data.myAgent.name : 'nobody'}</h4>
-        <div {...theme(15, 'profile_image')}  />
-        <span {...theme(16, 'icon-dots-three-vertical')} />
-    </div>
-  ))
-})
-
-const Header: SFC<Props> = ({ theme }) => {
+const Header: SFC<UserProps> = CurrentUser(({ data, loading, error, theme, id }) => {
     let currentTheme = themeable(theme)
     return (
+        loading ? <strong>Loading...</strong> : (error ? <p style={{ color: '#F00' }}>API error</p> :
         <header {...currentTheme(1, 'main_header')} >
-            <h2  {...currentTheme(2, 'header_title')}>FreedomCoop</h2>
+            <h2  {...currentTheme(2, 'header_title')}>{data.myAgent.organizations.filter(org => org.id === id)[0].name}</h2>
             <div {...currentTheme(3, 'header_menu')} >
                 <div {...currentTheme(4, 'menu_search')} >
                     <input {...currentTheme(5, 'search', 'input')} placeholder='Search' />
@@ -50,10 +38,14 @@ const Header: SFC<Props> = ({ theme }) => {
                     <li {...currentTheme(10, 'list_item')} ><a {...currentTheme(11, 'item_link')} >menu item 2</a></li>
                     <li {...currentTheme(12, 'list_item')} ><a {...currentTheme(13, 'item_link')} >menu item 3</a></li>
                 </ul>
-                <UsernameDisplay theme={currentTheme} />
+                  <div {...currentTheme(14, 'menu_profile')} >
+                    <h4>{data.myAgent.name : 'nobody'}</h4>
+                    <div {...currentTheme(15, 'profile_image')}  />
+                    <span {...currentTheme(16, 'icon-dots-three-vertical')} />
+                </div>
             </div>
         </header>
-    )
-}
+    ))
+})
 
 export default Header

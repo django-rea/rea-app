@@ -37,10 +37,10 @@ interface State {
 class SiteTemplate extends Component<Props, State> {
   state = {}
 
-  renderSite() {
+  renderSite(id) {
     return (
       <div>
-        <Header />
+        <Header id={id} />
         <Aside />
         <article>
           {this.props.children}
@@ -52,7 +52,7 @@ class SiteTemplate extends Component<Props, State> {
   render() {
     return (
       <AuthenticatedOnly unauthenticatedComponent={<LoginPage />}>
-        {this.renderSite()}
+        {this.renderSite(this.props.children.props.params.id)}
       </AuthenticatedOnly>
     )
   }
