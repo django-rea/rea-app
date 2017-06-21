@@ -39,7 +39,7 @@ const Header: SFC<UserProps> = CurrentUser(({ data, loading, error, theme, id })
                     <li {...currentTheme(12, 'list_item')} ><a {...currentTheme(13, 'item_link')} >menu item 3</a></li>
                 </ul>
                   <div {...currentTheme(14, 'menu_profile')} >
-                    <h4>{data.myAgent.name : 'nobody'}</h4>
+                    <h4>{data.myAgent.name || 'nobody'}</h4>
                     <div {...currentTheme(15, 'profile_image')}  />
                     <span {...currentTheme(16, 'icon-dots-three-vertical')} />
                 </div>
