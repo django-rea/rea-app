@@ -7,6 +7,7 @@ import OverviewPage from './pages/Overview'
 import MembersPage from './pages/Members'
 import ContributionsPage from './pages/Contributions'
 import ProjectTemplate from '../ui-views/templates/ProjectTemplate'
+import ProjectWithData from '../ui-views/templates/ProjectWithData'
 
 const routes = (
   <Route path="/" component={App}>
