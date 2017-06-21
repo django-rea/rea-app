@@ -7,24 +7,31 @@
  */
 
 import * as React from 'react'
+import { Component, ReactElement } from 'react'
+
 import ProjectTemplate from '@vflows/views/templates/ProjectTemplate'
 
 import Sidebar from '@vflows/views/organisms/Sidebar'
 import Overview from '@vflows/views/organisms/Overview'
 import Members from '@vflows/views/organisms/Members'
 import List from '@vflows/views/organisms/List'
+import Agent from '@vflows/bindings/agent/agent'
 
-
-const OverviewPage = (props) => {
-  console.log('here')
-  console.log(props)
+const OverviewPage = Agent(({data, loading, error}) => {
   return (
+    loading ? <strong>Loading...</strong> : (
+    error ? <p style={{ color: '#F00' }}>API error</p> :
     <div>
-      <Overview id={props.params.id} />
-      <Members />
+      <Overview
+        note={data.agent.note}
+        processes={data.agent.unfinishedProcesses}
+        inventory={data.agent.ownedEconomicResources}
+        members={data.agent.members}
+      />
+      <Members members={data.agent.members}/>
       <List />
-    </div>
-  )
-}
+    </div>)
+    )
+})
 
 export default OverviewPage
