@@ -5,8 +5,6 @@ import { SFC } from 'react'
 interface Props {
   note: String,
   theme: Object
-  error: Boolean,
-  loading: Boolean
 }
 
 
@@ -16,7 +14,7 @@ const ProjectDescription: SFC<Props> = ({ theme, note }) => {
       <section {...currentTheme(1, 'projectDescription')} >
         <div {...currentTheme(3, 'description')} >{note}</div>
       </section>
-    ))
+    )
   }
 
 
