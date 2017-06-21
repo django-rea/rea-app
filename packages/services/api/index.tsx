@@ -86,7 +86,8 @@ export function graphqlWithSideEffects(gqlQuery: any, actions: ActionCreatorsMap
  * - props.data.error => props.error
  */
 
-export const authedGraphQL = (gqlQuery: string) => compose(
+export const authedGraphQL = (gqlQuery: string) => {
+  return compose(
   connect((state: AppState) => ({
     isLoggedIn: isLoggedIn(state),
     variables: {
@@ -112,4 +113,37 @@ export const authedGraphQL = (gqlQuery: string) => compose(
       error: data.error,
     }
   }),
-)
+)}
+
+
+export const authedGraphQLWithId = (gqlQuery: string) => {
+  return compose(
+  connect((state: AppState, props) => ({
+    isLoggedIn: isLoggedIn(state),
+    variables: {
+      token: getActiveLoginToken(state),
+      id: props.id
+    },
+  })),
+  graphql(gql`
+    query($token: String, $id: Int) {
+      viewer(token: $token) {
+        ${gqlQuery}
+      }
+    }
+  `, {
+    skip: (ownProps) => !ownProps.isLoggedIn,
+    options: (props) => ({ variables: props.variables }),
+  }),
+  mapProps(props => {
+    const { data, ...others } = props
+    return {
+      ...others,
+      data: data.viewer,
+      loading: data.loading,
+      error: data.error,
+    }
+  }),
+)}
+
+
