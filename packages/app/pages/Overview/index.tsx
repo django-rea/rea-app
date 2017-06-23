@@ -23,6 +23,14 @@ interface Props {
   error?: Error,
 }
 
+interface RouterProps {
+  router: {
+    params: {
+      id: string,
+    },
+  },
+}
+
 const OverviewPage = BindAgent(({ agent, loading, error }: Props) => {
   return (
     loading ? <strong>Loading...</strong> : (
@@ -41,4 +49,6 @@ const OverviewPage = BindAgent(({ agent, loading, error }: Props) => {
   )
 })
 
-export default OverviewPage
+export default ({ router }: RouterProps) => (
+  <OverviewPage agentId={router.params.id} />
+)
