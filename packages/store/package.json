@@ -33,7 +33,7 @@
     "sinon": "^2.1.0"
   },
   "dependencies": {
-    "apollo-client": "^1.0.1",
+    "apollo-client": "^1.5.0",
     "i18n-react": "^0.3.0",
     "react-apollo": "^1.0.0",
     "react-redux": "^5.0.1",
