@@ -18,6 +18,7 @@ const query = gql`
 query($token: String, $agentId_Orgs: Int) {
   viewer(token: $token) {
     agent(id: $agentId_Orgs) {
+      id
       organizations {
         ...coreOrganizationFields
       }
