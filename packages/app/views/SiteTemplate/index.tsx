@@ -22,8 +22,6 @@ import Overview from '@vflows/views/organisms/Overview'
 import Members from '@vflows/views/organisms/Members'
 import List from '@vflows/views/organisms/List'
 
-import MembersBig from '@vflows/views/organisms/MembersBig'
-
 import LoginPage from '../../pages/Login'
 import Contributions from '../../pages/Contributions'
 
