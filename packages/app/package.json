@@ -92,8 +92,8 @@
     "webpack-hot-middleware": "^2.17.1"
   },
   "dependencies": {
-    "@vflows/store": "0.0.0",
     "@vflows/bindings": "0.0.0",
+    "@vflows/store": "0.0.0",
     "@vflows/views": "0.0.0",
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
@@ -107,6 +107,7 @@
     "i18n-react": "^0.3.0",
     "json-loader": "^0.5.4",
     "morgan": "^1.7.0",
+    "node-fetch": "^1.7.1",
     "react": "^15.4.1",
     "react-apollo": "^1.0.0",
     "react-dom": "^15.4.1",
