@@ -6,17 +6,44 @@
  * @since:   2017-04-24
  */
 
-import { authedGraphQL } from '@vflows/services/api'
+import { connect } from 'react-redux'
+import { gql, graphql, compose } from 'react-apollo'
 
-export default authedGraphQL(`
-  myAgent {
-    id
-    name
-    image
-    organizations {
-        id
-        name
-        image
+import { getActiveLoginToken } from '@vflows/store/selectors/auth'
+
+import { coreAgentFields, coreOrganizationFields } from '../_fragments/Agent'
+
+const query = gql`
+query($token: String) {
+  viewer(token: $token) {
+    myAgent {
+      ...coreAgentFields
+      organizations {
+        ...coreOrganizationFields
       }
+    }
   }
-`)
+}
+${coreAgentFields}
+${coreOrganizationFields}
+`
+
+export default compose(
+  // bind input data from the store
+  connect((state: AppState) => ({
+    variables: {
+      token: getActiveLoginToken(state),
+    },
+  })),
+  graphql(query, {
+    // read query vars into query from input data above
+    options: (props) => ({ variables: props.variables }),
+    // transform output data
+    props: ({ ownProps, data: { viewer, loading, error, refetch } }) => ({
+      loading,
+      error,
+      refetchCurrentUser: refetch,  // :NOTE: call this in the component to force reload the data
+      user: viewer ? viewer.myAgent : null,
+    }),
+  })
+)
