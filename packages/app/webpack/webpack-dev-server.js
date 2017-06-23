@@ -27,6 +27,9 @@ const compiler = webpack(webpackConfig);
 app.use(historyApiFallback(null));
 
 app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", '*');
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
   if (!req.url.match(/^\/(__webpack_hmr|res\/|.*?\.(js|json|css|jpg|gif|png)$)/)) {
     req.url = '/';
   }
