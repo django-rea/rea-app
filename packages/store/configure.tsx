@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux'
-import { ApolloClient, createNetworkInterface } from 'react-apollo'
+import { ApolloClient, createNetworkInterface, gql, IntrospectionFragmentMatcher } from 'react-apollo'
 import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import createSagaMiddleware from 'redux-saga'
@@ -20,12 +20,35 @@ if (process.env.NODE_ENV === 'development') {
   )
 }
 
+// initial query to send to GraphQL server to determine schema types for fragment handling
+// @see http://dev.apollodata.com/react/initialization.html#fragment-matcher
+const introspectionQuery = gql`{
+  __schema {
+    types {
+      kind
+      name
+      possibleTypes {
+        name
+      }
+    }
+  }
+}`
+
 // Primary Redux store configurator (middlewares & sagas)
-const configureStore = (initialState, history) => {
+const configureStore = async (initialState, history) => {
   const sagaMiddleware = createSagaMiddleware()
 
+  const networkInterface = createNetworkInterface({ uri: apiUrl })
+
+  const schemaMeta = await networkInterface.query({
+    query: introspectionQuery,
+  })
+
   const client = new ApolloClient({
-    networkInterface: createNetworkInterface({ uri: apiUrl }),
+    networkInterface: networkInterface,
+    fragmentMatcher: new IntrospectionFragmentMatcher({
+      introspectionQueryResultData: schemaMeta.data,
+    }),
   })
 
   const finalCreateStore = compose(

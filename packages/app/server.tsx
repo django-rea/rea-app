@@ -5,15 +5,25 @@ import { renderToString, renderToStaticMarkup } from 'react-dom/server'
 import { ApolloProvider } from 'react-apollo'
 import { createMemoryHistory, RouterContext, match } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
-import { Router } from 'express'
+import { Router, Request, Response } from 'express'
 import configureStore from '@vflows/store/configure'
 import express from './express'
 import routes from './routes'
 import Html from './main/Html'
 
+// :SHONK: polyfill fetch so that `createNetworkInterface` works in store configuration.
+// There is surely a "proper" way of doing this!
+import fetch from 'node-fetch'
+global.fetch = fetch
+
 const { env, port, ip, basename } = require('./config')
 
 declare var webpackIsomorphicTools
+
+function appError(err: Error, res: Response) {
+  console.log(err)
+  res.status(500).end()
+}
 
 const router = Router()
 
@@ -22,9 +32,14 @@ router.use((req, res, next) => {
     webpackIsomorphicTools.refresh()
   }
 
-  const location = req.url.replace(basename, '')
   const memoryHistory = createMemoryHistory({ basename })
-  const { client, store } = configureStore({}, memoryHistory)
+  configureStore({}, memoryHistory)
+    .then(storeData => finishRouting(req, res, memoryHistory, storeData))
+    .catch(err => appError(err, res))
+})
+
+function finishRouting(req: Request, res: Response, memoryHistory, { client, store }) {
+  const location = req.url.replace(basename, '')
   const history = syncHistoryWithStore(memoryHistory, store)
 
   match({ history, routes, location }, (error, redirectLocation, renderProps) => {
@@ -73,13 +88,10 @@ router.use((req, res, next) => {
       res.send(doctype + html)
     }
 
-    return fetchData().then(() => {
-      const { store: newStore } = configureStore(store.getState(), memoryHistory)
-      render(newStore)
-    }).catch((err) => {
-      console.log(err)
-      res.status(500).end()
-    })
+    return fetchData()
+      .then(() => configureStore(store.getState(), memoryHistory))
+      .then(({ store: newStore }) => render(newStore))
+      .catch(err => appError(err, res))
   })
 })
 

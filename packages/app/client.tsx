@@ -13,23 +13,30 @@ const { basename } = require('./config')
 // eslint-disable-next-line no-underscore-dangle
 const initialState = window.__INITIAL_STATE__
 const baseHistory = useRouterHistory(createHistory)({ basename })
-const { client, store } = configureStore(initialState, baseHistory)
-const history = syncHistoryWithStore(baseHistory, store)
 const root = document.getElementById('app')
 
-const renderApp = () => (
-  <AppContainer>
-    <ApolloProvider client={client} store={store}>
-      <Router key={Math.random()} history={history} routes={routes} />
-    </ApolloProvider>
-  </AppContainer>
-)
+configureStore(initialState, baseHistory)
+.then(({ client, store }) => {
+  const history = syncHistoryWithStore(baseHistory, store)
 
-render(renderApp(), root)
+  const renderApp = () => (
+    <AppContainer>
+      <ApolloProvider client={client} store={store}>
+        <Router key={Math.random()} history={history} routes={routes} />
+      </ApolloProvider>
+    </AppContainer>
+  )
 
-if (module.hot) {
-  module.hot.accept('./routes', () => {
-    require('./routes')
-    render(renderApp(), root)
-  })
-}
+  render(renderApp(), root)
+
+  if (module.hot) {
+    module.hot.accept('./routes', () => {
+      require('./routes')
+      render(renderApp(), root)
+    })
+  }
+})
+.catch(e => {
+  // :TODO: make this suck a lot less
+  render(<p>Error establishing an API connection</p>, root)
+})
