@@ -45,6 +45,7 @@ const configureStore = async (initialState, history) => {
   })
 
   const client = new ApolloClient({
+    shouldBatch: true,
     networkInterface: networkInterface,
     fragmentMatcher: new IntrospectionFragmentMatcher({
       introspectionQueryResultData: schemaMeta.data,
