@@ -13,10 +13,6 @@ interface UserProps {
   theme: Object,
 }
 
-interface State {
-  action: boolean,
-}
-
 const Header = CurrentUser(({ user, loading, error, theme }: UserProps) => {
     let currentTheme = themeable(theme)
     return (
