@@ -43,7 +43,7 @@ const OverviewPage = BindAgent(({ agent, loading, error }: Props) => {
         members={agent.members}
       />
       <Members members={agent.members}/>
-      <List />
+      <List events={agent.economicEvents}/>
     </div>)
     )
   )
