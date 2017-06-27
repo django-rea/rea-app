@@ -24,7 +24,7 @@
     .list_item {
         @include clearfix;
         margin-left: -20px;
-        margin-right: -20px;    
+        margin-right: -20px;
         .item_actions {
             float: right;
             margin-top: -80px;
@@ -69,6 +69,72 @@
 
                 }
             }
+        }
+    }
+}
+
+
+.list_spaced {
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding: 20px;
+    margin-bottom: 60px;
+    .list_info {
+        .info_title {
+            @include text-mini-black($p900);
+            text-transform: uppercase;
+            padding-bottom: 5px;
+            margin-left: -20px;
+            margin-right: -20px;
+            border-bottom: 1px solid rgba(0,0,0, .1);
+            height: 40px;
+            line-height: 40px;
+            margin-top: -20px;
+        }
+    }
+    .item_info {
+      @include clearfix;
+    }
+    .list_item {
+        @include clearfix;
+        margin-left: -20px;
+        margin-right: -20px;
+        background: white;
+        border-radius: 2px;
+        box-shadow: 0 1px 3px 1px rgba(0,0,0,.1);
+        margin-top: 10px;
+        .info_actions {
+          float: right;
+          margin-top: -32px;
+          margin-right: 10px;
+          .actions_date {
+            border-radius: 2px;
+            border: 2px solid blue;
+            padding: 0px 4px;
+            @include text-mini-black(blue);
+            text-align: center;
+          }
+        }
+        .info_title {
+          @include text-general(#565656);
+          padding: 10px;
+          a {
+            font-weight: 800;
+          }
+        }
+        .info_description {
+          background-color: #f7f7f7;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 20px;
+          letter-spacing: 2px;
+          color: #737373;
+          font-weight: 400;
+          font-style: italic;
+          padding: 5px 10px;
+          font-weight: 400;
+          font-style: italic;
         }
     }
 }
