@@ -21,3 +21,33 @@ fragment coreOrganizationFields on Agent {
   type
   note
 }`
+
+export const coreEventsFields = gql`
+fragment coreEventsFields on Agent {
+  economicEvents {
+    id
+    action
+    start
+    numericValue
+    unit
+    note
+    workCategory
+    affectedResource {
+      id
+      resourceType
+      trackingIdentifier
+    }
+    provider {
+    id
+    name
+    }
+    receiver {
+      id
+      name
+    }
+    process {
+      id
+      name
+    }
+  }
+}`
