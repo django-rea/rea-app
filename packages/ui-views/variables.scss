@@ -1,14 +1,14 @@
 // @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500,700');
 // @import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700');
 // Color
-$p900: #0E1116;
-$p700: #f7f7f7;
-$p500: #f9f9f9;
-$p300: #55606d;
-$p200: #435058;
+$p900: #13293D;
+$p700: #747272;
+$p500: #F6F6F6;
+$p300: #EFF4F5;
+$p200: #E7E9EA;
 $p100: #2C302E;
 $accent-700: #dba317;
-$accent-500: #336699;
+$accent-500: #26547C;
 $green: #25BD2A;
 $red: #b32e40;
 $blue: #55b8ec;
@@ -20,20 +20,20 @@ $sans: $lato;
 
 // Font Size
 $xs-font-size: 11px;
-$s-font-size: 13px;
+$s-font-size: 12px;
 $m-font-size: 14px;
-$l-font-size: 18px;
-$xl-font-size: 27px;
+$l-font-size: 16px;
+$xl-font-size: 32px;
 
 // Line Height
 $m-line-height: 20px;
 $l-line-height: 30px;
 
 // Font Weight
-$s-font-weight: 300;
-$m-font-weight: 400;
-$xm-font-weight: 700;
-$l-font-weight: 800;
+$s-font-weight: 400;
+$m-font-weight: 500;
+$xm-font-weight: 600;
+$l-font-weight: 700;
 
 // Letter Spacing
 $s-letter-spacing: 1px;
@@ -52,4 +52,4 @@ $zmax: 10000000;
 $distance: 10px;
 
 // Components
-$separator: .5px solid rgba(245,245,245, .1);
+$separator: 1px solid rgba(0,0,0, .1);

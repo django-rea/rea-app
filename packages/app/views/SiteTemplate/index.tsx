@@ -24,6 +24,7 @@ import List from '@vflows/views/organisms/List'
 
 import LoginPage from '../../pages/Login'
 import Contributions from '../../pages/Contributions'
+const styles = require('./siteTemplate.css')
 
 export interface Props {
   children?: ReactElement<any>,
@@ -36,13 +37,16 @@ class SiteTemplate extends Component<Props, State> {
   state = {}
 
   renderSite() {
+    let classname = styles['medium-9'] + ' ' + styles.columns
     return (
       <div>
         <Header />
-        <Aside />
-        <article>
-          {this.props.children}
-        </article>
+        <div className={styles.row}>
+          <Aside />
+          <div className={classname}>
+            {this.props.children}
+          </div>
+        </div>
       </div>
     )
   }

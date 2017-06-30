@@ -1,5 +1,5 @@
 .secondaryMenu {
-    height: 60px;
+    height: 50px;
     background: white;
     border-bottom: 1px solid #E9E9E9;
     @include clearfix;
@@ -11,10 +11,21 @@
         padding-left: 20px;
         .list_item {
             float: left;
-            height: 60px;
+            height: 50px;
             position: relative;
             cursor: pointer;
-            margin-right: 70px;
+            margin-right: 40px;
+            span {
+              padding: 1px 5px;
+              color: white;
+              border-radius: 15px;
+              background: $green;
+              margin-right: 0px;
+              text-align: center;
+              min-width: 25px;
+              display: inline-block;
+              line-height: 20px;
+            }
             &.active {
                 font-weight: 700;
                 a {
@@ -32,8 +43,10 @@
                 }
             }
             a {
-              line-height: 60px;
-              font-size: 14px;
+              // font-size: 14px;
+              @include text-label($p900);
+              font-weight: 600;
+              line-height: 50px;
             }
         }
     }

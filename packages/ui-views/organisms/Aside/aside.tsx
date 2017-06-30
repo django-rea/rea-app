@@ -29,12 +29,14 @@ const OrgsList = BindOrgs(withRouter(({ organizations, loading, error, theme, ro
   return (
     loading ? <strong>Loading...</strong> : (error ? <p style={{ color: '#F00' }}>API error {error.message}</p> : (
    <ul {...currentTheme(30000, 'aside_list')} >
+      <h4 {...currentTheme(30001, 'list_title')}>Organizations</h4>
        {organizations.map((item, i) => (
         <li {...currentTheme(i + i + i + 1, 'list_item', router.isActive('projects/' + item.id, true) && 'active')} >
             <Link href={'projects/' + item.id} {...currentTheme(i + i + i + 2, 'item_link')} >
                 <span {...currentTheme( i + i + i + 3, 'link_image')}>
                     <img src={item.image} />
                 </span>
+                <h4>{item.name}</h4>
             </Link>
         </li>
        ))}
@@ -45,13 +47,11 @@ const OrgsList = BindOrgs(withRouter(({ organizations, loading, error, theme, ro
 const Aside = ({ theme }: Props) => {
   let currentTheme = themeable(theme)
   return (
+    <div {...currentTheme(0, 'medium-3', 'columns')}>
       <aside {...currentTheme(1000, 'aside')} >
-        <span {...currentTheme(2000, 'aside_logo')} />
         <OrgsList theme={theme} />
-        <div {...currentTheme(16, 'aside_bottom')} >
-            <span {...currentTheme(17, 'icon-plus')} />
-        </div>
-    </aside>
+      </aside>
+    </div>
   )
 }
 

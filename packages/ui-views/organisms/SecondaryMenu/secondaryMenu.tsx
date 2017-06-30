@@ -8,7 +8,7 @@ interface Props {
 }
 
 
-const SecondaryMenu: SFC<Props> = ({ id, router, theme }) => {
+const SecondaryMenu: SFC<Props> = ({ id, router, theme, totalProcesses, totalNetwork }) => {
   let currentTheme = themeable(theme)
     return (
       <section {...currentTheme(0, 'secondaryMenu')}>
@@ -20,23 +20,23 @@ const SecondaryMenu: SFC<Props> = ({ id, router, theme }) => {
             </li>
             <li {...currentTheme(4, 'list_item' , router.isActive(`projects/${id}/processes`, true) && 'active')} >
                 <Link to={`projects/${id}/processes`} {...currentTheme(5, 'item_link')} >
-                    Processes
+                    <span>{totalProcesses}</span> Processes
                 </Link>
             </li>
-            <li {...currentTheme(6, 'list_item', router.isActive(`projects/${id}/contributions`, true) && 'active')} >
-                <Link to={`projects/${id}/contributions`} {...currentTheme(7, 'item_link')} >
-                    Contributions
+            <li {...currentTheme(6, 'list_item', router.isActive(`projects/${id}/accounts`, true) && 'active')} >
+                <Link to={`projects/${id}/accounts`} {...currentTheme(7, 'item_link')} >
+                    Accounts
                 </Link>
             </li>
             <li {...currentTheme(8, 'list_item', router.isActive(`projects/${id}/members`, true) && 'active')} >
                 <Link to={`projects/${id}/members`} {...currentTheme(9, 'item_link')} >
-                    Members
+                    <span>{totalNetwork}</span> Network
                 </Link>
             </li>
-        </ul>    
-        <div {...currentTheme(8, 'menu_actions', router.isActive(`projects/${id}`, true) && 'active')} >
+        </ul>
+        {/*<div {...currentTheme(8, 'menu_actions', router.isActive(`projects/${id}`, true) && 'active')} >
             <button {...currentTheme(8, 'actions_process')} >Create new process</button>
-        </div>
+        </div>*/}
       </section>
     )
   }

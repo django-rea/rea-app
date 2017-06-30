@@ -1,0 +1,39 @@
+.context_overview {
+  height: 140px;
+  position: relative;
+  background: white;
+  margin-top: -5px;
+  margin-bottom: 10px;
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    background: rgba(0,0,0,.3);
+  }
+  .overview_photo {
+    width: 32px;
+    height: 32px;
+    border-radius: 2px;
+    background: white;
+    display: block;
+    float: left;
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  .overview_name {
+    @include text-title-regular(white);
+    float: left;
+    margin-left: 20px;
+  }
+  .overview_info {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    @include clearfix;
+  }
+}

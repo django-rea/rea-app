@@ -34,10 +34,14 @@ query($token: String, $agentId: Int) {
         id
         name
       }
-      ownedEconomicResources {
-        # :TODO: use fragment for this
+      ownedEconomicResources (category: INVENTORY) {
         id
         resourceType
+        trackingIdentifier
+        numericValue
+        unit
+        image
+        note
       }
     }
   }

@@ -51,3 +51,16 @@ fragment coreEventsFields on Agent {
     }
   }
 }`
+
+// export const coreResourcesFields = gql`
+// fragment coreResourcesFields on Agent {
+//   ownedEconomicResources (category: INVENTORY) {
+//     id
+//     resourceType
+//     trackingIdentifier
+//     numericValue
+//     unit
+//     image
+//     note
+//   }
+// }`

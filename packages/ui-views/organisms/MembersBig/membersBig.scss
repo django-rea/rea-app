@@ -1,6 +1,5 @@
 .membersBig {
     box-shadow: 0 2px 0 1px rgba(0,0,0,.1);
-    margin: 40px 40px 10px 40px;
     border-radius: 2px;
     background: white;
     padding-bottom: 40px;
@@ -18,23 +17,24 @@
         .member_photo {
             background: url('./images/placeholder.png');
             background-size: cover;
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             border-radius: 100%;
             border: 1px solid white;
             background-position: center center;
             margin: 0 auto;
             display: block;
             img {
-                width: 80px;
-                height: 80px;
+                width: 60px;
+                height: 60px;
                 border-radius: 100%;
             }
         }
         .member_name {
             text-align: center;
             margin-top: 10px;
-            @include text-general-black($p900);
+            @include text-label($p900);
+            @include truncate;
         }
     }
 }

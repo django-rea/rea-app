@@ -1,67 +1,32 @@
 .aside {
-  position: fixed;
-  width: 60px;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  background: #495D63;
-  .aside_bottom {
-    position: absolute;
-    bottom: 20px;
-    .icon-plus {
-      width: 32px;
-      height: 32px;
-      border-radius: 2px;
-      margin-left: 14px;
-      background: #566B71;
-      display: block;
-      vertical-align: middle;
-      text-align: center;
-      line-height: 32px;
-      color: white;
-    }
-  }
-  .aside_logo {
-    width: 21px;
-    height: 30px;
-    display: block;
-    margin-left: 15px;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    background: url(../images/logo.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin-left: 20px;
-  }
+  margin-top: 20px;
   .aside_list {
     list-style: none;
     padding: 0;
     margin: 0;
-    .list_item {
-      width: 32px;
-      height: 32px;
-      border: 1px solid white; 
-      border-radius: 2px;
-      margin-left: 14px;
+    .list_title {
+      @include text-label($p900);
       margin-bottom: 20px;
+    }
+    .list_item {
+      height: 30px;
+      border: 1px dashed #D8D8D8;
+      border-radius: 2px;
+      margin-bottom: 10px;
       position: relative;
-      background: white;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: top center; 
+      padding: 2px 3px;
+      @include clearfix;
+      cursor: pointer;
       &.active {
-        &:before {
-          content: "";
-          position: absolute;
-          left: -14px;
-          width: 4px;
-          top: -2px;
-          bottom: -2px;
-          background: #4ECDC4;
-          display: block;
+       background: $accent-500;
+       border: none;
+       color: white;
+        h4 {
+          @include text-label(white);
         }
       }
-      a {
+      a {
+        justify-content: flex-start;
         position: absolute;
         left: 0;
         right: 0;
@@ -69,12 +34,28 @@
         bottom: 0;
       }
       .link_image {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top center;
+        float: left;
+        background: white;
+        margin-left: 3px;
         img {
-          width: 30px;
-          height: 30px;
+          width: 24px;
+          border: 1px solid white;
+          height: 24px;
           border-radius: 2px;
         }
       }
+        h4 {
+          @include text-label(#929292);
+          font-size: 13px;
+          float: left;
+          font-weight: 600;
+          margin-left: 10px;
+          @include truncate;
+          margin-right: 5px;
+        }
     }
   }
 }

@@ -38,20 +38,6 @@ body {
   }
 }
 
-article {
-  padding-top: 0px;
-  padding-bottom: 50px;
-  height: 100vh;
-  left: 60px;
-  right: 320px;
-  top: 60px;
-  position: fixed;
-  overflow: overlay;
-  &.no-side {
-    padding-left: 0;
-  }
-}
-
 ::selection {
   background-color: $p700;
   text-shadow: none;

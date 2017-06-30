@@ -1,96 +1,87 @@
 .sidebar {
-    position: fixed;
-    right: 0;
-    top: 60px;
-    bottom: 0;
-    width: 320px;
     background: #fff;
     border-left: 1px solid #E9E9E9;
     .sidebar_menu {
-        height: 60px;
+        height: 50px;
         border-bottom: 1px solid #E9E9E9;
-        line-height: 60px;
-        .menu_link {
-            line-height: 60px;
-            font-size: 14px;
-            display: inline-block;
-            width: 50%;
+        line-height: 50px;
+        .menu_title {
+          @include text-label($p900);
+          line-height: 50px;
+          margin-left: 20px;
+          span {
+            padding: 1px 5px;
+            color: white;
+            border-radius: 15px;
+            background: $green;
+            margin-right: 10px;
             text-align: center;
-            position: relative;
-            cursor: pointer;
-            &.active {
-                color: $accent-500;
-                font-weight: 700;
-                &:after {
-                    position: absolute;
-                    content: "";
-                    left: 20px;
-                    right: 20px;
-                    height: 3px;
-                    bottom: 0;
-                    display: block;
-                    background: $accent-500;
-                }
-            }
+            float: right;
+            line-height: 20px;
+            margin-top: 14px;
+            display: block;
+            min-width: 25px;
+            line-height: 20px;
+          }
         }
     }
-     .sidebar_search {
-         position: relative;
-         border-bottom: 1px solid #E9E9E9;
-         input {
-             border: none;
-             border-radius:2px;
-             background: #F6F6F6;
-             width: 310px;
-             margin: 5px;
-             height: 40px;
-             &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-              padding-left: 10px;
-              font-size: 12px;
-              font-weight: 600;
-              letter-spacing: 2px;
-              color: #A2ACAF;
-            }
-            &::-moz-placeholder { /* Firefox 19+ */
-              padding-left: 10px;
-              font-size: 12px;
-              font-weight: 600;
-              letter-spacing: 2px;
-              color: #A2ACAF;
-            }
-            &:-ms-input-placeholder { /* IE 10+ */
-              padding-left: 10px;
-              font-size: 12px;
-              font-weight: 600;
-              letter-spacing: 2px;
-              color: #A2ACAF;
-            }
-            &:-moz-placeholder { /* Firefox 18- */
-              padding-left: 10px;
-              font-size: 12px;
-              font-weight: 600;
-              letter-spacing: 2px;
-              color: #A2ACAF;
-            }
-         } 
-         span {
-             position: absolute;
-             right: 15px;
-             top: 16px;
-             font-size: 18px;
-             color: $accent-500;
-             &:after {
-                 content: "";
-                 position: absolute;
-                 width: 1px;
-                 left: -10px;
-                 top: 0px;
-                 bottom: 0px;
-                 display: block;
-                 background: #DCDCDC;
-             }
-         }
-     }
+    .sidebar_search {
+      position: relative;
+      border-bottom: 1px solid #E9E9E9;
+      input {
+          border: none;
+          border-radius:2px;
+          background: #F6F6F6;
+          width: 310px;
+          margin: 5px;
+          height: 40px;
+          &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+          padding-left: 10px;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 2px;
+          color: #A2ACAF;
+        }
+        &::-moz-placeholder { /* Firefox 19+ */
+          padding-left: 10px;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 2px;
+          color: #A2ACAF;
+        }
+        &:-ms-input-placeholder { /* IE 10+ */
+          padding-left: 10px;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 2px;
+          color: #A2ACAF;
+        }
+        &:-moz-placeholder { /* Firefox 18- */
+          padding-left: 10px;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 2px;
+          color: #A2ACAF;
+        }
+      }
+      span {
+          position: absolute;
+          right: 15px;
+          top: 16px;
+          font-size: 18px;
+          color: $accent-500;
+          &:after {
+              content: "";
+              position: absolute;
+              width: 1px;
+              left: -10px;
+              top: 0px;
+              bottom: 0px;
+              display: block;
+              background: #DCDCDC;
+          }
+      }
+    }
      .sidebar_list {
          list-style: none;
          padding: 0;
@@ -107,7 +98,7 @@
                  font-weight: 800;
                  letter-spacing: 2px;
                  color: #495D63;
-             } 
+             }
              .item_title {
                  @include text-general($p900);
              }
@@ -118,5 +109,5 @@
                  margin-right: 20px;
              }
          }
-     }   
+     }
 }

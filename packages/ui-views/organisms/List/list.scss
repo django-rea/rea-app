@@ -1,140 +1,73 @@
-.list {
-    margin-top: 20px;
-    margin-left: 40px;
-    margin-right: 40px;
-    background: white;
-    box-shadow: 0 2px 0 1px rgba(0,0,0,.1);
-    border-radius: 2px;
-    padding: 20px;
-    margin-bottom: 60px;
-    .list_info {
-        .info_title {
-            @include text-mini-black($p900);
-            text-transform: uppercase;
-            padding-bottom: 5px;
-            margin-left: -20px;
-            margin-right: -20px;
-            padding-left: 20px;
-            border-bottom: 1px solid rgba(0,0,0, .1);
-            height: 40px;
-            line-height: 40px;
-            margin-top: -20px;
-        }
-    }
-    .list_item {
-        @include clearfix;
-        margin-left: -20px;
-        margin-right: -20px;
-        .item_actions {
-            float: right;
-            margin-top: -80px;
-            margin-right: 30px;
-            .actions_open {
-                padding: 2px 10px;
-                border-radius: 2px;
-                background: $accent-500;
-                @include text-mini(white);
-                text-transform: uppercase;
-                margin-right: 10px;
-            }
-        }
-        .item_info {
-            padding: 20px;
-            border-bottom: 1px solid #e9e9e9;
-            padding-bottom: 20px;
-            .info_name {
-              @include text-general-black($p900);
-              margin-bottom: 5px;
-            }
-            .info_title {
-              @include text-mini-title($p900);
-            }
-            .info_description {
-              @include text-general($p900);
-              margin-bottom: 10px;
-              margin-top: 10px;
-            }
-            .info_actions {
-                @include clearfix;
-                .actions_tasks, .actions_date {
-                    float: left;
-                    padding: 2px 10px;
-                    border-radius: 2px;
-                    background: $accent-500;
-                    @include text-mini(white);
-                    text-transform: uppercase;
-                    margin-right: 10px;
-                }
-                .actions_date {
-
-                }
-            }
-        }
-    }
-}
-
-
 .list_spaced {
-    margin-top: 20px;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-top: 0px;
     padding: 20px;
+    padding-top: 0;
+    background: white;
     margin-bottom: 60px;
-    .list_info {
-        .info_title {
-            @include text-mini-black($p900);
-            text-transform: uppercase;
-            padding-bottom: 5px;
-            margin-left: -20px;
-            margin-right: -20px;
-            border-bottom: 1px solid rgba(0,0,0, .1);
-            height: 40px;
-            line-height: 40px;
-            margin-top: -20px;
-        }
-    }
-    .item_info {
+    .list_box {
+      border-radius: 3px;
       @include clearfix;
+      margin-left: -20px;
+      margin-right: -20px;
+      border-bottom: 1px solid #f5f5f5;
     }
+
     .list_item {
-        @include clearfix;
-        margin-left: -20px;
-        margin-right: -20px;
+        border-bottom: $separator;
         background: white;
-        border-radius: 2px;
-        box-shadow: 0 1px 3px 1px rgba(0,0,0,.1);
-        margin-top: 10px;
-        .info_actions {
-          float: right;
-          margin-top: -32px;
+        margin-top: 20px;
+        .item_info {
+          @include clearfix;
+          height: 30px;
+        }
+        .item_photo {
+          width: 30px;
+          height: 30px;
+          border-radius: 100%;
+          display: block;
+          float: left;
+          margin-top: 0px;
           margin-right: 10px;
+          background: #d7d7d7;
+          margin-left: 10px;
+        }
+        .item_actions {
+          margin-left: 47px;
+          margin-bottom: 10px;
+          margin-top: -5px;
           .actions_date {
-            border-radius: 2px;
-            border: 2px solid blue;
-            padding: 0px 4px;
-            @include text-mini-black(blue);
-            text-align: center;
+            @include text-mini-black(#b5b5b5);
           }
         }
-        .info_title {
-          @include text-general(#565656);
-          padding: 10px;
+        .item_title {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            letter-spacing: 0.5px;
+            color: #13293D;
+            float: left;
+            font-weight: 400;
+            padding: 5px;
+            padding-left: 0;
           a {
-            font-weight: 800;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 20px;
+            letter-spacing: 0.5px;
+            color: #13293D;
           }
         }
-        .info_description {
-          background-color: #f7f7f7;
-          font-size: 12px;
-          font-weight: 400;
-          line-height: 20px;
-          letter-spacing: 2px;
-          color: #737373;
-          font-weight: 400;
-          font-style: italic;
-          padding: 5px 10px;
-          font-weight: 400;
-          font-style: italic;
+        .item_description {
+          font-size: 15px;
+          font-weight: 500;
+          line-height: 22px;
+          letter-spacing: 0px;
+          color: #3e4448;
+          /* font-style: italic; */
+          padding: 5px;
+          padding-left: 0;
+          margin-left: 47px;
+          padding-top: 0;
         }
     }
 }
