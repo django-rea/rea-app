@@ -30,6 +30,11 @@
           margin-right: 10px;
           background: #d7d7d7;
           margin-left: 10px;
+          img {
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+          }
         }
         .item_actions {
           margin-left: 47px;
@@ -49,6 +54,8 @@
             font-weight: 400;
             padding: 5px;
             padding-left: 0;
+            width: 500px;
+            @include truncate;
           a {
             font-size: 14px;
             font-weight: 700;
@@ -68,6 +75,7 @@
           padding-left: 0;
           margin-left: 47px;
           padding-top: 0;
+
         }
     }
 }

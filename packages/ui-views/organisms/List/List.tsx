@@ -18,8 +18,8 @@ const List: SFC<Props> = ({ theme, events }) => {
         {events.map((item, i) => (
           <div {...currentTheme(i+i+i+i+i+i+4, 'list_item')}>
             <div {...currentTheme(i+i+i+i+i+i+5, 'item_info')}>
-            <span {...currentTheme(i+i+i+i+i+i+6, 'item_photo')} />
-            <h2 {...currentTheme(i+i+i+i+i+i+7, 'item_title')}><a>{item.provider.name}</a> {item.action} {item.numericValue} {item.unit} from/to <a>{item.receiver.name}</a></h2>
+            <span {...currentTheme(i+i+i+i+i+i+6, 'item_photo')}><img src={item.provider.image} /></span>
+            <h2 {...currentTheme(i+i+i+i+i+i+7, 'item_title')}><a>{item.provider.name}</a> {item.action} {item.affectedQuantity.numericValue} {item.affectedQuantity.unit ? item.affectedQuantity.unit.name : ''} from/to <a>{item.receiver.name}</a></h2>
             </div>
             <div {...currentTheme(i+i+i+i+i+i+8, 'item_description')}>{item.note}</div>
             <div {...currentTheme(i+i+i+i+i+i+9, 'item_actions')}>
