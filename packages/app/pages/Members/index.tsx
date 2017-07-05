@@ -22,7 +22,7 @@ interface Props {
 }
 
 const MembersPage = ({ agent, router }: Props) => (
-    <MembersBig members={agent.members} agentId={router.params.id} />
+    <MembersBig members={agent.agentRelationships} agentId={router.params.id} />
 )
 
 export default MembersPage

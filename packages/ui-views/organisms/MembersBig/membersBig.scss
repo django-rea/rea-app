@@ -36,5 +36,15 @@
             @include text-label($p900);
             @include truncate;
         }
+        h5 {
+          background: $green;
+          @include text-mini-black(white);
+          border-radius: 2px;
+          padding: 0 3px;
+          margin-top: 5px;
+          display: inline-block;
+          text-align: center;
+
+        }
     }
 }

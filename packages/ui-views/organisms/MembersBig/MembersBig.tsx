@@ -10,6 +10,7 @@ interface MembersProps {
 }
 
 const MembersBig = ({ members, theme }: MembersProps) => {
+    console.log(members)
     let currentTheme = themeable(theme)
     return (
       <section {...currentTheme(1, 'membersBig')}>
@@ -20,9 +21,10 @@ const MembersBig = ({ members, theme }: MembersProps) => {
             <div {...currentTheme(i + i + i + i + 5, 'medium-3', 'columns', 'end')}>
               <div {...currentTheme(i + i + i + i + 6, 'list_member')}>
                 <span {...currentTheme(i + i + i + i + 7, 'member_photo')}>
-                  <img src={item.image} />
+                  <img src={item.subject.image} />
                 </span>
-                <h3 {...currentTheme(i + i + i + i + 8, 'member_name')}>{item.name}</h3>
+                <h3 {...currentTheme(i + i + i + i + 8, 'member_name')}>{item.subject.name}</h3>
+                <h5>{item.relationship.category}</h5>
               </div>
             </div>
             ))}
