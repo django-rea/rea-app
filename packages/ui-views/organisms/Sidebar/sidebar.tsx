@@ -17,9 +17,9 @@ const Sidebar: SFC<Props> = ({ inventory, theme }) => {
           <ul {...currentTheme(8, 'sidebar_list')} >
             {inventory.map((item, i) => (
               <li {...currentTheme(i+i+i+i+9, 'list_item')} >
-                <span {...currentTheme(i+i+i+i+10, 'item_type')}>{item.resourceType}</span>
+                <span {...currentTheme(i+i+i+i+10, 'item_type')}>{item.resourceTaxonomyItem.name}</span>
                 <h3 {...currentTheme(i+i+i+i+11, 'item_title')}>{item.trackingIdentifier}</h3>
-                <h4 {...currentTheme(i+i+i+i+12, 'item_qty')}>{item.numericValue}</h4>
+                <h4 {...currentTheme(i+i+i+i+12, 'item_qty')}>{item.currentQuantity.numericValue}</h4>
               </li>
             ))}
           </ul>
