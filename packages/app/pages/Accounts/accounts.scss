@@ -1,0 +1,30 @@
+.accounts {
+  box-shadow: 0 2px 0 1px rgba(0,0,0,.1);
+    border-radius: 2px;
+    background: white;
+    margin-bottom: 40px;
+    .accounts_title {
+      @include text-mini-black($p900);
+      text-transform: uppercase;
+      padding-left: 20px;
+      border-bottom: 1px solid rgba(0,0,0, .1);
+      height: 40px;
+      line-height: 40px;
+    }
+    .accounts_info {
+      background: white;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      .info_amount {
+        @include text-title-light($p900);
+        text-align: center;
+        font-weight: 200;
+      }
+    }
+      .info_balance {
+        @include text-label($p900);
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 10px;
+      }
+}
