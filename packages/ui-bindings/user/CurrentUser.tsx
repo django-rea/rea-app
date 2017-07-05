@@ -19,14 +19,10 @@ query($token: String) {
   viewer(token: $token) {
     myAgent {
       ...coreAgentFields
-      organizations {
-        ...coreOrganizationFields
-      }
     }
   }
 }
 ${coreAgentFields}
-${coreOrganizationFields}
 `
 
 export default compose(

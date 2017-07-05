@@ -19,13 +19,20 @@ query($token: String, $agentId: Int) {
   viewer(token: $token) {
     agent(id: $agentId) {
       ...coreAgentFields
-      ...on Organization {
-        ...coreOrganizationFields
-        members {
-          ...coreAgentFields
-          ...on Organization {
-            ...coreOrganizationFields
-          }
+      agentRelationships {
+        id
+        subject {
+          name
+          type
+          image
+        }
+        relationship {
+          label
+          category
+        }
+        object {
+          name
+          type
         }
       }
       ...coreEventsFields
@@ -33,21 +40,32 @@ query($token: String, $agentId: Int) {
         # :TODO: use fragment for this
         id
         name
+        plannedStart
+        plannedDuration
+        isFinished
+        note
       }
-      ownedEconomicResources (category: INVENTORY) {
+      ownedEconomicResources {
         id
-        resourceType
+        resourceTaxonomyItem {
+          name
+          category
+        }
         trackingIdentifier
-        numericValue
-        unit
+        currentQuantity {
+          numericValue
+          unit {
+            name
+          }
+        }
         image
         note
+        category
       }
     }
   }
 }
 ${coreAgentFields}
-${coreOrganizationFields}
 ${coreEventsFields}
 `
 // :TODO: see if there's a way to generate these from GraphQL schema
@@ -71,16 +89,17 @@ export interface AgentType {
   id: number,
   note: string,
   image: string,
+  name: string,
   agentProcesses?: Array<{
     id: number,
     name: string,
   }>,
+  agentEconomicEvents?: Array<Events>
+  agentRelationships?: Array<AgentType>,
   ownedEconomicResources?: Array<{
     id: number,
     resourceType: string,
   }>,
-  economicEvents?: Array<Events>
-  members?: Array<AgentType>,
 }
 
 export default compose(

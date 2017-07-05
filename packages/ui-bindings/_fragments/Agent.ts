@@ -24,22 +24,28 @@ fragment coreOrganizationFields on Agent {
 
 export const coreEventsFields = gql`
 fragment coreEventsFields on Agent {
-  economicEvents {
+  agentEconomicEvents {
     id
     action
     start
-    numericValue
-    unit
-    note
-    workCategory
+    affectedQuantity {
+      numericValue
+      unit {
+        name
+      }
+    }
     affectedResource {
       id
-      resourceType
+      resourceTaxonomyItem {
+        name
+        category
+      }
       trackingIdentifier
     }
     provider {
-    id
-    name
+      id
+      name
+      image
     }
     receiver {
       id
@@ -49,6 +55,7 @@ fragment coreEventsFields on Agent {
       id
       name
     }
+    note
   }
 }`
 

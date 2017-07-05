@@ -27,7 +27,7 @@ interface RouterProps {
 const OverviewPage = ({ agent }: Props) => {
   return (
     <div>
-      <List events={agent.economicEvents}/>
+      <List events={agent.agentEconomicEvents}/>
     </div>
     )
 }

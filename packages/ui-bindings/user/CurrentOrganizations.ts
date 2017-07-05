@@ -18,15 +18,14 @@ const query = gql`
 query($token: String) {
   viewer(token: $token) {
     myAgent {
-      id
-      organizations {
-        ...coreOrganizationFields
+      ...coreAgentFields
+      memberOfOrganizations {
+        ...coreAgentFields
       }
     }
   }
 }
 ${coreAgentFields}
-${coreOrganizationFields}
 `
 
 export default compose(
@@ -44,7 +43,7 @@ export default compose(
       loading,
       error,
       refetchCurrentOrgs: refetch,  // :NOTE: call this in the component to force reload the data
-      organizations: viewer ? viewer.myAgent.organizations : null,
+      organizations: viewer ? viewer.myAgent.memberOfOrganizations : null,
     }),
   })
 )
