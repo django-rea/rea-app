@@ -1,15 +1,5 @@
-/**
- * Accounts page
- *
- * @package: REA app
- * @author:  ivan <bernini@inventati.org>
- * @since:   2017-04-06
- */
+import Component from './accounts'
+import themed from '@vflows/views/themed'
+const styles = require('./index.scss')
 
-import * as React from 'react'
-
-const AccountsPage = () => (
-  <h1>wallet</h1>
-)
-
-export default AccountsPage
+export default themed(Component, styles)
