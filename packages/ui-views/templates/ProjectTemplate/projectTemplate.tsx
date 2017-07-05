@@ -23,8 +23,6 @@ interface RouterProps {
 
 const ProjectTemplate = BindAgent(({ agent, loading, error, theme, children }: Props) => {
   let currentTheme = themeable(theme)
-  console.log(agent)
-  console.log(error)
   return (
     loading ? <strong>Loading...</strong> : (
     error ? <p style={{ color: '#F00' }}>API error</p> : (
@@ -41,7 +39,7 @@ const ProjectTemplate = BindAgent(({ agent, loading, error, theme, children }: P
       <SecondaryMenu
       id={agent.id}
       totalProcesses={agent.agentProcesses.length}
-      totalNetwork={agent.members.length} />
+      totalNetwork={agent.agentRelationships.length} />
       <div>
         {children && React.cloneElement(children, {
           id: agent.id,
@@ -50,7 +48,7 @@ const ProjectTemplate = BindAgent(({ agent, loading, error, theme, children }: P
       </div>
     </section>
     <div {...currentTheme(7, 'medium-4', 'columns')}>
-      <Sidebar inventory={agent.ownedEconomicResources} />
+      <Sidebar inventory={agent.ownedEconomicResources.filter(resource => resource.category === 'INVENTORY')} />
     </div>
   </div>
   )))})
