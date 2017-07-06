@@ -4,25 +4,42 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    padding: 10px;
     .list_title {
       @include text-label($p900);
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+      text-transform: capitalize;
     }
     .list_item {
-      height: 30px;
-      border: 1px dashed #D8D8D8;
-      border-radius: 2px;
-      margin-bottom: 10px;
+      margin-bottom: 0px;
       position: relative;
-      padding: 2px 3px;
       @include clearfix;
       cursor: pointer;
+      height: 30px;
+      position: relative;
+      border: 1px solid transparent;
+      @include transition(.3s);
+      &:hover {
+        background: #f4f5f7;
+        border-radius: 2px;
+        border: 1px solid #dddede;
+      }
       &.active {
-       background: $accent-500;
-       border: none;
-       color: white;
+        background: #f4f5f7;
+        border-radius: 2px;
+        border: 1px solid #dddede;
         h4 {
-          @include text-label(white);
+          font-weight: 700;
+        }
+        &:before {
+          position: absolute;
+          content: "";
+          width: 4px;
+          height: 100%;
+          display: block;
+          background: $accent-500;
+          left: -10px;
+          top: 0;
         }
       }
       a {
@@ -48,10 +65,11 @@
         }
       }
         h4 {
-          @include text-label(#929292);
+          @include text-label($p900);
           font-size: 13px;
           float: left;
-          font-weight: 600;
+          font-weight: 500;
+          letter-spacing: 1px;
           margin-left: 10px;
           @include truncate;
           margin-right: 5px;
