@@ -1,0 +1,41 @@
+@import "~@vflows/views/base.scss";
+.processes_list {
+  background: white;
+}
+.processes_item {
+  padding: 20px;
+  border-bottom: $separator;
+  .item_first {
+    @include clearfix;
+    .first_title {
+      @include text-label($p900);
+    }
+    .first_actions {
+      float: right;
+    }
+  }
+  .item_second {
+    @include text-general($p900);
+    margin-top: 5px;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+  .item_third {
+    margin-top: 5px;
+    @include clearfix;
+    .third_date {
+      @include text-mini-black($gray);
+    }
+    .third_members {
+      float: right;
+      .members_single {
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        background: $p700;
+        display: inline-block;
+        margin-left: 10px;
+      }
+    }
+  }
+}
