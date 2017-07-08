@@ -1,0 +1,97 @@
+.allprojects_list {
+  background: white;
+  border: 1px solid;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+  border-radius: 4px;
+  margin-top: 20px;
+  .list_menu {
+    height: 40px;
+    border: $separator;
+    padding: 0 20px;
+    line-height: 40px;
+    @include clearfix;
+    .menu_actions {
+      float: right;
+      margin-top: -40px;
+      .actions_join {
+        height: 26px;
+        margin-top: 7px;
+        @include text-mini-black($p900);
+        padding: 0 10px;
+        line-height: 26px;
+        background: #e6e6e6;
+        display: block;
+        margin-top: 6px;
+      }
+    }
+    .menu_type {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      @include clearfix;
+      li {
+        float: left;
+        @include text-label($p900);
+        line-height: 40px;
+        position: relative;
+        margin-right: 30px;
+        &.active {
+          &:after {
+            position: absolute;
+            content: "";
+            display: block;
+            bottom: 2px;
+            height: 3px;
+            left: 0;
+            right: 0;
+            background: $p900;
+          }
+        }
+      }
+    }
+  }
+  .list_projects {
+    padding: 20px;
+    .projects_item {
+      margin-bottom: 20px;
+      .item_row {
+        @include clearfix;
+        margin-bottom: 10px;
+      }
+      .row_image {
+        width: 40px;
+        height: 40px;
+        border-radius: 2px;
+        background: #e0e0e0;
+        margin-right: 10px;
+        float: left;
+      }
+      a {
+        text-align: left;
+        float: left;
+        @include text-label($p900);
+        @include truncate;
+        width: 260px;
+        line-height: 40px;
+        justify-content: initial;
+      }
+      .row_button {
+        float: right;
+        height: 26px;
+        @include text-mini-black($p900);
+        padding: 0 10px;
+        line-height: 26px;
+        background: #e6e6e6;
+        display: block;
+        margin-top: 6px;
+      }
+      .item_description {
+        @include text-general($p900);
+        font-weight: 400;
+        height: 60px;
+        max-height: 60px;
+        overflow-y: hidden;
+      }
+    }
+  }
+}
