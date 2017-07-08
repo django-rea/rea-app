@@ -5,9 +5,11 @@ import App from './main/App'
 import Todo from './pages/Todo'
 import OverviewPage from './pages/Overview'
 import MembersPage from './pages/Members'
+import AllProjectsPage from './pages/AllProjectsPage'
 import ProcessesPage from './pages/Processes'
 import AccountsPage from './pages/Accounts'
 import ProjectTemplate from '../ui-views/templates/ProjectTemplate'
+import SingleProjectTemplate from '../ui-views/templates/SingleProjectTemplate'
 
 const routes = (
   <Route path="/" component={App}>
@@ -22,11 +24,14 @@ const routes = (
       <Route path="find-tasks" component={Todo} />
     </Route>
 
-    <Route path="projects" component={ProjectTemplate}>
-        <Route path=":id" component={OverviewPage} />
-        <Route path=":id/processes" component={ProcessesPage} />
-        <Route path=":id/accounts" component={AccountsPage} />
-        <Route path=":id/members" component={MembersPage} />
+    <Route path="projects">
+        <IndexRoute component={AllProjectsPage} />
+        <Route path=":id" component={SingleProjectTemplate}>
+          <IndexRoute component={OverviewPage} />
+          <Route path="processes" component={ProcessesPage} />
+          <Route path="accounts" component={AccountsPage} />
+          <Route path="members" component={MembersPage} />
+        </Route>
     </Route>
 
     <Route path="profile" component={Todo}>
