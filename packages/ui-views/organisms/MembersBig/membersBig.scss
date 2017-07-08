@@ -33,17 +33,25 @@
         .member_name {
             text-align: center;
             margin-top: 10px;
-            @include text-label($p900);
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 20px;
+            letter-spacing: 1px;
             @include truncate;
         }
         h5 {
-          background: $green;
-          @include text-mini-black(white);
+          background: #f4f5f7;
+          font-size: 10px;
+          font-weight: 600;
+          line-height: 20px;
+          letter-spacing: 1px;
+          color: #888e94;
           border-radius: 2px;
-          padding: 0 3px;
+          padding: 0 5px;
           margin-top: 5px;
           display: inline-block;
           text-align: center;
+          border: 1px solid #e1e2e4;
 
         }
     }

@@ -16,13 +16,8 @@
             cursor: pointer;
             margin-right: 40px;
             span {
-              padding: 1px 5px;
-              color: white;
-              border-radius: 15px;
-              background: $green;
-              margin-right: 0px;
+              margin-right: 5px;
               text-align: center;
-              min-width: 25px;
               display: inline-block;
               line-height: 20px;
             }
@@ -47,6 +42,8 @@
               @include text-label($p900);
               font-weight: 600;
               line-height: 50px;
+              font-size: 13px;
+              letter-spacing: 1px;
             }
         }
     }
