@@ -28,12 +28,12 @@ interface RouterProps {
 
 const AccountsPage = ({theme, agent}) => {
   let currentTheme = themeable(theme)
-  // let faircoin = agent.ownedEconomicResources.filter(resource => resource.unit === 'FairCoin')[0]
+  let faircoin = agent.ownedEconomicResources.filter(res => res.category === 'CURRENCY')[0]
   return (
     <section {...currentTheme(1, 'accounts')}>
       <h4 {...currentTheme(2, 'accounts_title')}>Faircoin</h4>
       <div {...currentTheme(3, 'accounts_info')}>
-        <h2 {...currentTheme(4, 'info_amount')}>304</h2>
+        <h2 {...currentTheme(4, 'info_amount')}>{faircoin ? faircoin.currentQuantity.numericValue : 0 }</h2>
         <h5 {...currentTheme(5, 'info_balance')}>Balance</h5>
       </div>
     </section>
