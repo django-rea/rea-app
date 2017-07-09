@@ -13,19 +13,39 @@
   color: white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
-  .header_logo {
-    width: 21px;
-    height: 30px;
+  a {
     float: left;
-    margin-top: 10px;
+    margin-left: 10px;
+    color: white;
+    @include text-mini-black(white);
+    line-height: 50px;
+    &:hover {
+      color: white;
+    }
+  }
+  .header_logo {
+    width: 22px;
+    height: 22px;
+    float: left;
+    margin-top: 14px;
+    margin-left: 15px;
     background: url(./images/logo.png);
     background-size: cover;
     background-repeat: no-repeat;
   }
   .header_search {
     float: left;
-      margin-left: 30px;
+      margin-left: 20px;
       margin-top: 10px;
+      position: relative;
+      .search_icon {
+        position: absolute;
+        right: 10px;
+        top: 3px;
+        svg {
+          width: 18px;
+        }
+      }
       input {
         background: rgba(255, 255, 255, .12);
         border-radius: 2px;
@@ -72,6 +92,13 @@
     margin-left: 20px;
     float: right;
     margin-top: 0px;
+    .menu_bell {
+      float: left;
+      margin-top: 18px;
+      svg {
+        height: 18px;
+      }
+    }
     .menu_profile {
       display: inline-block;
       @include clearfix;
@@ -97,8 +124,8 @@
         background-position: center center;
         margin-top: 14px;
       }
-      .icon-dots-three-horizontal {
-        line-height: 50px;
+      .profile_other {
+        margin-top: 13px;
         float: right;
       }
     }
