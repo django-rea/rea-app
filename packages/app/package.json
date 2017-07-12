@@ -88,6 +88,8 @@
     "serve-static": "^1.12.1",
     "sinon": "^2.1.0",
     "typescript": "^2.3.2",
+    "uglify-js": "git://github.com/mishoo/UglifyJS2.git#278577f3cb75e72320564805ee91be63e5f9c806",
+    "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack-dev-middleware": "^1.10.1",
     "webpack-hot-middleware": "^2.17.1"
   },

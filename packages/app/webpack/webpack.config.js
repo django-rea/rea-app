@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const WebpackMd5Hash = require('webpack-md5-hash')
 const loaderUtils = require('loader-utils')
 const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin')
@@ -174,7 +175,7 @@ if (DEBUG) {
       minChunks: isVendor,
     }),
     new WebpackMd5Hash(),
-    new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
+    new UglifyJSPlugin({ compress: { warnings: false } }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
   ])
 
