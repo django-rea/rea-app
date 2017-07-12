@@ -175,7 +175,7 @@ if (DEBUG) {
       minChunks: isVendor,
     }),
     new WebpackMd5Hash(),
-    new UglifyJSPlugin({ compress: { warnings: false } }),
+    // new UglifyJSPlugin({ compress: { warnings: false } }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
   ])
 
