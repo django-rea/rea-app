@@ -47,6 +47,11 @@ const config = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       'process.env.PUBLIC_PATH': JSON.stringify(PUBLIC_PATH),
+      'process.env.WEB_BASEURL': JSON.stringify(process.env.WEB_BASEURL),
+      'process.env.ASSET_BASEURL': JSON.stringify(process.env.ASSET_BASEURL),
+      'process.env.IP': JSON.stringify(process.env.IP),
+      'process.env.PORT': JSON.stringify(process.env.PORT),
+      'process.env.ASSETS_PORT': JSON.stringify(process.env.ASSETS_PORT),
       'process.env.API_URL': JSON.stringify(process.env.API_URL || 'http://localhost:8000/api/graph'),
     }),
     new ExtractTextPlugin('app.css'),
