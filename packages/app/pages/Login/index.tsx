@@ -1,21 +1,5 @@
-/**
- * Login page
- *
- * @package: REA app
- * @author:  pospi <pospi@spadgos.com>
- * @since:   2017-04-05
- */
+import Component from './login'
+import themed from '@vflows/views/themed'
+const styles = require('./index.scss')
 
-import * as React from 'react'
-
-import Form from '@vflows/views/organisms/LoginForm'
-
-import PageTemplate from '@vflows/views/templates/PageTemplate'
-
-const LoginPage = () => (
-  <PageTemplate>
-    <Form />
-  </PageTemplate>
-)
-
-export default LoginPage
+export default themed(Component, styles)

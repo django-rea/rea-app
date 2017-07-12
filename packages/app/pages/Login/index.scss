@@ -1,0 +1,61 @@
+@import "~@vflows/views/base.scss";
+.login {
+  background: #26547C;
+  min-height: 100vh;
+}
+.login_container {
+  border-radius: 4px;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 2px 4px 0px rgba(0,0,0,.5);
+}
+
+.container_title {
+  @include text-title-light($p900);
+}
+
+.container_description {
+  @include text-general($p900);
+}
+
+.login_logo {
+    width: 22px;
+    height: 22px;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    background: url(./images/logo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+form {
+  div {
+    input {
+      height: 40px;
+      background: #D3DCE4 !important;
+      @include text-general($p900);
+      font-size: 14px !important;
+      padding-left: 10px;
+    }
+  }
+  button {
+    height: 30px !important;
+    @include text-label(white);
+    color: white !important;
+    background: #5BCD7B !important;
+    line-height: 30px !important;
+    box-shadow: none !important;
+    text-transform: capitalize !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    line-height: 30px !important;
+    span {
+      @include text-label(white);
+      line-height: 30px;
+    }
+  }
+}
+
+
