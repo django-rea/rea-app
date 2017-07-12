@@ -18,7 +18,8 @@ const config = {
   production: {
     ip: process.env.IP || '0.0.0.0',
     port: process.env.PORT || 8080,
-    baseUrl: 'https://arc.diegohaz.com',
+    baseUrl: process.env.WEB_BASEURL,
+    assetUrl: process.env.ASSET_BASEURL,
   },
 }
 
