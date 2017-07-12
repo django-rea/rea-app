@@ -15,6 +15,7 @@ Note that many issues are logged only for gathering future requirements and exis
     - [Recommended editor plugins](#recommended-editor-plugins)
     - [Environment variables](#environment-variables)
     - [Running package commands individually](#running-package-commands-individually)
+- [Running in production mode](#running-in-production-mode)
 - [Frameworks & conventions used](#frameworks--conventions-used)
 
 <!-- /MarkdownTOC -->
@@ -121,6 +122,17 @@ The app accepts the following env vars to control its behaviour:
 ### Running package commands individually
 
 Since the repository is setup with Lerna, often when you try to run NPM commands within each packge rather than at the top level they won't be able to find the right dependencies. To workaround this, simply use Lerna's `scope` option to target the specific package, for example: `lerna run --scope @vflows/views test`.
+
+
+## Running in production mode
+
+First, build the app by running `npm run build`. This will generate packaged assets into the `dist` folder within the app package.
+
+To run the webserver, replace the variables in the following command with those relevant to your installation and run it:
+
+    NODE_ENV=production PORT=3000 ASSETS_PORT=3001 WEB_BASEURL=http://localhost:30000 ASSET_BASEURL=http://localhost:3001 npm run serve
+
+Note that the asset server is separate to the pre-render webserver and as such it needs to run off a different port.
 
 
 
