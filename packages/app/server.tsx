@@ -93,7 +93,7 @@ function finishRouting(req: Request, res: Response, memoryHistory, { client, sto
       .then(({ store: newStore }) => render(newStore))
       .catch(err => appError(err, res))
   })
-})
+}
 
 const app = express(router)
 
