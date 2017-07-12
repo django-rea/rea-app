@@ -3,7 +3,7 @@ import Sidebar from '../../organisms/Sidebar'
 import SecondaryMenu from '../../organisms/SecondaryMenu'
 import * as themeable from 'react-themeable'
 import BindAgent, { AgentType } from '@vflows/bindings/agent/agent'
-
+import {Vertical} from '../../icons'
 
 interface Props {
   agent?: AgentType,
@@ -32,6 +32,12 @@ const SingleProjectTemplate = BindAgent(({ agent, loading, error, theme, childre
         <div {...currentTheme(3, 'overview_info')}>
           <span {...currentTheme(4, 'overview_photo')}><img src={agent.image}/></span>
           <h2 {...currentTheme(5, 'overview_name')}>{agent.name}</h2>
+        </div>
+        <div {...currentTheme(7, 'overview_actions')}>
+          <button>Create new process</button>
+          <span {...currentTheme(8, 'actions_more')}>
+            <Vertical />
+          </span>
         </div>
       </div>
     </div>

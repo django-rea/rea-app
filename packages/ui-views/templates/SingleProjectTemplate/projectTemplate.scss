@@ -6,6 +6,29 @@
   background-size: cover;
   margin-top: -5px;
   margin-bottom: 10px;
+  .overview_actions {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    button {
+      border: 1px solid white;
+      background: transparent;
+      @include text-mini-black(white);
+      text-align: center;
+      padding: 0 10px;
+      border-radius: 2px;
+    }
+    span {
+      color: white;
+      vertical-align: sub;
+      margin-left: 10px;
+      height: 30px;
+      display: inline-block;
+      svg {
+        width: 18px;
+      }
+    }
+  }
   &:before {
     content: "";
     position: absolute;
