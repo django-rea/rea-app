@@ -126,13 +126,19 @@ Since the repository is setup with Lerna, often when you try to run NPM commands
 
 ## Running in production mode
 
-First, build the app by running `npm run build`. This will generate packaged assets into the `dist` folder within the app package.
+In order to run for production, you need to configure the correct environment variables. This has to be done both when building the code and when running the webserver, as some configuration is compiled into the packaged JS files whilst others are read during execution of the pre-render webserver. Simply set the appropriate values in the below string and prepend it to each command you run.
 
-To run the webserver, replace the variables in the following command with those relevant to your installation and run it:
+    NODE_ENV=production PORT=3000 WEB_BASEURL=http://localhost:3000 ASSET_BASEURL=http://localhost:3000
 
-    NODE_ENV=production PORT=3000 ASSETS_PORT=3001 WEB_BASEURL=http://localhost:30000 ASSET_BASEURL=http://localhost:3001 npm run serve
+First, build the app by running the build command. This will generate packaged assets into the `dist` folder within the app package.
 
-Note that the asset server is separate to the pre-render webserver and as such it needs to run off a different port.
+    {ENV_SETTINGS} npm run build
+
+To run the webserver, use the `serve` command:
+
+    {ENV_SETTINGS} npm run serve
+
+That's it!
 
 
 
