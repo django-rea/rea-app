@@ -128,7 +128,7 @@ Since the repository is setup with Lerna, often when you try to run NPM commands
 
 In order to run for production, you need to configure the correct environment variables. This has to be done both when building the code and when running the webserver, as some configuration is compiled into the packaged JS files whilst others are read during execution of the pre-render webserver. Simply set the appropriate values in the below string and prepend it to each command you run.
 
-    NODE_ENV=production PORT=3000 WEB_BASEURL=http://localhost:3000 ASSET_BASEURL=http://localhost:3000
+    NODE_ENV=production PORT=3000 WEB_BASEURL=http://localhost:3000 ASSET_BASEURL=http://localhost:3000 API_URL=http://localhost:8000/api/graph
 
 First, build the app by running the build command. This will generate packaged assets into the `dist` folder within the app package.
 
