@@ -8,7 +8,7 @@ import * as bodyParser from 'body-parser'
 
 const { env } = require('./config')
 
-const root = path.join(__dirname, '../../..')
+const root = __dirname
 
 const appFactory = (routes): Application => {
   const app = express()
