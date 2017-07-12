@@ -34,11 +34,11 @@ router.use((req, res, next) => {
 
   const memoryHistory = createMemoryHistory({ basename })
   configureStore({}, memoryHistory)
-    .then(storeData => finishRouting(req, res, memoryHistory, storeData))
+    .then(storeData => finishRouting(req, res, next, memoryHistory, storeData))
     .catch(err => appError(err, res))
 })
 
-function finishRouting(req: Request, res: Response, memoryHistory, { client, store }) {
+function finishRouting(req: Request, res: Response, next: Function, memoryHistory, { client, store }) {
   const location = req.url.replace(basename, '')
   const history = syncHistoryWithStore(memoryHistory, store)
 
