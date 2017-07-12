@@ -10,7 +10,7 @@
     "coverage": "lerna run coverage",
     "lint": "lerna run lint",
     "dev": "cd packages/app && npm run dev",
-    "build": "lerna run build",
+    "build": "cd packages/app && npm run build",
     "heroku-postbuild": "npm run build"
   },
   "devDependencies": {

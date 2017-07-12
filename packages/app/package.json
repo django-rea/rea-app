@@ -11,7 +11,7 @@
     "coverage": "nyc --reporter=lcov --reporter=html npm run test && nyc report",
     "lint": "eslint .",
     "prebuild": "npm run build:clean && npm run build:copy",
-    "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.config",
+    "build": "cross-env NODE_ENV=production tsc; webpack --config webpack/webpack.config",
     "build:clean": "rimraf \"dist/**\"",
     "build:copy": "copyfiles -u 1 public/* public/**/* dist",
     "heroku-postbuild": "npm run build"
