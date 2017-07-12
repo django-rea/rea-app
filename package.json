@@ -11,6 +11,7 @@
     "lint": "lerna run lint",
     "dev": "cd packages/app && npm run dev",
     "build": "cd packages/app && npm run build",
+    "serve": "cd packages/app && npm run start",
     "heroku-postbuild": "npm run build"
   },
   "devDependencies": {
