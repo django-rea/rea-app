@@ -14,7 +14,7 @@ const staticPath = path.resolve(process.cwd(), './packages/app/public/');
 // read config
 
 const ip = process.env.IP || '0.0.0.0'
-const port = (+process.env.PORT + 1) || 3001
+const port = process.env.ASSETS_PORT || 3001
 
 const webpackConfig = require('./webpack.config')
 

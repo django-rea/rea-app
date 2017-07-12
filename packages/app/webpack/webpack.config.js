@@ -7,7 +7,7 @@ const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin')
 const webpackIsomorphicToolsConfig = require('./webpack-isomorphic-tools')
 
 const ip = process.env.IP || '0.0.0.0'
-const port = (+process.env.PORT + 1) || 3001
+const port = process.env.ASSETS_PORT || 3001
 const DEBUG = process.env.NODE_ENV !== 'production'
 const PUBLIC_PATH = `/${process.env.PUBLIC_PATH || ''}/`.replace('//', '/')
 
