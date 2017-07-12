@@ -9,6 +9,7 @@
 import * as React from 'react'
 import { AgentType } from '@vflows/bindings/agent/agent'
 import * as themeable from 'react-themeable'
+import {Horizontal, Down} from '@vflows/views/icons'
 
 interface Props {
   agent?: AgentType,
@@ -29,8 +30,8 @@ const ProcessesPage = ({ agent, router, theme }: Props) => {
           <div {...currentTheme((i * 12) + 3, 'item_first')}>
             <h3 {...currentTheme((i * 12) + 4, 'first_title')}>{process.name}</h3>
             <div {...currentTheme((i * 12) + 5, 'first_actions' )}>
-              <span {...currentTheme((i * 12) + 6, 'action_more' )} />
-              <span {...currentTheme((i * 12) + 7, 'action_open' )} />
+              <span {...currentTheme((i * 12) + 6, 'action_more' )}><Horizontal /></span>
+              <span {...currentTheme((i * 12) + 7, 'action_open' )}><Down /></span>
             </div>
           </div>
           <div {...currentTheme((i * 12) + 8, 'item_second')}>{process.note}</div>
