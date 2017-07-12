@@ -10,11 +10,9 @@ interface MembersProps {
 }
 
 const MembersBig = ({ members, theme }: MembersProps) => {
-    console.log(members)
     let currentTheme = themeable(theme)
     return (
       <section {...currentTheme(1, 'membersBig')}>
-        <h4 {...currentTheme(2, 'membersBig_title')}>{members.length} Members</h4>
         <div {...currentTheme(3, 'membersBig_list')}>
           <div {...currentTheme(4, 'row')}>
             {members.map((item, i) => (
