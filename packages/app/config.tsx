@@ -7,8 +7,8 @@ const basename = `/${process.env.PUBLIC_PATH || ''}`.replace('//', '/')
 const config = {
   all: {
     env: process.env.NODE_ENV || 'development',
-    baseUrl: `http://${ip}:${port}${basename}`,
-    assetUrl: `http://${ip}:${assetPort}${basename}`,
+    baseUrl: process.env.WEB_BASEURL || `http://${ip}:${port}${basename}`,
+    assetUrl: process.env.ASSET_BASEURL || `http://${ip}:${assetPort}${basename}`,
     basename,
     browser,
     ip,
