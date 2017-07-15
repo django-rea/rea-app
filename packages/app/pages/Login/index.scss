@@ -53,7 +53,7 @@ form {
     line-height: 30px !important;
     span {
       @include text-label(white);
-      line-height: 30px;
+      line-height: 30px !important;
     }
   }
 }

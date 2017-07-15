@@ -19,8 +19,18 @@ query($token: String) {
   viewer(token: $token) {
     myAgent {
       ...coreAgentFields
-      memberOfOrganizations {
-        ...coreAgentFields
+      agentRelationships {
+        id
+        relationship {
+          label
+          category
+        }
+        object {
+          name
+          type
+          image
+          id
+        }
       }
     }
   }
@@ -43,7 +53,7 @@ export default compose(
       loading,
       error,
       refetchCurrentOrgs: refetch,  // :NOTE: call this in the component to force reload the data
-      organizations: viewer ? viewer.myAgent.memberOfOrganizations : null,
+      organizations: viewer ? viewer.myAgent.agentRelationships : null,
     }),
   })
 )

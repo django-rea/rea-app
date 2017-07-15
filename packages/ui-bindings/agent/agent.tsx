@@ -24,6 +24,7 @@ query($token: String, $agentId: Int) {
         subject {
           name
           type
+          id
           image
         }
         relationship {
@@ -33,6 +34,8 @@ query($token: String, $agentId: Int) {
         object {
           name
           type
+          image
+          id
         }
       }
       ...coreEventsFields
