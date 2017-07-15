@@ -14,6 +14,8 @@ interface Props {
 }
 
 interface RouterProps {
+  theme: Object,
+  children: any,
   router: {
     params: {
       id: string,
