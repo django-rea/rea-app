@@ -9,6 +9,7 @@
 import { ReactElement } from 'react'
 
 import * as React from 'react'
+import {Component} from 'react'
 import * as Helmet from 'react-helmet'
 
 import SiteTemplate from '../views/SiteTemplate'
@@ -19,9 +20,35 @@ require('./AppGlobals.scss')
 
 export interface Props {
   children: ReactElement<any>,
+  showModal: any
 }
 
-const App = ({ children }: Props) => {
+class App extends Component {
+  constructor () {
+    super()
+    this.state = {
+      showModal: false,
+      modalId: null
+    }
+    this.handleCloseModal = this.handleCloseModal.bind(this)
+    this.handleOpenModal = this.handleOpenModal.bind(this)
+  }
+
+  handleOpenModal (id) {
+    this.setState({
+      showModal: true,
+      modalId: id
+    });
+  }
+
+  handleCloseModal () {
+    this.setState({
+      showModal: false,
+      modalId: null
+    });
+  }
+
+  render () {
   return (
     <div>
       <Helmet
@@ -41,10 +68,16 @@ const App = ({ children }: Props) => {
         ]}
       />
       <SiteTemplate>
-        {children}
+        {React.cloneElement(this.props.children, {
+            // MODAL
+            showModal: this.state.showModal,
+            handleOpenModal: this.handleOpenModal,
+            handleCloseModal: this.handleCloseModal,
+            modalId: this.state.modalId
+          })}
       </SiteTemplate>
     </div>
-  )
+  )}
 }
 
 export default App
