@@ -1,5 +1,9 @@
 @import "~@vflows/views/base.scss";
 
+.myClass {
+  background: red !important;
+}
+
 html {
   overflow-x: hidden;
 }

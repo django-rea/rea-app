@@ -1,14 +1,18 @@
 .aside {
-  margin-top: 20px;
+  margin-top: 30px;
   .aside_list {
     list-style: none;
     padding: 0;
     margin: 0;
-    padding: 10px;
     .list_title {
       @include text-label($p900);
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       text-transform: capitalize;
+      font-size: 11px;
+      letter-spacing: 2px;
+      line-height: 16px;
+      text-transform: uppercase;
+      color: #949494;
     }
     .list_item {
       margin-bottom: 0px;

@@ -1,10 +1,15 @@
+.modal {
+  background: red !important;
+}
+
 .context_overview {
   height: 140px;
   position: relative;
   background: white;
   background-image: url('./bg.png');
   background-size: cover;
-  margin-top: -5px;
+  margin-top: 30px;
+  border-radius: 4px;
   margin-bottom: 10px;
   .overview_actions {
     position: absolute;
