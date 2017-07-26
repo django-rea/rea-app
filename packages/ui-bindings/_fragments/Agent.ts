@@ -22,6 +22,60 @@ fragment coreOrganizationFields on Agent {
   note
 }`
 
+export const coreCommitmentFields = gql`
+fragment coreCommitmentFields on Commitment {
+  action
+  commitmentStart
+  committedOn
+  due
+  committedQuantity {
+    numericValue
+    unit {
+      name
+    }
+  }
+  committedTaxonomyItem {
+    name
+    category
+  }
+  provider {
+    id
+    name
+  }
+  receiver {
+    id
+    name
+  }
+}`
+
+export const coreEventFields = gql`
+fragment coreEventFields on EconomicEvent {
+  action
+  start
+  affectedQuantity {
+    numericValue
+    unit {
+      name
+    }
+  }
+  affectedResource {
+    id
+    resourceTaxonomyItem {
+      name
+      category
+    }
+    trackingIdentifier
+  }
+  provider {
+    id
+    name
+  }
+  receiver {
+    id
+    name
+  }
+}`
+
 export const coreEventsFields = gql`
 fragment coreEventsFields on Agent {
   agentEconomicEvents {
