@@ -1,5 +1,5 @@
 /**
- * HoC to send agent by its ID to UI
+ * HoC to send process by its ID to UI
  *
  * @package: REA app
  * @author:  ivan <bernini@sinventati.org>
@@ -12,70 +12,61 @@ import { gql, graphql, compose } from 'react-apollo'
 import { AppState } from '@vflows/store/types'
 import { getActiveLoginToken } from '@vflows/store/selectors/auth'
 
-import { coreAgentFields, coreOrganizationFields, coreEventsFields } from '../_fragments/Agent'
+import { coreCommitmentFields, coreEventFields } from '../_fragments/Process'
 
 const query = gql`
-query($token: String, $agentId: Int) {
+query($token: String, $processId: Int) {
   viewer(token: $token) {
-    agent(id: $agentId) {
-      ...coreAgentFields
-      agentRelationships {
-        id
-        subject {
-          name
-          type
-          id
-          image
-        }
-        relationship {
-          label
-          category
-        }
-        object {
-          name
-          type
-          image
-          id
-        }
-      }
-      ...coreEventsFields
-      agentProcesses(isFinished: false) {
-        # :TODO: use fragment for this
+    process(id: $processId) {
+      name
+      id
+      note
+      workingAgents {
         id
         name
-        isStarted
-        plannedStart
-        plannedDuration
-        isFinished
-        note
-        workingAgents {
-          id
-          name
-          image
-        }
-      }
-      ownedEconomicResources {
-        id
-        resourceTaxonomyItem {
-          name
-          category
-        }
-        trackingIdentifier
-        currentQuantity {
-          numericValue
-          unit {
-            name
-          }
-        }
         image
-        note
-        category
+      }
+      processEconomicEvents {
+        ...coreEventFields
+      }
+      processCommitments {
+        ...coreCommitmentFields
+      }
+      inputs {
+        ...coreEventFields
+      }
+      workInputs {
+        ...coreEventFields
+      }
+      nonWorkInputs {
+        ...coreEventFields
+      }
+      outputs {
+        ...coreEventFields
+      }
+      committedInputs {
+        ...coreCommitmentFields
+      }
+      committedWorkInputs {
+        ...coreCommitmentFields
+      }
+      committedNonWorkInputs {
+        ...coreCommitmentFields
+      }
+      committedOutputs {
+        ...coreCommitmentFields
+      }
+      nextProcesses {
+        name
+      }
+      previousProcesses {
+        name
       }
     }
   }
 }
-${coreAgentFields}
-${coreEventsFields}
+${coreEventFields}
+${coreCommitmentFields}
 `
 // :TODO: see if there's a way to generate these from GraphQL schema
 // :TODO: we should separate Person / Organization to separate interfaces
@@ -122,14 +113,14 @@ export default compose(
     // read query vars into query from input data above
     options: (props) => ({ variables: {
       ...props.variables,
-      agentId: props.agentId,
+      processId: props.processId,
     } }),
     // transform output data
     props: ({ ownProps, data: { viewer, loading, error, refetch } }) => ({
       loading,
       error,
       refetchAgent: refetch,  // :NOTE: call this in the component to force reload the data
-      agent: viewer ? viewer.agent : null,
+      process: viewer ? viewer.process : null,
     }),
   })
 )
