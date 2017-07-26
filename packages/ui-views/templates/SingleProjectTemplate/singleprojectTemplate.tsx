@@ -1,9 +1,36 @@
 import * as React from 'react'
 import Sidebar from '../../organisms/Sidebar'
 import SecondaryMenu from '../../organisms/SecondaryMenu'
+import ProcessModal from '../../organisms/ProcessModal'
 import * as themeable from 'react-themeable'
 import BindAgent, { AgentType } from '@vflows/bindings/agent/agent'
 import {Vertical} from '../../icons'
+import Modal from 'react-modal'
+
+const customStyles = {
+  overlay : {
+    position          : 'fixed',
+    top               : 0,
+    left              : 0,
+    right             : 0,
+    bottom            : 0,
+    backgroundColor   : 'rgba(0, 0, 0, 0.65)',
+    zIndex            : 9999999999,
+    height: '100%',
+    justifyContent: 'center',
+    overflow: 'auto'
+  },
+  content : {
+    width                 : '745px',
+    boxShadow             : '0 2px 8px 3px rgba(0,0,0,.3)',
+    zIndex                : 9999999999,
+    backgroundColor       : '#EFEFEF',
+    padding:  0,
+    margin:  '40px auto',
+    position: 'relative'
+
+  }
+};
 
 interface Props {
   agent?: AgentType,
@@ -23,7 +50,7 @@ interface RouterProps {
   },
 }
 
-const SingleProjectTemplate = BindAgent(({ agent, loading, error, theme, children }: Props) => {
+const SingleProjectTemplate = BindAgent(({ agent, loading, error, theme, children, showModal, handleOpenModal, handleCloseModal, modalId }: Props) => {
   let currentTheme = themeable(theme)
   return (
     loading ? <strong>Loading...</strong> : (
@@ -43,24 +70,34 @@ const SingleProjectTemplate = BindAgent(({ agent, loading, error, theme, childre
         </div>
       </div>
     </div>
-    <section {...currentTheme(6, 'medium-8', 'columns')}>
+    <section {...currentTheme(6, 'medium-12', 'columns')}>
       <SecondaryMenu
       id={agent.id}
       totalProcesses={agent.agentProcesses.length}
-      totalNetwork={agent.agentRelationships.length} />
+      totalNetwork={agent.agentRelationships.length}
+      totalInventory={agent.ownedEconomicResources.filter(resource => resource.category === 'INVENTORY').length} />
       <div>
         {children && React.cloneElement(children, {
           id: agent.id,
-          agent
+          agent,
+          handleOpenModal
         })}
       </div>
     </section>
-    <div {...currentTheme(7, 'medium-4', 'columns')}>
+    {/*<div {...currentTheme(7, 'medium-4', 'columns')}>
       <Sidebar inventory={agent.ownedEconomicResources.filter(resource => resource.category === 'INVENTORY')} />
-    </div>
+    </div>*/}
+    <Modal
+      isOpen={showModal}
+      onRequestClose={handleCloseModal}
+      contentLabel='Process Modal'
+      style={customStyles}
+    >
+      <ProcessModal handleCloseModal={handleCloseModal} modalId={modalId} />
+    </Modal>
   </div>
   )))})
 
-export default ({ router, theme, children }: RouterProps) => (
-  <SingleProjectTemplate children={children} theme={theme} agentId={router.params.id} />
+export default ({ router, theme, children, showModal, handleOpenModal, handleCloseModal, modalId }: RouterProps) => (
+  <SingleProjectTemplate children={children} theme={theme} agentId={router.params.id} showModal={showModal} handleCloseModal={handleCloseModal} handleOpenModal={handleOpenModal} modalId={modalId} />
 )
