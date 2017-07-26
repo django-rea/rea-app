@@ -8,14 +8,14 @@ interface Props {
 }
 
 
-const SecondaryMenu: SFC<Props> = ({ id, router, theme, totalProcesses, totalNetwork }) => {
+const SecondaryMenu: SFC<Props> = ({ id, router, theme, totalProcesses, totalNetwork, totalInventory }) => {
   let currentTheme = themeable(theme)
     return (
       <section {...currentTheme(0, 'secondaryMenu')}>
         <ul {...currentTheme(1, 'menu_list')} >
             <li {...currentTheme(2, 'list_item', router.isActive(`projects/${id}`, true) && 'active')} >
                 <Link to={`projects/${id}`} {...currentTheme(3, 'item_link')} >
-                    Overview
+                    Recent
                 </Link>
             </li>
             <li {...currentTheme(4, 'list_item' , router.isActive(`projects/${id}/processes`, true) && 'active')} >
@@ -31,6 +31,11 @@ const SecondaryMenu: SFC<Props> = ({ id, router, theme, totalProcesses, totalNet
             <li {...currentTheme(8, 'list_item', router.isActive(`projects/${id}/members`, true) && 'active')} >
                 <Link to={`projects/${id}/members`} {...currentTheme(9, 'item_link')} >
                     <span>{totalNetwork}</span> Network
+                </Link>
+            </li>
+            <li {...currentTheme(9, 'list_item', router.isActive(`projects/${id}/inventory`, true) && 'active')} >
+                <Link to={`projects/${id}/inventory`} {...currentTheme(10, 'item_link')} >
+                    <span>{totalInventory}</span> Inventory
                 </Link>
             </li>
         </ul>
