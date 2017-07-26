@@ -8,11 +8,11 @@ const config = {
   assets: {
     images: {
       extensions: ['jpeg', 'jpg', 'png', 'gif', 'svg'],
-      parser: plugin.url_loader_parser,
+      parser: plugin.url_loader_parser
     },
     fonts: {
       extensions: ['woff', 'woff2', 'ttf', 'eot'],
-      parser: plugin.url_loader_parser,
+      parser: plugin.url_loader_parser
     },
     yaml_files: {
       extension: 'yaml',
