@@ -33,7 +33,7 @@ interface StartNotifier { (...args: Array<any>): Promise<any> }
 interface ErrHandler { (e: Error): void }
 interface ResHandler { (res: Object): void }
 
-function apiHandler(queryCB: GQLQuery, errorHandler: ErrHandler, resultHandler?: ResHandler, startNotifier?: StartNotifier) {
+export function bindGQLUpdates(queryCB: GQLQuery, errorHandler: ErrHandler, resultHandler?: ResHandler, startNotifier?: StartNotifier) {
   return async (...args: Array<any>) => {
     if (startNotifier) {
       await startNotifier.apply(this, args)    // :IMPORTANT: for whatever whack reason, if you call this using ES6 destructuring everything breaks.
@@ -51,29 +51,4 @@ function apiHandler(queryCB: GQLQuery, errorHandler: ErrHandler, resultHandler?:
 
     return result.data
   }
-}
-
-/**
- * Bind GraphQL queries to components which also update other parts of the Redux store
- */
-
-// $FlowFixMe need to find out correct type for gql output
-export function graphqlWithSideEffects(gqlQuery: any, actions: ActionCreatorsMapObject) {
-  return compose(
-    // bind Redux dispatcher via usual `connect` method so that GraphQL callbacks can access action creators
-    // $FlowFixMe some issue with connect() and intersection types
-    connect(() => ({}), (dispatch) => ({ actions: bindActionCreators(actions, dispatch) })),
-    // bind GraphQL to redux-form (note you can do this multiple times to provide multiple queries or mutations to the component)
-    graphql(gqlQuery, {
-      // wrap up the `mutate` call to make it easier to interact with, otherwise we just get raw `props.mutate`
-      props: ({ mutate, ownProps: { actions: boundActions } }) => ({
-        requestLogin: apiHandler(
-          (username: string, password: string) => mutate({ variables: { username, password } }),
-          boundActions.onFail,
-          boundActions.onSuccess,
-          boundActions.onNotify,
-        ),
-      }),
-    })
-  )
 }
