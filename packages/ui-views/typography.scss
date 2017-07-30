@@ -89,3 +89,17 @@
     bottom: -4px;
   }
 }
+
+
+
+
+
+@mixin text-section ($color) {
+  line-height: $m-line-height;
+  letter-spacing: $m-letter-spacing;
+  color: $color;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
