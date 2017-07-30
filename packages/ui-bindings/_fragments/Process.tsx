@@ -77,6 +77,10 @@ fragment coreEventFields on EconomicEvent {
       name
     }
   }
+  affectedTaxonomyItem {
+    name
+    category
+  }
   affectedResource {
     id
     resourceTaxonomyItem {

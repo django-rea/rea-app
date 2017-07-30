@@ -26,6 +26,9 @@ query($token: String, $processId: Int) {
         name
         image
       }
+      unplannedEconomicEvents {
+        ...coreEventFields
+      }
       processEconomicEvents {
         ...coreEventFields
       }
