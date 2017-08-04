@@ -26,16 +26,26 @@ const Header = CurrentUser(({ user, loading, error, theme }: UserProps) => {
               <input {...currentTheme(5, 'search', 'input')} placeholder='Search on kamasi' />
               <span {...currentTheme(6, 'search_icon')}><Search /></span>
             </div>
-            <Link href={'/projects'}>All Projects</Link>
+            <span {...currentTheme(30, 'header_link')}><Link href={'/projects'}>All Projects</Link></span>
             <div {...currentTheme(3, 'header_menu')} >
                   <div {...currentTheme(17, 'menu_bell')}>
                     <Bell />
                   </div>
                   <div {...currentTheme(14, 'menu_profile')} >
-                    <div {...currentTheme(15, 'profile_image')}  />
+                    <div {...currentTheme(15, 'profile_image')}>
+                      <img src={user.image} />
+                    </div>
                     <h4>{user.name || 'nobody'}</h4>
                     <span {...currentTheme(16, 'profile_other')}><Horizontal /></span>
                 </div>
+            </div>
+            <div {...currentTheme(284484, 'header_mobile')}>
+              <ul {...currentTheme(24449, 'mobile_list')}>
+                <li {...currentTheme(22383, 'active')}>Projects</li>
+                <li>Activities</li>
+                <li>Profile</li>
+                <li>Notifications</li>
+              </ul>
             </div>
           </div>
         </header>
