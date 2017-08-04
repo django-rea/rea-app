@@ -8,8 +8,8 @@ import MembersPage from './pages/Members'
 import AllProjectsPage from './pages/AllProjectsPage'
 import ProcessesPage from './pages/Processes'
 import AccountsPage from './pages/Accounts'
-import ProjectTemplate from '../ui-views/templates/ProjectTemplate'
 import SingleProjectTemplate from '../ui-views/templates/SingleProjectTemplate'
+import ProjectTemplate from '../ui-views/templates/ProjectTemplate'
 
 const routes = (
   <Route path="/" component={App}>
