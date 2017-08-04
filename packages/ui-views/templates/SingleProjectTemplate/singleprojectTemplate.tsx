@@ -53,6 +53,7 @@ interface RouterProps {
 
 const SingleProjectTemplate = BindAgent(({ agent, loading, error, theme, children, showModal, handleOpenModal, handleCloseModal, modalId }: Props) => {
   let currentTheme = themeable(theme)
+  let test = theme.test
   return (
     loading ? <strong>Loading...</strong> : (
     error ? <p style={{ color: '#F00' }}>API error</p> : (
@@ -96,6 +97,9 @@ const SingleProjectTemplate = BindAgent(({ agent, loading, error, theme, childre
               onRequestClose={handleCloseModal}
               contentLabel='Process Modal'
               style={customStyles}
+              className={{
+                base: test,
+              }}
             >
               <ProcessModal handleCloseModal={handleCloseModal} modalId={modalId} />
             </Modal>

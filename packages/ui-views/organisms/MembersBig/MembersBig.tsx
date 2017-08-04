@@ -16,7 +16,7 @@ const MembersBig = ({ members, theme }: MembersProps) => {
         <div {...currentTheme(3, 'membersBig_list')}>
           <div {...currentTheme(4, 'row')}>
             {members.map((item, i) => (
-            <div {...currentTheme(i + i + i + i + 5, 'medium-3', 'columns', 'end')}>
+            <div {...currentTheme(i + i + i + i + 5, 'medium-3', 'small-4' 'columns', 'end')}>
               <div {...currentTheme(i + i + i + i + 6, 'list_member')}>
                 <span {...currentTheme(i + i + i + i + 7, 'member_photo')}>
                   <img src={item.subject.image} />
