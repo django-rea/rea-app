@@ -26,8 +26,6 @@ interface Props {
 /* eslint no-nested-ternary: 0 */
 const OrgsList = BindOrgs(withRouter(({ organizations, loading, error, theme, router }: OrgsProps) => {
   let currentTheme = themeable(theme)
-  console.log(organizations)
-  console.log(error)
   return (
     loading ? <strong>Loading...</strong> : (error ? <p style={{ color: '#F00' }}>API error {error.message}</p> : (
    <ul {...currentTheme(30000, 'aside_list')} >
@@ -49,7 +47,7 @@ const OrgsList = BindOrgs(withRouter(({ organizations, loading, error, theme, ro
 const Aside = ({ theme }: Props) => {
   let currentTheme = themeable(theme)
   return (
-    <div {...currentTheme(0, 'medium-3', 'columns')}>
+    <div {...currentTheme(0, 'medium-3', 'hide-for-small-only', 'columns')}>
       <aside {...currentTheme(1000, 'aside')} >
         <OrgsList theme={theme} />
       </aside>

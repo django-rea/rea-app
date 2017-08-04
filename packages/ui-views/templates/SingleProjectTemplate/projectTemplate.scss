@@ -67,3 +67,24 @@
     @include clearfix;
   }
 }
+
+/* Portrait and Landscape */
+@media (max-width: 480px) {
+  .context_overview {
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 0px;
+  }
+  .collapse-for-mobile {
+    padding: 0 !important;
+  }
+  .overview_info {
+    .overview_photo {
+
+    }
+    .overview_name {
+      font-size: 24px;
+      font-weight: 600;
+    }
+  }
+}

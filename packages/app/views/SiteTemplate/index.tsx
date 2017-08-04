@@ -41,12 +41,7 @@ class SiteTemplate extends Component<Props, State> {
     return (
       <div>
         <Header />
-        <div className={styles.row}>
-          <Aside />
-          <div className={classname}>
-            {this.props.children}
-          </div>
-        </div>
+        {this.props.children}
       </div>
     )
   }

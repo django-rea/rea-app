@@ -79,3 +79,20 @@
         }
     }
 }
+
+/* Portrait and Landscape */
+@media (max-width: 480px) {
+  .item_title {
+    font-size: 16px !important;
+    float: none !important;
+    width: auto !important;
+    white-space: pre-line !important;
+  }
+  .item_description {
+    margin-left: 50px;
+    padding-top: 0px;
+  }
+  .item_info {
+    height: auto !important;
+  }
+}

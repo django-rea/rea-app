@@ -63,3 +63,26 @@
         }
     }
 }
+
+/* Portrait and Landscape */
+@media (max-width: 480px) {
+  .secondaryMenu {
+    .menu_list {
+      padding-left: 10px;
+      .list_item {
+        margin-right: 30px;
+        &:last-of-type {
+          margin: 0;
+        }
+        a {
+          span {
+            display: none;
+          }
+          font-size: 10px;
+          letter-spacing: .5px;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
