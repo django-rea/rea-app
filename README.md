@@ -140,6 +140,26 @@ To run the webserver, use the `serve` command:
 
 That's it!
 
+In practise, you'll probably want to run the app via a process manager like [PM2](http://pm2.keymetrics.io), to keep it online. Here's the PM2 control file for our test server as an example:
+
+    {
+      "apps" : [{
+        "name": "kamasi",
+        "script": "index.js",
+        "cwd": "app/static/kamasi/packages/app/",
+        "watch": true,
+        "env": {
+          "NODE_ENV": "production",
+          "PORT": 4430,
+          "WEB_BASEURL": "http://testocp.freedomcoop.eu:4430",
+          "ASSET_BASEURL": "http://testocp.freedomcoop.eu:4430",
+          "API_URL": "https://testocp.freedomcoop.eu/api/graph"
+        }
+      }]
+    }
+
+Along with the process file, you'll also need to configure PM2 to [start on boot](http://pm2.keymetrics.io/docs/usage/startup/). Since it's running in `watch` mode, all that should be necessary is to rebuild the app and it will automatically update. If you prefer you can save some system resources by disabling this and running `pm2 start` / `pm2 restart` etc manually.
+
 
 
 ## Frameworks & conventions used
