@@ -1,7 +1,10 @@
 @import "../../base.scss";
 @import "./projectTemplate.scss";
-.test {
-  margin: 0 !important;
-  width: 100% !important;
 
+/* Portrait and Landscape */
+@media (max-width: 480px) {
+  .responsiveModal {
+    margin: 0 !important;
+    width: 100% !important;
+  }
 }
