@@ -1,0 +1,92 @@
+.landing {
+  margin-top: 100px;
+  .landingContent {
+    padding: 20px;
+    background: #F1F8FF;
+    border-radius: 2px;
+    border: 2px solid #C8E1FF;
+    h1 {
+      @include text-title-regular(#2781DB);
+    }
+    h5 {
+      font-weight: 500;
+      margin-top: -15px;
+    }
+  }
+}
+
+
+
+.project_list {
+  margin-top: 30px;
+    .list_item {
+      margin-bottom: 0px;
+      position: relative;
+      @include clearfix;
+      cursor: pointer;
+      height: 30px;
+      position: relative;
+      border: 1px solid transparent;
+      @include transition(.3s);
+      &:hover {
+        background: #f4f5f7;
+        border-radius: 2px;
+        border: 1px solid #dddede;
+      }
+      &.active {
+        background: #f4f5f7;
+        border-radius: 2px;
+        border: 1px solid #dddede;
+        h4 {
+          font-weight: 700;
+        }
+        &:before {
+          position: absolute;
+          content: "";
+          width: 4px;
+          height: 100%;
+          display: block;
+          background: $accent-500;
+          left: -10px;
+          top: 0;
+        }
+      }
+      a {
+        justify-content: flex-start;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+      .link_image {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top center;
+        float: left;
+        background: white;
+        margin-left: 3px;
+        img {
+          width: 24px;
+          border: 1px solid white;
+          height: 24px;
+          border-radius: 2px;
+        }
+      }
+        h4 {
+          @include text-label($p900);
+          font-size: 13px;
+          float: left;
+          font-weight: 500;
+          letter-spacing: 1px;
+          margin-left: 10px;
+          @include truncate;
+          margin-right: 5px;
+        }
+    }
+  }
+
+  ul {
+  list-style: none;
+  padding: 0;
+}
