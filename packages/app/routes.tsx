@@ -8,6 +8,7 @@ import OverviewPage from './pages/Overview'
 import MembersPage from './pages/Members'
 import AllProjectsPage from './pages/AllProjectsPage'
 import ProcessesPage from './pages/Processes'
+import InventoryPage from './pages/Inventory'
 import AccountsPage from './pages/Accounts'
 import SingleProjectTemplate from '../ui-views/templates/SingleProjectTemplate'
 import ProjectTemplate from '../ui-views/templates/ProjectTemplate'
@@ -32,6 +33,7 @@ const routes = (
           <Route path="processes" component={ProcessesPage} />
           <Route path="accounts" component={AccountsPage} />
           <Route path="members" component={MembersPage} />
+          <Route path="inventory" component={InventoryPage} />
         </Route>
     </Route>
 
