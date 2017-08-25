@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as themeable from 'react-themeable'
 import { SFC } from 'react'
+import Link from '../../atoms/Link'
 
 interface Props {
   theme: Object
