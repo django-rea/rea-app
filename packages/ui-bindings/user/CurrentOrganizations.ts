@@ -53,7 +53,7 @@ export default compose(
       loading,
       error,
       refetchCurrentOrgs: refetch,  // :NOTE: call this in the component to force reload the data
-      organizations: viewer ? viewer.myAgent.agentRelationships : null,
+      organizations: viewer ? viewer.myAgent.agentRelationships : null
     }),
   })
 )

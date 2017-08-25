@@ -21,7 +21,7 @@ const Header = CurrentUser(({ user, loading, error, theme }: UserProps) => {
         loading ? <strong>Loading...</strong> : (error ? <p style={{ color: '#F00' }}>API error</p> : (
         <header {...currentTheme(0, 'main_header')} >
           <div {...currentTheme(1, 'row')}>
-            <span  {...currentTheme(2, 'header_logo')} />
+            <Link href='/'><span  {...currentTheme(2, 'header_logo')} /></Link>
             <div {...currentTheme(4, 'header_search')} >
               <input {...currentTheme(5, 'search', 'input')} placeholder='Search on kamasi' />
               <span {...currentTheme(6, 'search_icon')}><Search /></span>

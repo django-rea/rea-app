@@ -18,7 +18,20 @@ const query = gql`
 query($token: String) {
   viewer(token: $token) {
     myAgent {
-      ...coreAgentFields
+      ...coreAgentFields,
+      agentRelationships {
+        id
+        relationship {
+          label
+          category
+        }
+        object {
+          name
+          type
+          image
+          id
+        }
+      }
     }
   }
 }

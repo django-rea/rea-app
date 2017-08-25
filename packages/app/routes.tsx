@@ -3,6 +3,7 @@ import { Route, IndexRoute, IndexRedirect } from 'react-router'
 
 import App from './main/App'
 import Todo from './pages/Todo'
+import Landing from './pages/Landing'
 import OverviewPage from './pages/Overview'
 import MembersPage from './pages/Members'
 import AllProjectsPage from './pages/AllProjectsPage'
@@ -13,7 +14,7 @@ import ProjectTemplate from '../ui-views/templates/ProjectTemplate'
 
 const routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={Todo} />
+    <IndexRoute component={Landing} />
 
     <Route path="login" component={Todo} />
     <Route path="register" component={Todo} />

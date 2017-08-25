@@ -23,7 +23,6 @@ interface Props {
 
 const ProcessesPage = ({ agent, router, theme, handleOpenModal }: Props) => {
   let currentTheme = themeable(theme)
-  console.log(agent.agentProcesses)
   return (
     <section  {...currentTheme(1, 'processes_list')}>
       <div {...currentTheme(2, 'list_actions')}>
