@@ -1,8 +1,21 @@
 .membersBig {
-    box-shadow: 0 2px 0 1px rgba(0,0,0,.1);
-    border-radius: 2px;
-    background: white;
     padding-bottom: 40px;
+    margin-top: 10px;
+    .membersBig_list {
+      box-shadow: 0 2px 3px 1px rgba(0,0,0,.1);
+      border-radius: 2px;
+      background: white;
+      margin-bottom: 10px;
+      padding-bottom: 20px;
+      .list_type {
+        height: 30px;
+        @include text-mini-black($p900);
+        text-transform: uppercase;
+        line-height: 30px;
+        padding-left: 10px;
+        border-bottom: $separator;
+      }
+    }
     .membersBig_title {
         @include text-mini-black($p900);
         text-transform: uppercase;
