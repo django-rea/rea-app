@@ -50,6 +50,7 @@ const Aside = ({ theme }: Props) => {
     <div {...currentTheme(0, 'medium-3', 'hide-for-small-only', 'columns')}>
       <aside {...currentTheme(1000, 'aside')} >
         <OrgsList theme={theme} />
+        <Link href={'projects'}><span {...currentTheme(1001, 'aside_link')}>All projects</span></Link>
       </aside>
     </div>
   )
