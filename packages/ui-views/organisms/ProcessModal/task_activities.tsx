@@ -6,7 +6,7 @@ const TaskActivities = ({currentTheme, input}) => (
       <div {...currentTheme(1, 'item_activities')}>
         <span>{input.fulfilledBy.length + ' '} Activities</span>
         {input.fulfilledBy.map((ev, i) => (
-          <div key={i}><b>{ev.provider ? ev.provider.name : ''}</b>{ ' ' + ev.action + ' ' + ev.affectedQuantity.numericValue + ' ' + ev.affectedQuantity.unit.name} <span>{ ' - ' + ev.start}</span></div>
+          <div key={i}><b>{ev.economicEvent.provider ? ev.economicEvent.provider.name : ''}</b>{ ' ' + ev.economicEvent.action + ' ' + ev.fulfilledQuantity.numericValue + ' ' + ev.fulfilledQuantity.unit.name} <span>{ ' - ' + ev.economicEvent.start}</span></div>
         ))}
       </div>
     : ''}

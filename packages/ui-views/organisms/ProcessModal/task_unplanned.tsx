@@ -6,7 +6,7 @@ const TaskUnplanned = ({currentTheme, input}) => (
     <div {...currentTheme(2, 'item_title')}>
       {input.provider ? <AgentAvatar currentTheme={currentTheme} photo={input.provider.image} name={input.provider.name} />: ''}
       <b>{input.provider.name}</b>
-      {' ' + input.action + ' ' + input.affectedQuantity.numericValue + ' ' +  input.affectedQuantity.unit.name  + ' ' + input.affectedTaxonomyItem.name}
+      {' ' + input.action + ' ' + input.affectedQuantity.numericValue + ' ' +  input.affectedQuantity.unit.name  + ' ' + input.affectedResource.resourceTaxonomyItem.name}
       <o>{  ' - ' + input.start}</o>
     </div>
     <p>{input.note || ''}</p>
