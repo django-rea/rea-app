@@ -1,5 +1,14 @@
 .aside {
   margin-top: 30px;
+  .aside_link {
+    justify-content: left;
+    margin-top: 10px;
+    @include text-mini-black(#808182);
+    text-decoration: underline;
+  }
+  a {
+    justify-content: left;
+  }
   .aside_list {
     list-style: none;
     padding: 0;
