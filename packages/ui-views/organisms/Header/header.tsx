@@ -26,7 +26,6 @@ const Header = CurrentUser(({ user, loading, error, theme }: UserProps) => {
               <input {...currentTheme(5, 'search', 'input')} placeholder='Search on kamasi' />
               <span {...currentTheme(6, 'search_icon')}><Search /></span>
             </div>
-            <span {...currentTheme(30, 'header_link')}><Link href={'/projects'}>All Projects</Link></span>
             <div {...currentTheme(3, 'header_menu')} >
                   <div {...currentTheme(17, 'menu_bell')}>
                     <Bell />
