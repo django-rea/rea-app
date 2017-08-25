@@ -4,13 +4,14 @@
   .list_actions {
     .actions_create {
       float: right;
-      width: 180px;
+      width: 120px;
       height: 30px;
       margin-right: 10px;
+      background: rgba(71, 58, 210, 0.69);
       border-radius: 40px;
-      border: 1px solid $accent-500;
-      @include text-mini-black($accent-500);
-      line-height: 30px;
+      // border: 1px solid $accent-500;
+      @include text-mini-black(white);
+      line-height: 27px;
     }
   }
 }
@@ -59,7 +60,7 @@
     padding-top: 5px;
     padding-left: 10px;
     .actions_left {
-      background: rgba(71, 58, 210, 0.69);
+      // background: rgba(71, 58, 210, 0.69);
       /* border: 2px solid #E1E1E1; */
       border-radius: 40px;
       height: 25px;
@@ -67,11 +68,12 @@
       font-weight: 700;
       line-height: 20px;
       letter-spacing: 2px;
-      color: white;
+      color: $p900;
       line-height: 21px;
       padding: 0px 15px;
       margin-right: 10px;
       margin-top: 2px;
+      border: 2px solid #6D6D6D;
     }
     b {
       @include text-mini-black(#6D6D6D);
@@ -79,7 +81,6 @@
       margin-right: 10px;
     }
     button {
-      background: white;
       border: 2px solid #E1E1E1;
       border-radius: 4px;
       height: 30px;
