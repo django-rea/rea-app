@@ -79,7 +79,7 @@ fragment coreEventFields on EconomicEvent {
 export const coreEventsFields = gql`
 fragment coreEventsFields on Agent {
   agentEconomicEvents {
-    id
+
     action
     start
     affectedQuantity {
@@ -89,7 +89,7 @@ fragment coreEventsFields on Agent {
       }
     }
     affectedResource {
-      id
+
       resourceTaxonomyItem {
         name
         category
@@ -106,7 +106,7 @@ fragment coreEventsFields on Agent {
       name
     }
     process {
-      id
+
       name
     }
     note

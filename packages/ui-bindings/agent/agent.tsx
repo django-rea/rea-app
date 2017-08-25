@@ -20,7 +20,7 @@ query($token: String, $agentId: Int) {
     agent(id: $agentId) {
       ...coreAgentFields
       agentRelationships {
-        id
+
         subject {
           name
           type
@@ -48,6 +48,21 @@ query($token: String, $agentId: Int) {
         plannedDuration
         isFinished
         note
+        unplannedEconomicEvents {
+          action
+        }
+        processEconomicEvents {
+          action
+        }
+        processCommitments {
+          action
+        }
+        inputs {
+          action
+        }
+        outputs {
+          action
+        }
         workingAgents {
           id
           name
@@ -55,7 +70,7 @@ query($token: String, $agentId: Int) {
         }
       }
       ownedEconomicResources {
-        id
+
         resourceTaxonomyItem {
           name
           category

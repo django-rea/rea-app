@@ -11,37 +11,24 @@ import { gql } from 'react-apollo'
 export const coreCommitmentFields = gql`
 fragment coreCommitmentFields on Commitment {
   action
-  note
-  commitmentStart
+  plannedStart
   committedOn
   due
+  note
   isFinished
   fulfilledBy {
-    action
-    start
-    note
-    affectedQuantity {
+    economicEvent {
+      action
+      start
+      provider {
+        name
+      }
+    }
+    fulfilledQuantity {
       numericValue
       unit {
         name
       }
-    }
-    affectedResource {
-      id
-      resourceTaxonomyItem {
-        name
-        category
-      }
-      trackingIdentifier
-    }
-    provider {
-      id
-      name
-      image
-    }
-    receiver {
-      id
-      name
     }
   }
   committedQuantity {
@@ -63,6 +50,10 @@ fragment coreCommitmentFields on Commitment {
     id
     name
   }
+  scope {
+    id
+    name
+  }
 }`
 
 
@@ -77,13 +68,8 @@ fragment coreEventFields on EconomicEvent {
       name
     }
   }
-  affectedTaxonomyItem {
-    name
-    category
-  }
   affectedResource {
-    id
-    resourceTaxonomyItem {
+     resourceTaxonomyItem {
       name
       category
     }
