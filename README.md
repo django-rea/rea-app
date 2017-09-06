@@ -1,6 +1,6 @@
 # Current status
 
-As of 2017/09/06: This is the most recent version of the "Kamasi" (new name for the project) React based UI, forked from https://github.com/django-rea/rea-app.  It is in process, and has been tested a bit, but not used in production yet.  It contains some views, but no creating, updating, or deleting of data. This version will probably not have much done to it for at least a month or two, as that project is working on an alternative "card and panel" view for one group of users, which is not available yet on github.  This version may even be discarded or radically changed.
+As of 2017/09/06: This is the most recent version of the "Kamasi" React-based UI. "Kamasi" is the code name for this project, and eventually will become the name of either the repository, or an organization containing several repositories for different components. It was forked from https://github.com/django-rea/rea-app.  It is in process, and has been tested a bit, but not used in production yet.  It contains some views, but no creating, updating, or deleting of data. This version will probably not have much done to it for at least a month or two, as that project is working on an alternative "card and panel" view for one group of users, which is not available yet on github.  This version may even be discarded or radically changed.
 
 One goal of the Kamasi project is to move to a more modular componentized architecture. This project can keep that in mind when deciding how to architect the new work.  This project can also coordinate with the other developer.
 
