@@ -33,14 +33,14 @@
                     right: 0px;
                     height: 3px;
                     border-radius: 100px;
-                    bottom: 0;
+                    bottom: 4px;
                     display: block;
                     background: $accent-500;
                 }
             }
             a {
               // font-size: 14px;
-              @include text-label($p900);
+              @include text-label(#9B9B9B);
               font-weight: 600;
               line-height: 50px;
               font-size: 13px;

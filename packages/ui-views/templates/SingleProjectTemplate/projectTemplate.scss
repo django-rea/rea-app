@@ -2,71 +2,71 @@
   background: red !important;
 }
 
-.context_overview {
-  height: 140px;
-  position: relative;
-  background: white;
-  background-image: url('./bg.png');
-  background-size: cover;
-  margin-top: 30px;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  .overview_actions {
-    position: absolute;
-    bottom: 30px;
-    right: 20px;
-    button {
-      border: 1px solid white;
-      background: transparent;
-      @include text-mini-black(white);
-      text-align: center;
-      padding: 0 10px;
-      border-radius: 2px;
-    }
-    span {
-      color: white;
-      vertical-align: sub;
-      margin-left: 10px;
-      height: 30px;
-      display: inline-block;
-      svg {
-        width: 18px;
-      }
-    }
-  }
-  &:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    top: 0;
-    background: rgba(0,0,0,.3);
-  }
-  .overview_photo {
-    width: 32px;
-    height: 32px;
-    border-radius: 2px;
-    background: white;
-    display: block;
-    float: left;
-    img {
-      width: 32px;
-      height: 32px;
-    }
-  }
-  .overview_name {
-    @include text-title-regular(white);
-    float: left;
-    margin-left: 20px;
-  }
-  .overview_info {
-    position: absolute;
-    bottom: 30px;
-    left: 20px;
-    @include clearfix;
-  }
-}
+// .context_overview {
+//   height: 140px;
+//   position: relative;
+//   background: white;
+//   background-image: url('./bg.png');
+//   background-size: cover;
+//   margin-top: 30px;
+//   border-radius: 4px;
+//   margin-bottom: 10px;
+//   .overview_actions {
+//     position: absolute;
+//     bottom: 30px;
+//     right: 20px;
+//     button {
+//       border: 1px solid white;
+//       background: transparent;
+//       @include text-mini-black(white);
+//       text-align: center;
+//       padding: 0 10px;
+//       border-radius: 2px;
+//     }
+//     span {
+//       color: white;
+//       vertical-align: sub;
+//       margin-left: 10px;
+//       height: 30px;
+//       display: inline-block;
+//       svg {
+//         width: 18px;
+//       }
+//     }
+//   }
+//   &:before {
+//     content: "";
+//     position: absolute;
+//     left: 0;
+//     bottom: 0;
+//     right: 0;
+//     top: 0;
+//     background: rgba(0,0,0,.3);
+//   }
+//   .overview_photo {
+//     width: 32px;
+//     height: 32px;
+//     border-radius: 2px;
+//     background: white;
+//     display: block;
+//     float: left;
+//     img {
+//       width: 32px;
+//       height: 32px;
+//     }
+//   }
+//   .overview_name {
+//     @include text-title-regular(white);
+//     float: left;
+//     margin-left: 20px;
+//   }
+//   .overview_info {
+//     position: absolute;
+//     bottom: 30px;
+//     left: 20px;
+//     @include clearfix;
+//   }
+// }
 
 /* Portrait and Landscape */
 @media (max-width: 480px) {

@@ -2,6 +2,7 @@ import * as React from 'react'
 import Sidebar from '../../organisms/Sidebar'
 import SecondaryMenu from '../../organisms/SecondaryMenu'
 import ProcessModal from '../../organisms/ProcessModal'
+import Hero from '../../organisms/hero'
 import * as themeable from 'react-themeable'
 import BindAgent, { AgentType } from '@vflows/bindings/agent/agent'
 import {Vertical} from '../../icons'
@@ -59,22 +60,8 @@ const SingleProjectTemplate = BindAgent(({ agent, loading, error, theme, childre
     loading ? <strong>Loading...</strong> : (
     error ? <p style={{ color: '#F00' }}>API error</p> : (
       <div {...currentTheme(11, 'row')}>
-        {/* <Aside /> */}
-        {/* <div {...currentTheme(10, 'medium-9', 'columns')}>
-          <div {...currentTheme(0, 'row')}> */}
             <div {...currentTheme(1, 'medium-12', 'columns', 'collapse-for-mobile')}>
-              <div {...currentTheme(2, 'context_overview')}>
-                <div {...currentTheme(3, 'overview_info')}>
-                  <span {...currentTheme(4, 'overview_photo')}><img src={agent.image}/></span>
-                  <h2 {...currentTheme(5, 'overview_name')}>{agent.name}</h2>
-                </div>
-                {/* <div {...currentTheme(7, 'overview_actions')}>
-                  <button>Create new process</button>
-                  <span {...currentTheme(8, 'actions_more')}>
-                    <Vertical />
-                  </span>
-                </div> */}
-              </div>
+              <Hero agent={agent} />
             </div>
             <section {...currentTheme(6, 'medium-12', 'columns', 'collapse-for-mobile')}>
               <SecondaryMenu
@@ -90,9 +77,6 @@ const SingleProjectTemplate = BindAgent(({ agent, loading, error, theme, childre
                 })}
               </div>
             </section>
-            {/*<div {...currentTheme(7, 'medium-4', 'columns')}>
-              <Sidebar inventory={agent.ownedEconomicResources.filter(resource => resource.category === 'INVENTORY')} />
-            </div>*/}
             <Modal
               isOpen={showModal}
               onRequestClose={handleCloseModal}
@@ -104,8 +88,6 @@ const SingleProjectTemplate = BindAgent(({ agent, loading, error, theme, childre
             >
               <ProcessModal handleCloseModal={handleCloseModal} modalId={modalId} />
             </Modal>
-          {/* </div>
-        </div> */}
       </div>
   )))})
 
