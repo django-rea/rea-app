@@ -25,10 +25,10 @@ const Header = CurrentUser(({ user, loading, error, theme }: UserProps) => {
               <div {...currentTheme(5, 'projects_button')}>
                 <span {...currentTheme(6, 'button_icon')}><Inbox /></span>
                 <o>Projects</o>
-                <ProjectsList
+                {/* <ProjectsList
                   agent={user}
                   visible={'hidden'}
-                />
+                /> */}
               </div>
             </div>
             <Link href='/'><span  {...currentTheme(2, 'header_brand')}>Kamasi.</span></Link>

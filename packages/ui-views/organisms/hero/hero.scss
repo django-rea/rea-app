@@ -1,0 +1,27 @@
+.context_overview {
+  height: 140px;
+  position: relative;
+  background: white;
+  background-size: cover;
+  margin-top: 50px;
+  .overview_photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    background: #E6E6E6;
+    display: block;
+    float: left;
+    img {
+      width: 90px;
+      height: 90px;
+      border-radius: 100%;
+    }
+  }
+  .overview_name {
+    @include text-title-regular($p100);
+    font-weight: 600;
+    float: left;
+    margin-left: 20px;
+    line-height: 90px;
+  }
+}
