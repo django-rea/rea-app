@@ -1,0 +1,111 @@
+.aside {
+  margin-top: 30px;
+  position: absolute;
+  background: #f4f5f7;
+  top: 20px;
+  left: 0;
+  width: 250px;
+  border-radius: 3px;
+  min-height: 400px;
+  .aside_link {
+    justify-content: left;
+    margin-top: 10px;
+    @include text-mini-black(#808182);
+    text-decoration: underline;
+  }
+  a {
+    justify-content: left;
+  }
+  .aside_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    .list_title {
+      @include text-label($p900);
+      margin-bottom: 10px;
+      text-transform: capitalize;
+      font-size: 11px;
+      letter-spacing: 2px;
+      line-height: 16px;
+      text-transform: uppercase;
+      color: #949494;
+      margin-top: 20px;
+      text-align: left;
+      margin-left: 20px;
+    }
+    .list_item {
+      margin-left: 10px;
+      margin-right: 10px;
+      position: relative;
+      @include clearfix;
+      cursor: pointer;
+      height: 40px;
+      position: relative;
+      border: 1px solid transparent;
+      @include transition(.3s);
+      a {
+        &:before {
+          // position: static;
+          content: "";
+          width: 0;
+          height: 0;
+        }
+      }
+      &:hover {
+        background: #D8D9DB;
+        border-radius: 3px;
+        border: 1px solid #dddede;
+      }
+      &.active {
+        background: #E5E5E7;
+        border: 1px solid #E8E8E8;
+        border-radius: 3px;
+        h4 {
+          font-weight: 700;
+        }
+        &:before {
+          position: absolute;
+          content: "";
+          width: 4px;
+          height: 100%;
+          display: block;
+          background: $accent-500;
+          left: -10px;
+          top: 0;
+        }
+      }
+      a {
+        justify-content: flex-start;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+      .link_image {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top center;
+        float: left;
+        background: white;
+        margin-left: 3px;
+        img {
+          width: 24px;
+          border: 1px solid white;
+          height: 24px;
+          border-radius: 2px;
+        }
+      }
+        h4 {
+          @include text-label($p900);
+          font-size: 13px;
+          float: left;
+          font-weight: 500;
+          letter-spacing: 1px;
+          margin-left: 10px;
+          @include truncate;
+          margin-right: 5px;
+        }
+    }
+  }
+}

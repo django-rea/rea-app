@@ -3,90 +3,69 @@
   position: fixed;
   top: 0;
   z-index: 99999999999;
-  height: 50px;
+  height: 100px;
   position: relative;
   padding-left: 20px;
   padding-right: 20px;
   border-bottom: $separator;
-  background-color: #26547c;
-  /* height: 60px; */
-  color: white;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  // box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  color: $p100;
+
   .header_mobile {
     display: none;
   }
   a {
-    float: left;
-    margin-left: 10px;
-    color: white;
-    @include text-mini-black(white);
-    line-height: 50px;
-    &:hover {
-      color: white;
+    position: absolute;
+    left: 50%;
+    height: 40px;
+    top: 30px;
+    @include text-label($p100);
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 3px;
+      width: 100%;
+      height: 3px;
+      display: block;
+      background: $green;
+      border-radius: 40px;
     }
   }
-  .header_logo {
-    width: 22px;
-    height: 22px;
-    float: left;
-    margin-top: 14px;
-    margin-left: 15px;
-    background: url(./images/logo.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-  .header_search {
+  // .header_logo {
+  //   width: 22px;
+  //   height: 22px;
+  //   float: left;
+  //   margin-top: 14px;
+  //   margin-left: 15px;
+  //   background: url(./images/logo.png);
+  //   background-size: cover;
+  //   background-repeat: no-repeat;
+  // }
+  .header_projects {
     float: left;
       margin-left: 20px;
-      margin-top: 10px;
+      margin-top: 30px;
       position: relative;
-      .search_icon {
+      .projects_button {
+        background: #EDEFF0;
+        height: 40px;
+        border-radius: 2px;
+        text-align: center;
+        padding: 0 30px;
+        position: relative
+      }
+      .button_icon {
         position: absolute;
-        right: 10px;
-        top: 3px;
+        left: 15px;
+        top: 8px;
         svg {
           width: 18px;
         }
       }
-      input {
-        background: rgba(255, 255, 255, .12);
-        border-radius: 2px;
-        border: $separator;
-        height: 30px;
-        width: 280px;
-        &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-          @include text-mini(white);
-          padding-left: 10px;
-          letter-spacing: 1px;
-          line-height: 30px;
-          font-size: 12px;
-
-        }
-        &::-moz-placeholder { /* Firefox 19+ */
-          @include text-mini(white);
-          padding-left: 10px;
-          letter-spacing: 1px;
-          line-height: 30px;
-          font-size: 12px;
-
-        }
-        &:-ms-input-placeholder { /* IE 10+ */
-          @include text-mini(white);
-          padding-left: 10px;
-          letter-spacing: 1px;
-          line-height: 30px;
-          font-size: 12px;
-
-        }
-        &:-moz-placeholder { /* Firefox 18- */
-          @include text-mini(white);
-          padding-left: 10px;
-          letter-spacing: 1px;
-          line-height: 30px;
-          font-size: 12px;
-
-        }
+      o {
+        padding-left: 15px;
+        @include text-label($p100);
+        line-height: 40px;
       }
   }
 
@@ -94,10 +73,13 @@
     @include clearfix;
     margin-left: 20px;
     float: right;
-    margin-top: 0px;
+    margin-top: 30px;
+    height: 40px;
     .menu_bell {
       float: left;
-      margin-top: 18px;
+      height: 40px;
+      padding-top: 5px;
+      line-height: 40px;
       svg {
         height: 18px;
       }
@@ -106,33 +88,33 @@
       display: inline-block;
       @include clearfix;
       h4 {
-        @include text-general-black(white);
+        @include text-label($p100);
         float: left;
         line-height: 40px;
         font-size: 13px;
         letter-spacing: 1px;
         margin-right: 20px;
-        height: 50px;
-        line-height: 50px;
+        height: 40px;
+        line-height: 40px;
       }
       .profile_image {
         background-size: cover;
         height: 25px;
         width: 25px;
+        height: 40px;
+        line-height: 40px;
         margin-right: 10px;
         margin-left: 20px;
-        border-radius: 100%;
+        border-radius: 2px;
         float: left;
         background-position: center center;
-        margin-top: 14px;
         img {
           height: 25px;
           width: 25px;
-          border-radius: 100%;
+          border-radius: 2px;
         }
       }
       .profile_other {
-        margin-top: 13px;
         float: right;
       }
     }

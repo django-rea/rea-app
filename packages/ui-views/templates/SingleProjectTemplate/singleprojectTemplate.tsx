@@ -59,9 +59,9 @@ const SingleProjectTemplate = BindAgent(({ agent, loading, error, theme, childre
     loading ? <strong>Loading...</strong> : (
     error ? <p style={{ color: '#F00' }}>API error</p> : (
       <div {...currentTheme(11, 'row')}>
-        <Aside />
-        <div {...currentTheme(10, 'medium-9', 'columns')}>
-          <div {...currentTheme(0, 'row')}>
+        {/* <Aside /> */}
+        {/* <div {...currentTheme(10, 'medium-9', 'columns')}>
+          <div {...currentTheme(0, 'row')}> */}
             <div {...currentTheme(1, 'medium-12', 'columns', 'collapse-for-mobile')}>
               <div {...currentTheme(2, 'context_overview')}>
                 <div {...currentTheme(3, 'overview_info')}>
@@ -104,8 +104,8 @@ const SingleProjectTemplate = BindAgent(({ agent, loading, error, theme, childre
             >
               <ProcessModal handleCloseModal={handleCloseModal} modalId={modalId} />
             </Modal>
-          </div>
-        </div>
+          {/* </div>
+        </div> */}
       </div>
   )))})
 
