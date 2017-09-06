@@ -20,7 +20,6 @@ interface Props {
     },
   },
 }
-
 const ProcessesPage = ({ agent, router, theme, handleOpenModal }: Props) => {
   let currentTheme = themeable(theme)
   return (

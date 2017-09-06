@@ -53,6 +53,7 @@ interface RouterProps {
 
 const SingleProjectTemplate = BindAgent(({ agent, loading, error, theme, children, showModal, handleOpenModal, handleCloseModal, modalId }: Props) => {
   let currentTheme = themeable(theme)
+  console.log(error)
   let responsiveModal = theme.responsiveModal
   return (
     loading ? <strong>Loading...</strong> : (

@@ -7,8 +7,8 @@ interface Props {
 }
 
 const Inventory: SFC<Props> = ({ agent, theme }) => {
-  console.log(agent)
   let currentTheme = themeable(theme)
+  console.log(agent)
   return (
     <aside {...currentTheme(1, 'sidebar')} >
         <div {...currentTheme(2, 'sidebar_menu')} >
@@ -18,7 +18,7 @@ const Inventory: SFC<Props> = ({ agent, theme }) => {
           <ul {...currentTheme(8, 'sidebar_list')} >
             {agent.ownedEconomicResources.map((item, i) => (
               <li {...currentTheme(i+i+i+i+9, 'list_item')} >
-                <span {...currentTheme(i+i+i+i+10, 'item_type')}>{item.resourceTaxonomyItem.name}</span>
+                <span {...currentTheme(i+i+i+i+10, 'item_type')}>{item.resourceClassifiedAs.name}</span>
                 <h3 {...currentTheme(i+i+i+i+11, 'item_title')}>{item.trackingIdentifier}</h3>
                 <h4 {...currentTheme(i+i+i+i+12, 'item_qty')}>{item.currentQuantity.numericValue === -1 ? <span>🚀</span> : item.currentQuantity.numericValue }</h4>
               </li>
