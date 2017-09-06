@@ -1,4 +1,4 @@
-## Current status
+# Current status
 
 As of 2017/09/06: This is the most recent version of the "Kamasi" project React based UI, forked from https://github.com/django-rea/rea-app.  It is in process, and has not been used yet.  It contains some views, but no creating, updating, or deleting of data. This version will probably not have much done to it for at least a month or two, as that project is working on an alternative "card and panel" view for one group of users, which is not available yet on github.  This version may even be discarded or radically changed.
 
@@ -6,7 +6,7 @@ One goal of the Kamasi project is to move to a more modular componentized archit
 
 This codebase interacts with the Django backend through a graphql api.  The api is working towards using the [ValueFlows](https://www.valueflo.ws/) vocabulary, which is also in development.  So the terminology used in this code may be somewhat different than the terminology used in the backend app.
 
-## How to install and run
+# How to install and run
 
 <!-- MarkdownTOC -->
 
