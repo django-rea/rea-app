@@ -1,6 +1,12 @@
-Welcome to the REA client application. This project uses [ZenHub](https://www.zenhub.com/) to manage our workflow, please install it and navigate to *'Boards'* to see what is being developed currently.
+## Current status
 
-Note that many issues are logged only for gathering future requirements and exist as placeholders. These are placed into the ZenHub *'icebox'* for later analysis and development and should not be seen as active work items.
+As of 2017/09/06: This is the most recent version of the "Kamasi" project React based UI, forked from https://github.com/django-rea/rea-app.  It is in process, and has not been used yet.  It contains some views, but no creating, updating, or deleting of data. This version will probably not have much done to it for at least a month or two, as that project is working on an alternative "card and panel" view for one group of users, which is not available yet on github.  This version may even be discarded or radically changed.
+
+One goal of the Kamasi project is to move to a more modular componentized architecture. This project can keep that in mind when deciding how to architect the new work.  This project can also coordinate with the other developer.
+
+This codebase interacts with the Django backend through a graphql api.  The api is working towards using the [ValueFlows](https://www.valueflo.ws/) vocabulary, which is also in development.  So the terminology used in this code may be somewhat different than the terminology used in the backend app.
+
+## How to install and run
 
 <!-- MarkdownTOC -->
 
