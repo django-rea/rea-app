@@ -28,7 +28,7 @@ fragment coreCommitmentFields on Commitment {
   commitmentStart
   committedOn
   due
-  committedQuantity {
+  affectedQuantity {
     numericValue
     unit {
       name
@@ -58,9 +58,9 @@ fragment coreEventFields on EconomicEvent {
       name
     }
   }
-  affectedResource {
+  affects {
     id
-    resourceTaxonomyItem {
+    resourceClassifiedAs {
       name
       category
     }
@@ -79,7 +79,6 @@ fragment coreEventFields on EconomicEvent {
 export const coreEventsFields = gql`
 fragment coreEventsFields on Agent {
   agentEconomicEvents {
-
     action
     start
     affectedQuantity {
@@ -88,9 +87,8 @@ fragment coreEventsFields on Agent {
         name
       }
     }
-    affectedResource {
-
-      resourceTaxonomyItem {
+    affects {
+      resourceClassifiedAs {
         name
         category
       }
@@ -105,8 +103,10 @@ fragment coreEventsFields on Agent {
       id
       name
     }
-    process {
-
+    inputOf {
+      name
+    }
+    outputOf {
       name
     }
     note

@@ -70,8 +70,7 @@ query($token: String, $agentId: Int) {
         }
       }
       ownedEconomicResources {
-
-        resourceTaxonomyItem {
+        resourceClassifiedAs {
           name
           category
         }

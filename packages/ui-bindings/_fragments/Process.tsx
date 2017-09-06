@@ -16,28 +16,24 @@ fragment coreCommitmentFields on Commitment {
   due
   note
   isFinished
+
   fulfilledBy {
-    economicEvent {
+    fulfilledBy {
       action
       start
       provider {
         name
       }
-    }
-    fulfilledQuantity {
-      numericValue
-      unit {
-        name
+      affectedQuantity {
+        numericValue
+        unit {
+          name
+        }
       }
     }
   }
-  committedQuantity {
-    numericValue
-    unit {
-      name
-    }
-  }
-  committedTaxonomyItem {
+
+  resourceClassifiedAs {
     name
     category
   }
@@ -68,8 +64,22 @@ fragment coreEventFields on EconomicEvent {
       name
     }
   }
-  affectedResource {
-     resourceTaxonomyItem {
+  fulfills {
+    fulfills {
+      action
+      provider {
+        name
+      }
+      committedQuantity {
+        numericValue
+        unit {
+          name
+        }
+      }
+    }
+  }
+  affects {
+    resourceClassifiedAs {
       name
       category
     }
