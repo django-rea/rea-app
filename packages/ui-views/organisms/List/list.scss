@@ -4,6 +4,9 @@
     padding-top: 0;
     background: white;
     margin-bottom: 60px;
+    h4 {
+      margin-bottom: 30px;
+    }
     .list_box {
       border-radius: 3px;
       @include clearfix;
@@ -13,9 +16,8 @@
     }
 
     .list_item {
-        border-bottom: $separator;
         background: white;
-        margin-top: 20px;
+        margin-bottom: 30px;
         &:last-of-type {
           border-bottom: 0;
         }
@@ -39,14 +41,7 @@
             border-radius: 4px;
           }
         }
-        .item_actions {
-          margin-left: 47px;
-          margin-bottom: 10px;
-          margin-top: -5px;
-          .actions_date {
-            @include text-mini-black(#b5b5b5);
-          }
-        }
+
         .item_title {
             font-size: 14px;
             font-weight: 500;
@@ -76,7 +71,7 @@
           /* font-style: italic; */
           padding: 5px;
           padding-left: 0;
-          margin-left: 47px;
+          margin-left: 40px;
           padding-top: 0;
 
         }
