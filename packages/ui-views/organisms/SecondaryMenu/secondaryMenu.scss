@@ -1,22 +1,21 @@
 .secondaryMenu {
-    height: 50px;
-    margin-top: 20px;
+    height: 30px;
     background: white;
-    // border-bottom: 1px solid #E9E9E9;
     margin-bottom: 40px;
+    margin-top: 20px;
     @include clearfix;
     .menu_list {
         list-style: none;
         padding: 0;
         margin: 0;
         @include clearfix;
-        // padding-left: 20px;
         .list_item {
             float: left;
-            height: 50px;
+            height: 30px;
             position: relative;
             cursor: pointer;
-            margin-right: 40px;
+            margin-right: 20px;
+            padding: 0 10px;
             span {
               margin-right: 5px;
               text-align: center;
@@ -25,26 +24,16 @@
             }
             &.active {
                 font-weight: 700;
+                border: 1px solid #333C45;
+                border-radius: 2px;
                 a {
-                  color: $accent-500;
-                }
-                &:after {
-                    position: absolute;
-                    content: "";
-                    left: 0px;
-                    right: 0px;
-                    height: 3px;
-                    border-radius: 100px;
-                    bottom: 4px;
-                    display: block;
-                    background: $accent-500;
+                  color: #333C45;
                 }
             }
             a {
-              // font-size: 14px;
               @include text-label(#9B9B9B);
               font-weight: 600;
-              line-height: 50px;
+              line-height: 30px;
               font-size: 13px;
               letter-spacing: 1px;
             }

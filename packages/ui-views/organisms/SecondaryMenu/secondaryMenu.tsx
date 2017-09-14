@@ -23,11 +23,11 @@ const SecondaryMenu: SFC<Props> = ({ id, router, theme, totalProcesses, totalNet
                     <span>{totalProcesses}</span> Processes
                 </Link>
             </li>
-            <li {...currentTheme(6, 'list_item', router.isActive(`projects/${id}/accounts`, true) && 'active')} >
+            {/* <li {...currentTheme(6, 'list_item', router.isActive(`projects/${id}/accounts`, true) && 'active')} >
                 <Link to={`projects/${id}/accounts`} {...currentTheme(7, 'item_link')} >
                     Accounts
                 </Link>
-            </li>
+            </li> */}
             <li {...currentTheme(8, 'list_item', router.isActive(`projects/${id}/members`, true) && 'active')} >
                 <Link to={`projects/${id}/members`} {...currentTheme(9, 'item_link')} >
                     <span>{totalNetwork}</span> Network
