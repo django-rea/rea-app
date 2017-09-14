@@ -6,6 +6,7 @@ import Link from '../../atoms/Link'
 import {Bell, Search, Horizontal, Inbox} from '../../icons'
 import ProjectsList from '../../molecules/projectsList'
 interface UserProps {
+  visible: boolean,
   user?: {
     name: string,
     image: string
@@ -15,21 +16,22 @@ interface UserProps {
   theme: Object,
 }
 
-const Header = CurrentUser(({ user, loading, error, theme }: UserProps) => {
+const Header = CurrentUser(({ user, loading, visible, error, toggleMenu, theme }: UserProps) => {
     let currentTheme = themeable(theme)
+    let visibility = false
     return (
         loading ? <strong>Loading...</strong> : (error ? <p style={{ color: '#F00' }}>API error</p> : (
         <header {...currentTheme(0, 'main_header')} >
           <div {...currentTheme(1, 'row')}>
             <div {...currentTheme(4, 'header_projects')}>
-              <div {...currentTheme(5, 'projects_button')}>
+              <div {...currentTheme(5, 'projects_button')} onClick={()=>toggleMenu()}>
                 <span {...currentTheme(6, 'button_icon')}><Inbox /></span>
                 <o>Projects</o>
-                {/* <ProjectsList
-                  agent={user}
-                  visible={'hidden'}
-                /> */}
               </div>
+              <ProjectsList
+                agent={user}
+                visible={visible}
+              />
             </div>
             <Link href='/'><span  {...currentTheme(2, 'header_brand')}>Kamasi.</span></Link>
             <div {...currentTheme(3, 'header_menu')} >
