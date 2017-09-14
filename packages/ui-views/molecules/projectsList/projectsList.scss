@@ -10,6 +10,7 @@
   width: 250px;
   border-radius: 3px;
   min-height: 400px;
+  z-index: 9;
   &.ciaone {
     display: none !important;
   }
@@ -95,6 +96,7 @@
         float: left;
         background: white;
         margin-left: 3px;
+        margin-top: 8px;
         img {
           width: 24px;
           border: 1px solid white;
@@ -111,6 +113,9 @@
           margin-left: 10px;
           @include truncate;
           margin-right: 5px;
+          width: 180px;
+          height: 40px;
+          line-height: 40px;
         }
     }
   }
