@@ -1,72 +1,39 @@
 // Primary Header
 .main_header {
-  position: fixed;
-  top: 0;
-  z-index: 99999999999;
-  height: 100px;
   position: relative;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-bottom: $separator;
-  background-color: white;
   color: $p100;
-
   .header_mobile {
     display: none;
   }
-  a {
-    position: absolute;
-    left: 50%;
-    height: 40px;
-    top: 30px;
-    @include text-label($p100);
-    &:before {
-      content: "";
-      position: absolute;
-      bottom: 3px;
-      width: 100%;
-      height: 3px;
-      display: block;
-      background: $green;
-      border-radius: 40px;
-    }
-  }
-  // .header_logo {
-  //   width: 22px;
-  //   height: 22px;
-  //   float: left;
-  //   margin-top: 14px;
-  //   margin-left: 15px;
-  //   background: url(./images/logo.png);
-  //   background-size: cover;
-  //   background-repeat: no-repeat;
-  // }
+
   .header_projects {
     float: left;
-      margin-left: 20px;
-      margin-top: 30px;
-      position: relative;
-      .projects_button {
-        background: #EDEFF0;
-        height: 40px;
-        border-radius: 2px;
-        text-align: center;
-        padding: 0 30px;
-        position: relative;
-        cursor: pointer;
+    margin-top: 30px;
+    position: relative;
+    .projects_button {
+      cursor: pointer;
       }
       .button_icon {
-        position: absolute;
-        left: 15px;
-        top: 8px;
+        background: #ececec;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        display: inline-block;
+        /* line-height: 43px; */
+        border-radius: 3px;
+        vertical-align: middle;
         svg {
           width: 18px;
+          margin-top: 3px;
         }
       }
       o {
-        padding-left: 15px;
+        margin-left: 10px;
         @include text-label($p100);
-        line-height: 40px;
+        line-height: 30px;
+        a {
+          @include text-label($p100);
+        }
       }
   }
 
@@ -75,12 +42,12 @@
     margin-left: 20px;
     float: right;
     margin-top: 30px;
-    height: 40px;
+    height: 30px;
     .menu_bell {
       float: left;
-      height: 40px;
+      height: 30px;
       padding-top: 5px;
-      line-height: 40px;
+      line-height: 30px;
       svg {
         height: 18px;
       }
@@ -91,19 +58,19 @@
       h4 {
         @include text-label($p100);
         float: left;
-        line-height: 40px;
+        line-height: 30px;
         font-size: 13px;
         letter-spacing: 1px;
         margin-right: 20px;
-        height: 40px;
-        line-height: 40px;
+        height: 30px;
+        line-height: 30px;
       }
       .profile_image {
         background-size: cover;
         height: 25px;
         width: 25px;
-        height: 40px;
-        line-height: 40px;
+        height: 30px;
+        line-height: 30px;
         margin-right: 10px;
         margin-left: 20px;
         border-radius: 2px;

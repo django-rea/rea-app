@@ -3,7 +3,7 @@ import * as themeable from 'react-themeable'
 import { SFC } from 'react'
 import CurrentUser from '@vflows/bindings/user/CurrentUser'
 import Link from '../../atoms/Link'
-import {Bell, Search, Horizontal, Inbox} from '../../icons'
+import {Bell, Search, Horizontal, Folder} from '../../icons'
 import ProjectsList from '../../molecules/projectsList'
 interface UserProps {
   user?: {
@@ -31,25 +31,23 @@ class Header extends React.Component {
   }
 
   render () {
-    const {theme, user, loading, error} = this.props
+    const {theme, user, loading, error, params} = this.props
     const {dropdown} = this.state
     let currentTheme = themeable(theme)
-    console.log(dropdown)
     return (
       loading ? <strong>Loading...</strong> : (error ? <p style={{ color: '#F00' }}>API error</p> : (
         <header {...currentTheme(0, 'main_header')} >
           <div {...currentTheme(1, 'row')}>
             <div {...currentTheme(4, 'header_projects')}>
               <div {...currentTheme(5, 'projects_button')} onClick={()=>this.toggleDropdown()}>
-                <span {...currentTheme(6, 'button_icon')}><Inbox /></span>
-                <o>Projects</o>
+                <span {...currentTheme(6, 'button_icon')}><Folder /></span>
+                <o><Link href='/'>All </Link> / </o>  {user.agentRelationships.find(x => x.object.id === params.id) ? user.agentRelationships.find(x => x.object.id === params.id).object.name : ''}
               </div>
               <ProjectsList
                 agent={user}
                 visible={dropdown ? '' : 'hidden'}
               />
             </div>
-            <Link href='/'><span  {...currentTheme(2, 'header_brand')}>Kamasi.</span></Link>
             <div {...currentTheme(3, 'header_menu')} >
                   <div {...currentTheme(17, 'menu_bell')}>
                     <Bell />
@@ -73,6 +71,6 @@ class Header extends React.Component {
         </header>
       )))
   }
-} 
+}
 
 export default Header
