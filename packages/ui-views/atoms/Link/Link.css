@@ -1,14 +1,14 @@
-.link {
-  align-content: center;
+/* .link { */
+  /* align-content: center;
   align-items: center;
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: center; */
 
-  color: var(--link-color);
+  /* color: var(--link-color); */
 
-  &:hover,
+  /* &:hover,
   &:active {
     color: var(--link-color-active);
   }
@@ -16,4 +16,4 @@
 
 .linkActive {
   color: var(--link-color-active);
-}
+} */

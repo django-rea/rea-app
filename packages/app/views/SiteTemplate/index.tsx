@@ -23,7 +23,6 @@ import Members from '@vflows/views/organisms/Members'
 import List from '@vflows/views/organisms/List'
 
 import LoginPage from '../../pages/Login'
-import Contributions from '../../pages/Contributions'
 const styles = require('./siteTemplate.css')
 
 export interface Props {
@@ -37,7 +36,6 @@ class SiteTemplate extends Component<Props, State> {
   state = {}
 
   renderSite() {
-    let classname = styles['medium-9'] + ' ' + styles.columns
     return (
       <div>
         <Header />

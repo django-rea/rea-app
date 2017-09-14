@@ -23,6 +23,7 @@ export const Down = !browser ? nullServerComponent : require('./down.svg').defau
 export const Calendar = !browser ? nullServerComponent : require('./calendar.svg').default
 export const Users = !browser ? nullServerComponent : require('./users.svg').default
 export const Check = !browser ? nullServerComponent : require('./check.svg').default
+export const Folder = !browser ? nullServerComponent : require('./folder.svg').default
 export const Inbox = !browser ? nullServerComponent : require('./inbox.svg').default
 export const Edit = !browser ? nullServerComponent : require('./edit.svg').default
 export const Activity = !browser ? nullServerComponent : require('./activity.svg').default
