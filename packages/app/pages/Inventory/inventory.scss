@@ -1,14 +1,10 @@
 .sidebar {
-    background: #fff;
-    border-left: 1px solid #E9E9E9;
     .sidebar_menu {
         height: 50px;
-        border-bottom: 1px solid #E9E9E9;
         line-height: 50px;
         .menu_title {
           @include text-label($p900);
           line-height: 50px;
-          margin-left: 20px;
           span {
             padding: 1px 5px;
             color: white;

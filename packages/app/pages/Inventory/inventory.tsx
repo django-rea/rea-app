@@ -12,7 +12,7 @@ const Inventory: SFC<Props> = ({ agent, theme }) => {
   return (
     <aside {...currentTheme(1, 'sidebar')} >
         <div {...currentTheme(2, 'sidebar_menu')} >
-          <h4 {...currentTheme(4, 'menu_title')} >Inventory List <span>{agent.ownedEconomicResources.length}</span></h4>
+          <h4 {...currentTheme(4, 'menu_title')}>🔦 Inventory List <span>{agent.ownedEconomicResources.length}</span></h4>
         </div>
         <section {...currentTheme(5, 'sidebar_inventory', 'active')} >
           <ul {...currentTheme(8, 'sidebar_list')} >

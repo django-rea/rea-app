@@ -38,7 +38,7 @@ const SingleProjectTemplate = BindAgent(({ agent, loading, error, theme, childre
                 id={agent.id}
                 totalProcesses={agent.agentProcesses.length}
                 totalNetwork={agent.agentRelationships.length}
-                totalInventory={agent.ownedEconomicResources.filter(resource => resource.category === 'INVENTORY').length} />
+                totalInventory={agent.ownedEconomicResources.length} />
               <div>
                 {children && React.cloneElement(children, {
                   id: agent.id,

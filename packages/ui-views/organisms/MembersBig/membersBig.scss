@@ -2,25 +2,20 @@
     padding-bottom: 40px;
     margin-top: 10px;
     .membersBig_list {
-      box-shadow: 0 2px 3px 1px rgba(0,0,0,.1);
-      border-radius: 2px;
-      background: white;
-      margin-bottom: 10px;
       padding-bottom: 20px;
+      margin-top: 30px;
       .list_type {
         height: 30px;
         @include text-mini-black($p900);
         text-transform: uppercase;
         line-height: 30px;
         padding-left: 10px;
-        border-bottom: $separator;
       }
     }
     .membersBig_title {
         @include text-mini-black($p900);
         text-transform: uppercase;
         padding-left: 20px;
-        border-bottom: 1px solid rgba(0,0,0, .1);
         height: 40px;
         line-height: 40px;
     }
@@ -28,19 +23,18 @@
         text-align: center;
         margin-top: 40px;
         .member_photo {
-            background: url('./images/placeholder.png');
             background-size: cover;
-            width: 60px;
-            height: 60px;
-            border-radius: 100%;
+            width: 50px;
+            height: 50px;
+            border-radius: 4px;
             border: 1px solid white;
             background-position: center center;
             margin: 0 auto;
             display: block;
             img {
-                width: 60px;
-                height: 60px;
-                border-radius: 100%;
+                width: 50px;
+                height: 50px;
+                border-radius: 4px;
             }
         }
         .member_name {
@@ -60,11 +54,9 @@
           letter-spacing: 1px;
           color: #888e94;
           border-radius: 2px;
-          padding: 0 5px;
           margin-top: 5px;
           display: inline-block;
           text-align: center;
-          border: 1px solid #e1e2e4;
 
         }
     }
