@@ -1,6 +1,9 @@
 @import "../../base.scss";
 @import "./projectTemplate.scss";
 
+.collapse {
+  padding: 0;
+}
 /* Portrait and Landscape */
 @media (max-width: 480px) {
   .responsiveModal {

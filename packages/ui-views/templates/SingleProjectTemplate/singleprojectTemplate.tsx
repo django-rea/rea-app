@@ -9,31 +9,6 @@ import {Vertical} from '../../icons'
 import Modal from 'react-modal'
 import Aside from '../../organisms/Aside'
 
-const customStyles = {
-  overlay : {
-    position          : 'fixed',
-    top               : 0,
-    left              : 0,
-    right             : 0,
-    bottom            : 0,
-    backgroundColor   : 'rgba(0, 0, 0, 0.65)',
-    zIndex            : 9999999999,
-    height: '100%',
-    justifyContent: 'center',
-    overflow: 'auto'
-  },
-  content : {
-    width                 : '745px',
-    boxShadow             : '0 2px 8px 3px rgba(0,0,0,.3)',
-    zIndex                : 9999999999,
-    backgroundColor       : '#EFEFEF',
-    padding:  0,
-    margin:  '40px auto',
-    position: 'relative'
-
-  }
-};
-
 interface Props {
   agent?: AgentType,
   loading?: boolean,
@@ -54,17 +29,11 @@ interface RouterProps {
 
 const SingleProjectTemplate = BindAgent(({ agent, loading, error, theme, children, showModal, handleOpenModal, handleCloseModal, modalId }: Props) => {
   let currentTheme = themeable(theme)
-  console.log(error)
-  console.log(agent)
-  let responsiveModal = theme.responsiveModal
   return (
     loading ? <strong>Loading...</strong> : (
     error ? <p style={{ color: '#F00' }}>API error</p> : (
-      <div {...currentTheme(11, 'row')}>
-            <div {...currentTheme(1, 'medium-12', 'columns', 'collapse-for-mobile')}>
-              <Hero agent={agent} />
-            </div>
-            <section {...currentTheme(6, 'medium-12', 'columns', 'collapse-for-mobile')}>
+      <div {...currentTheme(11, 'row', 'collapse')}>
+            <section {...currentTheme(6, 'medium-12', 'columns')}>
               <SecondaryMenu
                 id={agent.id}
                 totalProcesses={agent.agentProcesses.length}
@@ -78,17 +47,6 @@ const SingleProjectTemplate = BindAgent(({ agent, loading, error, theme, childre
                 })}
               </div>
             </section>
-            <Modal
-              isOpen={showModal}
-              onRequestClose={handleCloseModal}
-              contentLabel='Process Modal'
-              style={customStyles}
-              className={{
-                base: responsiveModal,
-              }}
-            >
-              {/* <ProcessModal handleCloseModal={handleCloseModal} modalId={modalId} /> */}
-            </Modal>
       </div>
   )))})
 
