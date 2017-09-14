@@ -24,18 +24,6 @@ const ProcessesPage = ({ agent, router, theme, handleOpenModal }: Props) => {
   let currentTheme = themeable(theme)
   return (
     <section  {...currentTheme(1, 'processes_list')}>
-      <div {...currentTheme(2, 'list_actions')}>
-        <div {...currentTheme(3, 'process_form')}>
-          <input placeholder='Type the name of the process...'/>
-          <div {...currentTheme(4, 'form_actions')}>
-            <b>type</b>
-            <button {...currentTheme(5, 'actions_left')} >work</button>
-            {/* <button {...currentTheme(6, 'actions_left')}>Add Committment</button>
-            <button {...currentTheme(7, 'actions_left')}>Add Output</button> */ }
-            <button {...currentTheme(8, 'actions_create')}>Publish</button>
-          </div>
-        </div>
-      </div>
       <div {...currentTheme(9, 'list')}>
       <h5 {...currentTheme(10, 'list_title')}>Processes list</h5>
       {agent.agentProcesses.map((process, i) => (
@@ -67,8 +55,8 @@ const ProcessesPage = ({ agent, router, theme, handleOpenModal }: Props) => {
           </div>
           <div {...currentTheme(1000, 'item_actions')}>
             <nav>
-              <span>{process.processEconomicEvents.length + process.unplannedEconomicEvents.length } Events</span>
-              <span>{process.processCommitments.length} Planned</span>
+              <span>0 Events</span>
+              <span>0 Planned</span>
               <span>{process.inputs.length} Input</span>
               <span>{process.outputs.length} Output</span>
             </nav>

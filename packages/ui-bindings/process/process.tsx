@@ -29,12 +29,6 @@ query($token: String, $processId: Int) {
       unplannedEconomicEvents {
         ...coreEventFields
       }
-      processEconomicEvents {
-        ...coreEventFields
-      }
-      processCommitments {
-        ...coreCommitmentFields
-      }
       inputs {
         ...coreEventFields
       }

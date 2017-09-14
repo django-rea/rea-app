@@ -15,85 +15,10 @@
     }
   }
 }
-.process_form {
-  margin-bottom: 20px;
-  border-top: none;
-  h5 {
-    height: 30px;
-    background: #FAFAFA;
-    @include text-mini-black($p900);
-    line-height: 30px;
-    padding-left: 10px;
-    border-bottom: $separator;
-  }
-  input {
-    min-height: 50px;
-    width: 100%;
-    display: block;
-    border: none;
-    text-indent: 20px;
-    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-      @include text-general($gray);
-      text-indent: 20px;
 
-    }
-    &::-moz-placeholder { /* Firefox 19+ */
-      @include text-general($gray);
-      text-indent: 20px;
-
-    }
-    &:-ms-input-placeholder { /* IE 10+ */
-      @include text-general($gray);
-      text-indent: 20px;
-
-    }
-    &:-moz-placeholder { /* Firefox 18- */
-      @include text-general($gray);
-      text-indent: 20px;
-
-    }
-  }
-  .form_actions {
-    height: 40px;
-    background: #FAFAFA;
-    border-top: $separator;
-    padding-top: 5px;
-    padding-left: 10px;
-    .actions_left {
-      // background: rgba(71, 58, 210, 0.69);
-      /* border: 2px solid #E1E1E1; */
-      border-radius: 40px;
-      height: 25px;
-      font-size: 12px;
-      font-weight: 700;
-      line-height: 20px;
-      letter-spacing: 2px;
-      color: $p900;
-      line-height: 21px;
-      padding: 0px 15px;
-      margin-right: 10px;
-      margin-top: 2px;
-      border: 2px solid #6D6D6D;
-    }
-    b {
-      @include text-mini-black(#6D6D6D);
-      text-transform: uppercase;
-      margin-right: 10px;
-    }
-    button {
-      border: 2px solid #E1E1E1;
-      border-radius: 4px;
-      height: 30px;
-      @include text-mini-black($p900);
-      line-height: 30px;
-      padding: 0 10px;
-      margin-right: 10px;
-    }
-  }
-}
 .list {
   background: white;
-  box-shadow: 0 2px 3px rgba(0,0,0,.1);
+  border: $separator;
   border-radius: 2px;
   margin-bottom: 40px;
   .list_title {

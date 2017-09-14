@@ -1,20 +1,22 @@
 .secondaryMenu {
     height: 50px;
+    margin-top: 20px;
     background: white;
-    border-bottom: 1px solid #E9E9E9;
+    // border-bottom: 1px solid #E9E9E9;
+    margin-bottom: 40px;
     @include clearfix;
     .menu_list {
         list-style: none;
         padding: 0;
         margin: 0;
         @include clearfix;
-        padding-left: 20px;
+        // padding-left: 20px;
         .list_item {
             float: left;
             height: 50px;
             position: relative;
             cursor: pointer;
-            margin-right: 80px;
+            margin-right: 40px;
             span {
               margin-right: 5px;
               text-align: center;
