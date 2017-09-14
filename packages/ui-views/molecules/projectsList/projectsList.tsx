@@ -26,7 +26,7 @@ const OrgsList = withRouter(({ agent, theme, router }) => {
 const Aside = withRouter(({agent, visible, theme, router }) => {
   let currentTheme = themeable(theme)
   return (
-    <aside {...currentTheme(1000, 'aside', visible)} >
+    <aside {...currentTheme(1, visible, 'aside')}>
       <ul {...currentTheme(30000, 'aside_list')} >
         <h4 {...currentTheme(30001, 'list_title')}>organizations</h4>
         {agent.agentRelationships.map((item, i) => (

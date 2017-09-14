@@ -15,21 +15,39 @@ interface UserProps {
   theme: Object,
 }
 
-const Header = CurrentUser(({ user, loading, error, theme }: UserProps) => {
+class Header extends React.Component {
+  constructor () {
+    super ()
+    this.toggleDropdown = this.toggleDropdown.bind(this)
+    this.state = {
+      dropdown: false
+    }
+  }
+
+  toggleDropdown () {
+    this.setState({
+      dropdown: !this.state.dropdown
+    })
+  }
+
+  render () {
+    const {theme, user, loading, error} = this.props
+    const {dropdown} = this.state
     let currentTheme = themeable(theme)
+    console.log(dropdown)
     return (
-        loading ? <strong>Loading...</strong> : (error ? <p style={{ color: '#F00' }}>API error</p> : (
+      loading ? <strong>Loading...</strong> : (error ? <p style={{ color: '#F00' }}>API error</p> : (
         <header {...currentTheme(0, 'main_header')} >
           <div {...currentTheme(1, 'row')}>
             <div {...currentTheme(4, 'header_projects')}>
-              <div {...currentTheme(5, 'projects_button')}>
+              <div {...currentTheme(5, 'projects_button')} onClick={()=>this.toggleDropdown()}>
                 <span {...currentTheme(6, 'button_icon')}><Inbox /></span>
                 <o>Projects</o>
-                {/* <ProjectsList
-                  agent={user}
-                  visible={'hidden'}
-                /> */}
               </div>
+              <ProjectsList
+                agent={user}
+                visible={dropdown ? '' : 'hidden'}
+              />
             </div>
             <Link href='/'><span  {...currentTheme(2, 'header_brand')}>Kamasi.</span></Link>
             <div {...currentTheme(3, 'header_menu')} >
@@ -38,9 +56,9 @@ const Header = CurrentUser(({ user, loading, error, theme }: UserProps) => {
                   </div>
                   <div {...currentTheme(14, 'menu_profile')} >
                     <div {...currentTheme(15, 'profile_image')}>
-                      <img src={user.image} />
+                      <img src={user ? user.image : ''} />
                     </div>
-                    <h4>{user.name || 'nobody'}</h4>
+                    <h4>{user ? user.name : 'nobody'}</h4>
                 </div>
             </div>
             <div {...currentTheme(284484, 'header_mobile')}>
@@ -53,8 +71,8 @@ const Header = CurrentUser(({ user, loading, error, theme }: UserProps) => {
             </div>
           </div>
         </header>
-      )
-    ))
-})
+      )))
+  }
+} 
 
 export default Header

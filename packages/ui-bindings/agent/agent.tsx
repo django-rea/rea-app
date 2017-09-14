@@ -51,12 +51,6 @@ query($token: String, $agentId: Int) {
         unplannedEconomicEvents {
           action
         }
-        processEconomicEvents {
-          action
-        }
-        processCommitments {
-          action
-        }
         inputs {
           action
         }
