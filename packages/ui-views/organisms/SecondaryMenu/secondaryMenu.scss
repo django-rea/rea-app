@@ -10,6 +10,9 @@
         margin: 0;
         @include clearfix;
         .list_item {
+          &:first-child {
+            margin-left: -10px;
+          }
             float: left;
             height: 30px;
             position: relative;

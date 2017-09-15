@@ -28,7 +28,6 @@
         }
       }
       o {
-        margin-left: 10px;
         @include text-label($p100);
         line-height: 30px;
         a {
@@ -43,6 +42,22 @@
     float: right;
     margin-top: 30px;
     height: 30px;
+    .projects_button {
+      float: left;
+      height: 30px;
+      padding-top: 3px;
+      margin-right: 20px;
+      position: relative;
+      cursor: pointer;
+      line-height: 30px;
+      .button_icon {
+        svg {
+          height: 18px;
+          color: rgba(0,0,0,.44);
+        }
+      }
+
+    }
     .menu_bell {
       float: left;
       height: 30px;
@@ -50,6 +65,7 @@
       line-height: 30px;
       svg {
         height: 18px;
+        color: rgba(0,0,0,.44);
       }
     }
     .menu_profile {
@@ -71,7 +87,6 @@
         width: 25px;
         height: 30px;
         line-height: 30px;
-        margin-right: 10px;
         margin-left: 20px;
         border-radius: 2px;
         float: left;

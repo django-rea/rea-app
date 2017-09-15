@@ -39,25 +39,24 @@ class Header extends React.Component {
         <header {...currentTheme(0, 'main_header')} >
           <div {...currentTheme(1, 'row')}>
             <div {...currentTheme(4, 'header_projects')}>
-              <div {...currentTheme(5, 'projects_button')} onClick={()=>this.toggleDropdown()}>
-                <span {...currentTheme(6, 'button_icon')}><Folder /></span>
-                <o><Link href='/'>All </Link> / </o>  {user.agentRelationships.find(x => x.object.id === params.id) ? user.agentRelationships.find(x => x.object.id === params.id).object.name : ''}
-              </div>
-              <ProjectsList
-                agent={user}
-                visible={dropdown ? '' : 'hidden'}
-              />
+              <o><Link href='/'>All </Link> / </o>  {user.agentRelationships.find(x => x.object.id === params.id) ? user.agentRelationships.find(x => x.object.id === params.id).object.name : ''}
             </div>
             <div {...currentTheme(3, 'header_menu')} >
-                  <div {...currentTheme(17, 'menu_bell')}>
-                    <Bell />
-                  </div>
-                  <div {...currentTheme(14, 'menu_profile')} >
-                    <div {...currentTheme(15, 'profile_image')}>
-                      <img src={user ? user.image : ''} />
-                    </div>
-                    <h4>{user ? user.name : 'nobody'}</h4>
+              <div {...currentTheme(5, 'projects_button')} onClick={()=>this.toggleDropdown()}>
+                <span {...currentTheme(6, 'button_icon')}><Folder /></span>
+                <ProjectsList
+                  agent={user}
+                  visible={dropdown ? '' : 'hidden'}
+                />
+              </div>
+              <div {...currentTheme(17, 'menu_bell')}>
+                <Bell />
+              </div>
+              <div {...currentTheme(14, 'menu_profile')} >
+                <div {...currentTheme(15, 'profile_image')}>
+                  <img src={user ? user.image : ''} />
                 </div>
+              </div>
             </div>
             <div {...currentTheme(284484, 'header_mobile')}>
               <ul {...currentTheme(24449, 'mobile_list')}>
