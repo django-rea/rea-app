@@ -1,15 +1,19 @@
 import * as React from 'react'
 import * as themeable from 'react-themeable'
 import { SFC } from 'react'
+import BindInventory from '@vflows/bindings/inventory/inventory'
 
 interface Props {
   theme: Object
 }
 
-const Inventory: SFC<Props> = ({ agent, theme }) => {
+const Inventory: SFC<Props> = BindInventory(({ agent, loading, error, agentId, theme }) => {
   let currentTheme = themeable(theme)
   console.log(agent)
+  console.log(error)
   return (
+    loading ? <strong>Loading...</strong> : (
+      error ? <p style={{ color: '#F00' }}>API error</p> : (
     <aside {...currentTheme(1, 'sidebar')} >
         <div {...currentTheme(2, 'sidebar_menu')} >
           <h4 {...currentTheme(4, 'menu_title')}>🔦 Inventory List <span>{agent.ownedEconomicResources.length}</span></h4>
@@ -26,7 +30,7 @@ const Inventory: SFC<Props> = ({ agent, theme }) => {
           </ul>
         </section>
     </aside>
-  )
-}
+  )))
+})
 
 export default Inventory
