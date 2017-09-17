@@ -10,62 +10,47 @@ import * as React from 'react'
 import { AgentType } from '@vflows/bindings/agent/agent'
 import * as themeable from 'react-themeable'
 import {Horizontal, Down} from '@vflows/views/icons'
+import BindPlan from '@vflows/bindings/plans/plans'
+import {withRouter, Link} from 'react-router'
 
 interface Props {
   agent?: AgentType,
   theme: Object,
+  loading:boolean,
+  agentId: Number,
+  error: Object,
   router: {
     params: {
       id: string,
     },
   },
 }
-const ProcessesPage = ({ agent, router, theme, handleOpenModal }: Props) => {
+const ProcessesPage = BindPlan(({ agent, loading, agentId, error, router, theme }: Props) => {
   let currentTheme = themeable(theme)
+  console.log(agentId)
+  console.log(agent)
+  console.log(error)
   return (
+    loading ? <strong>Loading...</strong> : (
+    error ? <p style={{ color: '#F00' }}>API error</p> : (
     <section  {...currentTheme(1, 'processes_list')}>
       <div {...currentTheme(9, 'list')}>
-      <h5 {...currentTheme(10, 'list_title')}>Processes list</h5>
-      {agent.agentProcesses.map((process, i) => (
-        <div {...currentTheme((i * 12) + 2, 'processes_item')} onClick={()=>handleOpenModal(process.id)}>
-          {/* {process.isStarted ? <o {...currentTheme((i*12)+1000, 'item_green'} ></o> : '' } */}
-          <div {...currentTheme((i * 12) + 3, 'item_first')}>
-            <h3 {...currentTheme((i * 12) + 4, 'first_title')}>{process.name}</h3>
-            <div {...currentTheme((i*12) + 5, 'secondary_information')}>
-              {process.isFinished ?
-              <span {...currentTheme((i*12) + 6, 'finished', 'info_isFinished')}>Finished</span>
-              :
-              <span {...currentTheme((i*12) + 7, 'unfinished', 'info_isFinished')}>Unfinished</span>
-              }
-              <span {...currentTheme((i*12) + 8, 'info_isType') }>Process</span>
-              <div {...currentTheme((i * 12) + 11, 'info_members')}>
-                {process.workingAgents.map((ag,index)=> (
-                  <span {...currentTheme((i * 12) + index + 12, 'members_single')}>
-                    <img src={ag.image} />
-                  </span>
-                ))}
-              </div>
-
-
+      <h5 {...currentTheme(10, 'list_title')}>☕ All Plans</h5>
+          {agent.agentPlans.map((plan, i) => (
+            <Link
+              key={i}
+              to={'/plans/' + plan.id }
+              className='link'
+            >
+            <div key={i} {...currentTheme(11 + i, 'list_item')}>
+              <h4>{plan.name.length === 0 ? 'unassigned name' : plan.name }</h4>
+              <p>{plan.note || 'unassigned note'}</p>
             </div>
-          </div>
-          <div {...currentTheme((i * 12) + 8, 'item_second')}>{process.note}</div>
-          <div {...currentTheme((i * 12) + 9, 'item_third')}>
-            <span {...currentTheme((i * 12) + 10, 'third_date')}>Due to {process.plannedStart} | Duration {process.plannedDuration}</span>
-          </div>
-          <div {...currentTheme(1000, 'item_actions')}>
-            <nav>
-              <span>0 Events</span>
-              <span>0 Planned</span>
-              <span>{process.inputs.length} Input</span>
-              <span>{process.outputs.length} Output</span>
-            </nav>
-          </div>
-        </div>
-      ))}
+            </Link>
+          ))}
       </div>
     </section>
-  )
-}
+  )))
+})
 
 export default ProcessesPage
