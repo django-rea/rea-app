@@ -27,29 +27,29 @@ interface RouterProps {
   },
 }
 
-const SingleProjectTemplate = BindAgent(({ agent, loading, error, theme, children, showModal, handleOpenModal, handleCloseModal, modalId }: Props) => {
+const SingleProjectTemplate = ({theme, agentId, children}) => {
   let currentTheme = themeable(theme)
   return (
-    loading ? <strong>Loading...</strong> : (
-    error ? <p style={{ color: '#F00' }}>API error</p> : (
+    // loading ? <strong>Loading...</strong> : (
+    // error ? <p style={{ color: '#F00' }}>API error</p> : (
       <div {...currentTheme(11, 'row', 'collapse')}>
             <section {...currentTheme(6, 'medium-12', 'columns')}>
               <SecondaryMenu
-                id={agent.id}
-                totalProcesses={agent.agentProcesses.length}
-                totalNetwork={agent.agentRelationships.length}
-                totalInventory={agent.ownedEconomicResources.length} />
+                id={agentId}
+                totalProcesses={0}
+                totalNetwork={0}
+                totalInventory={0} />
               <div>
                 {children && React.cloneElement(children, {
-                  id: agent.id,
-                  agent,
-                  handleOpenModal
+                  agentId: agentId
                 })}
               </div>
             </section>
       </div>
-  )))})
+  // ))
+)
+}
 
-export default ({ router, theme, children, showModal, handleOpenModal, handleCloseModal, modalId }: RouterProps) => (
-  <SingleProjectTemplate children={children} theme={theme} agentId={router.params.id} showModal={showModal} handleCloseModal={handleCloseModal} handleOpenModal={handleOpenModal} modalId={modalId} />
+export default ({ router, theme, children}: RouterProps) => (
+  <SingleProjectTemplate children={children} theme={theme} agentId={router.params.id} />
 )
