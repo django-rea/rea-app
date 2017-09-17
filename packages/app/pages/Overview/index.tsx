@@ -9,10 +9,13 @@
 import * as React from 'react'
 import { Component, ReactElement } from 'react'
 import List from '@vflows/views/organisms/List'
-import { AgentType } from '@vflows/bindings/agent/agent'
+import BindEvents from '@vflows/bindings/events/events'
 
 interface Props {
-  agent?: AgentType
+  agent?: Object,
+  loading: Boolean,
+  error: Object,
+  agentId: Number
 }
 
 interface RouterProps {
@@ -20,18 +23,20 @@ interface RouterProps {
     params: {
       id: string,
     },
-  },
-  agent?: AgentType
+  }
 }
 
-const OverviewPage = ({ agent }: Props) => {
+const OverviewPage = BindEvents(({ agent, agentId, loading, error }: Props) => {
+  console.log(agentId)
   return (
+    loading ? <strong>Loading...</strong> : (
+      error ? <p style={{ color: '#F00' }}>API error</p> : (
     <div>
       <List events={agent.agentEconomicEvents}/>
     </div>
-    )
-}
+    )))
+})
 
-export default ({ router, agent }: RouterProps) => (
-  <OverviewPage agent={agent} agentId={router.params.id} />
+export default ({ router }: RouterProps) => (
+  <OverviewPage agentId={router.params.id} />
 )
