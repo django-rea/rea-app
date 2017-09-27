@@ -26,19 +26,20 @@ class NavBar extends React.Component {
   readonly navButtons = ["All", "Cooperative", "Projects", "Organizations", "Groups"]
 
   private currentTheme
-  private state: any
 
   constructor(private props) {
     super(props)
     this.state = {
-      activeButton: "All"
+      activeButton: "All",
     }
 
     this.currentTheme = themeable(this.props.theme)
   }
 
   handleClick = (buttonName) => {
-    this.state.activeButton  = buttonName
+    this.setState({ activeButton: buttonName })
+    this.forceUpdate(() => console.log('Finished Updating'))
+    // this.state.activeButton  = buttonName
     console.log("Clicked", buttonName)
     // TODO refresh the list and filter
   }
@@ -51,10 +52,10 @@ class NavBar extends React.Component {
           {this.navButtons.map((text, index) => (
             <NavButton
               i={index + 4}
+              text={text}
               theme={this.props.theme}
               onclick={this.handleClick}
               active={this.state.activeButton === text}
-              text={text}
             />
           ))}
 
@@ -69,7 +70,6 @@ class NavBar extends React.Component {
 }
 
 class NavButton extends React.Component {
-  // handleClick= () => this.props.onClick(this.props.index)
 
   currentTheme = themeable(this.props.theme)
 
@@ -79,6 +79,7 @@ class NavButton extends React.Component {
         onClick={() => {
           console.log("Currently Active:", this.props.active)
           this.props.onclick(this.props.text)
+          // this.props.state.activeButton = this.props.text
         }}
         {...this.currentTheme(this.props.i, "type_item", (this.props.active ? "active" : ""))}
       >
