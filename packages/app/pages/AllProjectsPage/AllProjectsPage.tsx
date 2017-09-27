@@ -6,10 +6,12 @@
  * @since:   2017-08-07
  */
 
-import * as React from 'react'
-import * as themeable from 'react-themeable'
-import BindAgent, { AllOrgsType } from '@vflows/bindings/agent/allOrganizations'
-import Link from '@vflows/views/atoms/Link'
+import * as React from "react"
+import * as themeable from "react-themeable"
+import BindAgent, { AllOrgsType } from "@vflows/bindings/agent/allOrganizations"
+import Link from "@vflows/views/atoms/Link"
+import { createStore, applyMiddleware } from "redux"
+import { composeWithDevTools } from "redux-devtools-extension"
 
 interface Props {
   allOrgs?: AllOrgsType,
@@ -19,114 +21,112 @@ interface Props {
   children: Object
 }
 
-// class NavBar extends React.Component {
-//   state: {
-//     activeIndex: null
-//   }
-//
-//   handleClick = (index) => {
-//     this.setState({ activeIndex: index })
-//     console.log('Clicked', index)
-//   }
-//
-//   render() {
-//     return (
-//       <div {currentTheme}>
-//         <NavButton
-//           name="a"
-//           index={0}
-//           isActive={this.props.activeIndex === 0}
-//           onClick={this.handleClick}
-//         />
-//         <NavButton
-//           name="b"
-//           index={1}
-//           isActive={this.props.activeIndex === 1}
-//           onClick={this.handleClick}
-//         />
-//         <NavButton
-//           name="c"
-//           index={2}
-//           isActive={this.props.activeIndex === 2}
-//           onClick={this.handleClick}
-//         />
-//       </div>
-//     )
-//   }
-// }
+class NavBar extends React.Component {
 
-class NavButton extends React.Component {
-  handleClick= () => this.props.onClick(this.props.index)
+  readonly navButtons = ["All", "Cooperative", "Projects", "Organizations", "Groups"]
+
+  private currentTheme
+  private state: any
+
+  constructor(private props) {
+    super(props)
+    this.state = {
+      activeButton: "All"
+    }
+
+    this.currentTheme = themeable(this.props.theme)
+  }
+
+  handleClick = (buttonName) => {
+    this.state.activeButton  = buttonName
+    console.log("Clicked", buttonName)
+    // TODO refresh the list and filter
+  }
 
   render() {
     return (
-      <button
-        type="button"
-        className={this.props.isActive ? "active" : ""}
-        onClick={this.handleClick}
-      >
-        <span>{this.props.name}</span>
-      </button>
+      <div {...this.currentTheme(2, "list_menu")}>
+        <ul id="project_type" {...this.currentTheme(3, "menu_type")}>
+
+          {this.navButtons.map((text, index) => (
+            <NavButton
+              i={index + 4}
+              theme={this.props.theme}
+              onclick={this.handleClick}
+              active={this.state.activeButton === text}
+              text={text}
+            />
+          ))}
+
+        </ul>
+        <div {...this.currentTheme(9, "menu_actions")}>
+          <button {...this.currentTheme(10, "actions_join")}>Create a new Project</button>
+        </div>
+
+      </div>
     )
   }
 }
 
+class NavButton extends React.Component {
+  // handleClick= () => this.props.onClick(this.props.index)
+
+  currentTheme = themeable(this.props.theme)
+
+  render() {
+    return (
+      <li
+        onClick={() => {
+          console.log("Currently Active:", this.props.active)
+          this.props.onclick(this.props.text)
+        }}
+        {...this.currentTheme(this.props.i, "type_item", (this.props.active ? "active" : ""))}
+      >
+        {this.props.text}
+      </li>
+    )
+  }
+}
+
+class ProjectCard extends React.Component {
+
+  currentTheme = themeable(this.props.theme)
+  i = this.props.i
+
+  render() {
+    return (
+      <div {...this.currentTheme((this.i * 7) + 13, "medium-6",  "end", "columns")}>
+        <div {...this.currentTheme((this.i * 7) + 14, "projects_item")}>
+          <div {...this.currentTheme((this.i * 7) + 15, "item_row")}>
+            <span {...this.currentTheme((this.i * 7) + 16, "row_image")}><img src={this.props.org.image} /></span>
+            <Link href={`projects/${this.props.org.id}`} {...this.currentTheme((this.i * 7) + 17, "row_title")}>{this.props.org.name}</Link>
+            <button onClick={() => alert("Cannot join this team")} {...this.currentTheme((this.i * 7) + 18, "row_button")}>+ join</button>
+          </div>
+          <div {...this.currentTheme((this.i * 7) + 19, "item_description")}>{this.props.org.note}</div>
+        </div>
+      </div>
+    )
+  }
+}
 
 const AllProjectsPage = BindAgent(({ allOrgs, loading, error, theme, children }: Props) => {
-
-  let state: {
-    activeIndex: null
-  }
-
-  let handleClick = (index) => {
-    this.setState({ activeIndex: index })
-    console.log('Clicked', index)
-  }
-
   let currentTheme = themeable(theme)
 
   return (
     loading ? <strong>Loading...</strong> : (
-      error ? <p style={{ color: '#F00' }}>API error</p> : (
-        <section  {...currentTheme(1, 'allprojects_list')}>
-          <div {...currentTheme(2, 'list_menu')}>
-            <ul id="project_type" {...currentTheme(3, 'menu_type')}>
-              <NavButton name="All" index={2} isActive={this.props.activeIndex === 0} onClick={this.handleClick} {...currentTheme(4, 'type_item')}/>
-              {/*<li onClick={(event) => handleClick(event)} {...currentTheme(4, 'type_item', 'active')}>All</li>*/}
-              <li onClick={(event) => handleClick(event)} {...currentTheme(5, 'type_item')}>Cooperative</li>
-              <li onClick={(event) => handleClick(event)} {...currentTheme(6, 'type_item')}>Projects</li>
-              <li onClick={(event) => handleClick(event)} {...currentTheme(7, 'type_item')}>Organizations</li>
-              <li onClick={(event) => handleClick(event)} {...currentTheme(8, 'type_item')}>Groups</li>
-            </ul>
-            <div {...currentTheme(9, 'menu_actions')}>
-              <button {...currentTheme(10, 'actions_join')}>Create a new Project</button>
+      error ? <p style={{ color: "#F00" }}>API error</p> : (
+        <section  {...currentTheme(1, "allprojects_list")}>
+
+          <NavBar theme={theme}/>
+
+          <div {...currentTheme(11, "list_projects")}>
+            <div {...currentTheme(12, "row")}>
+              {allOrgs.map( (org, i) => (<ProjectCard theme={theme} org={org} i={i}/>)}
             </div>
           </div>
-          <div {...currentTheme(11, 'list_projects')}>
-            <div {...currentTheme(12, 'row')}>
-              {allOrgs.map((org, i)=>(
-                org.type === "School" || org.type === "Library" ?
-                  <div {...currentTheme((i*7) + 13, 'medium-6',  'end', 'columns')}>
-                    <div {...currentTheme((i*7) +14, 'projects_item')}>
-                      <div {...currentTheme((i*7) +15, 'item_row')}>
-                        <span {...currentTheme((i*7) +16, 'row_image')}><img src={org.image} /></span>
-                        <Link href={`projects/${org.id}` } {...currentTheme((i*7) +17, 'row_title')}>{org.name}</Link>
-                        <button onClick={() => alert("Cannot join this team")} {...currentTheme((i*7) +18, 'row_button')}>+ join</button>
-                      </div>
-                      <div {...currentTheme((i*7) +19, 'item_description')}>{org.note}</div>
-                    </div>
-                  </div> : null
-              ))}
-            </div>
-          </div>
+
         </section>
       )))
-});
-
-// let handleClick = function(event) {
-//   console.log('Item:', event.currentTarget);
-//   // event.currentTarget.addClass("active").siblings().removeClass("active")
-//   event.currentTarget.setActive(true);
-// }
+})
 
 export default AllProjectsPage
