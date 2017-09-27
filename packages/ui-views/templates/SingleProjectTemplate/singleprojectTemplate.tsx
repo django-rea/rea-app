@@ -53,6 +53,8 @@ interface RouterProps {
 
 const SingleProjectTemplate = BindAgent(({ agent, loading, error, theme, children, showModal, handleOpenModal, handleCloseModal, modalId }: Props) => {
   let currentTheme = themeable(theme)
+  console.log('Loading:', loading);
+  console.log('Agent:', agent);
   console.log(error)
   let responsiveModal = theme.responsiveModal
   return (
@@ -90,20 +92,20 @@ const SingleProjectTemplate = BindAgent(({ agent, loading, error, theme, childre
                 })}
               </div>
             </section>
-            {/*<div {...currentTheme(7, 'medium-4', 'columns')}>
+            <div {...currentTheme(7, 'medium-4', 'columns')}>
               <Sidebar inventory={agent.ownedEconomicResources.filter(resource => resource.category === 'INVENTORY')} />
-            </div>*/}
-            <Modal
-              isOpen={showModal}
-              onRequestClose={handleCloseModal}
-              contentLabel='Process Modal'
-              style={customStyles}
-              className={{
-                base: responsiveModal,
-              }}
-            >
-              <ProcessModal handleCloseModal={handleCloseModal} modalId={modalId} />
-            </Modal>
+            </div>
+            {/*<Modal*/}
+              {/*isOpen={showModal}*/}
+              {/*onRequestClose={handleCloseModal}*/}
+              {/*contentLabel='Process Modal'*/}
+              {/*style={customStyles}*/}
+              {/*className={{*/}
+                {/*base: responsiveModal,*/}
+              {/*}}*/}
+            {/*>*/}
+              {/*<ProcessModal handleCloseModal={handleCloseModal} modalId={modalId} />*/}
+            {/*</Modal>*/}
           </div>
         </div>
       </div>
