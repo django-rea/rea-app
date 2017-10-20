@@ -25,13 +25,13 @@ class NavBar extends React.Component {
 
   readonly navButtons = ["All", "Cooperative", "Projects", "Organizations", "Groups"]
 
-  private currentTheme
+  private currentTheme;
 
   constructor(private props) {
     super(props)
     this.state = {
       activeButton: "All",
-    }
+    };
 
     this.currentTheme = themeable(this.props.theme)
   }
@@ -42,7 +42,7 @@ class NavBar extends React.Component {
     // this.state.activeButton  = buttonName
     console.log("Clicked", buttonName)
     // TODO refresh the list and filter
-  }
+  };
 
   render() {
     return (
