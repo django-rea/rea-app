@@ -5,13 +5,9 @@ import { SFC } from "react"
 import { withRouter, Link } from "react-router"
 import Link from "../../atoms/Link/Link";
 
-/*
-  Needs to have:
-    - Item Name
-    - Image
-    - All properties of that object
+/**
+ * Custom stypes for the inventory modal (CSS equiv)
  */
-
 let inventoryModalStyle = {
   overlay : {
     position          : "fixed",
@@ -39,6 +35,11 @@ let inventoryModalStyle = {
   }
 };
 
+/**
+ * This component is the popup modal that will display information about the
+ * inventory items. It can be closed by clicking off of the modal or
+ * clicking the [ close ] button
+ */
 class InventoryModal extends React.Component {
 
   private theme = this.props.theme;
@@ -55,6 +56,10 @@ class InventoryModal extends React.Component {
     }
   }
 
+  /**
+   * Checks for a better close function. If one is present,
+   * it uses that. Otherwise it defaults to hiding the modal
+   */
   defaultClose() {
     if (this.props.onClose !== undefined) {
       console.log("The provided onClose method is valid");
@@ -66,7 +71,10 @@ class InventoryModal extends React.Component {
     this.setState({showModal: false});
   }
 
-  // TODO add in an X button on the top right of the modal
+  /**
+   * Draws the component to the screen. This is where all
+   * of the elements are laid out
+   */
   render() {
     return !this.props.show ? null : (
       <div>
@@ -128,6 +136,9 @@ class InventoryDetails extends React.Component {
     this.currentTheme = themeable(this.props.theme);
   }
 
+  /**
+   * This is where the details are drawn on the modal
+   */
   public render() {
     let item = this.props.item;
     let name = item.resourceClassifiedAs.name;

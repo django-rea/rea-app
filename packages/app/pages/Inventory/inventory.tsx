@@ -7,6 +7,11 @@ interface Props {
   theme: Object
 }
 
+/**
+ * The current inventory item query results.
+ * More information is stored in the databse,
+ * but it is not being queried
+ */
 interface Item {
   resourceClassifiedAs: {
     name: string
@@ -18,6 +23,11 @@ interface Item {
   }
 }
 
+/**
+ * A single inventory entry displayed in the column
+ * of inventory items. Contains basic information
+ * about what the item is and quantity
+ */
 class InventoryCard extends React.Component {
 
   private state;
@@ -37,7 +47,6 @@ class InventoryCard extends React.Component {
     let currentTheme = themeable(this.props.theme);
 
     return (
-      // TODO add a click listener to the entire div
       <div>
         <InventoryModal
           theme={this.props.theme}
@@ -54,15 +63,28 @@ class InventoryCard extends React.Component {
     )
   }
 
+  /**
+   * Handler to open the modal
+   * @param {Item} item The item to display details on
+   */
   private openDetails(item: Item) {
     this.setState({showModal: true});
   }
 
+  /**
+   * Handler to close the details modal
+   */
   private closeDetails() {
     this.setState({showModal: false})
   }
 }
 
+/**
+ * The inventory page, which contains the basic page structure
+ * (menu, sidebar, sub-menus, and the entire inventory list)
+ * @param {any} agent The agent who's inventory is displayed
+ * @param {any} theme The page's theme that should be used to style
+ */
 const Inventory: SFC<Props> = ({ agent, theme }) => {
   let currentTheme = themeable(theme);
   console.log(agent);

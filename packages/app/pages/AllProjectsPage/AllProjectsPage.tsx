@@ -21,6 +21,9 @@ interface Props {
   children: Object
 }
 
+/**
+ * Row of buttons to filter which user agent types should be displayed
+ */
 class NavBar extends React.Component {
 
   readonly navButtons = ["All", "Cooperative", "Projects", "Organizations", "Groups"]
@@ -36,6 +39,11 @@ class NavBar extends React.Component {
     this.currentTheme = themeable(this.props.theme)
   }
 
+  /**
+   * Handler function for when buttons are pressed.
+   * TODO apply the filter to the user agents
+   * @param buttonName the text of the button that was clicked
+   */
   handleClick = (buttonName) => {
     this.setState({ activeButton: buttonName })
     this.forceUpdate(() => console.log('Finished Updating'))
@@ -44,6 +52,10 @@ class NavBar extends React.Component {
     // TODO refresh the list and filter
   };
 
+  /**
+   * Draws the filter buttons onto the filter bar
+   * @returns {any}
+   */
   render() {
     return (
       <div {...this.currentTheme(2, "list_menu")}>
@@ -69,6 +81,10 @@ class NavBar extends React.Component {
   }
 }
 
+/**
+ * A single filter button. Includes handler and metadata to determine
+ * if it is currently active (or clicked)
+ */
 class NavButton extends React.Component {
 
   currentTheme = themeable(this.props.theme)
@@ -89,6 +105,10 @@ class NavButton extends React.Component {
   }
 }
 
+/**
+ * A 'card' to display the user agent name, picture, and controls to
+ * join with the user agent.
+ */
 class ProjectCard extends React.Component {
 
   currentTheme = themeable(this.props.theme)
@@ -110,6 +130,11 @@ class ProjectCard extends React.Component {
   }
 }
 
+/**
+ * The project page, which contains the filtering bar, and a grid of the project cards
+ * to allow filtering all user agents down into a smaller, more navigable set
+ * @type {any}
+ */
 const AllProjectsPage = BindAgent(({ allOrgs, loading, error, theme, children }: Props) => {
   let currentTheme = themeable(theme)
 
