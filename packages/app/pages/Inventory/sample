@@ -1,0 +1,44 @@
+const testData = [
+  {
+    id: 432464563456,
+    resourceClassifiedAs: {
+      name: "Plastic Inj. Mold Pellets",
+      image: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Multi_colors_plastic_dana_%28plastic_resins_Plastic_granules%29.jpg",
+      note: "Assorted colors",
+      category: "Plastic",
+      processCategory: undefined
+    },
+    trackingIdentifier: "Receiving Deck at Shorewood",
+    currentQuantity: {
+      numericValue: 85,
+      unit: {
+        name: "kilogram",
+        symbol: "kg"
+      }
+    },
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Multi_colors_plastic_dana_%28plastic_resins_Plastic_granules%29.jpg",
+    note: "Gray only, not assorted",
+    category: "Raw plastic materials"
+  },
+  {
+    id: 3453457646,
+    resourceClassifiedAs: {
+      name: "Metal Waste",
+      image: "https://d2oc0ihd6a5bt.cloudfront.net/wp-content/uploads/sites/1850/2016/07/01_metalrecycling.jpg",
+      note: "Leftover metal from a project that still has value",
+      category: "Metal",
+      processCategory: undefined
+    },
+    trackingIdentifier: "South Milwaukee Recycling #1",
+    currentQuantity: {
+      numericValue: 378,
+      unit: {
+        name: "pounds",
+        symbol: "lbs"
+      }
+    },
+    image: "https://sc02.alicdn.com/kf/HTB1gtlcLFXXXXX9XXXXq6xXFXXXp/Scrap-Metal.jpg",
+    note: "Wire coils from a project",
+    category: "Scrap"
+  }
+];
