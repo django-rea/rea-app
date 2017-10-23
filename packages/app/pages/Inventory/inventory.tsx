@@ -1,20 +1,22 @@
 import * as React from "react"
 import * as themeable from "react-themeable"
 import { SFC } from "react"
-import InventoryModal from "../../../ui-views/organisms/InventoryModal/inventoryModal";
+import InventoryModal from "../../../ui-views/organisms/InventoryModal";
 
 interface Props {
   theme: Object
 }
 
-// TODO define all of the properties of an item
 interface Item {
   resourceClassifiedAs: {
     name: string
+  },
+  trackingIdentifier: string,
+  currentQuantity: {
+    numericValue: number,
+    units: string
   }
 }
-
-// TODO improve on this page to be responsible for showing the inventory modal
 
 class InventoryCard extends React.Component {
 
@@ -53,7 +55,6 @@ class InventoryCard extends React.Component {
   }
 
   private openDetails(item: Item) {
-    alert("Clicked on " + item.resourceClassifiedAs.name);
     this.setState({showModal: true});
   }
 
@@ -80,6 +81,6 @@ const Inventory: SFC<Props> = ({ agent, theme }) => {
       </section>
     </aside>
   )
-}
+};
 
 export default Inventory
