@@ -56,6 +56,13 @@ class InventoryModal extends React.Component {
   }
 
   defaultClose() {
+    if (this.props.onClose !== undefined) {
+      console.log("The provided onClose method is valid");
+      this.props.onClose();
+      return;
+    }
+
+    console.log("There is no onClose method for everyone");
     this.setState({showModal: false});
   }
 
@@ -67,23 +74,55 @@ class InventoryModal extends React.Component {
           isOpen={this.state.showModal}
           contentLabel="My Inventory Process Modal"
           style={inventoryModalStyle}
-          onRequestClose={this.props.onClose === undefined ? () => this.defaultClose() : () => this.props.onClose()}
+          onRequestClose={() => this.defaultClose()}
           className={{base: this.theme.responsiveModal}}
         >
-          <InventoryDetails theme={this.theme} item={this.props.item} />
+          <InventoryDetails theme={this.theme} item={this.props.item} onClose={() => this.defaultClose()}/>
         </Modal>
       </div>
     )
   }
 }
 
+/**
+ * All possible values for an inventory detail
+ */
+interface InventoryDetailProps {
+  theme: any,
+  onClose: any,
+  item: {
+    resourceClassifiedAs: {
+      name: string,
+      image: string,
+      note: string,
+      category: string,
+      processCategory: string
+    },
+    trackingIdentifier: string,
+    currentQuantity: {
+      numericValue: number,
+      unit: {
+        name: string,
+        symbol: string
+      }
+    },
+    image: string,
+    note: string
+    category: string
+  }
+}
+
+/**
+ * Details that go inside of the modal when displaying more about a resource item.
+ * Can also be used alone to just display information about an item.
+ */
 class InventoryDetails extends React.Component {
 
   private responsiveModal;
   private currentTheme;
-  readonly unavailableURL = "http://picolas.de/wp-content/uploads/2015/12/picolas-picture-not-available.jpg";
+  private readonly unavailableURL = "http://picolas.de/wp-content/uploads/2015/12/picolas-picture-not-available.jpg";
 
-  constructor(private props) {
+  constructor(private props: InventoryDetailProps) {
     super(props);
     this.responsiveModal = this.props.theme.responsiveModal;
     this.currentTheme = themeable(this.props.theme);
@@ -99,10 +138,13 @@ class InventoryDetails extends React.Component {
     if (imageAddress === undefined || imageAddress === "") {
       imageAddress = this.unavailableURL;
     }
-    let notes = item.notes;
+    let notes = item.note;
 
     return (
       <div>
+        <div style={{display: "block", textAlign: "right"}}>
+          <button style={{textAlign: "right"}} onClick={() => this.props.onClose()}>[ close ]</button>
+        </div>
         <p>Name: {name}</p>
         <p>Tracking ID: {trackingID}</p>
         <p>Quantity: {quantity} {units}{quantity !== 1 ? "s" : ""}</p>
