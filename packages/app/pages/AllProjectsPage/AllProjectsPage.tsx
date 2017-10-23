@@ -122,12 +122,14 @@ const AllProjectsPage = BindAgent(({ allOrgs, loading, error, theme, children }:
 
           <div {...currentTheme(11, "list_projects")}>
             <div {...currentTheme(12, "row")}>
-              {allOrgs.map( (org, i) => (<ProjectCard theme={theme} org={org} i={i}/>)}
+              {allOrgs.map( (org, i) => (<ProjectCard theme={theme} org={org} i={i}/>))}
             </div>
           </div>
 
         </section>
-      )))
-})
+      )
+    )
+  );
+});
 
 export default AllProjectsPage

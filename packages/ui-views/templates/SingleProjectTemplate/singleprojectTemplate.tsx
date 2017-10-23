@@ -54,20 +54,18 @@ interface RouterProps {
 
 const SingleProjectTemplate = BindAgent(({ agent, loading, error, theme, children, showModal, handleOpenModal, handleCloseModal, modalId }: Props) => {
   let currentTheme = themeable(theme)
+
   console.log("Loading:", loading);
   console.log("Agent:", agent);
   console.log(error)
+
   let responsiveModal = theme.responsiveModal
   return (
     loading ? <strong>Loading...</strong> : (
     error ? <p style={{ color: "#F00" }}>API error</p> : (
       <div {...currentTheme(11, "row")}>
         <Aside />
-        <InventoryModal
-          theme={theme}
-          number={5}
-          show={true}
-        />
+
         <div {...currentTheme(10, "medium-9", "columns")}>
           <div {...currentTheme(0, "row")}>
             <div {...currentTheme(1, "medium-12", "columns", "collapse-for-mobile")}>
