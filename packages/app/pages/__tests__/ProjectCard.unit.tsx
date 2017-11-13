@@ -1,34 +1,24 @@
-import * as React from 'react';
-import * as ProjectCard from '../AllProjectsPage/AllProjectsPage';
-import * as ReactTestUtils from 'react-dom/test-utils';
-import * as ShallowRenderer from 'react-test-renderer/shallow';
-import * as TestRenderer from 'react-test-renderer';
-import * as test from 'tape';
+import * as React from "react";
+import * as ProjectCard from "../AllProjectsPage/AllProjectsPage";
+import * as ReactTestUtils from "react-dom/test-utils";
+import * as ShallowRenderer from "react-test-renderer/shallow";
+import * as TestRenderer from "react-test-renderer";
+import * as test from "tape";
+import {AllOrgsType} from "../../../ui-bindings/agent/allOrganizations";
 
+test("A passing test.", (assert) => {
 
-class MyComponent extends React.Component {
-  return (
-<div>
-<span> className="heading">Title</span>
-    <Subcomponent foo="bar"/>
-    </div>
-);
-}
+  assert.pass("This test will pass.");
 
-test('----- React Component Tests: Button -----', (t) => {
+  assert.end();
+});
 
-  // Shallow rendering: Render React element only *one* level deep
-  const component = createComponent.shallow(<MyComponent />);
+test("Project Card", (assert) => {
 
-  // Test component props and content
-  t.equal(component.props.className, 'heading');
-  t.equal(component.Subcomponent.foo, 'bar"');
-
-  // Test rendered output
-  const renderer = createRenderer();
-  renderer.render(<MyComponent />);
-  const result = renderer.getRenderOutput();
-  t.jsxEquals(result, <div className="heading">share</div>);
-
-  t.end();
+  // const i = 0;
+  //
+  // const renderer = new ShallowRenderer;
+  // renderer.render(<ProjectCard theme={""} org={org} i={i}/>);
+  // const result = renderer.getRenderOutput();
+  // assert.equal(org.image, "");
 });
