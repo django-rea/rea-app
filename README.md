@@ -14,6 +14,8 @@ This codebase interacts with the Django backend through a graphql api.  The api 
     - [Nodejs](#nodejs)
     - [Package Manager](#package-manager)
     - [Development tools](#development-tools)
+        - [Tape Testing](#Tape)
+        - [GUI Testing](#Selenium)
         - [Linting](#linting)
         - [Typescript](#typescript)
     - [Setting up the codebase](#setting-up-the-codebase)
@@ -64,6 +66,25 @@ Before starting, you must install Yarn globally. Contrary to the install instruc
 
 - The [Redux Devtools Extension](http://extension.remotedev.io/) is a must-have for time-travel debugging and inspection of app state changes.
 - The [Redux dispatch CLI](https://github.com/jhen0409/redux-dispatch-cli) is a nice way of firing actions to the dispatcher for testing your app: `npm i -g redux-dispatch-cli`
+
+#### Tape
+
+Tape is a javascript testing framework that can also be used with Typescript
+
+- `npm install --save-dev tape @types/tape` to install Tape
+
+- `npm install -g ts-node` to add typescript compatibility
+
+- `ts-node node_modules/tape/bin/tape tests/**/*.unit.ts` to execute tests. Note the file ending of ".unit.ts" or ".integration.ts"
+
+
+#### Selenium
+
+Selenium allows for automated end-to-end testing.
+
+Selenium IDE plug-in for Firefox will be used to generate the page files.
+
+Since these tests can individually take longer to run, they must be made to run in parallel.
 
 #### Linting
 
