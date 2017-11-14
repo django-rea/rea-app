@@ -15,7 +15,10 @@
     "heroku-postbuild": "npm run build"
   },
   "devDependencies": {
+    "@types/tape": "^4.2.31",
     "lerna": "^2.0.0-rc.4",
+    "redux-devtools-extension": "^2.13.2",
+    "tape": "^4.8.0",
     "typings": "^2.1.1"
   }
 }

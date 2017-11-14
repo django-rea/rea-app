@@ -1,0 +1,67 @@
+/* Write CSS for the Inventory Modal here */
+//
+//let inventoryModalStyle = {
+//  overlay : {
+//    position          : "fixed",
+//    top               : 0,
+//    left              : 0,
+//    right             : 0,
+//    bottom            : 0,
+//    backgroundColor   : "rgba(255, 255, 255, 0.75)"
+//  },
+//content : {
+//// position                   : "absolute",
+//  top : "50%",
+//  left: "50%",
+//  right: "auto",
+//  bottom: "auto",
+//  width: "50%",
+//  leftMargin: "auto",
+//  rightMargin: "auto",
+//// top                        : "400px",
+//// left                       : "40px",
+//// right                      : "40px",
+//// bottom                     : "40px",
+//  border                     : "1px solid #ccc",
+//  background                 : "#fff",
+//  overflow                   : "auto",
+//  WebkitOverflowScrolling    : "touch",
+//  borderRadius               : "4px",
+//  outline                    : "none",
+//  padding                    : "20px"
+//}
+//};
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  opacity: 0.75;
+}
+
+.modal-content {
+  width: 80%;
+  height: 80%;
+
+  border: 1px solid #C0C0C0;
+  background: white;
+  opacity: 1;
+  overflow: auto;
+  //WebkitOverflowScrolling: touch;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+
+  margin: auto;
+}
+
+.centered {
+  text-align: center;
+}
+
+.auto-margin {
+  margin: auto;
+}
