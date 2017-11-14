@@ -1,21 +1,47 @@
 import React from 'react';
-import sdfsdfProjectCard from '../AllProjectsPage/AllProjectsPage';
-//import ReactTestUtils from 'react-dom/test-utils';
+import ProjectCard from '../AllProjectsPage/AllProjectsPage';
 import ShallowRenderer from 'react-test-renderer/shallow';
-//import TestRenderer from 'react-test-renderer';
-import * as test from "tape";
+import test from 'tape';
 
-//const renderer = new ShallowRenderer();
-//renderer.render(<ProjectCard />);
-//const result = renderer.getRenderOutput();
+function shallowRenderProjectCard(i) {
+    const renderer = TestUtils.createRenderer();
+    const fn = () => {};
+    renderer.render(
+        <ProjectCard i={id}/>
+    );
+    return renderer.getRenderOutput();
+}
 
-//console.log(result);
-//console.log(result.type);
-//console.log(result.props);
-//console.log(result.props.children);
-
-test("Simple math test", (t) => {
-    t.equal(4, 2 + 2);
-    t.true(5 > 2 + 2);
-    t.end();
+test('ProjectCard component', (t) => {
+    t.test('rendering first card', (t) => {
+        const result = shallowRenderProjectCard(0);
+        t.test('join button is rendered', (t) => {
+            t.plan(1);
+            t.true(result.props.children[0].props.has('<button>'));
+        });
+        t.test('The name of the project is rendered', (t) => {
+            t.plan(1);
+            t.equal(result.props.children[1].props.children, 'Eaton');
+        });
+        t.test('An image is rendered', (t) => {
+            t.plan(1);
+            t.true(result.props.children[2].props.has('<img>'));
+        });
+    });
+    
+    t.test('rendering second card', (t) => {
+        const result = shallowRenderProjectCard(1);
+        t.test('join button is rendered', (t) => {
+            t.plan(1);
+            t.true(result.props.children[0].props.has('<button>'));
+        });
+        t.test('The name of the project is rendered', (t) => {
+            t.plan(1);
+            t.equal(result.props.children[1].props.children, 'School District of South Milwaukee');
+        });
+        t.test('An image is rendered', (t) => {
+            t.plan(1);
+            t.true(result.props.children[2].props.has('<img>'));
+        });
+    });
 });
